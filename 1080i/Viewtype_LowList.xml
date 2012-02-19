@@ -1,0 +1,967 @@
+<includes>
+
+	<include name="LowList">
+	
+		<control type="group">
+			<visible>Control.IsVisible(511)</visible>
+			
+			<control type="image">
+				<posy>1080</posy>
+				<texture>breeze/views/low list base.png</texture>				
+				<animation effect="slide" start="0,0" end="0,-150" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes) + Control.IsVisible(511)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-150" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes) + Control.IsVisible(511)">Conditional</animation>
+			</control>
+			
+			<control type="fixedlist" id="511">
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<posx>600</posx>
+				<posy>780</posy>
+				<width>1066</width>
+				<height>450</height>
+				<onleft>64</onleft>
+				<onright>7002</onright>
+				<onup>511</onup>
+				<ondown>511</ondown>
+				<viewtype label="$LOCALIZE[31153]">list</viewtype>
+				<pagecontrol>64</pagecontrol>
+				<focusposition>1</focusposition>
+				<scrolltime>300</scrolltime>
+				<animation effect="slide" start="0,0" end="0,-150" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="250" condition="Control.HasFocus(7002)">Conditional</animation>
+				
+				<itemlayout height="74" width="1275">
+					
+					<control type="label"> <!--cases (movies)-->
+						<posx>114</posx>
+						<posy>15</posy>
+						<width>935</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>infogrey</selectedcolor>
+						<visible>Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					</control>
+					
+					<control type="label"> <!--cases (tv shows)-->
+						<posx>114</posx>
+						<posy>15</posy>
+						<width>935</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>infogrey</selectedcolor>
+						<visible>Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					</control>
+					
+					<control type="label"> <!--cover (movies)-->
+						<posx>49</posx>
+						<posy>15</posy>
+						<width>1000</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>infogrey</selectedcolor>
+						<visible>!Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					</control>
+					
+					<control type="label"> <!--cover (tv shows)-->
+						<posx>49</posx>
+						<posy>15</posy>
+						<width>1000</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>infogrey</selectedcolor>
+						<visible>!Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					</control>
+					
+					<control type="label"> <!--episodes view-->
+						<posx>149</posx>
+						<posy>15</posy>
+						<width>900</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>infogrey</selectedcolor>
+						<visible>Container.Content(episodes)</visible>
+					</control>
+					
+				</itemlayout>
+				
+				<focusedlayout height="74" width="1275">
+					
+					<control type="image"> <!--focused texture (cases movies)-->
+						<posx>94</posx>
+						<posy>0</posy>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true">breeze/views/low list f bg.png</texture>
+						<visible>Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					</control>
+					
+					<control type="image"> <!--focused texture (cases tv shows)-->
+						<posx>94</posx>
+						<posy>0</posy>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true">breeze/views/low list f bg.png</texture>
+						<visible>Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					</control>
+					
+					<control type="image"> <!--focused texture (cover movies)-->
+						<posx>29</posx>
+						<posy>0</posy>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true">breeze/views/low list cover f bg.png</texture>
+						<visible>!Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					</control>
+					
+					<control type="image"> <!--focused texture (cover tvshows)-->
+						<posx>29</posx>
+						<posy>0</posy>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true">breeze/views/low list cover f bg.png</texture>
+						<visible>!Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					</control>
+					
+					<control type="image"> <!--focused texture (episodes)-->
+						<posx>129</posx>
+						<posy>0</posy>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true">breeze/views/low list episode f bg.png</texture>
+						<visible>Container.Content(episodes)</visible>
+					</control>
+					
+					<control type="label"> <!--label (cases movies)-->
+						<posx>114</posx>
+						<posy>15</posy>
+						<width>935</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<visible>Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					</control>
+					
+					<control type="label"> <!--label (cases tv shows)-->
+						<posx>114</posx>
+						<posy>15</posy>
+						<width>935</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<visible>Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					</control>
+					
+					<control type="label"> <!--label (cover movies)-->
+						<posx>49</posx>
+						<posy>15</posy>
+						<width>1000</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<visible>!Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					</control>
+					
+					<control type="label"> <!--label (cover tv shows)-->
+						<posx>49</posx>
+						<posy>15</posy>
+						<width>1000</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<visible>!Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					</control>
+					
+					<control type="label"> <!--label (episodes)-->
+						<posx>149</posx>
+						<posy>15</posy>
+						<width>900</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<visible>Container.Content(episodes)</visible>
+					</control>
+					
+				</focusedlayout>
+				
+			</control>
+	  
+			<control type="group"> 
+				<posx>0</posx>
+				<posy>520</posy>
+				
+				<control type="group">
+					<include>BreezeTimePanel</include>
+					<animation effect="slide" start="0,0" end="0,-75" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-75" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
+				</control>
+				
+				<control type="group">
+					<include>BreezeRightInfo</include>
+					<animation effect="slide" start="0,0" end="0,-75" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-75" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
+				</control>
+		
+				<control type="image"> <!--vertical divider (left)-->
+					<posx>226</posx>
+					<posy>290</posy>
+					<width>6</width>
+					<height>240</height>
+					<texture>breeze/views/v divider.png</texture>
+				</control> 
+		
+				<control type="image"> <!--vertical divider (right)-->
+					<posx>1687</posx>
+					<posy>290</posy>
+					<width>6</width>
+					<height>240</height>
+					<texture>breeze/views/v divider.png</texture>
+				</control> 
+	  
+				<control type="scrollbar" id="64"> <!--scroll bar (cases/films)-->
+					<posx>665</posx>
+					<posy>30</posy>
+					<width>30</width>
+					<height>495</height>
+					<texturesliderbackground>-</texturesliderbackground>
+					<texturesliderbar>-</texturesliderbar>
+					<texturesliderbarfocus>-</texturesliderbarfocus>
+					<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
+					<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+					<orientation>vertical</orientation>
+					<showonepage>false</showonepage>
+					<onleft>511</onleft>
+					<onright>511</onright>
+					<visible>Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					<visible>Control.IsVisible(511)</visible>
+				</control>
+	  
+				<control type="scrollbar" id="64"> <!--scroll bar (covers/films)-->
+					<posx>603</posx>
+					<posy>50</posy>
+					<width>30</width>
+					<height>475</height>
+					<texturesliderbackground>-</texturesliderbackground>
+					<texturesliderbar>-</texturesliderbar>
+					<texturesliderbarfocus>-</texturesliderbarfocus>
+					<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
+					<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+					<orientation>vertical</orientation>
+					<showonepage>false</showonepage>
+					<onleft>511</onleft>
+					<onright>511</onright>
+					<visible>!Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					<visible>Control.IsVisible(511)</visible>
+				</control>
+	  
+				<control type="scrollbar" id="64"> <!--scroll bar (cases/tv/seasons)-->
+					<posx>665</posx>
+					<posy>30</posy>
+					<width>30</width>
+					<height>495</height>
+					<texturesliderbackground>-</texturesliderbackground>
+					<texturesliderbar>-</texturesliderbar>
+					<texturesliderbarfocus>-</texturesliderbarfocus>
+					<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
+					<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+					<orientation>vertical</orientation>
+					<showonepage>false</showonepage>
+					<onleft>511</onleft>
+					<onright>511</onright>
+					<visible>Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					<visible>Control.IsVisible(511)</visible>
+				</control>
+	  
+				<control type="scrollbar" id="64"> <!--scroll bar (covers/tv/seasons)-->
+					<posx>603</posx>
+					<posy>50</posy>
+					<width>30</width>
+					<height>475</height>
+					<texturesliderbackground>-</texturesliderbackground>
+					<texturesliderbar>-</texturesliderbar>
+					<texturesliderbarfocus>-</texturesliderbarfocus>
+					<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
+					<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+					<orientation>vertical</orientation>
+					<showonepage>false</showonepage>
+					<onleft>511</onleft>
+					<onright>511</onright>
+					<visible>!Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					<visible>Control.IsVisible(511)</visible>
+				</control>
+	  
+				<control type="scrollbar" id="64"> <!--scroll bar (episodes)-->
+					<posx>705</posx>
+					<posy>280</posy>
+					<width>30</width>
+					<height>245</height>
+					<texturesliderbackground>-</texturesliderbackground>
+					<texturesliderbar>-</texturesliderbar>
+					<texturesliderbarfocus>-</texturesliderbarfocus>
+					<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
+					<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+					<orientation>vertical</orientation>
+					<showonepage>false</showonepage>
+					<onleft>511</onleft>
+					<onright>511</onright>
+					<visible>Container.Content(episodes)</visible>
+					<visible>Control.IsVisible(511)</visible>
+				</control>
+		
+				<control type="group"> <!--cases films-->
+					<posx>150</posx>
+					<posy>-100</posy>
+					<visible>Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					<include>BreezeCases</include>		
+					<animation effect="slide" start="0,0" end="-5,0" time="150" condition="Control.HasFocus(64)">Conditional</animation>	
+				</control>
+		
+				<control type="group"> <!--cases tv-->
+					<posx>150</posx>
+					<posy>-100</posy>
+					<visible>Skin.HasSetting(breeze_lowlist_cases) + !Container.Content(episodes)</visible>
+					<visible>!Container.Content(movies)</visible>
+					<include>BreezeCases</include>		
+					<animation effect="slide" start="0,0" end="-5,0" time="150" condition="Control.HasFocus(64)">Conditional</animation>	
+				</control>
+		
+				<control type="group"> <!--covers films-->
+					<posx>-328</posx>
+					<posy>-133</posy>
+					<visible>!Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					<include>covers</include>		
+					<animation effect="slide" start="0,0" end="-7,0" time="150" condition="Control.HasFocus(64)">Conditional</animation>	
+				</control>
+		
+				<control type="group"> <!--covers tv-->
+					<posx>-328</posx>
+					<posy>-133</posy>
+					<visible>!Skin.HasSetting(breeze_lowlist_cases) + !Container.Content(episodes)</visible>
+					<visible>!Container.Content(movies)</visible>
+					<include>covers</include>		
+					<animation effect="slide" start="0,0" end="-7,0" time="150" condition="Control.HasFocus(64)">Conditional</animation>	
+				</control>
+		  
+				<control type="image"> <!--watched icon movies cases-->
+					<posx>600</posx>
+					<posy>470</posy>
+					<width>45</width>
+					<height>45</height>
+					<texture>breeze/masks/watched.png</texture>
+					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) +!Container.Content(episodes)</visible>
+					<visible>Container.Content(movies)</visible>
+					<visible>Skin.HasSetting(breeze_lowlist_film_cases)</visible>
+				
+					<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="481,10" delay="25" />
+						<effect type="fade" start="100" end="0" time="400" delay="150" />
+					</animation>
+					
+				</control>			
+		  
+				<control type="image"> <!--watched icon movies cover-->
+					<posx>548</posx>
+					<posy>480</posy>
+					<width>45</width>
+					<height>45</height>
+					<texture>breeze/masks/watched.png</texture>
+					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) + !Container.Content(episodes)</visible>
+					<visible>Container.Content(movies)</visible>
+					<visible>!Skin.HasSetting(breeze_lowlist_film_cases)</visible>
+				
+					<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="429,10" delay="25" />
+						<effect type="fade" start="100" end="0" time="400" delay="150" />
+					</animation>
+					
+				</control>	
+		  
+				<control type="image"> <!--watched icon movies cases-->
+					<posx>600</posx>
+					<posy>470</posy>
+					<width>45</width>
+					<height>45</height>
+					<texture>breeze/masks/watched.png</texture>
+					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) +!Container.Content(episodes)</visible>
+					<visible>!Container.Content(movies)</visible>
+					<visible>Skin.HasSetting(breeze_lowlist_cases)</visible>
+				
+					<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="481,10" delay="25" />
+						<effect type="fade" start="100" end="0" time="400" delay="150" />
+					</animation>
+					
+				</control>			
+		  
+				<control type="image"> <!--watched icon movies cover-->
+					<posx>548</posx>
+					<posy>480</posy>
+					<width>45</width>
+					<height>45</height>
+					<texture>breeze/masks/watched.png</texture>
+					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) + !Container.Content(episodes)</visible>
+					<visible>!Container.Content(movies)</visible>
+					<visible>!Skin.HasSetting(breeze_lowlist_cases)</visible>
+				
+					<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="429,10" delay="25" />
+						<effect type="fade" start="100" end="0" time="400" delay="150" />
+					</animation>
+					
+				</control>		
+				
+				<control type="group"> <!--extra info-->
+					<animation effect="fade" start="100" end="0" time="250" condition="!Control.HasFocus(7002)">Conditional</animation>
+					<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + Control.HasFocus(7002)</visible>
+				
+					<control type="label"> <!--title (cases movies)-->
+						<posx>695</posx>
+						<posy>115</posy>
+						<width>970</width>
+						<font>breeze50</font>
+						<textcolor>infogrey</textcolor>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+						<scroll>true</scroll>
+					</control>
+				
+					<control type="label"> <!--title (cases tv shows)-->
+						<posx>695</posx>
+						<posy>115</posy>
+						<width>970</width>
+						<font>breeze50</font>
+						<textcolor>infogrey</textcolor>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+						<scroll>true</scroll>
+					</control>
+				
+					<control type="label"> <!--title (cover movies)-->
+						<posx>630</posx>
+						<posy>115</posy>
+						<width>1030</width>
+						<font>breeze50</font>
+						<textcolor>infogrey</textcolor>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>!Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+						<scroll>true</scroll>
+					</control>
+				
+					<control type="label"> <!--title (cover tv shows)-->
+						<posx>630</posx>
+						<posy>115</posy>
+						<width>1030</width>
+						<font>breeze50</font>
+						<textcolor>infogrey</textcolor>
+						<label>$INFO[ListItem.Title]</label>
+						<visible>!Skin.HasSetting(breeze_lowlist_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+						<scroll>true</scroll>
+					</control>
+		
+					<control type="label"> <!--season title (cases)-->
+						<posx>695</posx>
+						<posy>170</posy>
+						<width>970</width>
+						<font>breeze32</font>
+						<textcolor>infogreynf</textcolor>
+						<label>$INFO[ListItem.TVShowTitle]</label>
+						<visible>Skin.HasSetting(breeze_lowlist_cases) + Container.Content(seasons)</visible>
+					</control>
+		
+					<control type="label"> <!--season title (cover)-->
+						<posx>630</posx>
+						<posy>170</posy>
+						<width>1030</width>
+						<font>breeze32</font>
+						<textcolor>infogreynf</textcolor>
+						<label>$INFO[ListItem.TVShowTitle]</label>
+						<visible>!Skin.HasSetting(breeze_lowlist_cases) + Container.Content(seasons)</visible>
+					</control>	
+
+					<control type="group">
+						<visible>Container.Content(movies)</visible>
+						<posy>125</posy>
+					
+						<control type="label"> <!--year label-->
+							<posx>695</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[345]:</label>
+							<textcolor>blue2</textcolor>
+							<visible>Container.Content(movies)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_film_cases)">Conditional</animation>
+						</control>							
+					
+						<control type="label"> <!--year-->
+							<posx>758</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>1030</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Year]</label>
+							<textcolor>infogrey</textcolor>
+							<visible>Container.Content(movies)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_film_cases)">Conditional</animation>
+						</control>
+					
+						<control type="label"> <!--runtime-->
+							<posx>695</posx>
+							<posy>40</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>[COLOR blue2]$LOCALIZE[180]: [/COLOR]$INFO[ListItem.Duration] [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]</label>
+							<textcolor>infogrey</textcolor>
+							<visible>Container.Content(movies)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_film_cases)">Conditional</animation>
+						</control>		
+		  
+						<control type="label"> <!--genre (label)-->
+							<posx>695</posx>
+							<posy>80</posy>
+							<align>left</align>
+							<height>150</height>
+							<width>970</width>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[515]:</label>
+							<textcolor>blue2</textcolor>
+							<visible>Container.Content(movies)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_film_cases)">Conditional</animation>
+						</control>	
+		  
+						<control type="label"> <!--genre-->
+							<posx>778</posx>
+							<posy>80</posy>
+							<align>left</align>
+							<height>150</height>
+							<width>1030</width>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Genre]</label>
+							<textcolor>infogrey</textcolor>
+							<visible>Container.Content(movies)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_film_cases)">Conditional</animation>
+						</control>	
+
+					</control>	
+
+					<control type="group">
+						<visible>Container.Content(tvshows)</visible>
+						<posy>125</posy>
+					
+						<control type="label"> <!--genre label-->
+							<posx>695</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[515]:</label>
+							<textcolor>blue2</textcolor>
+							<visible>Container.Content(tvshows)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+						</control>							
+					
+						<control type="label"> <!--genre-->
+							<posx>778</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>1030</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Genre]</label>
+							<textcolor>infogrey</textcolor>
+							<visible>Container.Content(tvshows)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+						</control>
+					
+						<control type="label"> <!--show status (label)-->
+							<posx>695</posx>
+							<posy>40</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>Show Status:</label>
+							<textcolor>blue2</textcolor>
+							<visible>Container.Content(tvshows)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+						</control>	
+		  
+						<control type="label"> <!--next episode (label)-->
+							<posx>695</posx>
+							<posy>80</posy>
+							<align>left</align>
+							<height>150</height>
+							<width>970</width>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>Next Episode:</label>
+							<textcolor>blue2</textcolor>
+							<visible>Container.Content(tvshows)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+						</control>	
+
+						<control type="group">
+							<posx>436</posx>
+							<posy>61</posy>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+	  
+							<control type ="group"> <!--show status-->
+								<posx>67</posx>
+								<posy>-3.5</posy>
+								<include>NextAiredShowStatus_InfoList</include>
+								<visible>Container.Content(tvshows)</visible>
+							</control>
+			
+							<control type ="group"> <!--next air date-->
+								<posx>67</posx>
+								<posy>-4</posy>
+								<include>NextAired_NextEpisode_InfoList</include>
+								<visible>Container.Content(tvshows)</visible>
+							</control>
+						
+						</control>
+		  
+						<control type="label"> <!--premiered date (label)-->
+							<posx>695</posx>
+							<posy>120</posy>
+							<align>left</align>
+							<height>150</height>
+							<width>970</width>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[312576]:</label>
+							<textcolor>blue2</textcolor>
+							<visible>Container.Content(tvshows)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+						</control>	
+		  
+						<control type="label"> <!--premiered date-->
+							<posx>824</posx>
+							<posy>120</posy>
+							<align>left</align>
+							<height>150</height>
+							<width>970</width>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Date]</label>
+							<textcolor>infogrey</textcolor>
+							<visible>Container.Content(tvshows)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+						</control>	
+
+					</control>	
+
+					<control type="group">
+						<visible>Container.Content(seasons)</visible>						
+						<posy>160</posy>
+					
+						<control type="label"> <!--genre (label)-->
+							<posx>695</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[515]:</label>
+							<textcolor>blue2</textcolor>
+							<visible>Container.Content(seasons)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+						</control>							
+					
+						<control type="label"> <!--genre-->
+							<posx>778</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>1030</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Genre]</label>
+							<textcolor>infogrey</textcolor>
+							<visible>Container.Content(seasons)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+						</control>
+					
+						<control type="label"> <!--episodes/watched-->
+							<posx>695</posx>
+							<posy>40</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>[COLOR blue2]$LOCALIZE[20360]: [/COLOR]$INFO[ListItem.Property(NumEpisodes)] ($INFO[ListItem.Property(UnwatchedEpisodes)] $LOCALIZE[16101])</label>
+							<textcolor>infogrey</textcolor>
+							<visible>Container.Content(seasons)</visible>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cases)">Conditional</animation>
+						</control>	
+
+					</control>	
+				
+				</control>
+			
+				<control type="image"> <!--tv show logo (tv shows/seasons)-->
+					<posx>1455</posx>
+					<posy>150</posy>
+					<width>375</width>
+					<height>120</height>
+					<aspectratio>keep</aspectratio>
+					<fadetime>500</fadetime>
+					<texture>$INFO[ListItem.path,,./logo.png]</texture>
+					<visible>Skin.HasSetting(breeze_tv_logos)</visible>
+					<animation effect="slide" start="0,0" end="0,-150" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-150" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
+				</control>
+			
+				<control type="image"> <!--tv show logo (episodes)-->
+					<posx>1455</posx>
+					<posy>150</posy>
+					<width>375</width>
+					<height>120</height>
+					<aspectratio>keep</aspectratio>
+					<fadetime>500</fadetime>
+					<texture>$INFO[ListItem.path,,../logo.png]</texture>
+					<visible>Skin.HasSetting(breeze_tv_logos)</visible>
+					<animation effect="slide" start="0,0" end="0,-101" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-101" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
+				</control>
+				
+				<control type="group"> <!--plot (movies)-->
+					<animation effect="fade" start="100" end="0" time="250" condition="!Control.HasFocus(7002)">Conditional</animation>
+					<visible>Control.HasFocus(7002) + Container.Content(movies)</visible>
+					<posy>260</posy>
+				
+					<control type="textbox"> <!--cases view-->
+						<posx>695</posx>
+						<posy>50</posy>
+						<width>970</width>
+						<height>130</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[ListItem.Plot]</label>
+						<autoscroll delay="6000" time="4000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					</control>
+				
+					<control type="textbox"> <!--cover view-->
+						<posx>630</posx>
+						<posy>50</posy>
+						<width>1030</width>
+						<height>130</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[ListItem.Plot]</label>
+						<autoscroll delay="8000" time="4000" repeat="7000">Skin.HasSetting(AutoScroll)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>!Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies)</visible>
+					</control>
+					
+				</control>
+				
+				<control type="group"> <!--plot (tv shows)-->
+					<animation effect="fade" start="100" end="0" time="250" condition="!Control.HasFocus(7002)">Conditional</animation>
+					<visible>Control.HasFocus(7002)</visible>
+					<posy>300</posy>
+				
+					<control type="textbox"> <!--cases view-->
+						<posx>695</posx>
+						<posy>50</posy>
+						<width>970</width>
+						<height>180</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[ListItem.Plot]</label>
+						<autoscroll delay="8000" time="4000" repeat="7000">Control.HasFocus(7002)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>Skin.HasSetting(breeze_lowlist_cases) + Container.Content(tvshows)</visible>
+					</control>
+				
+					<control type="textbox"> <!--cover view-->
+						<posx>630</posx>
+						<posy>50</posy>
+						<width>1030</width>
+						<height>180</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[ListItem.Plot]</label>
+						<autoscroll delay="9000" time="4000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>!Skin.HasSetting(breeze_lowlist_cases) + Container.Content(tvshows)</visible>
+					</control>
+					
+				</control>
+				
+				<control type="group"> <!--plot (seasons)-->
+					<animation effect="fade" start="100" end="0" time="250" condition="!Control.HasFocus(7002)">Conditional</animation>
+					<visible>Control.HasFocus(7002)</visible>
+					<posy>305</posy>
+				
+					<control type="textbox"> <!--cases view-->
+						<posx>695</posx>
+						<posy>0</posy>
+						<width>970</width>
+						<height>225</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[Container.ShowPlot]</label>
+						<autoscroll delay="9000" time="4000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>Skin.HasSetting(breeze_lowlist_cases) + Container.Content(seasons)</visible>
+					</control>
+				
+					<control type="textbox"> <!--cover view-->
+						<posx>630</posx>
+						<posy>0</posy>
+						<width>1030</width>
+						<height>225</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[Container.ShowPlot]</label>
+						<autoscroll delay="10000" time="4000" repeat="9000">Skin.HasSetting(AutoScroll)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>!Skin.HasSetting(breeze_lowlist_cases) + Container.Content(seasons)</visible>
+					</control>
+					
+				</control>
+				
+				<control type="textbox"> <!--plot (episodes)-->
+					<posx>730</posx>
+					<posy>290</posy>
+					<width>935</width>
+					<height>175</height>
+					<align>justify</align>
+					<font>breeze32</font>
+					<label fallback="312577">$INFO[ListItem.Plot]</label>
+					<autoscroll delay="10000" time="4000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<textcolor>infogrey</textcolor>
+					<visible>Container.Content(episodes) + Control.HasFocus(7002)</visible>
+				</control>
+				
+				<control type="group"> <!--episode thumbs-->
+					<posx>250</posx>
+					<posy>270</posy>
+					<visible>Container.Content(episodes)</visible>
+					<animation effect="slide" start="0,0" end="-7,0" time="150" condition="Control.HasFocus(65)">Conditional</animation>
+
+					<control type="image"> <!--border-->
+						<description>background image</description>
+						<posx>0</posx>
+						<posy>5</posy>
+						<width>464</width>
+						<height>270</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture>breeze/masks/thumb border blue.png</texture>
+						<visible>Container.Content(episodes)</visible>
+						<animation effect="slide" start="0,0" end="0,-75" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="0,-75" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
+					</control> 
+			
+					<control type="image"> <!--episode thumb-->
+						<posx>10</posx>
+						<posy>15</posy>
+						<width>444</width>
+						<height>250</height>
+						<aspectratio scalediffuse="false">scale</aspectratio> 
+						<texture diffuse="breeze/masks/thumb.png">$INFO[ListItem.Icon]</texture>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+						<animation effect="slide" start="0,0" end="0,-75" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="0,-75" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
+					</control>			
+		  
+					<control type="image"> <!--watched icon-->
+						<posx>405</posx>
+						<posy>217</posy>
+						<width>45</width>
+						<height>45</height>
+						<texture>breeze/masks/watched.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+						<animation effect="slide" start="0,0" end="0,-75" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="0,-75" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
+					</control>
+			
+				</control>		
+				
+				<control type="group"> <!--media flags-->
+				
+					<control type="group"> <!--cases view movies-->
+						<posx>695</posx>
+						<posy>290</posy>
+						<visible>!Container.Content(addons)</visible>			
+						<include>BreezeMediaFlags</include>			
+						<visible>Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies) + Control.HasFocus(7002)</visible>
+					</control>	
+				
+					<control type="group"> <!--cover view movies-->
+						<posx>630</posx>
+						<posy>290</posy>
+						<visible>!Container.Content(addons)</visible>			
+						<include>BreezeMediaFlags</include>		
+						<visible>!Skin.HasSetting(breeze_lowlist_film_cases) + Container.Content(movies) + Control.HasFocus(7002)</visible>
+					</control>	
+				
+					<control type="group"> <!--episodes-->
+						<posx>720</posx>
+						<posy>306</posy>
+						<visible>!Container.Content(addons)</visible>			
+						<include>BreezeMediaFlags</include>		
+						<visible>Container.Content(episodes) + Control.HasFocus(7002)</visible>	
+					</control>
+
+				</control>
+			
+			</control> 
+	  
+		</control>
+		
+	</include>
+  
+</includes>

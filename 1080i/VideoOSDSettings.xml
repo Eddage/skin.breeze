@@ -1,0 +1,172 @@
+<window id="123">
+  
+	<defaultcontrol>5</defaultcontrol>
+	
+	<coordinates>
+		<system>1</system>
+		<posx>447</posx>
+		<posy>170</posy>
+	</coordinates>
+  
+	<include>Animation_DialogPopup2</include>
+  
+	<controls>
+  
+		<control type="group">
+			<animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
+      
+			<control type="image">
+				<description>Panel</description>
+				<texture>breeze/osd/settings/bg.png</texture>
+			</control>
+	  
+			<control type="label">
+				<description>header label</description>
+				<posx>11</posx>
+				<posy>50</posy>
+				<width>1003</width>
+				<height>30</height>
+				<font>breeze60</font>
+				<label>$LOCALIZE[13395]</label>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>infogrey</textcolor>
+				<visible>Window.IsVisible(123)</visible>
+			</control>
+	  
+			<control type="label">
+				<description>header label</description>
+				<posx>11</posx>
+				<posy>50</posy>
+				<width>1003</width>
+				<height>30</height>
+				<font>breeze60</font>
+				<label>$LOCALIZE[13396]</label>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>infogrey</textcolor>
+				<visible>!Window.IsVisible(123)</visible>
+			</control>
+	  
+			<control type="label" id="3">
+				<description>No Settings Label</description>
+				<posx>80</posx>
+				<posy>50</posy>
+				<width>881</width>
+				<height>30</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[13390]</label>
+				<font>breeze32</font>
+				<textcolor>infogrey</textcolor>
+			</control>
+	  
+			<control type="grouplist" id="5">
+				<description>control area</description>
+				<posx>11</posx>
+				<posy>130</posy>
+				<width>1003</width>
+				<height>480</height>
+				<itemgap>0</itemgap>
+				<aligny>center</aligny>
+				<pagecontrol>60</pagecontrol>
+				<onleft>60</onleft>
+				<onright>60</onright>
+				<onup>5</onup>
+				<ondown>5</ondown>
+			</control>
+
+		</control>
+	
+		<control type="sliderex" id="10">
+			<description>Default Slider</description>
+			<width>900</width>
+			<height>60</height>
+			<sliderwidth>200</sliderwidth>
+			<sliderheight>33</sliderheight>
+			<texturefocus>breeze/osd/settings/focused bg.png</texturefocus>
+			<texturenofocus>breeze/osd/focused.png</texturenofocus>
+			<texturesliderbar>breeze/osd/settings/slider bg.png</texturesliderbar>
+			<textureslidernib>breeze/osd/settings/slider nib nf.png</textureslidernib>
+			<textureslidernibfocus>breeze/osd/settings/slider nib f.png</textureslidernibfocus>
+			<font>breeze32</font>
+			<textcolor>infogrey</textcolor>
+			<disabledcolor>disabled</disabledcolor>
+			<textoffsetx>30</textoffsetx>
+			<textoffsety>6</textoffsety>
+			<focusedcolor>white</focusedcolor>
+			<pulseonselect>false</pulseonselect>
+			<aligny>center</aligny>
+		</control>
+	
+		<control type="button" id="7">
+			<description>Default Button</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>900</width>
+			<height>60</height>
+			<font>breeze32</font>
+			<textcolor>infogrey</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<disabledcolor>disabled</disabledcolor>
+			<texturefocus>breeze/osd/settings/focused bg.png</texturefocus>
+			<texturenofocus></texturenofocus>
+			<textoffsetx>30</textoffsetx>
+			<textoffsety>6</textoffsety>
+			<pulseonselect>false</pulseonselect>
+			<aligny>center</aligny>
+		</control>
+	
+		<control type="radiobutton" id="8">
+			<description>Default RadioButton</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>900</width>
+			<height>60</height>
+			<font>breeze32</font>
+			<textcolor>infogrey</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<disabledcolor>disabled</disabledcolor>
+			<textoffsetx>30</textoffsetx>
+			<textoffsety>6</textoffsety>
+			<radioposx>910</radioposx>
+			<radioposy>15</radioposy>
+			<radiowidth>64</radiowidth>
+			<radioheight>33</radioheight>
+			<texturefocus>breeze/osd/settings/focused bg.png</texturefocus>
+			<texturenofocus></texturenofocus>
+			<textureradiofocus>breeze/settings/radio button f.png</textureradiofocus>
+			<textureradionofocus>breeze/settings/radio button.png</textureradionofocus>
+			<pulseonselect>false</pulseonselect>
+			<aligny>center</aligny>
+		</control>
+	
+		<control type="spincontrolex" id="9">
+			<description>Default SpinControlex</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<height>60</height>
+			<font>breeze32</font>
+			<textoffsetx>30</textoffsetx>
+			<textoffsety>6</textoffsety>
+			<textcolor>infogrey</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<disabledcolor>disabled</disabledcolor>
+			<texturefocus>breeze/osd/settings/focused bg.png</texturefocus>
+			<texturenofocus></texturenofocus>
+			<textureup>breeze/settings/spin up.png</textureup>
+			<texturedown>breeze/settings/spin down.png</texturedown>
+			<textureupfocus>breeze/settings/spin up f.png</textureupfocus>
+			<texturedownfocus>breeze/settings/spin down f.png</texturedownfocus>
+			<spinwidth>32</spinwidth>
+			<spinheight>60</spinheight>
+			<spinposx>0</spinposx>
+			<spinposy>100</spinposy>
+			<aligny>center</aligny>
+			<reverse>yes</reverse>
+			<pulseonselect>false</pulseonselect>
+		</control>
+	
+	</controls>
+	
+</window>

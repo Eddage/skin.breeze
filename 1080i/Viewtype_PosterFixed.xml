@@ -1,0 +1,654 @@
+<includes> 	
+	
+	<include name="PosterFixed">
+		
+		<control type="fixedlist" id="501">
+			<visible>[Container.Content(Movies) | Container.Content(TVShows) | Window.IsVisible(VideoFiles) | Window.IsActive(programs)]+!stringcompare(Container.FolderPath,addons://sources/video/)|Container.Content(genres)</visible>
+			<visible>!Container.Content(LiveTV)</visible>
+			<posx>0</posx>
+			<posy>150</posy>
+			<height>775</height>
+			<width>1920</width>
+			<onleft>501</onleft>
+			<onright>501</onright>
+			<onup condition="SubString(Container.Folderpath,videodb://,left)">7003</onup>
+			<onup condition="!SubString(Container.Folderpath,videodb://,left)">7009</onup>
+			<ondown>66</ondown>
+			<viewtype label="Poster Fixed">bigwrap</viewtype>
+			<pagecontrol>66</pagecontrol>
+			<scrolltime>200</scrolltime>
+			<focusposition>1</focusposition>
+			<orientation>horizontal</orientation>
+			<preloaditems>2</preloaditems>
+		
+			<itemlayout width="305" height="397">
+					
+				<control type="image"> <!--border-->
+					<posx>12</posx>
+					<posy>131</posy>
+					<width>260</width>
+					<height>370</height>
+					<texture background="true">breeze/masks/poster folder small border.png</texture>
+					<fadetime>200</fadetime>
+					<visible>!IsEmpty(ListItem.Title)</visible>
+				</control>
+				
+				<control type="image"> <!--cover-->
+					<posx>22</posx>
+					<posy>141</posy>
+					<width>240</width>
+					<height>350</height>
+					<texture background="true" diffuse="breeze/masks/poster folder small.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<fadetime>200</fadetime>
+					<visible>IsEmpty(ListItem.Title)</visible>
+				</control>
+					
+				<control type="image"> <!--cover-->
+					<posx>22</posx>
+					<posy>141</posy>
+					<width>240</width>
+					<height>350</height>
+					<texture background="true" diffuse="breeze/masks/poster folder small.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<fadetime>200</fadetime>
+					<visible>!IsEmpty(ListItem.Title)</visible>
+				</control>
+					
+				<control type="image"> <!--watched icon-->
+					<posx>228</posx>
+					<posy>458</posy>
+					<width>30</width>
+					<height>30</height>
+					<fadetime>200</fadetime>
+					<texture>breeze/masks/watched.png</texture>
+					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+				</control>
+					
+			</itemlayout>
+				
+			<focusedlayout width="415" height="600">
+				
+				<control type="group">
+				
+					<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="195,0" delay="25" />
+						<effect type="fade" start="100" end="0" time="200" delay="150" />
+					</animation>
+					
+					<control type="image"> <!--border focused-->
+						<posx>16</posx>
+						<posy>61</posy>
+						<width>358</width>
+						<height>513</height>
+						<aspectratio>stretch</aspectratio>
+						<texture>breeze/masks/info list folder border.png</texture>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="auto" start="68" end="100" time="400" delay="75" tween="sine" easing="inout" />
+						</animation>
+						<aspectratio>stretch</aspectratio>			
+					</control>
+				
+					<control type="image"> <!--cover focused-->
+						<posx>26</posx>
+						<posy>71</posy>
+						<width>338</width>
+						<height>493</height>
+						<aspectratio>stretch</aspectratio>
+						<texture diffuse="breeze/masks/info list folder.png">$INFO[ListItem.Icon]</texture>
+						<fadetime>200</fadetime>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="auto" start="68" end="100" time="400" delay="75" tween="sine" easing="inout" />
+						</animation>
+						<visible>IsEmpty(ListItem.Title)</visible>			
+					</control>
+					
+					<control type="image"> <!--cover focused-->
+						<posx>26</posx>
+						<posy>71</posy>
+						<width>338</width>
+						<height>493</height>
+						<aspectratio>stretch</aspectratio>
+						<texture diffuse="breeze/masks/info list folder.png">$INFO[ListItem.Icon]</texture>
+						<fadetime>200</fadetime>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="auto" start="68" end="100" time="400" delay="75" tween="sine" easing="inout" />
+						</animation>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+					</control>
+					
+					<control type="image"> <!--watched icon-->
+						<posx>315</posx>
+						<posy>515</posy>
+						<width>45</width>
+						<height>45</height>
+						<fadetime>200</fadetime>
+						<texture>breeze/masks/watched.png</texture>
+						<animation type="Focus" reversible="false">
+							<effect type="zoom" center="135,198" start="75" end="100" time="400" delay="75" tween="sine" easing="inout" />
+						</animation>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+					</control>
+				
+				</control>
+					
+			</focusedlayout>
+		
+		</control>
+	
+		<control type="group">
+			<posx>0</posx>
+			<posy>520</posy>
+			<visible>Control.IsVisible(501)</visible>
+			
+			<control type="group"> <!--title (tv shows/movies level)-->
+				<visible>!Container.Content(seasons) + !Container.Content(episodes)</visible>
+				<posx>230</posx>
+				<posy>235</posy>
+			
+				<control type="label"> <!--tv logo/normal-->
+					<posx>480</posx>
+					<posy>-100</posy>
+					<width>740</width>
+					<height>65</height>
+					<aligny>center</aligny>
+					<font>breeze45</font>
+					<textcolor>infogrey</textcolor>
+					<shadowcolor>90ffffff</shadowcolor>
+					<label>[B]$INFO[ListItem.Title][/B]</label>
+					<visible>!Container.Content(movies) + Skin.HasSetting(breeze_tv_logos) + !Skin.HasSetting(stylishfont)</visible>
+				</control>
+			
+				<control type="label"> <!--tv logo/stylish-->
+					<posx>480</posx>
+					<posy>-95</posy>
+					<width>1160</width>
+					<height>65</height>
+					<aligny>center</aligny>
+					<font>stylish45</font>
+					<textcolor>infogrey</textcolor>
+					<shadowcolor>90ffffff</shadowcolor>
+					<label>$INFO[ListItem.Title]</label>
+					<visible>!Container.Content(movies) + Skin.HasSetting(breeze_tv_logos) + Skin.HasSetting(stylishfont)</visible>
+				</control>
+			
+				<control type="label"> <!--no tv logo/normal-->
+					<posx>480</posx>
+					<posy>-105</posy>
+					<width>1160</width>
+					<height>65</height>
+					<aligny>center</aligny>
+					<font>breeze45</font>
+					<textcolor>infogrey</textcolor>
+					<shadowcolor>90ffffff</shadowcolor>
+					<label>[B]$INFO[ListItem.Title][/B]</label>
+					<visible>[!Skin.HasSetting(breeze_tv_logos) + !Skin.HasSetting(stylishfont)] | [Container.Content(movies) + !Skin.HasSetting(stylishfont)]</visible>
+				</control>
+			
+				<control type="label"> <!--no tv logo/stylish-->
+					<posx>480</posx>
+					<posy>-95</posy>
+					<width>1160</width>
+					<height>65</height>
+					<aligny>center</aligny>
+					<font>stylish45</font>
+					<textcolor>infogrey</textcolor>
+					<shadowcolor>90ffffff</shadowcolor>
+					<label>$INFO[ListItem.Title]</label>
+					<visible>!Skin.HasSetting(breeze_tv_logos) + Skin.HasSetting(stylishfont) | [Container.Content(movies) + Skin.HasSetting(stylishfont)]</visible>
+				</control>
+				
+			</control>
+				
+			<control type="group">
+				<include>BreezeTimePanel</include>
+			</control>
+			
+			<control type="group">
+				<include>BreezeRightInfo</include>
+			</control>	
+			
+			<control type ="group">
+				<visible>Container.Content(movies)</visible>
+				
+				<control type="textbox"> <!--plot (movies)-->
+					<posx>250</posx>
+					<posy>280</posy>
+					<width>1415</width>
+					<height>175</height>
+					<align>justify</align>
+					<font>breeze32</font>
+					<label fallback="312577">$INFO[ListItem.Plot]</label>
+					<autoscroll delay="20000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<textcolor>infogrey</textcolor>
+					<visible>!Control.HasFocus(7003)</visible>
+					<visible>SubString(Container.Folderpath,videodb://,left)</visible>
+				</control>
+				
+				<control type="textbox"> <!--plot (movie trailers)-->
+					<posx>250</posx>
+					<posy>295</posy>
+					<width>1415</width>
+					<height>220</height>
+					<align>justify</align>
+					<font>breeze32</font>
+					<label fallback="312577">$INFO[ListItem.Plot]</label>
+					<autoscroll delay="21000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<textcolor>infogrey</textcolor>
+					<visible>!Control.HasFocus(7003)</visible>
+					<visible>!SubString(Container.Folderpath,videodb://,left)</visible>
+				</control>
+				
+			</control>
+			
+			<control type="group"> <!--plot (tv shows)-->
+				<visible>Container.Content(tvshows)</visible>
+				
+				<control type="textbox"> <!--plot (tv shows)-->
+					<posx>250</posx>
+					<posy>290</posy>
+					<width>1415</width>
+					<height>220</height>
+					<align>justify</align>
+					<font>breeze32</font>
+					<label fallback="312577">$INFO[ListItem.Plot]</label>
+					<autoscroll delay="23000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<textcolor>infogrey</textcolor>
+					<visible>!Control.HasFocus(7003)</visible>
+				</control>
+			
+			</control>
+			
+			<control type="group"> <!--media flags-->
+				
+				<control type="group"> <!--media flags (movies)-->
+					<visible>!Container.Content(addons)</visible>			
+					<include>BreezeMediaFlags</include>		
+					<visible>!Container.Content(episodes)</visible>
+					<visible>SubString(Container.Folderpath,videodb://,left)</visible>
+					<visible>!Control.HasFocus(7003)</visible>
+				</control>	
+			
+			</control>
+			
+			<control type="grouplist"> <!--navigation hints-->
+				<posx>1150</posx>
+				<posy>510</posy>
+				<width>500</width>
+				<itemgap>2</itemgap>
+				<align>right</align>
+				<orientation>horizontal</orientation>
+				<visible>SubString(Container.Folderpath,videodb://,left)</visible>
+				
+				<control type="label"> <!--"Menu"-->
+					<height>42</height>
+					<width min="10" max="75">auto</width>
+					<aligny>center</aligny>
+					<font>hint</font>
+					<textcolor>infogrey</textcolor>
+					<label>$LOCALIZE[31302]</label>
+					<visible>Control.HasFocus(7003)</visible>
+				</control>
+			
+				<control type="image"> <!--menu arrow-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>40</width>
+					<height>40</height>
+					<texture>breeze/arrow up.png</texture>
+					<visible>Control.HasFocus(7003)</visible>
+				</control>
+			
+				<control type="image"> <!--spacer-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>5</width>
+					<height>25</height>
+					<texture>breeze/spacer.png</texture>
+					<visible>Control.HasFocus(7003)</visible>
+				</control>
+				
+				<control type="label"> <!--"More Info"-->
+					<height>42</height>
+					<width min="10" max="75">auto</width>
+					<aligny>center</aligny>
+					<font>hint</font>
+					<textcolor>infogrey</textcolor>
+					<label>$LOCALIZE[31484]</label>
+					<visible>Control.HasFocus(501)</visible>
+				</control>
+				
+				<control type="label"> <!--"Plot"-->
+					<height>42</height>
+					<width min="10" max="75">auto</width>
+					<aligny>center</aligny>
+					<font>hint</font>
+					<textcolor>infogrey</textcolor>
+					<label>$LOCALIZE[207]</label>
+					<visible>Control.HasFocus(7003)</visible>
+				</control>
+			
+				<control type="image"> <!--more info/plot arrow-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>40</width>
+					<height>40</height>
+					<texture>breeze/arrow up.png</texture>
+					<animation effect="rotate" end="180" center="auto" time="500" delay="0" condition="Control.HasFocus(7003)">Conditional</animation>
+					<visible>Control.HasFocus(501) | Control.HasFocus(7003)</visible>
+				</control>
+				
+			</control>
+				
+			<control type="group"> <!--more info fanart-->
+				<posx>250</posx>
+				<posy>270</posy>
+
+				<control type="image"> <!--fanart border-->
+					<posx>0</posx>
+					<posy>5</posy>
+					<width>464</width>
+					<height>270</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture>breeze/masks/thumb border blue.png</texture>
+					<visible>Control.HasFocus(7003)</visible>
+				</control> 
+				
+				<control type="image"> <!--fanart-->
+					<posx>10</posx>
+					<posy>15</posy>
+					<width>444</width>
+					<height>250</height>
+					<texture background="true" diffuse="breeze/masks/thumb.png">$INFO[Listitem.Property(Fanart_Image)]</texture>
+					<visible>Control.HasFocus(7003)</visible>
+				</control>
+				
+			</control>
+					
+			<control type="group"> <!--extra info-->
+				<visible>Control.HasFocus(7003)</visible>
+				<posx>730</posx>
+				<posy>290</posy>
+				
+				<control type="group"> <!--movies-->
+					<visible>Container.Content(movies)</visible>
+		
+					<control type="label"> <!--year (label)-->
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>$LOCALIZE[345]:</label>
+					</control>
+		
+					<control type="label"> <!--year-->
+						<posx>63</posx>
+						<posy>0</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label fallback="31482">$INFO[ListItem.Year]</label>
+					</control>
+		
+					<control type="label"> <!--runtime-->
+						<posx>0</posx>
+						<posy>40</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label>[COLOR blue2]$LOCALIZE[180]: [/COLOR]$INFO[ListItem.Duration] [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]</label>
+					</control>
+				
+					<control type="label"> <!--genre (label)-->
+						<posx>0</posx>
+						<posy>80</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label>$LOCALIZE[515]:</label>
+						<textcolor>blue2</textcolor>
+					</control>	
+				
+					<control type="label"> <!--genre-->
+						<posx>83</posx>
+						<posy>80</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label fallback="31482">$INFO[ListItem.Genre]</label>
+						<textcolor>infogrey</textcolor>
+					</control>	
+		
+					<control type="label"> <!--director (label)-->
+						<posx>0</posx>
+						<posy>120</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>$LOCALIZE[31156]:</label>
+					</control>
+		
+					<control type="label"> <!--director-->
+						<posx>143</posx>
+						<posy>120</posy>
+						<width>787</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label fallback="31482">$INFO[ListItem.Director]</label>
+					</control>
+	  
+					<control type="label"> <!--writer (label)-->
+						<posx>0</posx>
+						<posy>160</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>$LOCALIZE[31157]:</label>
+					</control>
+	  
+					<control type="label"> <!--writer-->
+						<posx>131</posx>
+						<posy>160</posy>
+						<width>799</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label fallback="31482">$INFO[ListItem.Writer]</label>
+					</control>
+	  
+					<control type="label"> <!--studio (label)-->
+						<posx>0</posx>
+						<posy>200</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>$LOCALIZE[572]:</label>
+					</control>
+	  
+					<control type="label"> <!--studio-->
+						<posx>85</posx>
+						<posy>200</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label fallback="31482">$INFO[ListItem.Studio]</label>
+					</control>
+			
+				</control>
+				
+				<control type="group"> <!--tv shows-->
+					<visible>Container.Content(tvshows)</visible>
+			
+					<control type="label"> <!--genre (label)-->
+						<description>Genre</description>
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label>$LOCALIZE[515]:</label>
+						<textcolor>blue2</textcolor>
+					</control>	
+			
+					<control type="label"> <!--genre-->
+						<description>Genre</description>
+						<posx>83</posx>
+						<posy>0</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label fallback="31482">$INFO[ListItem.Genre]</label>
+						<textcolor>infogrey</textcolor>
+					</control>	
+		
+					<control type="label"> <!--show status-->
+						<description>Total Episodes</description>
+						<posx>0</posx>
+						<posy>40</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>Show Status:</label>
+					</control>
+	  
+					<control type ="group"> <!--show status-->
+						<include>NextAiredShowStatus_InfoList</include>
+					</control>
+		
+					<control type="label"> <!--next episode-->
+						<description>Total Episodes</description>
+						<posx>0</posx>
+						<posy>80</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>Next Episode:</label>
+					</control>
+			
+					<control type ="group"> <!--next air date-->
+						<include>NextAired_NextEpisode_InfoList</include>
+					</control>
+	  
+					<control type="label"> <!--premiered (label)-->
+						<posx>0</posx>
+						<posy>120</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>$LOCALIZE[312576]:</label>
+					</control>
+	  
+					<control type="label"> <!--premiered-->
+						<posx>129</posx>
+						<posy>120</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label fallback="31482">$INFO[ListItem.Date]</label>
+					</control>
+	  
+					<control type="label"> <!--episodes-->
+						<posx>0</posx>
+						<posy>160</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label>[COLOR blue2]$LOCALIZE[20360]: [/COLOR]$INFO[ListItem.Property(TotalEpisodes)]</label>
+					</control>
+	  
+					<control type="label"> <!--unwatched-->
+						<posx>0</posx>
+						<posy>200</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label>[COLOR blue2]$LOCALIZE[16101]: [/COLOR]$INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+					</control>
+			
+				</control>
+			
+			</control>
+			
+			<control type="image"> <!--tv show logo (tv shows/seasons)-->
+				<posx>1455</posx>
+				<posy>150</posy>
+				<width>375</width>
+				<height>120</height>
+				<aspectratio>keep</aspectratio>
+				<fadetime>500</fadetime>
+				<texture background="true">$INFO[ListItem.path,,./logo.png]</texture>
+				<visible>Skin.HasSetting(breeze_tv_logos)</visible>
+			</control>
+			
+			<control type="image"> <!--tv show logo (episodes)-->
+				<posx>1455</posx>
+				<posy>150</posy>
+				<width>375</width>
+				<height>120</height>
+				<aspectratio>keep</aspectratio>
+				<fadetime>500</fadetime>
+				<texture background="true">$INFO[ListItem.path,,../logo.png]</texture>
+				<visible>Skin.HasSetting(breeze_tv_logos)</visible>
+			</control>
+				
+		</control>
+	
+		<control type="group">
+			<visible>Control.IsVisible(501)</visible>	
+			<include>BreezeNowPlayingRight</include>		
+		</control>			
+		
+		<control type="scrollbar" id="66"> <!--scrollbar-->
+			<posx>0</posx>
+			<posy>750</posy>
+			<width>1920</width>
+			<height>30</height>
+			<orientation>horizontal</orientation>
+			<texturesliderbackground>-</texturesliderbackground>
+			<texturesliderbar>-</texturesliderbar>
+			<texturesliderbarfocus>-</texturesliderbarfocus>
+			<textureslidernib>breeze/views/scrollbar nub nf horiz.png</textureslidernib>
+			<textureslidernibfocus>breeze/views/scrollbar nub f horiz.png</textureslidernibfocus>
+			<onup>501</onup>
+			<ondown>501</ondown>
+			<showonepage>false</showonepage>
+			<visible>Control.IsVisible(501)</visible>
+		</control>
+		
+	</include>
+	
+</includes>

@@ -1,0 +1,112 @@
+﻿<window type="dialog" id="60" >
+	
+	<defaultcontrol always="true">500</defaultcontrol>
+	
+	<coordinates>
+		<system>1</system>
+	</coordinates>
+	
+	<controls>
+	
+	<control type="group">
+		<posx>905</posx>
+		<posy>315</posy>
+		<animation effect="slide" start="0,0" end="-178,0" time="0" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="-89,0" time="0" condition="!system.hasaddon(script.cinema.experience) + Container.Content(movies)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="-89,0" time="0" condition="IsEmpty(ListItem.Trailer) + Container.Content(movies)">Conditional</animation>
+				
+		<animation type="windowopen">
+			<effect type="fade" start="0" end="100" time="250"/>
+			<effect type="zoom" center="1085,320" start="0" end="100" time="300"/>
+		</animation>	
+		
+		<animation type="windowclose">
+			<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="1085,0" delay="25" />
+			<effect type="fade" start="100" end="0" time="200" delay="150" />
+		</animation>
+	  
+			<control type="image"> <!--bg 1-->
+				<description>background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>358</width>
+				<height>513</height>
+				<texture flipy="true">breeze/menus/context resume bg 1.png</texture>	
+				<visible>!Control.IsVisible(502)</visible>
+			</control> 	
+	  
+			<control type="image"> <!--bg 2-->
+				<description>background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>358</width>
+				<height>513</height>
+				<texture flipy="true">breeze/menus/context resume bg.png</texture>	
+				<visible>Control.IsVisible(502) + !Control.IsVisible(503)</visible>
+			</control> 
+	  
+			<control type="image"> <!--bg 4-->
+				<description>background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>358</width>
+				<height>513</height>
+				<texture flipy="true">breeze/menus/context resume bg 4.png</texture>	
+				<visible>Control.IsVisible(504)</visible>
+			</control> 
+			
+			<control type="grouplist" id="500">
+				<posx>10</posx>
+				<posy>28</posy>
+				<width>358</width>
+				<height min="0" max="385">auto</height>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<onright>402</onright>
+				<scrolltime>150</scrolltime>
+				<itemgap>0</itemgap>
+				
+				<!--thumbnail-->
+				<control type="button" id="501">
+					<label>$LOCALIZE[31492]</label>
+					<onclick>Close</onclick>
+					<onclick>SendClick(10)</onclick>
+					<include>ListContextButton</include>
+				</control>
+				
+				<!--fanart-->
+				<control type="button" id="502">
+					<label>$LOCALIZE[31493]</label>
+					<onclick>Close</onclick> 
+					<onclick>SendClick(12)</onclick>
+					<include>ListContextButton</include>
+					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				</control>
+				
+				<!--artwork-->
+				<control type="button" id="503">
+					<label>$LOCALIZE[31173]</label>
+					<onclick>Close</onclick>
+					<onclick>XBMC.RunScript(script.logo-downloader,mode=solo,logo=True,clearart=True,showthumb=landscape.jpg,poster=poster.jpg,banner=banner.jpg,showname=$INFO[ListItem.TVShowTitle])</onclick>
+					<include>ListContextButton</include>
+					<visible>Container.Content(tvshows)</visible>
+					<visible>!Container.Content(movies)</visible>
+				</control>
+				
+				<!--tune-->
+				<control type="button" id="504">
+					<label>$LOCALIZE[31494]</label>
+					<onclick>Close</onclick>
+					<onclick>XBMC.RunScript(script.tvtunes,mode=solo&amp;tvpath=$INFO[ListItem.FilenameAndPath]&amp;tvname=$INFO[ListItem.TVShowTitle])</onclick>
+					<include>ListContextButton</include>
+					<enable>system.hasaddon(script.tvtunes)</enable>
+					<visible>!SubString(ListItem.Path,dvd)</visible>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+	</controls>
+	
+</window>

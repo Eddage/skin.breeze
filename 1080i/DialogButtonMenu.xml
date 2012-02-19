@@ -1,0 +1,116 @@
+<window type="buttonMenu" id="111">
+	
+	<defaultcontrol always="true">800</defaultcontrol>
+	
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	
+	<include>shutdown drop animation</include>
+	
+	<controls>	
+    
+		<control type="grouplist" id="800">
+			<posx>1640</posx>
+			<posy>49</posy>
+			<width>280</width>
+			<height>750</height>
+			<itemgap>0</itemgap>
+			<onup>800</onup>
+			<ondown>800</ondown>
+			<orientation>vertical</orientation>
+			<align>top</align>
+			
+			<control type="image">
+				<width>280</width>
+				<height>41</height>
+				<texture>breeze/menus/shutdown top.png</texture>
+			</control>
+      
+			<control type="button" id="1">
+				<description>Exit XBMC</description>
+				<label>Close XBMC</label>
+				<include>Objects_ShutdownMenu</include>
+				<onclick>XBMC.Quit()</onclick>
+				<visible>System.ShowExitButton</visible>
+				<onup>13</onup>
+			</control>
+      
+			<control type="button" id="2">
+				<description>Powerdown XBMC</description>
+				<label>Shutdown</label>
+				<include>Objects_ShutdownMenu</include>
+				<onclick>XBMC.Powerdown()</onclick>
+			</control>
+      
+			<control type="button" id="5">
+				<description>Suspend</description>
+				<label>Sleep</label>
+				<include>Objects_ShutdownMenu</include>
+				<onclick>XBMC.Suspend()</onclick>
+			</control>
+      
+			<control type="button" id="6">
+				<description>Reboot</description>
+				<label>Restart</label>
+				<include>Objects_ShutdownMenu</include>
+				<onclick>XBMC.Reset()</onclick>
+			</control>
+      
+			<control type="button" id="7">
+				<description>Log Out</description>
+				<label>$INFO[system.profilename,$LOCALIZE[20126] ]</label>
+				<include>Objects_ShutdownMenu</include>
+				<onclick>dialog.close(all,true)</onclick>
+				<onclick>System.LogOff</onclick>
+				<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
+				<visible>System.Loggedon</visible>
+			</control>
+      
+			<control type="togglebutton" id="8">
+				<description>Master mode button</description>
+				<label>$LOCALIZE[20046]</label>
+				<altlabel>$LOCALIZE[20045]</altlabel>
+				<include>Objects_ShutdownMenu</include>
+				<onclick>xbmc.mastermode</onclick>
+				<usealttexture>!System.IsMaster</usealttexture>
+				<visible>System.HasLocks</visible>
+			</control>
+      
+			<control type="button" id="9">
+				<description>Settings</description>
+				<label>Settings</label>
+				<include>Objects_ShutdownMenu</include>
+				<onclick>ActivateWindow(Settings)</onclick>
+			</control>
+      
+			<control type="button" id="11">
+				<description>Eject Tray</description>
+				<label>Eject Disc</label>
+				<include>Objects_ShutdownMenu</include>
+				<onclick>EjectTray()</onclick>
+				<visible>System.HasMediaDVD</visible>
+			</control>
+      
+			<control type="button" id="13">
+				<description>Add-ons</description>
+				<label>Add-ons</label>
+				<include>Objects_ShutdownMenu</include>
+				<onclick>ActivateWindow(AddonBrowser)</onclick>
+				<ondown>1</ondown>
+			</control>
+			
+			<control type="image">
+				<posx>-5</posx>
+				<width>280</width>
+				<height>25</height>
+				<texture>breeze/menus/shutdown bottom.png</texture>
+			</control>
+    
+		</control>
+	
+	</controls>
+	
+</window>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<window id="113">
+	
+	<zorder>1</zorder>
+  
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+  
+	<controls>
+
+		<control type="group">
+			<animation effect="slide" start="0,0" end="50,0" time="500" condition="!Window.IsActive(home)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="90,0" time="200" delay="500" condition="!Window.IsActive(musicscan) + !Window.IsActive(videoscan)">Conditional</animation>
+			
+			<include>Animation_DialogFadeMute</include>		
+			<include>Dialogs_Mute</include>
+    
+		</control>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<texture>breeze/bg 75.png</texture>
+			<visible>ControlGroup(9000).HasFocus | ControlGroup(7001).HasFocus | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(contentsettings) | Window.IsActive(contextmenu) | Window.IsActive(shutdownmenu) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(virtualkeyboard) | Window.IsActive(numericinput)</visible>
+		</control> 
+  
+	</controls>
+	
+</window>

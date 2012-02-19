@@ -1,0 +1,1140 @@
+<includes>
+
+		<include name="StandardContextTop">
+			<posx>0</posx>
+			<posy>-17</posy>
+			<width>300</width>
+			<height>17</height>
+			<texture>breeze/dialogs/context bg top.png</texture>
+		</include>
+	
+		<include name="StandardContextBG">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>300</width>
+			<texture>breeze/dialogs/context bg.png</texture>
+		</include>
+	
+		<include name="StandardContextBottom">
+			<posx>0</posx>
+			<posy>390</posy>
+			<width>300</width>
+			<height>17</height>
+			<texture>breeze/dialogs/context bg bottom.png</texture>
+		</include>
+	
+		<include name="StandardContextButton">
+			<description>button template</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<height>35</height>
+			<width>300</width>
+			<textcolor>infogreynf</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<texturenofocus>breeze/dialogs/context nf.png</texturenofocus>
+			<texturefocus>breeze/dialogs/context f blue.png</texturefocus>
+			<align>center</align>
+			<aligny>top</aligny>
+			<font>breeze32</font>
+			<pulseonselect>no</pulseonselect>
+			<textoffsety>1.5</textoffsety>
+			<onleft>Dialog.Close(contextmenu)</onleft>
+			<onright>Dialog.Close(contextmenu)</onright>
+		</include>
+	
+		<include name="InfoListContextButton">
+			<description>button template</description>
+			<posx>0</posx>
+			<posy></posy>
+			<height>55</height>
+			<width>338</width>
+			<textcolor>infogreynf</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>breeze/menus/list context f.png</texturefocus>
+			<align>center</align>
+			<aligny>top</aligny>
+			<font>breeze32</font>
+			<pulseonselect>no</pulseonselect>
+			<textoffsety>1.5</textoffsety>
+			<onleft>Dialog.Close(contextmenu)</onleft>
+			<onright>Dialog.Close(contextmenu)</onright>
+		</include>
+	
+		<include name="ListContextButton">
+			<description>button template</description>
+			<posx>0</posx>
+			<posy></posy>
+			<height>55</height>
+			<width>338</width>
+			<textcolor>infogreynf</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<disabledcolor>red</disabledcolor>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>breeze/menus/list context f.png</texturefocus>
+			<align>center</align>
+			<aligny>top</aligny>
+			<font>breeze32</font>
+			<pulseonselect>no</pulseonselect>
+			<textoffsety>1.5</textoffsety>
+			<onleft>Dialog.Close(contextmenu)</onleft>
+			<onright>Dialog.Close(contextmenu)</onright>
+		</include>
+
+		<include name="HomeContextTop">
+			<posx>0</posx>
+			<posy>-17</posy>
+			<width>180</width>
+			<height>25</height>
+			<texture>breeze/menus/context home top.png</texture>
+		</include>
+	
+		<include name="HomeContextBG">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>180</width>
+			<texture>breeze/menus/context home bg.png</texture>
+		</include>
+	
+		<include name="HomeContextBottom">
+			<posx>0</posx>
+			<posy>390</posy>
+			<width>180</width>
+			<height>25</height>
+			<texture>breeze/menus/context home bottom.png</texture>
+		</include>
+	
+		<include name="HomeContextButton">
+			<description>button template</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<height>35</height>
+			<width>180</width>
+			<textcolor>infogreynf</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<texturenofocus>breeze/dialogs/context nf.png</texturenofocus>
+			<texturefocus>breeze/dialogs/context f blue.png</texturefocus>
+			<align>center</align>
+			<aligny>top</aligny>
+			<font>breeze32</font>
+			<pulseonselect>no</pulseonselect>
+			<textoffsety>1.5</textoffsety>
+			<onleft>Dialog.Close(contextmenu)</onleft>
+			<onright>Dialog.Close(contextmenu)</onright>
+		</include>
+	
+		<include name="ContextStandard"> <!--standard menu-->
+
+			<control type="image" id="997">
+				<include>StandardContextTop</include>
+			</control>	
+			<control type="image" id="999">
+				<include>StandardContextBG</include>
+			</control>	
+			<control type="image" id="998">
+				<include>StandardContextBottom</include>
+			</control>
+	
+			<control type="button" id="1000">
+				<include>StandardContextButton</include>
+			</control>
+		
+		</include>
+	
+		<include name="ContextInfoListCases"> <!--info list cases-->
+	
+			<control type="grouplist" id="996">
+				<description>grouplist for context buttons</description>
+				<width>380</width>
+				<height min="0" max="385">auto</height>
+				<posx>1465</posx>
+				<posy>69</posy>
+				<itemgap>0</itemgap>
+				<scrolltime>0</scrolltime>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			</control>
+			
+			<control type="button" id="1000">
+				<include>InfoListContextButton</include>
+			</control>
+	  
+			<control type="image"> <!--cover overlay-->
+				<posx>1396</posx>
+				<posy>-5</posy>
+				<width>443</width>
+				<height>553</height>
+				<texture>breeze/vid info/overlay.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<visible>Window.IsActive(contextmenu)</visible>
+			</control>
+	  
+			<control type="image"> <!--up arrow-->
+				<posx>1627</posx>
+				<posy>40</posy>
+				<width>15</width>
+				<height>15</height>
+				<texture flipy="true">breeze/menus/context arrow.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<visible>Window.IsActive(contextmenu)</visible>
+				<visible>Control.IsVisible(1008)</visible>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			</control>
+	  
+			<control type="image"> <!--down arrow-->
+				<posx>1627</posx>
+				<posy>465</posy>
+				<width>15</width>
+				<height>15</height>
+				<texture>breeze/menus/context arrow.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<visible>Window.IsActive(contextmenu)</visible>
+				<visible>Control.IsVisible(1008)</visible>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			</control>
+		
+		</include>
+	
+		<include name="ContextInfoList"> <!--info list-->
+	
+			<control type="grouplist" id="996">
+				<description>grouplist for context buttons</description>
+				<width>380</width>
+				<height min="0" max="385">auto</height>
+				<posx>1465</posx>
+				<posy>69</posy>
+				<itemgap>0</itemgap>
+				<scrolltime>0</scrolltime>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			</control>
+			
+			<control type="button" id="1000">
+				<include>InfoListContextButton</include>
+			</control>
+	  
+			<control type="image"> <!--up arrow-->
+				<posx>1627</posx>
+				<posy>40</posy>
+				<width>15</width>
+				<height>15</height>
+				<texture flipy="true">breeze/menus/context arrow.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<visible>Window.IsActive(contextmenu)</visible>
+				<visible>Control.IsVisible(1008)</visible>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			</control>
+	  
+			<control type="image"> <!--down arrow-->
+				<posx>1627</posx>
+				<posy>465</posy>
+				<width>15</width>
+				<height>15</height>
+				<texture>breeze/menus/context arrow.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<visible>Window.IsActive(contextmenu)</visible>
+				<visible>Control.IsVisible(1008)</visible>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			</control>
+		
+		</include>
+	
+		<include name="ContextPoster"> <!--poster-->
+			
+			<control type="group">
+				<posx>-259</posx>
+				<posy>-119</posy>
+
+				<control type="image"> <!--film cover border-->
+					<posx>580</posx>
+					<posy>163</posy>
+					<width>358</width>
+					<height>513</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>breeze/masks/info list folder border.png</texture>
+					<visible>Window.IsVisible(contextmenu)</visible>
+		
+					<animation type="WindowOpen">
+						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+						<effect type="fade" start="0" end="100" time="200" delay="150" />
+					</animation>
+		
+					<animation type="WindowClose">
+						<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+						<effect type="fade" start="100" end="0" time="200" delay="150" />
+					</animation>
+			
+				</control>
+
+				<control type="image"> <!--context menu bg-->
+					<posx>590</posx>
+					<posy>173</posy>
+					<width>338</width>
+					<height>493</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>breeze/masks/info list folder.png</texture>
+					<visible>Window.IsVisible(contextmenu)</visible>
+		
+					<animation type="WindowOpen">
+						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+						<effect type="fade" start="0" end="100" time="200" delay="150" />
+					</animation>
+		
+					<animation type="WindowClose">
+						<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+						<effect type="fade" start="100" end="0" time="200" delay="150" />
+					</animation>
+			
+				</control>	  
+	  
+				<control type="image"> <!--context menu bg-->
+					<description>background image</description>
+					<posx>590</posx>
+					<posy>173</posy>
+					<width>338</width>
+					<height>493</height>
+					<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>	
+					<visible>Window.IsVisible(contextmenu)</visible>
+		
+					<animation type="WindowOpen">
+						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+						<effect type="fade" start="0" end="100" time="200" delay="150" />
+					</animation>
+		
+					<animation type="WindowClose">
+						<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+						<effect type="fade" start="100" end="0" time="200" delay="150" />
+					</animation>
+			
+				</control>
+		
+			</control>
+	
+			<control type="grouplist" id="996">
+				<description>grouplist for context buttons</description>
+				<width>380</width>
+				<height min="0" max="385">auto</height>
+				<posx>331</posx>
+				<posy>110</posy>
+				<itemgap>0</itemgap>
+				<scrolltime>0</scrolltime>
+				<animation effect="fade" start="0" end="100" time="500" delay="400">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="100" delay="0">WindowClose</animation>
+			</control>
+			
+			<control type="button" id="1000">
+				<include>InfoListContextButton</include>
+			</control>
+	  
+			<control type="image"> <!--up arrow-->
+				<posx>493</posx>
+				<posy>81</posy>
+				<width>15</width>
+				<height>15</height>
+				<texture flipy="true">breeze/menus/context arrow.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<visible>Window.IsActive(contextmenu)</visible>
+				<visible>Control.IsVisible(1008)</visible>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			</control>
+	  
+			<control type="image"> <!--down arrow-->
+				<posx>493</posx>
+				<posy>506</posy>
+				<width>15</width>
+				<height>15</height>
+				<texture>breeze/menus/context arrow.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<visible>Window.IsActive(contextmenu)</visible>
+				<visible>Control.IsVisible(1008)</visible>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			</control>
+		
+		</include>
+	
+		<include name="ContextBannerList"> <!--banner list-->	
+
+			<control type="group">
+				<posx>-1347.5</posx>
+				<posy>222</posy>
+				<include>context drop animation</include>
+	  
+				<control type="image"> <!--context menu bg-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>358</width>
+					<height>513</height>
+					<texture>breeze/menus/banner list context bg.png</texture>	
+				</control>  
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>68</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>InfoListContextButton</include>
+				</control>
+	  
+				<control type="image"> <!--up arrow-->
+					<posx>1627</posx>
+					<posy>43</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture flipy="true">breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>1627</posx>
+					<posy>463</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+			</control>
+		
+		</include>
+		
+		<include name="ContextList"> <!--list-->	
+
+			<control type="group">
+				<posx>-1440</posx>
+				<posy>7</posy>
+				<include>context list animation</include>
+	  
+				<control type="image"> <!--context menu bg full-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>368</width>
+					<height>513</height>
+					<texture>breeze/menus/list context bg.png</texture>	
+					<visible>Control.IsVisible(1008)</visible>
+				</control>    
+	  
+				<control type="image"> <!--context menu bg 7 items-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>368</width>
+					<height>513</height>
+					<texture>breeze/menus/list context bg 7.png</texture>	
+					<visible>!Control.IsVisible(1008) + Control.IsVisible(1007)</visible>
+				</control> 
+	  
+				<control type="image"> <!--context menu bg 6 items-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>368</width>
+					<height>513</height>
+					<texture>breeze/menus/list context bg 6.png</texture>	
+					<visible>Control.IsVisible(1006) + !Control.IsVisible(1007)</visible>
+				</control> 
+	  
+				<control type="image"> <!--context menu bg 5 items-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>368</width>
+					<height>513</height>
+					<texture>breeze/menus/list context bg 5.png</texture>	
+					<visible>Control.IsVisible(1005) + !Control.IsVisible(1006)</visible>
+				</control> 
+	  
+				<control type="image"> <!--context menu bg 4 items-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>368</width>
+					<height>513</height>
+					<texture>breeze/menus/list context bg 4.png</texture>	
+					<visible>Control.IsVisible(1004) + !Control.IsVisible(1005)</visible>
+				</control> 
+	  
+				<control type="image"> <!--context menu bg 3 items-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>368</width>
+					<height>513</height>
+					<texture>breeze/menus/list context bg 3.png</texture>	
+					<visible>Control.IsVisible(1003) + !Control.IsVisible(1004)</visible>
+				</control> 
+	  
+				<control type="image"> <!--context menu bg 2 items-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>368</width>
+					<height>513</height>
+					<texture>breeze/menus/list context bg 2.png</texture>	
+					<visible>Control.IsVisible(1002) + !Control.IsVisible(1003)</visible>
+				</control> 
+	  
+				<control type="image"> <!--context menu bg 1 items-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>368</width>
+					<height>513</height>
+					<texture>breeze/menus/list context bg 1.png</texture>	
+					<visible>!Control.IsVisible(1002)</visible>
+				</control> 
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>65</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+					<animation effect="slide" start="0,0" end="0,28" time="0" condition="Control.IsVisible(1006) + !Control.IsVisible(1007)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,56" time="0" condition="Control.IsVisible(1005) + !Control.IsVisible(1006)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,82" time="0" condition="Control.IsVisible(1004) + !Control.IsVisible(1005)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,110" time="0" condition="Control.IsVisible(1003) + !Control.IsVisible(1004)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,140" time="0" condition="Control.IsVisible(1002) + !Control.IsVisible(1003)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,166" time="0" condition="!Control.IsVisible(1002)">Conditional</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>ListContextButton</include>
+				</control>
+	  
+				<control type="image"> <!--up arrow-->
+					<posx>1627</posx>
+					<posy>40</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture flipy="true">breeze/menus/context arrow.png</texture>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>1627</posx>
+					<posy>460v</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+			</control>
+		
+		</include>
+		
+		<include name="ContextEpisode"> <!--episode-->	
+
+			<control type="group">
+				<posx>-1150</posx>
+				<posy>378</posy>
+				<include>context drop animation episode</include>
+	  
+				<control type="image"> <!--context menu bg normal-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>358</width>
+					<height>513</height>
+					<texture>breeze/menus/banner list context bg.png</texture>	
+					<visible>Control.IsVisible(1008)</visible>
+				</control>  
+	  
+				<control type="image"> <!--context menu bg resume-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>358</width>
+					<height>513</height>
+					<texture flipy="true">breeze/menus/context resume bg.png</texture>	
+					<visible>!Control.IsVisible(1003)</visible>
+				</control> 
+	
+				<control type="grouplist" id="996"> <!--normal-->
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>31</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+					<animation effect="slide" start="0,0" end="0,37" time="0" condition="Control.IsVisible(1008)">Conditional</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>InfoListContextButton</include>
+				</control>
+	  
+				<control type="image"> <!--up arrow-->
+					<posx>1627</posx>
+					<posy>43</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture flipy="true">breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>1627</posx>
+					<posy>463</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+			</control>
+		
+		</include>
+		
+		<include name="ContextLowListEp"> <!--lowlist episodes-->	
+
+			<control type="group">
+				<posx>-1150</posx>
+				<posy>122</posy>
+				<include>context rise animation</include>
+	  
+				<control type="image"> <!--context menu bg normal-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>358</width>
+					<height>513</height>
+					<texture flipy="true">breeze/menus/banner list context bg.png</texture>	
+					<visible>Control.IsVisible(1008)</visible>
+				</control>  
+	  
+				<control type="image"> <!--context menu bg resume-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>358</width>
+					<height>513</height>
+					<texture>breeze/menus/context resume bg.png</texture>	
+					<visible>!Control.IsVisible(1003)</visible>
+				</control> 
+	
+				<control type="grouplist" id="996"> <!--normal-->
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>378</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+					<animation effect="slide" start="0,0" end="0,-312" time="0" condition="Control.IsVisible(1008)">Conditional</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>InfoListContextButton</include>
+				</control>
+	  
+				<control type="image"> <!--up arrow-->
+					<posx>1627</posx>
+					<posy>41</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture flipy="true">breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>1627</posx>
+					<posy>461</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+			</control>
+		
+		</include>
+	
+		<include name="ContextLowListCases"> <!--lowlist cases-->
+		
+			<control type="group">
+				<posx>-1150</posx>
+				<posy>365</posy>
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>69</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>InfoListContextButton</include>
+				</control>
+	  
+				<control type="image"> <!--cover overlay-->
+					<posx>1396</posx>
+					<posy>-5</posy>
+					<width>443</width>
+					<height>553</height>
+					<texture>breeze/vid info/overlay.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+				</control>
+	  
+				<control type="image"> <!--up arrow-->
+					<posx>1627</posx>
+					<posy>40</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture flipy="true">breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>1627</posx>
+					<posy>465</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+			
+			</control>
+		
+		</include>
+	
+		<include name="ContextLowList"> <!--lowlist-->
+		
+			<control type="group">
+				<posx>-1203</posx>
+				<posy>380</posy>
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>69</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>InfoListContextButton</include>
+				</control>
+	  
+				<control type="image"> <!--up arrow-->
+					<posx>1627</posx>
+					<posy>40</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture flipy="true">breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>1627</posx>
+					<posy>465</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1008)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+			
+			</control>
+		
+		</include>
+	
+		<include name="ContextLowListMusicCases"> <!--lowlist music cases-->
+		
+			<control type="group">
+				<posx>-1150</posx>
+				<posy>487</posy>
+				<animation effect="slide" start="0,0" end="0,-7" time="150" condition="Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="275">auto</height>
+					<posx>1465</posx>
+					<posy>69</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>InfoListContextButton</include>
+				</control>
+	  
+				<control type="image"> <!--cover overlay-->
+					<posx>1396</posx>
+					<posy>-17</posy>
+					<width>443</width>
+					<height>443</height>
+					<texture>breeze/vid info/cdoverlay.png</texture>
+					<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+				</control>
+	  
+				<control type="image"> <!--up arrow-->
+					<posx>1627</posx>
+					<posy>40</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture flipy="true">breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1006)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>1627</posx>
+					<posy>355</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1006)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+			
+			</control>
+		
+		</include>
+	
+		<include name="ContextLowListMusic"> <!--lowlist music covers-->
+		
+			<control type="group">
+				<posx>-1205</posx>
+				<posy>510</posy>
+				<animation effect="slide" start="0,0" end="0,-7" time="150" condition="Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="275">auto</height>
+					<posx>1465</posx>
+					<posy>69</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>InfoListContextButton</include>
+				</control>
+	  
+				<control type="image"> <!--up arrow-->
+					<posx>1627</posx>
+					<posy>45</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture flipy="true">breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1006)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>1627</posx>
+					<posy>353</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
+					<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>Window.IsActive(contextmenu)</visible>
+					<visible>Control.IsVisible(1006)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				</control>
+			
+			</control>
+		
+		</include>
+		
+		<include name="ContextHome"> <!--recently added (home)-->	
+
+			<control type="group">
+				<posx>-515</posx>
+				<posy>153</posy>
+				<include>context drop animation home</include> 
+	  
+				<control type="image"> <!--context menu bg-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>358</width>
+					<height>513</height>
+					<texture>breeze/menus/context resume home bg.png</texture>	
+					<visible>!Control.IsVisible(1003)</visible>
+				</control> 
+	
+				<control type="grouplist" id="996"> <!--normal-->
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>31</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>InfoListContextButton</include>
+				</control>
+			
+			</control>
+		
+		</include>
+		
+		<include name="ContextHomeInfo"> <!--recently added (home)-->	
+
+			<control type="group">
+				<posx>30</posx>
+				<posy>543</posy>
+				<include>context drop animation home info</include> 
+	  
+				<control type="image"> <!--context menu bg-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>358</width>
+					<height>513</height>
+					<texture>breeze/menus/context resume home info bg.png</texture>	
+					<visible>!Control.IsVisible(1003)</visible>
+				</control> 
+	
+				<control type="grouplist" id="996"> <!--normal-->
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>31</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>InfoListContextButton</include>
+				</control>
+			
+			</control>
+		
+		</include>
+		
+	<include name="ContextMenuBackgroundVars">
+		<posx>0</posx>
+		<texture>-</texture>
+		<aspectratio aligny="center">stretch</aspectratio>
+		<visible>false</visible>
+	</include>
+	
+	<include name="ContextMenuGroupListVars">
+		<posx>0</posx>
+		<posy>0</posy>
+		<itemgap>0</itemgap>
+		<scrolltime>0</scrolltime>
+	</include>
+	
+	<include name="ContextMenuButtonVars">
+		<height>60</height>
+		<align>center</align>
+		<aligny>top</aligny>
+		<font>Font-Condensed-S34</font>
+		<focusedcolor>eewhite</focusedcolor>
+		<textoffsetx>20</textoffsetx>
+		<textoffsety>4</textoffsety>
+	</include>
+	
+	<include name="ContextMenuDefault">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>380</width>
+			<height>660</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<width>380</width>
+			<height min="0" max="660">auto</height>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>380</width>
+			<textcolor>aawhite</textcolor>
+			<texturefocus border="45,2,45,2">dialogs/context/selection.png</texturefocus>
+			<include>ContextMenuButtonVars</include>
+		</control>
+	</include>
+	
+	<include name="ContextMenuFileManager">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>380</width>
+			<height>600</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<width>380</width>
+			<height min="0" max="600">auto</height>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>380</width>
+			<textcolor>FF484848</textcolor>
+			<texturefocus border="45,2,45,2">dialogs/context/selection.png</texturefocus>
+			<include>ContextMenuButtonVars</include>
+		</control>
+	</include>
+	
+	<include name="ContextMenuPosterView">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>374</width>
+			<height>420</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<width>374</width>
+			<height min="0" max="420">auto</height>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>374</width>
+			<textcolor>FF484848</textcolor>
+			<texturefocus border="45,2,45,2">dialogs/options/buttons/default-fo.png</texturefocus>
+			<include>ContextMenuButtonVars</include>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(1008)</visible>
+			<control type="image">
+				<posx>167</posx>
+				<posy>-55</posy>
+				<width>40</width>
+				<height>40</height>
+				<colordiffuse>CCFFFFFF</colordiffuse>
+				<texture>dialogs/contextmenu/up.png</texture>
+			</control>
+			<control type="image">
+				<posx>167</posx>
+				<posy>435</posy>
+				<width>40</width>
+				<height>40</height>
+				<colordiffuse>CCFFFFFF</colordiffuse>
+				<texture>dialogs/contextmenu/down.png</texture>
+			</control>
+		</control>
+	</include>
+	
+	<include name="ContextMenuCoverView">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>444</width>
+			<height>360</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<width>444</width>
+			<height min="0" max="360">auto</height>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>444</width>
+			<textcolor>FF484848</textcolor>
+			<texturefocus border="45,2,45,2">dialogs/options/buttons/default-fo.png</texturefocus>
+			<include>ContextMenuButtonVars</include>
+		</control>
+	</include>
+	
+	<include name="ContextMenuAddonInfo">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>401</width>
+			<height>0</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<posy>-240</posy>
+			<width>444</width>
+			<height min="0" max="271">auto</height>
+			<align>top</align>
+			<itemgap>-21</itemgap>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>401</width>
+			<texturefocus border="20">dialogs/addon-info/button.png</texturefocus>
+			<height>71</height>
+			<align>left</align>
+			<aligny>top</aligny>
+			<font>Font-Condensed-S30</font>
+			<textcolor>ABFFFFFF</textcolor>
+			<focusedcolor>eewhite</focusedcolor>
+			<textoffsetx>30</textoffsetx>
+			<textoffsety>14</textoffsety>
+		</control>
+	</include>
+</includes>

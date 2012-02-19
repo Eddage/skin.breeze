@@ -1,0 +1,2448 @@
+<includes>
+	<include file="defaults.xml" />
+	<include file="Includes_Viewtypes.xml" />
+	<include file="Viewtype_PosterFixed.xml" />
+	<include file="Viewtype_PosterFixedSeasons.xml" />
+	<include file="Viewtype_BannerList.xml" />
+	<include file="Viewtype_BannerWall.xml" />
+	<include file="Viewtype_InfoList.xml" />
+	<include file="Viewtype_Landscape.xml" />
+	<include file="Viewtype_List.xml" />
+	<include file="Viewtype_LowList.xml" />
+	<include file="Viewtype_LowListMusic.xml" />
+	<include file="Viewtype_Panel.xml" />
+	<include file="Viewtype_ShowcaseCD.xml" />
+	<include file="Viewtype_ShowcaseDVD.xml" />
+	<include file="Viewtype_ShowcaseSquare.xml" />
+	<include file="Viewtype_Wall_Movies.xml" />
+	<include file="Viewtype_Wall_Music.xml" />
+	<include file="Viewtype_Posters.xml" />
+	<include file="Viewtype_AddonWall.xml" />
+	<include file="Viewtype_BigFan.xml" />
+	<include file="Viewtype_Episode.xml" />
+	<include file="Viewtype_Carousel.xml" />
+	<include file="Viewtype_Stripshow.xml" />
+	<include file="Includes_HomeRecentlyAdded.xml" />
+	<include file="Includes_MediaFlags.xml" />
+	<include file="Includes_Animations.xml" />
+	<include file="Includes_Showcase.xml" />
+	<include file="Includes_MediaMenu.xml" />
+	<include file="Includes_Showcase_Box.xml" />
+	<include file="Includes_Showcase_Cases.xml" />
+	<include file="Includes_NextAired.xml" />
+	<include file="Includes_Music.xml" />
+	<include file="Includes_HomeWidgets.xml" />
+	<include file="Includes_Visualization.xml" />
+	<include file="Includes_Breadcrumbs.xml" />
+	<include file="Includes_Theme.xml" />
+	<include file="Includes_Weather.xml" />
+	<include file="Includes_MainMenu.xml" />
+	<include file="Includes_ContextMenu.xml" />
+	<constant name="FanartCrossfadeTime">500</constant>
+	<constant name="IconCrossfadeTime">400</constant>
+	<constant name="IconCrossfadeTime2">100</constant>
+	
+	
+	<include name="BreezeRightInfo">
+	
+		<control type ="group">
+			<posx>580</posx>
+			<posy>275</posy>
+		
+			<control type="image"> <!--vertical divider (tv/films)-->
+				<posx>1107</posx>
+				<posy>15</posy>
+				<width>6</width>
+				<height>240</height>
+				<texture>breeze/views/v divider.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<animation effect="slide" start="0,0" end="0,-75" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes) + Control.IsVisible(511)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
+			</control> 
+		
+			<control type="image"> <!--vertical divider (music)-->
+				<posx>1107</posx>
+				<posy>15</posy>
+				<width>6</width>
+				<height>240</height>
+				<texture>breeze/views/v divider.png</texture>
+				<visible>Container.Content(albums)</visible>
+				<animation effect="slide" start="0,0" end="0,-52.5" time="150" condition="Skin.HasSetting(breeze_tall_list_music) + Control.IsVisible(506)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-52.5" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002)">Conditional</animation>
+			</control> 
+	
+			<control type="image"> <!--mpaa rating bg-->
+				<posx>1133</posx>
+				<posy>25</posy>
+				<width>94</width> 
+				<height>82</height>
+				<texture>breeze/flag box.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>
+	
+			<control type="image"> <!--imdb rating bg-->
+				<posx>1228</posx>
+				<posy>25</posy>
+				<width>94</width> 
+				<height>82</height>
+				<texture>breeze/flag box.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>
+			
+			<control type="group"> <!--mpaa rating-->
+				<posx>1150</posx>
+				<posy>9</posy>
+				<include>FloorRatingFlags</include>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>
+		  
+			<control type="image"> <!--imdb rating-->
+				<posx>1246</posx>
+				<posy>10</posy>
+				<width>60</width>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/stars/base.png</texture>
+				<colordiffuse>7563abfc</colordiffuse>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>
+		  
+			<control type="label"> <!--imdb rating-->
+				<posx>1246</posx>
+				<posy>38</posy>
+				<width>61</width>
+				<height>55</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>rating</font>
+				<textcolor>infogrey</textcolor>
+				<label fallback="?">$INFO[ListItem.Rating]</label>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>
+			
+			<control type="image"> <!--studio flag bg-->
+				<posx>1130</posx>
+				<posy>100</posy>
+				<height>156</height>
+				<width>195</width>
+				<texture>breeze/box.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>	
+			
+			<control type="image"> <!--studio flag-->
+				<posx>1155</posx>
+				<posy>122</posy>
+				<width>150</width>
+				<aspectratio>keep</aspectratio>
+				<texture fallback="flags/studios/default-studio.png">$INFO[ListItem.Studio,flags/studios/,.png]</texture>
+				<visible>Container.Content(episodes) | Container.Content(seasons) | Container.Content(tvshows) | Container.Content(movies)</visible>
+				<colordiffuse>FF828282</colordiffuse>
+			</control>
+	
+			<control type="image"> <!--album year bg-->
+				<posx>1133</posx>
+				<posy>25</posy>
+				<width>94</width> 
+				<height>82</height>
+				<texture>breeze/flag box.png</texture>
+				<visible>Container.Content(albums)</visible>
+			</control>
+	
+			<control type="image"> <!--album rating bg-->
+				<posx>1228</posx>
+				<posy>25</posy>
+				<width>94</width> 
+				<height>82</height>
+				<texture>breeze/flag box.png</texture>
+				<visible>Container.Content(albums)</visible>
+			</control>
+		  
+			<control type="label"> <!--album year-->
+				<posx>1148</posx>
+				<posy>38</posy>
+				<width>61</width>
+				<height>55</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>rating</font>
+				<textcolor>infogrey</textcolor>
+				<label fallback="?">$INFO[ListItem.Year]</label>
+				<visible>Container.Content(albums)</visible>
+				<visible>!IsEmpty(ListItem.Artist)</visible>
+			</control>
+		  
+			<control type="label"> <!--album year-->
+				<posx>1148</posx>
+				<posy>38</posy>
+				<width>61</width>
+				<height>55</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>rating</font>
+				<textcolor>infogrey</textcolor>
+				<label fallback="?">N/A</label>
+				<visible>Container.Content(albums)</visible>
+				<visible>IsEmpty(ListItem.Artist)</visible>
+			</control>
+		  
+			<control type="image"> <!--album rating-->
+				<posx>1246</posx>
+				<posy>10</posy>
+				<width>60</width>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/stars/base.png</texture>
+				<colordiffuse>7563abfc</colordiffuse>
+				<visible>Container.Content(albums)</visible>
+			</control>
+		  
+			<control type="label"> <!--album rating-->
+				<posx>1245</posx>
+				<posy>38</posy>
+				<width>61</width>
+				<height>55</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>rating</font>
+				<textcolor>infogrey</textcolor>
+				<label fallback="?">$INFO[ListItem.Rating]</label>
+				<visible>Container.Content(albums)</visible>
+			</control>
+			
+			<control type="image"> <!--record label flag bg-->
+				<posx>1130</posx>
+				<posy>100</posy>
+				<height>156</height>
+				<width>195</width>
+				<texture>breeze/box.png</texture>
+				<visible>Container.Content(albums)</visible>
+			</control>	
+			
+			<control type="image"> <!--record label flag-->
+				<posx>1155</posx>
+				<posy>122</posy>
+				<width>150</width>
+				<aspectratio>keep</aspectratio>
+				<texture fallback="flags/studios/default-studio.png">$INFO[ListItem.Property(Album_Label),flags/music/recordlabel/,.png]</texture>
+				<visible>Container.Content(albums)</visible>
+				<colordiffuse>FF828282</colordiffuse>
+			</control>
+			
+		</control>
+		
+	</include>
+	
+	<include name="BreezeTimePanel">
+	
+		<control type ="group">
+			<posx>0</posx>
+			<posy>275</posy>
+		
+			<control type="image"> <!--vertical divider (tv/films)-->
+				<posx>226</posx>
+				<posy>15</posy>
+				<width>6</width>
+				<height>240</height>
+				<texture>breeze/views/v divider.png</texture>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<animation effect="slide" start="0,0" end="0,-75" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes) + Control.IsVisible(511)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes) + Control.IsVisible(511)">Conditional</animation>
+			</control> 
+		
+			<control type="image"> <!--vertical divider (music)-->
+				<posx>226</posx>
+				<posy>15</posy>
+				<width>6</width>
+				<height>240</height>
+				<texture>breeze/views/v divider.png</texture>
+				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+				<animation effect="slide" start="0,0" end="0,-52.5" time="150" condition="Skin.HasSetting(breeze_tall_list_music) + Control.IsVisible(506)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-52.5" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002) + Control.IsVisible(506)">Conditional</animation>
+			</control>
+		
+			<control type="grouplist"> <!--time-->
+				<posx>0</posx>
+				<posy>20</posy>
+				<width>385</width>
+				<height>400</height>
+				<align>center</align>
+				<itemgap>0</itemgap>
+				<orientation>horizontal</orientation>
+	  
+				<control type="label"> <!--hour-->
+					<width min="10" max="500">auto</width>
+					<height>135</height>
+					<align>left</align>
+					<label>$INFO[System.Time(hh)]</label>
+					<font>time hour</font>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="grouplist"> <!--time-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>226</width>
+					<height>500</height>
+					<align>left</align>
+					<itemgap>-20</itemgap>
+					<orientation>vertical</orientation>
+				
+					<control type="label"> <!--minutes-->
+						<width min="10" max="700">auto</width>
+						<height>100</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[System.Time(mm)]</label>
+						<font>time minutes</font>
+						<textcolor>c1393939</textcolor>
+					</control>	
+			
+					<control type="label"> <!--am/pm-->
+						<width>63</width>
+						<posx>0</posx>
+						<height>50</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$INFO[System.Time(xx)]</label>
+						<font>time am/pm</font>
+						<textcolor>75393939</textcolor>
+					</control>	
+				
+				</control>
+			
+			</control> 
+		
+			<control type="label"> <!--day-->
+				<posx>-1</posx>
+				<posy>150</posy>
+				<height>48</height>
+				<width>226</width>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>[UPPERCASE]$INFO[System.Date(DDD)][/UPPERCASE]</label>
+				<font>day</font>
+				<textcolor>99393939</textcolor>
+			</control> 
+		
+			<control type="grouplist">
+				<posx>-1</posx>
+				<posy>185</posy>
+				<width>226</width>
+				<align>center</align>
+				<itemgap>5</itemgap>
+				<orientation>horizontal</orientation>
+		
+				<control type="label"> <!--month-->
+					<height>48</height>
+					<width min="10" max="200">auto</width>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>[UPPERCASE]$INFO[System.Date(MMM)][/UPPERCASE]</label>
+					<font>month</font>
+					<textcolor>infogrey</textcolor>
+				</control>
+		
+				<control type="label"> <!--date-->
+					<height>48</height>
+					<width min="10" max="200">auto</width>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>[UPPERCASE]$INFO[System.Date(d)][/UPPERCASE]</label>
+					<font>month</font>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+			</control>
+		
+		</control>
+	
+	</include>
+	
+	<include name="BreezeMediaFlags">
+		<posx>250</posx>
+		<posy>292</posy>
+		<visible>Container.Content(movies) | Container.Content(episodes)</visible>
+	
+		<control type="group"> <!--bg boxes-->
+			<posy>171</posy>
+			<visible>Container.Content(movies) | Container.Content(episodes)</visible>
+	
+			<control type="image">
+				<posx>0</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>
+	
+			<control type="image">
+				<posx>100</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>
+	
+			<control type="image">
+				<posx>200</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>	
+	
+			<control type="image">
+				<posx>300</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>	
+	
+			<control type="image">
+				<posx>400</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>		
+	
+			<control type="image">
+				<posx>500</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>		
+			
+		</control>
+	
+		<control type="group"> <!--source flags-->
+			<posx>0</posx>
+			<posy>171</posy>  
+          
+			<control type="image"> <!--tv shows-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/tv.png</texture>
+				<visible>SubString(ListItem.Filename,tv)</visible>
+			</control>
+		  
+			<control type="image"> <!--hd dvd-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/hddvd.png</texture>			
+				<visible>SubString(ListItem.Filenameandpath,hddvd) | SubString(ListItem.Filenameandpath,hd-dvd) | SubString(ListItem.Filenameandpath,hd dvd)</visible>
+			</control>
+		  
+			<control type="image"> <!--blu ray-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/bluray.png</texture>
+				<visible>SubString(ListItem.Filenameandpath,blu ray) | SubString(ListItem.Filenameandpath,blu-ray) | SubString(ListItem.Filenameandpath,bdrip) | SubString(ListItem.Filenameandpath,brrip)</visible>
+			</control>
+		  
+			<control type="image"> <!--dvd-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/dvd.png</texture>
+				<visible>[SubString(ListItem.Filenameandpath,dvd) + !SubString(ListItem.Filenameandpath,hddvd) + !SubString(ListItem.Filenameandpath,hd-dvd) + !SubString(ListItem.Filenameandpath,hd dvd) + !SubString(ListItem.Filenameandpath,bluray)] | [SubString(ListItem.Filenameandpath,.iso,Right) + !SubString(ListItem.Filenameandpath,bluray)] | SubString(ListItem.Filenameandpath,.ifo,Right)</visible>
+			</control>
+		  
+			<control type="image"> <!--dvd (copies)-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/dvd.png</texture>
+				<visible>SubString(ListItem.Filenameandpath,copies)</visible>
+			</control>
+		  
+			<control type="image"> <!--downloads-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/web-dl.png</texture>
+				<visible>SubString(ListItem.Filenameandpath,downloads)</visible>
+			</control>
+			
+        </control>
+		
+        <control type="image"> <!--aspect ratio flag-->
+			<posx>100</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<include>AudioFlagsVars</include>
+			<texture>$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+        </control>		
+		
+        <control type="image"> <!--resolution flag-->
+			<posx>200</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<include>AudioFlagsVars</include>
+			<texture>$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+        </control>
+		
+        <control type="image"> <!--video codec flag-->
+			<posx>300</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<texture>$INFO[ListItem.VideoCodec,flags/videocodec/,.png]</texture>
+        </control>		
+		
+        <control type="group"> <!--audio codec flag-->
+			<description>Audio Flags</description>
+			<posx>400</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+		  
+			<control type="image">
+				<width>100</width> 
+				<height>66</height>
+				<include>AudioFlagsVars</include>
+				<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+			</control>
+		  
+        </control>
+		
+        <control type="image"> <!--audio channels flag-->
+			<posx>500</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<texture>$INFO[ListItem.AudioChannels,flags/audio/,.png]</texture>
+        </control>
+	
+	</include>
+	
+	<include name="BreezeMediaFlagsNowPlaying">
+		<posx>250</posx>
+		<posy>292</posy>
+	
+		<control type="group"> <!--bg boxes-->
+			<posy>171</posy>
+	
+			<control type="image">
+				<posx>0</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>
+	
+			<control type="image">
+				<posx>100</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>
+	
+			<control type="image">
+				<posx>200</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>	
+	
+			<control type="image">
+				<posx>300</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>	
+	
+			<control type="image">
+				<posx>400</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>		
+	
+			<control type="image">
+				<posx>500</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>		
+			
+		</control>
+	
+		<control type="group"> <!--source flags-->
+			<posx>0</posx>
+			<posy>171</posy>  
+          
+			<control type="image"> <!--tv shows-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/tv.png</texture>
+				<visible>SubString(Player.Filenameandpath,tv)</visible>
+			</control>
+		  
+			<control type="image"> <!--hd dvd-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/hddvd.png</texture>			
+				<visible>SubString(Player.Filenameandpath,hddvd) | SubString(Player.Filenameandpath,hd-dvd) | SubString(Player.Filenameandpath,hd dvd)</visible>
+			</control>
+		  
+			<control type="image"> <!--blu ray-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/bluray.png</texture>
+				<visible>SubString(Player.Filenameandpath,blu ray) | SubString(Player.Filenameandpath,blu-ray) | SubString(Player.Filenameandpath,bdrip) | SubString(Player.Filenameandpath,brrip)</visible>
+			</control>
+		  
+			<control type="image"> <!--dvd-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/dvd.png</texture>
+				<visible>[SubString(Player.Filenameandpath,dvd) + !SubString(Player.Filenameandpath,hddvd) + !SubString(Player.Filenameandpath,hd-dvd) + !SubString(Player.Filenameandpath,hd dvd) + !SubString(Player.Filenameandpath,bluray)] | [SubString(Player.Filenameandpath,.iso,Right) + !SubString(Player.Filenameandpath,bluray)] | SubString(Player.Filenameandpath,.ifo,Right)</visible>
+			</control>
+		  
+			<control type="image"> <!--dvd (copies)-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/dvd.png</texture>
+				<visible>SubString(Player.Filenameandpath,copies)</visible>
+			</control>
+		  
+			<control type="image"> <!--downloads-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/web-dl.png</texture>
+				<visible>SubString(Player.Filenameandpath,downloads)</visible>
+			</control>
+			
+        </control>
+		
+        <control type="image"> <!--aspect ratio flag-->
+			<posx>100</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<include>AudioFlagsVars</include>
+			<texture>$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
+        </control>		
+		
+        <control type="image"> <!--resolution flag-->
+			<posx>200</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<include>AudioFlagsVars</include>
+			<texture>$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
+        </control>
+		
+        <control type="image"> <!--video codec flag-->
+			<posx>300</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<texture>$INFO[VideoPlayer.VideoCodec,flags/videocodec/,.png]</texture>
+        </control>		
+		
+        <control type="group"> <!--audio codec flag-->
+			<description>Audio Flags</description>
+			<posx>400</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+		  
+			<control type="image">
+				<width>100</width> 
+				<height>66</height>
+				<include>AudioFlagsVars</include>
+				<texture>$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
+			</control>
+		  
+        </control>
+		
+        <control type="image"> <!--audio channels flag-->
+			<posx>500</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<texture>$INFO[VideoPlayer.AudioChannels,flags/audio/,.png]</texture>
+        </control>
+	
+	</include>
+	
+	<include name="BreezeCases">
+	
+		<control type="image"> <!--blu ray cover-->
+			<description>background image</description>
+			<posx>95</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>553</height>
+			<texture>breeze/vid info/blu ray.png</texture>
+			<visible>Container.Content(movies) + [!SubString(ListItem.Filenameandpath,hddvd) + !SubString(ListItem.Filenameandpath,hd-dvd) + !SubString(ListItem.Filenameandpath,hd dvd) + [stringcompare(ListItem.VideoResolution,1080) | stringcompare(ListItem.VideoResolution,720)]]</visible>
+		</control>
+
+		<control type="image"> <!--hd dvd cover-->
+			<description>background image</description>
+			<posx>95</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>553</height>
+			<texture>breeze/vid info/hd dvd.png</texture>
+			<visible>Container.Content(movies) + [SubString(ListItem.Filenameandpath,hddvd) | SubString(ListItem.Filenameandpath,hd-dvd)]</visible>
+		</control>
+
+		<control type="image"> <!--dvd cover-->
+			<description>background image</description>
+			<posx>95</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>553</height>
+			<texture>breeze/vid info/dvd.png</texture>
+			<visible>Container.Content(movies) + [!SubString(ListItem.Filenameandpath,hddvd) + !SubString(ListItem.Filenameandpath,hd-dvd) + !SubString(ListItem.Filenameandpath,hd dvd) + !SubString(ListItem.Filenameandpath,bluray) + !SubString(ListItem.Filenameandpath,blu ray) + !SubString(ListItem.Filenameandpath,blu-ray) + !stringcompare(ListItem.VideoResolution,1080) + !stringcompare(ListItem.VideoResolution,720)]</visible>
+		</control>
+
+		<control type="image"> <!--tv show cover-->
+			<description>background image</description>
+			<posx>95</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>553</height>
+			<texture>breeze/vid info/tv show.png</texture>
+			<visible>Container.Content(tvshows)</visible>
+		</control>
+
+		<control type="image"> <!--seasons cover-->
+			<description>background image</description>
+			<posx>95</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>553</height>
+			<texture>breeze/vid info/series.png</texture>
+			<visible>Container.Content(seasons)</visible>
+		</control>		  
+	  
+		<control type="image"> <!--film cover-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>128</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture>$INFO[ListItem.Icon]</texture>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>	
+			<visible>!Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Conditional" condition="Container.Content(episodes)">
+				<effect type="fade" start="100" end="0" time="0" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+			
+		</control>	  
+	  
+		<control type="image"> <!--context menu bg-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>128</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture>breeze/menus/case context bg.png</texture>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>	
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>	  
+	  
+		<control type="image"> <!--context menu bg-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>128</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>	
+			<visible>Window.IsVisible(contextmenu)</visible>
+			<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>
+	  
+		<control type="image"> <!--cover overlay-->
+			<description>background image</description>
+			<posx>96</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>553</height>
+			<texture>breeze/vid info/overlay.png</texture>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<visible>!Window.IsActive(contextmenu)</visible>
+		</control>
+	
+	</include>
+	
+	<include name="BreezeEpisodeCases">
+
+		<control type="image"> <!--tv show case-->
+			<description>background image</description>
+			<posx>95</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>553</height>
+			<texture>breeze/vid info/tv show.png</texture>
+			<visible>Container.Content(episodes)</visible>
+		</control>		  
+	  
+		<control type="image"> <!--cover-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>128</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture>$INFO[Container.TVShowThumb]</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+			<visible>!SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+			
+		</control>		  
+	  
+		<control type="image"> <!--cover (recently added)-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>128</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture>$INFO[ListItem.path,,../folder.jpg]</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+			<visible>SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+			
+		</control>	  
+	  
+		<control type="image"> <!--context menu bg-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>128</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture>breeze/menus/case context bg.png</texture>
+			<visible>Container.Content(episodes)</visible>	
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>	  
+	  
+		<control type="image"> <!--context menu bg-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>128</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[Container.TVShowThumb]</texture>
+			<visible>Window.IsVisible(contextmenu)</visible>
+			<visible>!SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control> 
+	  
+		<control type="image"> <!--context menu bg (recently added)-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>128</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.path,,../folder.jpg]</texture>
+			<visible>Window.IsVisible(contextmenu)</visible>
+			<visible>SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>
+	  
+		<control type="image"> <!--cover overlay-->
+			<description>background image</description>
+			<posx>96</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>553</height>
+			<texture>breeze/vid info/overlay.png</texture>
+			<visible>Container.Content(episodes)</visible>
+			<visible>!Window.IsActive(contextmenu)</visible>
+		</control>
+	
+	</include>
+	
+	<include name="covers">
+
+		<control type="image"> <!--film cover border-->
+			<posx>580</posx>
+			<posy>163</posy>
+			<width>358</width>
+			<height>513</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>breeze/masks/info list folder border.png</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		</control>
+
+		<control type="image"> <!--film cover border-->
+			<posx>580</posx>
+			<posy>163</posy>
+			<width>358</width>
+			<height>513</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>breeze/masks/info list folder border.png</texture>
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		</control>
+
+		<control type="image"> <!--film cover-->
+			<posx>590</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>493</height>
+			<aspectratio>stretch</aspectratio>
+			<texture diffuse="breeze/masks/info list folder.png">$INFO[ListItem.Icon]</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+			
+		</control>
+
+		<control type="image"> <!--context menu bg-->
+			<posx>590</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>493</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>breeze/masks/info list folder.png</texture>
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>	  
+	  
+		<control type="image"> <!--context menu bg-->
+			<description>background image</description>
+			<posx>590</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>	
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>
+				
+	</include>
+
+	<include name="episodecovers">
+
+		<control type="image"> <!--film cover border-->
+			<posx>580</posx>
+			<posy>163</posy>
+			<width>358</width>
+			<height>513</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>breeze/masks/info list folder border.png</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		</control>
+
+		<control type="image"> <!--film cover border-->
+			<posx>580</posx>
+			<posy>163</posy>
+			<width>358</width>
+			<height>513</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>breeze/masks/info list folder border.png</texture>
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		</control>
+
+		<control type="image"> <!--cover-->
+			<posx>590</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>493</height>
+			<aspectratio>stretch</aspectratio>
+			<texture diffuse="breeze/masks/info list folder.png">$INFO[Container.TVShowThumb]</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+			<visible>!SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+			
+		</control>
+
+		<control type="image"> <!--cover (recently added)-->
+			<posx>590</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>493</height>
+			<aspectratio>stretch</aspectratio>
+			<texture diffuse="breeze/masks/info list folder.png">$INFO[ListItem.path,,../folder.jpg]</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+			<visible>SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+			
+		</control>
+
+		<control type="image"> <!--context menu bg-->
+			<posx>590</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>493</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>breeze/masks/info list folder.png</texture>
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>	  
+	  
+		<control type="image"> <!--context menu bg-->
+			<description>background image</description>
+			<posx>590</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[Container.TVShowThumb]</texture>
+			<visible>Container.Content(episodes)</visible>	
+			<visible>Window.IsVisible(contextmenu)</visible>
+			<visible>!SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>  
+	  
+		<control type="image"> <!--context menu bg (recently added)-->
+			<description>background image</description>
+			<posx>590</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>493</height>
+			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.path,,../folder.jpg]</texture>
+			<visible>Container.Content(episodes)</visible>	
+			<visible>Window.IsVisible(contextmenu)</visible>
+			<visible>SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>
+				
+	</include>
+	
+	<include name="BreezeCDCases">
+	
+		<control type="image"> <!--artist cover-->
+			<description>background image</description>
+			<posx>95</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>443</height>
+			<texture>breeze/vid info/artist.png</texture>
+			<visible>Container.Content(artists)</visible>
+		</control>
+
+		<control type="image"> <!--album cover-->
+			<description>background image</description>
+			<posx>95</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>443</height>
+			<texture>breeze/vid info/cd.png</texture>
+			<visible>Container.Content(albums) | Container.Content(songs)</visible>
+		</control>	  
+	  
+		<control type="image"> <!--cover-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>146</posy>
+			<width>340</width>
+			<height>365</height>
+			<texture fallback="Breeze/Artist.png">$INFO[ListItem.Thumb]</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Conditional" condition="Container.Content(episodes)">
+				<effect type="fade" start="100" end="0" time="0" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+			
+		</control>	  
+	  
+		<control type="image"> <!--context menu bg-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>146</posy>
+			<width>338</width>
+			<height>365</height>
+			<texture>breeze/menus/case context bg.png</texture>
+			<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>	
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>	  
+	  
+		<control type="image"> <!--context menu bg-->
+			<description>background image</description>
+			<posx>165</posx>
+			<posy>146</posy>
+			<width>338</width>
+			<height>365</height>
+			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
+			<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="334,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>
+	  
+		<control type="image"> <!--cover overlay-->
+			<description>background image</description>
+			<posx>96</posx>
+			<posy>107</posy>
+			<width>443</width>
+			<height>443</height>
+			<texture>breeze/vid info/cdoverlay.png</texture>
+			<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+			<visible>!Window.IsActive(contextmenu)</visible>
+		</control>
+	
+	</include>	
+	
+	<include name="coversmusic">
+
+		<control type="image"> <!--cover border-->
+			<posx>580</posx>
+			<posy>163</posy>
+			<width>360</width>
+			<height>360</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>breeze/masks/album border.png</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		</control>
+
+		<control type="image"> <!--cover border-->
+			<posx>582.5</posx>
+			<posy>163</posy>
+			<width>357.5</width>
+			<height>360</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>breeze/masks/album border.png</texture>
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		</control>
+
+		<control type="image"> <!--cover-->
+			<posx>590</posx>
+			<posy>173</posy>
+			<width>340</width>
+			<height>340</height>
+			<aspectratio>stretch</aspectratio>
+			<texture diffuse="breeze/masks/album.png" fallback="Breeze/Artist.png">$INFO[ListItem.Thumb]</texture>
+			<visible>!Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+			
+		</control>
+
+		<control type="image"> <!--context menu bg-->
+			<posx>592</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>340</height>
+			<aspectratio>stretch</aspectratio>
+			<texture>breeze/masks/album.png</texture>
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>	  
+	  
+		<control type="image"> <!--context menu bg-->
+			<description>background image</description>
+			<posx>591</posx>
+			<posy>173</posy>
+			<width>338</width>
+			<height>340</height>
+			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
+			<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+			<visible>Window.IsVisible(contextmenu)</visible>
+		
+			<animation type="Visible">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="0" end="100" time="200" delay="150" />
+			</animation>
+		
+			<animation type="Hidden">
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+		</control>
+				
+	</include>
+	
+	<include name="BreezeTotalFilesLeft">
+	
+		<control type="image"> <!--vertical divider-->
+          <posx>20</posx>
+          <posy>539</posy>
+          <width>2</width>
+          <height>50</height>
+          <texture>breeze/views/v divider.png</texture>
+        </control>
+		
+		<control type="label"> <!--films label-->
+		  <posx>25</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <label>Films</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(movies)</visible>
+		</control> 
+		
+		<control type="label"> <!--tv shows label-->
+		  <posx>25</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <label>TV Shows</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(tvshows)</visible>
+		</control> 
+		
+		<control type="label"> <!--seasons label-->
+		  <posx>25</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <label>Seasons</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(seasons)</visible>
+		</control> 
+		
+		<control type="label"> <!--episodes label-->
+		  <posx>25</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <label>Episodes</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(episodes)</visible>
+		</control>  
+		
+		<control type="label"> <!--albums label-->
+		  <posx>25</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <label>Albums</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(albums)</visible>
+		</control> 
+		
+		<control type="label"> <!--songs label-->
+		  <posx>25</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <label>Songs</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(songs)</visible>
+		</control> 
+		
+		<control type="label"> <!--total episodes-->
+		  <posx>25</posx>
+		  <posy>545</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>left</align>
+		  <aligny>center</aligny>
+		  <label>$INFO[Container.NumItems]</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		</control>
+		
+	</include>	
+	
+	<include name="BreezeTotalFilesRight">
+	
+		<control type="image"> <!--vertical divider-->
+          <posx>1258</posx>
+          <posy>539</posy>
+          <width>2</width>
+          <height>50</height>
+          <texture>breeze/views/v divider.png</texture>
+        </control>
+		
+		<control type="label"> <!--films label-->
+		  <posx>1253</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>right</align>
+		  <aligny>center</aligny>
+		  <label>Films</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(movies)</visible>
+		</control> 
+		
+		<control type="label"> <!--tv shows label-->
+		  <posx>1253</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>right</align>
+		  <aligny>center</aligny>
+		  <label>TV Shows</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(tvshows)</visible>
+		</control> 
+		
+		<control type="label"> <!--seasons label-->
+		  <posx>1253</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>right</align>
+		  <aligny>center</aligny>
+		  <label>Seasons</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(seasons)</visible>
+		</control> 
+		
+		<control type="label"> <!--episodes label-->
+		  <posx>1253</posx>
+		  <posy>520</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>right</align>
+		  <aligny>center</aligny>
+		  <label>Episodes</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		  <visible>Container.Content(episodes)</visible>
+		</control> 
+		
+		<control type="label"> <!--total episodes-->
+		  <posx>1253</posx>
+		  <posy>545</posy>
+		  <height>60</height>
+		  <width>200</width>
+		  <align>right</align>
+		  <aligny>center</aligny>
+		  <label>$INFO[Container.NumItems]</label>
+		  <font>dream orphans 20</font>
+		  <textcolor>50000000</textcolor>
+		</control>
+		
+	</include>	
+	
+	<include name="CommonMediaPlayingBackground">
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<colordiffuse>FF000000</colordiffuse>
+			<texture>common/black.png</texture>
+			<visible>Player.HasVideo + [!Skin.HasSetting(ShowBackgroundVideo)|Window.IsActive(settings)|Window.IsActive(systeminfo)|Window.IsActive(picturessettings)|Window.IsActive(programssettings)|Window.IsActive(weathersettings)|Window.IsActive(musicsettings)|Window.IsActive(systemsettings)|Window.IsActive(videossettings)|Window.IsActive(networksettings)|Window.IsActive(appearancesettings)|Window.IsActive(1111)]</visible>
+		</control>
+		<control type="visualisation">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<visible>Player.HasAudio + !Skin.HasSetting(ShowBackgroundVis)</visible>
+		</control>
+		<control type="videowindow">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<visible>Player.HasVideo + [!Skin.HasSetting(ShowBackgroundVideo)|Window.IsActive(settings)|Window.IsActive(systeminfo)|Window.IsActive(picturessettings)|Window.IsActive(programssettings)|Window.IsActive(weathersettings)|Window.IsActive(musicsettings)|Window.IsActive(systemsettings)|Window.IsActive(videossettings)|Window.IsActive(networksettings)|Window.IsActive(appearancesettings)|Window.IsActive(1111)]</visible>
+		</control>
+	</include>
+	
+	<include name="CommonFanartVars">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1920</width>
+		<height>1080</height>
+		<timeperimage>10000</timeperimage>
+		<randomize>true</randomize>
+		<fadetime>900</fadetime>
+		<include condition="Skin.HasSetting(animatedbg)">Animation_Background</include>
+		<aspectratio align="center">scale</aspectratio>
+	</include>
+	
+	<include name="CommonFanartVarsSingle">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1920</width>
+		<height>1080</height>
+		<fadetime>FanartCrossfadeTime</fadetime>
+		<include condition="Skin.HasSetting(animatedbg)">Animation_Background</include>
+		<aspectratio align="center">scale</aspectratio>
+		<include>Animation_CommonFade</include>
+	</include>
+	
+	<include name="CommonFanartVarsSingleScroll">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1920</width>
+		<height>1080</height>
+		<fadetime>FanartCrossfadeTime</fadetime>
+		<include condition="Skin.HasSetting(animatedbg)">Animation_Background</include>
+		<aspectratio align="center">scale</aspectratio>
+		<include>Animation_CommonFade</include>
+	</include>
+	
+	<include name="CommonCurtainBackdrop">
+		<control type="image">
+			<include>CommonFanartVarsSingleScroll</include>
+			<texture background="true">special://skin/backgrounds/curtains.jpg</texture>
+			<visible>Skin.HasSetting(CurtainBackdrop)</visible>
+		</control>
+	</include>
+	
+	<include name="CommonVideoBackground">
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath fallback="special://skin/backgrounds/curtains.jpg" background="true">$INFO[Skin.String(Home_Custom_Back_Video_Folder)]</imagepath>
+			<visible>[!Container.Content(movies)+!Container.Content(tvshows)+!Container.Content(seasons)+!Container.Content(episodes)]|IsEmpty(ListItem.Property(Fanart_Image))</visible>
+		</control>
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath fallback="special://skin/backgrounds/movies.jpg" background="true">$INFO[Skin.String(Home_Custom_Back_Movies_Folder)]</imagepath>
+			<visible>Container.Content(Movies) + !Skin.HasSetting(HomeMenuNoMovieButton) + Skin.HasSetting(VideoLibraryMovieFanart)</visible>
+		</control>
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath fallback="special://skin/backgrounds/tvshows.jpg" background="true">$INFO[Skin.String(Home_Custom_Back_TVShow_Folder)]</imagepath>
+			<visible>[Container.Content(TVShows) | Container.Content(Seasons) |Container.Content(Episodes)] +  !Skin.HasSetting(HomeMenuNoTVShowButton) + Skin.HasSetting(VideoLibraryTVFanart)</visible>
+		</control>
+	</include>
+	
+	<include name="CommonMusicBackground">
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath fallback="special://skin/backgrounds/music.jpg" background="true">$INFO[Skin.String(Home_Custom_Back_Music_Folder)]</imagepath>
+		</control>
+	</include>
+	
+	<include name="CommonPictureBackground">
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath fallback="special://skin/backgrounds/pictures.jpg" background="true">$INFO[Skin.String(Home_Custom_Back_Pictures_Folder)]</imagepath>
+		</control>
+	</include>
+	
+	<include name="CommonProgramsBackground">
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath fallback="special://skin/backgrounds/programs.jpg" background="true">$INFO[Skin.String(Home_Custom_Back_Programs_Folder)]</imagepath>
+		</control>
+	</include>
+	
+	<include name="CommonWeatherBackground">
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath fallback="special://skin/backgrounds/weather.jpg" background="true">$INFO[Skin.String(Home_Custom_Back_Weather_Folder)]</imagepath>
+			<visible>![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]</visible>
+		</control>
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Weather.FanartCode]</imagepath>
+			<visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))</visible>
+		</control>
+	</include>
+	
+	<include name="CommonSettingsBackground">
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath fallback="special://skin/backgrounds/system.jpg" background="true">$INFO[Skin.String(Home_Custom_Back_Settings_Folder)]</imagepath>
+		</control>
+	</include>
+	
+	<include name="CommonAddonsBackground">
+		<control type="multiimage">
+			<include>CommonFanartVars</include>
+			<imagepath fallback="special://skin/backgrounds/addons.jpg" background="true">$INFO[Skin.String(Home_Custom_Back_Addons_Folder)]</imagepath>
+		</control>
+	</include>
+	
+	<include name="ButtonInfoDialogsCommonValues">
+		<height>40</height>
+		<width>170</width>
+		<textoffsetx>20</textoffsetx>
+		<align>center</align>
+		<aligny>center</aligny>
+		<font>Font_Reg18</font>
+		<texturefocus border="5">dialogs/context_highlight.png</texturefocus>
+		<texturenofocus border="5">dialogs/context_nofocus.png</texturenofocus>
+		<pulseonselect>false</pulseonselect>
+	</include>
+	
+	<include name="ScrollOffsetLabel"> <!--the letter that poops up when you scroll fast-->
+		
+		<control type="group">
+			<visible>Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])]</visible>
+			<animation effect="slide" start="0,60" end="0,0" time="200">Visible</animation>
+			<animation effect="slide" start="0,0" end="0,60" delay="750" time="200">Hidden</animation>
+			<posx>1000</posx>
+			<posy>655</posy>
+			
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>70</width>
+				<height>70</height>
+				<texture>breeze/common/scroll letter bg.png</texture>
+			</control>
+			
+			<control type="label">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>70</width>
+				<height>70</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.SortLetter]</label>
+				<textcolor>infogrey</textcolor>
+				<font>beaufort 30</font>
+			</control>
+			
+		</control>
+		
+	</include>
+	
+	<include name="Objects_OSDSeek">
+    <posx>500</posx>
+    <posy>0</posy>
+    <width>280</width>
+    <height>28</height>
+    <aligny>center</aligny>
+    <align>center</align>
+    <font>Font_Reg18</font>
+    <textcolor>osdseek</textcolor>
+    <animation type="WindowOpen">
+      <effect type="fade" time="200" start="0" end="100" />
+      <effect type="slide" time="200" start="0,-65" end="0,0" easing="out" tween="cubic" />
+    </animation>
+    <animation type="WindowClose">
+      <effect type="fade" time="200" start="100" end="0" />
+      <effect type="slide" time="200" start="0,0" end="0,-65" easing="in" tween="cubic" />
+    </animation>
+    <include>AnimationCommonFade</include>
+  </include>
+  
+	<include name="Dialogs_Group">
+		<posx>408</posx>
+		<posy>-20</posy>
+		<width>509</width>
+		<height>91</height>
+	</include>
+  
+	<include name="Dialogs_GroupProgress">
+		<posx>408</posx>
+		<posy>-5</posy>
+		<width>509</width>
+		<height>91</height>
+	</include>
+	
+	<include name="Dialogs_Tablet">
+	
+		<control type="image">
+			<posx>-408</posx>
+			<posy>-22</posy>
+			<aspectratio>keep</aspectratio>
+			<height>170</height>
+			<texture>breeze/dialogs/popup bg.png</texture>
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_Exclam">
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>60</width>
+			<height>60</height>
+			<texture>breeze/dialogs/exclamation.png</texture>
+			<!--animation effect="fade" start="100" end="70" time="600" pulse="true" condition="true">Conditional</animation-->
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_Busy">
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>60</width>
+			<height>60</height>
+			<texture>breeze/dialogs/busy bg.png</texture>
+		</control>
+		
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>60</width>
+			<height>60</height>
+			<texture>breeze/dialogs/busy.png</texture>
+			<animation effect="rotate" start="360" end="0" center="auto" time="1000" loop="true" condition="true">conditional</animation>
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_HardDrive">
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>60</width>
+			<height>60</height>
+			<texture>breeze/dialogs/scan icon.png</texture>
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_Video_Scan">
+	
+		<control type="group">
+		<posx>1750</posx>
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>80</width>
+			<height>80</height>
+			<texture>breeze/dialogs/busy video.png</texture>
+		</control>
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>80</width>
+			<height>80</height>
+			<texture>breeze/dialogs/busy bg.png</texture>
+		</control>
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>80</width>
+			<height>80</height>
+			<texture>breeze/dialogs/busy centre.png</texture>
+			<animation effect="rotate" start="360" end="0" center="auto" time="1000" loop="true" condition="true">conditional</animation>
+		</control>
+		
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_Music_Scan">
+	
+		<control type="group">
+		<posx>1750</posx>
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>80</width>
+			<height>80</height>
+			<texture>breeze/dialogs/busy music.png</texture>
+		</control>
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>80</width>
+			<height>80</height>
+			<texture>breeze/dialogs/busy bg.png</texture>
+		</control>
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>80</width>
+			<height>80</height>
+			<texture>breeze/dialogs/busy centre.png</texture>
+			<animation effect="rotate" start="360" end="0" center="auto" time="1000" loop="true" condition="true">conditional</animation>
+		</control>
+		
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_HardDriveDL">
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>60</width>
+			<height>60</height>
+			<texture>breeze/dialogs/scan icon.png</texture>
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_VolumeIcon">
+	
+		<control type="image">
+			<posx>17</posx>
+			<posy>22</posy>
+			<width>60</width>
+			<height>60</height>
+			<texture>breeze/dialogs/volume icon.png</texture>
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_Mute">
+	
+		<control type="image">
+			<posx>1677</posx>
+			<posy>21</posy>
+			<width>80</width>
+			<height>80</height>
+			<texture>breeze/dialogs/mute icon.png</texture>
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_Progress">
+		<description>Progressbar</description>
+		<posx>85</posx>
+		<posy>55</posy>
+		<width>350</width>
+		<height>10</height>
+		<reveal>true</reveal>
+		<texturebg>breeze/dialogs/progress bg.png</texturebg>
+		<lefttexture>breeze/dialogs/progress left.png</lefttexture>
+		<midtexture>breeze/dialogs/progress mid.png</midtexture>
+		<righttexture>breeze/dialogs/progress right.png</righttexture>
+		<overlaytexture>-</overlaytexture>
+	</include>
+	
+	<include name="Dialogs_ProgressScan">
+		<description>Progressbar</description>
+		<posx>85</posx>
+		<posy>70</posy>
+		<width>350</width>
+		<height>10</height>
+		<reveal>true</reveal>
+		<texturebg>breeze/dialogs/progress bg.png</texturebg>
+		<lefttexture>breeze/dialogs/progress left.png</lefttexture>
+		<midtexture>breeze/dialogs/progress mid.png</midtexture>
+		<righttexture>breeze/dialogs/progress right.png</righttexture>
+		<overlaytexture>-</overlaytexture>
+	</include>
+	
+	<include name="Dialogs_ProgressDownload">
+		<description>Progressbar</description>
+		<posx>85</posx>
+		<posy>47</posy>
+		<width>350</width>
+		<height>10</height>
+		<reveal>true</reveal>
+		<texturebg>breeze/dialogs/progress bg.png</texturebg>
+		<lefttexture>breeze/dialogs/progress left.png</lefttexture>
+		<midtexture>breeze/dialogs/progress mid.png</midtexture>
+		<righttexture>breeze/dialogs/progress right.png</righttexture>
+		<overlaytexture>-</overlaytexture>
+	</include>
+	
+	<include name="Dialogs_LabelVars">
+		<posx>85</posx>
+		<posy>0</posy>
+		<width>370</width>
+		<height>25</height>
+	</include>
+	
+	<include name="Dialogs_LabelVars2">
+		<posx>440</posx>
+		<posy>0</posy>
+		<width>340</width>
+		<height>25</height>
+	</include>
+	
+	<include name="Dialogs_Label1">
+		<posy>-16</posy>
+		<include>Dialogs_LabelHeader</include>
+		<textcolor>infogrey</textcolor>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>beaufort 24</font>
+		<scroll>true</scroll>
+	</include>
+	
+	<include name="Dialogs_LabelP">
+		<posy>10</posy>
+		<include>Dialogs_LabelVars</include>
+		<textcolor>infogrey</textcolor>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>dialog</font>
+		<scroll>false</scroll>
+	</include>
+	
+	<include name="Dialogs_Label2">
+		<posy>20</posy>
+		<include>Dialogs_LabelVars</include>
+		<textcolor>infogrey</textcolor>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>breeze28b</font>
+		<scroll>false</scroll>
+	</include>
+	
+	<include name="Dialogs_Label3">
+		<posy>50</posy>
+		<include>Dialogs_LabelVars</include>
+		<textcolor>infogrey</textcolor>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>breeze28</font>
+		<scroll>false</scroll>
+	</include>
+	
+	<include name="Dialogs_Label3Scan">
+		<posy>44</posy>
+		<include>Dialogs_LabelVars</include>
+		<textcolor>infogreynf</textcolor>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>dialog</font>
+		<scroll>false</scroll>
+	</include>
+	
+	<include name="Dialogs_Label4">
+		<posy>55</posy>
+		<include>Dialogs_LabelVars</include>
+		<textcolor>infogrey</textcolor>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>dialogs</font>
+		<scroll>false</scroll>
+	</include>
+	
+	<include name="Dialogs_Label4DL">
+		<posy>55</posy>
+		<include>Dialogs_LabelVars</include>
+		<textcolor>infogreynf</textcolor>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>dialogs</font>
+		<scroll>false</scroll>
+	</include>
+	
+	<include name="Objects_MediaMenuButtonAlt">
+		<height>50</height>
+		<width>341</width>
+		<texturenofocus>breeze/menus/sub nf.png</texturenofocus>
+		<texturefocus>breeze/menus/sub f.png</texturefocus>
+		<alttexturenofocus>breeze/menus/sub nf.png</alttexturenofocus>
+		<alttexturefocus>breeze/menus/sub f.png</alttexturefocus>
+		<pulseonselect>false</pulseonselect>
+		<textcolor>infogreynf</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<disabledcolor>disabled</disabledcolor>
+		<textoffsetx>28</textoffsetx>
+		<textoffsety>1</textoffsety>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>breeze28b</font>
+		<include>Animation_CommonFade</include>
+		<radiowidth>49</radiowidth>
+		<radioheight>25</radioheight>
+		<radioposx>265</radioposx>
+		<textureradiofocus>breeze/settings/radio button f small.png</textureradiofocus>
+		<textureradionofocus>breeze/settings/radio button small.png</textureradionofocus>
+	</include>
+	
+	<include name="Objects_MediaMenuButtonHeading">
+		<height>60</height>
+		<width>341</width>
+		<texturenofocus>breeze/menus/sub nf.png</texturenofocus>
+		<texturefocus>breeze/menus/sub f.png</texturefocus>
+		<alttexturenofocus>breeze/menus/sub nf.png</alttexturenofocus>
+		<alttexturefocus>breeze/menus/sub f.png</alttexturefocus>
+		<pulseonselect>false</pulseonselect>
+		<textcolor>infogreynf</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<disabledcolor>disabled</disabledcolor>
+		<textoffsetx>28</textoffsetx>
+		<textoffsety>1</textoffsety>
+		<align>left</align>
+		<aligny>center</aligny>
+		<font>breeze29b</font>
+		<include>Animation_CommonFade</include>
+		<radiowidth>49</radiowidth>
+		<radioheight>25</radioheight>
+		<radioposx>265</radioposx>
+		<textureradiofocus>breeze/settings/radio button f small.png</textureradiofocus>
+		<textureradionofocus>breeze/settings/radio button small.png</textureradionofocus>
+	</include>
+	
+	<include name="Objects_ShutdownMenu">
+		<height>50</height>
+		<width>280</width>
+		<texturenofocus>breeze/menus/shutdown bg.png</texturenofocus>
+		<texturefocus>breeze/menus/shutdown bg f.png</texturefocus>
+		<alttexturenofocus>breeze/menus/shutdown bg.png</alttexturenofocus>
+		<alttexturefocus>breeze/menus/shutdown bg f.png</alttexturefocus>
+		<pulseonselect>false</pulseonselect>
+		<textcolor>infogreynf</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<disabledcolor>disabled</disabledcolor>
+		<textoffsetx>55</textoffsetx>
+		<textoffsety>7</textoffsety>
+		<align>left</align>
+		<aligny>top</aligny>
+		<font>breeze28b</font>
+		<include>Animation_CommonFade</include>
+		<radiowidth>20</radiowidth>
+		<radioheight>20</radioheight>
+		<radioposx>250</radioposx>
+	</include>
+	
+	<include name="Objects_ContextMenuButton">
+		<description>button template</description>
+		<posx>0</posx>
+		<posy>0</posy>
+		<height>35</height>
+		<width>300</width>
+		<textcolor>infogreynf</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<texturenofocus>breeze/dialogs/shutdown bg nf.png</texturenofocus>
+		<texturefocus>breeze/dialogs/shutdown bg f.png</texturefocus>
+		<alttexturefocus>breeze/dialogs/shutdown bg f.png</alttexturefocus>
+		<alttexturenofocus>breeze/dialogs/shutdown bg nf.png</alttexturenofocus>
+		<pulseonselect>false</pulseonselect>
+		<align>center</align>
+		<aligny>top</aligny>
+		<font>context</font>
+		<textoffsety>2.5</textoffsety>
+	</include>
+	
+	<include name="Objects_FSInfoButton">
+		<textcolor>FF868686</textcolor>
+		<focusedcolor>FFececec</focusedcolor>
+		<disabledcolor>66868686</disabledcolor>
+		<texturenofocus>dialogs/context_nofocus.png</texturenofocus>
+		<texturefocus>dialogs/context_highlight.png</texturefocus>
+		<alttexturefocus>dialogs/context_highlight.png</alttexturefocus>
+		<alttexturenofocus>dialogs/context_nofocus.png</alttexturenofocus>
+		<align>center</align>
+		<textoffsetx>0</textoffsetx>
+		<textoffsety>8</textoffsety>
+		<width>120</width>
+		<height>29</height>
+		<aligny>center</aligny>
+		<font>Font_Reg19</font>
+	</include>
+	
+	<include name="HiddenObject">
+		<posx>-200</posx>
+		<posy>-200</posy>
+		<width>1</width>
+		<height>1</height>
+		<texturefocus>-</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<label>-</label>
+		<font>-</font>
+	</include>
+	
+	<include name="subcolornofocus">
+		<textcolor>ff969696</textcolor>
+		<selectedcolor>selected</selectedcolor>
+	</include>
+	
+	<include name="musiclistcolornofocus">
+		<selectedcolor>blue</selectedcolor>
+		<textcolor>white</textcolor>
+	</include>
+	
+	<include name="listcolornofocus">
+		<selectedcolor>infogreynf</selectedcolor>
+		<textcolor>infogreynf</textcolor>
+	</include>
+	
+	<include name="subcolorfocus">
+		<textcolor>ff2e2e2e</textcolor>
+		<selectedcolor>ff004a6d</selectedcolor>
+	</include>
+	
+	<include name="musiclistcolorfocus">
+		<textcolor>white</textcolor>
+		<selectedcolor>white</selectedcolor>
+	</include>
+	
+	<include name="listcolorfocus">
+		<textcolor>infogrey</textcolor>
+		<selectedcolor>infogrey</selectedcolor>
+	</include>
+	
+	<include name="detailcolornofocus">
+		<textcolor>dcbdbdbd</textcolor>
+		<selectedcolor>selected</selectedcolor>
+	</include>
+	
+	<include name="detailcolorfocus">
+		<textcolor>ff2e2e2e</textcolor>
+		<selectedcolor>ff004a6d</selectedcolor>
+	</include>
+	
+	<include name="Objects_KeyOffVars">
+		<textcolor>infogreynf</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<selectedcolor>white</selectedcolor>
+		<align>center</align>
+		<aligny>top</aligny>
+		<textoffsety>17</textoffsety>
+		<font>breeze32</font>
+	</include>
+	
+	<include name="Objects_DoubleKeyOff">
+		<posy>0</posy>
+		<width>190</width>
+		<height>80</height>
+		<texturefocus>breeze/keyboard/double bg f.png</texturefocus>
+		<texturenofocus>breeze/keyboard/double bg.png</texturenofocus>
+		<include>Objects_KeyOffVars</include>
+	</include>
+	
+	<include name="Objects_DoubleKeyOffSymbol">
+		<posy>0</posy>
+		<width>160</width>
+		<height>80</height>
+		<texturefocus>breeze/keyboard/double bg f.png</texturefocus>
+		<texturenofocus>breeze/keyboard/double bg.png</texturenofocus>
+		<include>Objects_KeyOffVars</include>
+	</include>
+	
+	<include name="Objects_SingleKeyOff">
+		<posy>0</posy>
+		<width>80</width>
+		<height>80</height>
+		<texturefocus>breeze/keyboard/single bg f.png</texturefocus>
+		<texturenofocus>breeze/keyboard/single bg.png</texturenofocus>
+		<include>Objects_KeyOffVars</include>
+	</include>
+	
+	<include name="Objects_SingleKeyOffArrow">
+		<posy>0</posy>
+		<width>95</width>
+		<height>80</height>
+		<texturefocus>breeze/keyboard/single bg f.png</texturefocus>
+		<texturenofocus>breeze/keyboard/single bg.png</texturenofocus>
+		<include>Objects_KeyOffVars</include>
+	</include>
+	
+	<include name="Objects_DoubleKeyOnSymbol">
+		<posy>0</posy>
+		<width>160</width>
+		<height>80</height>
+		<texturefocus>breeze/keyboard/double bg f.png</texturefocus>
+		<texturenofocus>breeze/keyboard/double bg f.png</texturenofocus>
+		<include>Objects_KeyOnVars</include>
+	</include>	
+	
+	<include name="Objects_TripleKeyOff">
+		<posy>0</posy>
+		<width>240</width>
+		<height>80</height>
+		<texturefocus>breeze/keyboard/triple bg f.png</texturefocus>
+		<texturenofocus>breeze/keyboard/triple bg.png</texturenofocus>
+		<include>Objects_KeyOffVars</include>
+	</include>
+	
+	<include name="cdart">
+		<texture background="true" fallback="common/cdart/default.png">$INFO[Player.FolderPath]cdart.png</texture>
+	</include>
+	
+	<include name="cdartlibrary">
+		<texture background="true" fallback="common/cdart/default.png">$INFO[ListItem.Path]cdart.png</texture>
+	</include>
+	
+	<include name="Default_SettingRadioButton">
+		<description>Default RadioButton</description>
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1400</width>
+		<height>70</height>
+		<font>breeze32</font>
+		<textcolor>infogrey</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<disabledcolor>disabled</disabledcolor>
+		<textoffsetx>30</textoffsetx>
+		<textoffsety>6</textoffsety>
+		<radioposx>1307</radioposx>
+		<radioposy>21</radioposy>
+		<radiowidth>63</radiowidth>
+		<radioheight>33</radioheight>
+		<texturefocus>breeze/settings/focused bg.png</texturefocus>
+		<texturenofocus></texturenofocus>
+		<textureradiofocus>breeze/settings/radio button f.png</textureradiofocus>
+		<textureradionofocus>breeze/settings/radio button.png</textureradionofocus>
+		<pulseonselect>false</pulseonselect>
+		<aligny>center</aligny>
+	</include>
+	
+	<include name="Default_SettingButton">
+		<description>Default Button</description>
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1400</width>
+		<height>70</height>
+		<font>breeze32</font>
+		<textcolor>infogrey</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<disabledcolor>disabled</disabledcolor>
+		<texturefocus>breeze/settings/focused bg.png</texturefocus>
+		<texturenofocus></texturenofocus>
+		<textoffsetx>30</textoffsetx>
+		<textoffsety>6</textoffsety>
+		<pulseonselect>false</pulseonselect>
+		<aligny>center</aligny>
+	</include>
+	
+	<include name="Default_SettingButtonSmall">
+		<description>Default Button</description>
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1400</width>
+		<height>70</height>
+		<font>breeze28</font>
+		<textcolor>infogrey</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<disabledcolor>disabled</disabledcolor>
+		<texturefocus>breeze/settings/focused bg.png</texturefocus>
+		<texturenofocus></texturenofocus>
+		<textoffsetx>50</textoffsetx>
+		<textoffsety>6</textoffsety>
+		<pulseonselect>false</pulseonselect>
+		<aligny>center</aligny>
+	</include>
+	
+	<include name="Default_Button_Sub_menu">
+		<description>button template</description>
+		<posx>0</posx>
+		<posy>0</posy>
+		<height>50</height>
+		<width>341</width>
+		<textcolor>infogreynf</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<texturenofocus>breeze/menus/sub nf.png</texturenofocus>
+		<texturefocus>breeze/menus/sub f.png</texturefocus>
+		<align>center</align>
+		<aligny>top</aligny>
+		<font>breeze32</font>
+		<pulseonselect>no</pulseonselect>
+		<textoffsety>0</textoffsety>
+		<onback>9000</onback>
+		<onleft>9000</onleft>
+		<onright>9000</onright>
+	</include>
+	
+	<include name="Default_Button_VidInfo_Options">
+		<description>button template</description>
+		<posx>0</posx>
+		<posy>0</posy>
+		<height>35</height>
+		<width>234</width>
+		<textcolor>infogreynf</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<texturenofocus>breeze/vid info/more options bg nf.png</texturenofocus>
+		<texturefocus>breeze/vid info/more options bg f.png</texturefocus>
+		<align>center</align>
+		<aligny>top</aligny>
+		<font>dialog</font>
+		<pulseonselect>no</pulseonselect>
+		<textoffsety>4</textoffsety>
+		<onback>Dialog.Close(60)</onback>
+		<onleft>Dialog.Close(60)</onleft>
+		<onright>Dialog.Close(60)</onright>
+	</include>
+	
+	<include name="FullscreenDimensions">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1280</width>
+		<height>720</height>
+	</include>
+	
+</includes>

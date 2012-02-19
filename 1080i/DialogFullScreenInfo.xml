@@ -1,0 +1,400 @@
+<window type="dialog" id="142">
+
+	<defaultcontrol always="true">6</defaultcontrol>
+	
+	<controls>
+	
+		<control type="button" id="9002"> <!--plot/extra info button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>9000</onup>
+			<onleft>9000</onleft>
+			<onright>9000</onright>
+			<ondown>9000</ondown>
+			<onclick>9000</onclick>
+			<onback>50</onback>
+		</control>	
+		
+		<control type="group"> <!--plot background-->
+			<visible>Control.HasFocus(9002)</visible>
+			
+			<animation type="Visible">
+				<effect type="fade" start="0" end="100" time="250"/>
+				<effect type="zoom" center="925,862" start="0" end="100" time="300"/>
+			</animation>
+			
+			<animation type="Hidden">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="958,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+			<animation type="WindowClose" condition="Control.HasFocus(9002)">
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="958,0" delay="25" />
+				<effect type="fade" start="100" end="0" time="200" delay="150" />
+			</animation>
+			
+			<posx>289.5</posx>
+			<posy>580</posy>		  
+	
+			<control type="image"> <!--base bar-->
+				<texture>breeze/osd/info bg.png</texture>
+			</control>		
+		
+			<control type="image"> <!--cover border-->
+				<description>Cover Image</description>
+				<posx>15</posx>
+				<posy>15</posy>
+				<width>161</width>
+				<height>230</height>
+				<texture>breeze/masks/now playing folder border.png</texture>
+				<visible>Skin.HasSetting(np_tv_show_cover) | VideoPlayer.Content(movies)</visible>
+			</control>
+		
+			<control type="image"> <!--film cover hd-->
+				<description>Cover Image</description>
+				<posx>20</posx>
+				<posy>20</posy>
+				<width>151</width>
+				<height>220</height>
+				<texture diffuse="breeze/masks/now playing folder.png">$INFO[VideoPlayer.Cover]</texture>
+				<visible>VideoPlayer.Content(movies)</visible>
+			</control>
+		
+			<control type="image"> <!--tv show cover-->
+				<description>Cover Image</description>
+				<posx>20</posx>
+				<posy>20</posy>
+				<width>151</width>
+				<height>220</height>
+				<texture diffuse="breeze/masks/now playing folder.png">$INFO[Player.Folderpath,,..//folder.jpg]</texture>
+				<visible>VideoPlayer.Content(episodes)</visible>
+				<visible>Skin.HasSetting(np_tv_show_cover)</visible>
+			</control>
+			
+			<control type="group"> <!--flags-->
+				<posx>-1</posx>
+				<posy>-7</posy>
+	
+				<control type="image"> <!--mpaa rating bg-->
+					<posx>1133</posx>
+					<posy>25</posy>
+					<width>94</width> 
+					<height>82</height>
+					<texture>breeze/flag box.png</texture>
+				</control>
+	
+				<control type="image"> <!--imdb rating bg-->
+					<posx>1228</posx>
+					<posy>25</posy>
+					<width>94</width> 
+					<height>82</height>
+					<texture>breeze/flag box.png</texture>
+				</control>
+			
+				<control type="group"> <!--mpaa rating-->
+					<posx>1150</posx>
+					<posy>9</posy>
+					<include>FloorRatingFlagsNowPlaying</include>
+				</control>
+		  
+				<control type="image"> <!--imdb rating-->
+					<posx>1246</posx>
+					<posy>10</posy>
+					<width>60</width>
+					<aspectratio>keep</aspectratio>
+					<texture>breeze/stars/base.png</texture>
+					<colordiffuse>7563abfc</colordiffuse>
+				</control>
+		  
+				<control type="label"> <!--imdb rating-->
+					<posx>1246</posx>
+					<posy>38</posy>
+					<width>61</width>
+					<height>55</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>rating</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="?">$INFO[VideoPlayer.Rating]</label>
+				</control>
+			
+				<control type="image"> <!--studio flag bg-->
+					<posx>1130</posx>
+					<posy>100</posy>
+					<height>156</height>
+					<width>195</width>
+					<texture>breeze/box.png</texture>
+				</control>	
+			
+				<control type="image"> <!--studio flag-->
+					<posx>1155</posx>
+					<posy>122</posy>
+					<width>150</width>
+					<aspectratio>keep</aspectratio>
+					<texture fallback="flags/studios/default-studio.png">$INFO[VideoPlayer.Studio,flags/studios/,.png]</texture>
+					<colordiffuse>FF828282</colordiffuse>
+				</control>
+			
+			</control>	
+
+			<control type="textbox"> <!--plot-->
+				<description>Plot</description>
+				<posx>190</posx>
+				<posy>30</posy>
+				<width>920</width>
+				<height>135</height>
+				<align>justify</align>
+				<font>breeze32</font>
+				<label>$INFO[VideoPlayer.Plot]</label>
+				<autoscroll delay="8000" time="4000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				<textcolor>infogrey</textcolor>
+				<visible>Skin.HasSetting(np_tv_show_cover) | VideoPlayer.Content(movies)</visible>
+			</control>
+
+			<control type="textbox"> <!--plot-->
+				<description>Plot</description>
+				<posx>40</posx>
+				<posy>30</posy>
+				<width>1070</width>
+				<height>135</height>
+				<align>justify</align>
+				<font>breeze32</font>
+				<label>$INFO[VideoPlayer.Plot]</label>
+				<autoscroll delay="8000" time="4000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				<textcolor>infogrey</textcolor>
+				<visible>!Skin.HasSetting(np_tv_show_cover) + VideoPlayer.Content(episodes)</visible>
+			</control>
+				
+			<control type="group"> <!--media flags (movies)-->
+				<posx>180</posx>
+				<posy>2</posy>		
+				<include>BreezeMediaFlagsNowPlaying</include>	
+				<animation effect="slide" start="0,0" end="-150,0" time="0" condition="!Skin.HasSetting(np_tv_show_cover) + VideoPlayer.Content(episodes)">Conditional</animation>
+			</control>	
+		
+		</control>
+	  
+		<control type="group"> <!--basic info background-->
+			<posx>260</posx>
+			<posy>858</posy>				
+
+			<animation type="WindowOpen">
+				<effect type="slide" time="400" start="0,220" end="0,0" easing="out" tween="cubic" />
+			</animation>
+			<animation type="WindowClose" condition="!Control.HasFocus(9002)">
+				<effect type="slide" time="400" start="0,0" end="0,220" easing="in" tween="cubic" />
+			</animation>
+			<animation type="WindowClose" condition="Control.HasFocus(9002)">
+				<effect type="slide" time="400" start="0,0" end="0,220" delay="500" easing="in" tween="cubic" />
+			</animation>			  
+	
+			<control type="image"> <!--base bar-->
+				<texture>breeze/osd/bg.png</texture>
+			</control>
+		
+			<control type="label"> <!--video title-->
+				<posx>30</posx>
+				<posy>15</posy>
+				<width>1340</width>
+				<height>45</height>
+				<align>center</align>
+				<aligny>top</aligny>
+				<textcolor>infogrey</textcolor>
+				<font>breeze50</font>
+				<label>$INFO[VideoPlayer.Title]</label>
+				<scroll>true</scroll>
+			</control>
+		
+			<control type="label"> <!--movie tagline-->
+				<posx>30</posx>
+				<posy>80</posy>
+				<width>1340</width>
+				<height>45</height>
+				<align>center</align>
+				<aligny>top</aligny>
+				<textcolor>blue2</textcolor>
+				<font>breeze32</font>
+				<label>$INFO[VideoPlayer.Tagline]</label>
+				<scroll>true</scroll>
+				<visible>VideoPlayer.Content(movies)</visible>
+			</control>	
+		
+			<control type="label"> <!--tv show title-->
+				<posx>30</posx>
+				<posy>75</posy>
+				<width>1340</width>
+				<height>45</height>
+				<align>center</align>
+				<aligny>top</aligny>
+				<textcolor>blue2</textcolor>
+				<font>breeze32</font>
+				<label>$INFO[VideoPlayer.TVShowTitle] ($INFO[VideoPlayer.Season,$LOCALIZE[20373] ] $INFO[VideoPlayer.Episode,| $LOCALIZE[20359] ])</label>
+				<scroll>true</scroll>
+				<visible>VideoPlayer.Content(episodes)</visible>
+			</control>	
+			
+			<control type="group"> <!--progress-->
+				<posy>5</posy>
+		
+				<control type="progress" id="23"> <!--progress bar cache-->
+					<description>Progressbar</description>
+					<posx>60</posx>
+					<posy>125</posy>
+					<height>29</height>
+					<width>1281</width>
+					<info>Player.ProgressCache</info>
+					<texturebg>breeze/osd/progress bg.png</texturebg>
+					<lefttexture>breeze/osd/progress left.png</lefttexture>
+					<midtexture>breeze/osd/progress mid.png</midtexture>
+					<righttexture>breeze/osd/progress right.png</righttexture>
+					<overlaytexture>-</overlaytexture>
+				</control>
+		
+				<control type="progress" id="23"> <!--progress bar-->
+					<description>Progressbar</description>
+					<posx>60</posx>
+					<posy>125</posy>
+					<height>29</height>
+					<width>1281</width>
+					<info>Player.Progress</info>
+					<texturebg>breeze/osd/progress bg.png</texturebg>
+					<lefttexture>breeze/osd/progress left.png</lefttexture>
+					<midtexture>breeze/osd/progress mid.png</midtexture>
+					<righttexture>breeze/osd/progress right.png</righttexture>
+					<overlaytexture>-</overlaytexture>
+				</control>
+		
+				<control type="group"> <!--progress info-->
+		
+					<control type="label"> <!--progress-->
+						<posx>75</posx>
+						<posy>160</posy>
+						<width>300</width>
+						<height>39</height>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<align>left</align>
+						<label>[B]$INFO[VideoPlayer.Time] / $INFO[VideoPlayer.Duration][/B]</label>
+					</control>
+
+					<control type="label" id="1"> <!--chapter label-->
+						<posx>30</posx>
+						<posy>160</posy>
+						<width>1340</width>
+						<height>0</height>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label>[B]$LOCALIZE[21396]: $INFO[player.chapter]$INFO[player.chaptercount,/][/B]</label>
+					</control>	
+		  
+				</control>
+			
+			</control>
+
+			<control type="grouplist" id="9000">
+				<description>buttons</description>
+				<posx>133</posx>
+				<posy>163</posy>
+				<width>1200</width>
+				<height>51</height>
+				<itemgap>5</itemgap>
+				<align>right</align>
+				<orientation>horizontal</orientation>
+					
+				<control type="button" id="5">
+					<description>info button</description>
+					<visible>!VideoPlayer.Content(musicvideos) + !IsEmpty(VideoPlayer.Cast) + !IsEmpty(VideoPlayer.CastAndRole)</visible>
+					<posx>0</posx>
+					<posy>0</posy>
+					<texturefocus>breeze/osd/info button f.png</texturefocus>
+					<texturenofocus>breeze/osd/info button nf.png</texturenofocus>
+					<width>51</width>
+					<height>51</height>
+					<onclick>Control.SetFocus(9002)</onclick>
+				</control>
+					
+				<control type="button" id="6">
+					<description>info button</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<texturefocus>breeze/osd/close button f.png</texturefocus>
+					<texturenofocus>breeze/osd/close button nf.png</texturenofocus>
+					<width>51</width>
+					<height>51</height>
+					<onclick>close</onclick>
+				</control>
+					
+			</control>
+		
+				<control type="label"> <!--close-->
+					<posx>1215</posx>
+					<posy>172</posy>
+					<width>300</width>
+					<height>39</height>
+					<font>breeze28b</font>
+					<textcolor>blue2</textcolor>
+					<align>right</align>
+					<label>$LOCALIZE[31479]</label>
+					<visible>Control.HasFocus(6)</visible>
+				</control>
+		
+				<control type="label"> <!--view info-->
+					<posx>1215</posx>
+					<posy>172</posy>
+					<width>300</width>
+					<height>39</height>
+					<font>breeze28b</font>
+					<textcolor>blue2</textcolor>
+					<align>right</align>
+					<label>View Info</label>
+					<visible>Control.HasFocus(5)</visible>
+				</control>
+
+		</control>
+
+		<control type="group"> <!--time panel-->
+			<posx>1501</posx>
+			<posy>35</posy>				
+
+			<animation type="WindowOpen">
+				<effect type="fade" time="400" start="0" end="100" easing="out" tween="cubic" />
+				<effect type="zoom" time="400" start="50" end="100" center="1771,80" easing="out" tween="cubic" />
+			</animation>
+			
+			<animation type="WindowClose" condition="!Control.HasFocus(9002)">
+				<effect type="fade" time="400" start="100" end="0" easing="out" tween="cubic" />
+				<effect type="zoom" time="400" start="100" end="50" center="1771,80" easing="out" tween="cubic" />
+			</animation>
+			
+			<animation type="WindowClose" condition="Control.HasFocus(9002)">
+				<effect type="fade" time="400" start="100" end="0" delay="500" easing="out" tween="cubic" />
+				<effect type="zoom" time="400" start="100" end="50" delay="500" center="1771,80" easing="out" tween="cubic" />
+			</animation>
+		
+			<control type="image">
+				<texture>breeze/osd/time bg.png</texture>
+			</control>
+			
+			<control type="image">
+				<posx>315</posx>
+				<posy>14</posy>
+				<texture>breeze/osd/clock.png</texture>
+			</control>
+
+			<control type="label"> <!--current/end time-->
+				<posx>305</posx>
+				<posy>22</posy>
+				<width>400</width>
+				<font>breeze32</font>
+				<textcolor>infogrey</textcolor>
+				<align>right</align>
+				<label>[B]$INFO[System.Time] ($INFO[Player.FinishTime])[/B]</label>
+			</control>
+		
+		</control>
+		
+	</controls>
+	
+</window>

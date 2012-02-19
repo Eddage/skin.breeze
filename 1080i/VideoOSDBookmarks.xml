@@ -1,0 +1,218 @@
+<window id="125">
+	
+	<defaultcontrol always="true">2</defaultcontrol>
+	
+	<coordinates>
+		<system>1</system>
+		<posx>447</posx>
+		<posy>170</posy>  
+	</coordinates>
+  
+	<include>Animation_DialogPopup2</include>
+  
+	<controls>
+      
+		<control type="image">
+			<description>Panel</description>
+			<texture>breeze/osd/settings/bookmark bg.png</texture>
+		</control>
+	
+		<control type="image">
+			<posx>50</posx>
+			<posy>35</posy>
+			<width>781</width>
+			<height>40</height>
+			<texture>osd/osd_settings_buttonnf.png</texture>
+		</control>
+	
+		<control type="label">
+			<description>header label</description>
+			<posx>11</posx>
+			<posy>50</posy>
+			<width>1003</width>
+			<height>30</height>
+			<font>breeze60</font>
+			<label>$LOCALIZE[298] ($INFO[Container(11).NumItems])</label>
+			<align>center</align>
+			<aligny>center</aligny>
+			<textcolor>infogrey</textcolor>
+		</control>
+	
+		<control type="button" id="3">
+			<description>Clear all bookmarks</description>
+			<posx>386</posx>
+			<posy>585</posy>
+			<width>51</width>
+			<height>51</height>
+			<texturefocus>breeze/osd/close button f.png</texturefocus>
+			<texturenofocus>breeze/osd/close button nf.png</texturenofocus>
+			<onleft>2</onleft>
+			<onright>2</onright>
+			<onup>11</onup>
+			<ondown>11</ondown>
+		</control>
+	
+		<control type="button" id="2">
+			<description>Add a video bookmark</description>
+			<posx>330</posx>
+			<posy>585</posy>
+			<width>51</width>
+			<height>51</height>
+			<texturefocus>breeze/osd/add button f.png</texturefocus>
+			<texturenofocus>breeze/osd/add button nf.png</texturenofocus>
+			<onleft>3</onleft>
+			<onright>3</onright>
+			<onup>11</onup>
+			<ondown>11</ondown>
+		</control>
+	
+		<control type="label">
+			<description>number of files/pages in list text label</description>
+			<posx>690</posx>
+			<posy>588</posy>
+			<width>300</width>
+			<height>40</height>
+			<font>breeze32</font>
+			<align>right</align>
+			<textcolor>infogrey</textcolor>
+			<label>[B]$INFO[Container(11).ListItem.Label][/B]</label>
+			<visible>Control.HasFocus(11)</visible>
+		</control>
+	
+		<control type="label">
+			<posx>450</posx>
+			<posy>595</posy>
+			<width>300</width>
+			<height>40</height>
+			<font>breeze28b</font>
+			<align>left</align>
+			<textcolor>blue2</textcolor>
+			<label>Add bookmark</label>
+			<visible>Control.HasFocus(2)</visible>
+		</control>
+	
+		<control type="label">
+			<posx>450</posx>
+			<posy>595</posy>
+			<width>300</width>
+			<height>40</height>
+			<font>breeze28b</font>
+			<align>left</align>
+			<textcolor>blue2</textcolor>
+			<label>Clear all bookmarks</label>
+			<visible>Control.HasFocus(3)</visible>
+		</control>
+	
+		<control type="list" id="11">
+			<posx>320</posx>
+			<posy>110</posy>
+			<width>720</width>
+			<height>460</height>
+			<onleft>61</onleft>
+			<onright>3</onright>
+			<ondown>2</ondown>
+			<onup>3</onup>
+			<scrolltime>0</scrolltime>
+			<pagecontrol>61</pagecontrol>
+			
+			<itemlayout height="230" width="475">
+
+				<control type="image"> <!--border-->
+					<posx>5</posx>
+					<posy>10</posy>
+					<width>375</width>
+					<height>220</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture>breeze/masks/bookmark thumb border white.png</texture>
+				</control> 
+				
+				<control type="image"> <!--bookmark-->
+					<posx>15</posx>
+					<posy>20</posy>
+					<width>355</width>
+					<height>200</height>
+					<texture background="true" diffuse="breeze/masks/bookmark thumb.png" fallback="breeze/bookmark.png">$INFO[ListItem.Icon]</texture>
+				</control>
+		
+			</itemlayout>
+	  
+			<focusedlayout height="230" width="475">
+				<visible>Control.HasFocus(11)</visible>
+
+				<control type="image"> <!--border-->
+					<posx>5</posx>
+					<posy>10</posy>
+					<width>375</width>
+					<height>220</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture>breeze/masks/bookmark thumb border blue.png</texture>
+				</control> 
+				
+				<control type="image"> <!--bookmark-->
+					<posx>15</posx>
+					<posy>20</posy>
+					<width>355</width>
+					<height>200</height>
+					<texture background="true" diffuse="breeze/masks/bookmark thumb.png" fallback="breeze/bookmark.png">$INFO[ListItem.Icon]</texture>
+				</control>
+	  
+			</focusedlayout>
+	  
+		</control>
+
+		<control type="scrollbar" id="61">
+			<posx>251</posx>
+			<posy>50</posy>
+			<width>30</width>
+			<height>575</height>
+			<texturesliderbackground>-</texturesliderbackground>
+			<texturesliderbar>-</texturesliderbar>
+			<texturesliderbarfocus>-</texturesliderbarfocus>
+			<textureslidernib flipx="true">breeze/views/scrollbar nub nf list.png</textureslidernib>
+			<textureslidernibfocus flipx="true">breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+			<pulseonselect>no</pulseonselect>
+			<onleft>11</onleft>
+			<onright>11</onright>
+			<showonepage>false</showonepage>
+			<orientation>vertical</orientation>
+		</control>
+    
+		<!--<control type="grouplist" id="9000">
+			<posx>20</posx>
+			<posy>425</posy>
+			<width>760</width>
+			<itemgap>2</itemgap>
+			<align>center</align>
+			<orientation>horizontal</orientation>
+			<onleft>9000</onleft>
+			<onright>9000</onright>
+			<onup>11</onup>
+			<ondown>11</ondown>
+	
+			<control type="button" id="2">
+				<description>Create Bookmark button</description>
+				<label>294</label>
+				<width>250</width>
+				<include>Objects_FSInfoButton</include>
+			</control>
+		
+			<control type="button" id="3">
+				<description>Clear Bookmark button</description>
+				<label>296</label>
+				<width>250</width>
+				<include>Objects_FSInfoButton</include>
+			</control>
+		
+			<control type="button" id="4">
+				<description>Clear Bookmark button</description>
+				<label>20406</label>
+				<width>250</width>
+				<include>Objects_FSInfoButton</include>
+				<visible>videoplayer.content(episodes)</visible>
+			</control>
+		
+		</control>-->
+	
+	</controls>
+
+</window>

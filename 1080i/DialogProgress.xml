@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<window id="101">
+
+	<defaultcontrol always="true">10</defaultcontrol>
+  
+	<zorder>1</zorder>
+  
+	<coordinates>
+		<system>1</system>
+		<posx>602.5</posx>
+		<posy>204.5</posy>
+	</coordinates>
+  
+	<controls>
+	
+		<control type="group">
+	
+			<animation type="WindowOpen" reversible="false">
+				<effect type="zoom" start="50" end="100" center="337.5,160.5" easing="out" tween="back" time="500" />
+				<effect type="fade" start="0" end="100" time="400" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="zoom" start="100" end="50" center="337.5,160.5" easing="in" tween="back" time="500" />
+				<effect type="fade" start="100" end="0" time="400" />
+			</animation>
+			
+			<control type="image">
+				<description>Background Panel</description>
+				<texture>breeze/dialogs/progress bg.png</texture>
+			</control>
+			
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>
+			
+				<control type="label" id="1">
+					<description>Heading</description>
+					<posx>30</posx>
+					<posy>35</posy>
+					<width>655</width>
+					<height>30</height>
+					<font>breeze50</font>
+					<textcolor>infogrey</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>-</label>
+				</control>
+			
+				<control type="label" id="2">
+					<description>Line 1</description>
+					<posx>30</posx>
+					<posy>95</posy>
+					<width>655</width>
+					<height>30</height>
+					<font>breeze32</font>
+					<textcolor>infogreynf</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>line 1</label>
+				</control>
+			
+				<control type="label" id="3">
+					<description>Line 2</description>
+					<posx>30</posx>
+					<posy>135</posy>
+					<width>655</width>
+					<height>30</height>
+					<font>breeze32</font>
+					<textcolor>infogreynf</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>line 2</label>
+				</control>
+			
+				<control type="label" id="4">
+					<description>Line 3</description>
+					<posx>30</posx>
+					<posy>175</posy>
+					<width>655</width>
+					<height>30</height>
+					<font>breeze32</font>
+					<textcolor>infogreynf</textcolor>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>line 3</label>
+				</control>
+      
+				<control type="progress" id="404">
+					<description>Progressbar</description>
+					<posx>60</posx>
+					<posy>230</posy>
+					<width>595</width>
+					<height>20</height>
+					<reveal>true</reveal>
+					<texturebg>breeze/dialogs/progress bar bg.png</texturebg>
+					<lefttexture>breeze/dialogs/progress bar left.png</lefttexture>
+					<midtexture>breeze/dialogs/progress bar mid.png</midtexture>
+					<righttexture>breeze/dialogs/progress bar right.png</righttexture>
+					<overlaytexture>-</overlaytexture>
+					<info>System.Progressbar</info>
+				</control>
+	
+				<control type="button" id="10">
+					<posx>232.5</posx>
+					<posy>270</posy>
+					<width>250</width>
+					<height>60</height>
+					<align>center</align>
+					<aligny>top</aligny>
+					<textoffsety>5</textoffsety>
+					<textcolor>infogreynf</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<font>breeze32</font>
+					<label>222</label>
+					<scroll>true</scroll>
+					<onleft>10</onleft>
+					<onright>10</onright>
+					<texturefocus>breeze/dialogs/yes no f.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<onup>10</onup>
+					<ondown>10</ondown>
+				</control>
+				
+			</control>
+	  
+		</control>
+	
+	</controls>
+  
+</window>

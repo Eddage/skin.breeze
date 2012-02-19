@@ -1,0 +1,95 @@
+<window id="106">
+	<defaultcontrol>1000</defaultcontrol>
+	
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+		<origin x="0" y="167" />
+	</coordinates> 
+  
+	<zorder>0</zorder>
+  
+	<controls>
+	
+		<control type="group">
+		
+			<include condition="Window.IsVisible(Home) + !Control.HasFocus(8010)">ContextHome</include>
+			<include condition="Window.IsVisible(Home) + Control.HasFocus(8010)">ContextHomeInfo</include>
+			
+		</control>
+		
+		<control type="group"> <!--info list (cases)-->
+			
+			<include condition="Control.IsVisible(505) + Container.Content(movies) + Skin.HasSetting(breeze_film_cases)">ContextInfoListCases</include>
+			<include condition="Control.IsVisible(505) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + Skin.HasSetting(breeze_cases)">ContextInfoListCases</include>
+		
+		</control>
+		
+		<control type="group"> <!--info list (no cases)-->
+			
+			<include condition="Control.IsVisible(505) + Container.Content(movies) + !Skin.HasSetting(breeze_film_cases)">ContextInfoList</include>
+			<include condition="Control.IsVisible(505) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(breeze_cases)">ContextInfoList</include>
+		
+		</control>
+		
+		<control type="group"> <!--banner list-->
+			
+			<include condition="Control.IsVisible(508)">ContextBannerList</include>
+		
+		</control>
+		
+		<control type="group"> <!--list-->
+			
+			<include condition="Control.IsVisible(50)">ContextList</include>
+		
+		</control>
+		
+		<control type="group"> <!--poster fixed-->
+			
+			<include condition="Control.IsVisible(501)">ContextPoster</include>
+			<include condition="Control.IsVisible(502)">ContextPoster</include>
+		
+		</control>
+		
+		<control type="group"> <!--low list (cases)-->
+			
+			<include condition="Control.IsVisible(511) + Container.Content(movies) + Skin.HasSetting(breeze_lowlist_film_cases)">ContextLowListCases</include>
+			<include condition="Control.IsVisible(511) + [Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(breeze_lowlist_cases)">ContextLowListCases</include>
+		
+		</control>
+		
+		<control type="group"> <!--low list (no cases)-->
+			
+			<include condition="Control.IsVisible(511) + Container.Content(movies) + !Skin.HasSetting(breeze_lowlist_film_cases)">ContextLowList</include>
+			<include condition="Control.IsVisible(511) + [Container.Content(tvshows) | Container.Content(seasons)] + !Skin.HasSetting(breeze_lowlist_cases)">ContextLowList</include>
+		
+		</control>
+		
+		<control type="group"> <!--low list music (cases)-->
+			
+			<include condition="Control.IsVisible(506) + Skin.HasSetting(breeze_lowlist_cd_cases)">ContextLowListMusicCases</include>
+		
+		</control>
+		
+		<control type="group"> <!--low list music (no cases)-->
+			
+			<include condition="Control.IsVisible(506) + !Skin.HasSetting(breeze_lowlist_cd_cases)">ContextLowListMusic</include>
+		
+		</control>
+		
+		<control type="group"> <!--lowlist episodes-->
+			
+			<include condition="Control.IsVisible(511) + Container.Content(episodes)">ContextLowListEp</include>
+		
+		</control>
+		
+		<control type="group"> <!--episode-->
+			
+			<include condition="Control.IsVisible(514) + Container.Content(episodes)">ContextEpisode</include>
+		
+		</control>
+		
+	</controls>
+	
+</window>

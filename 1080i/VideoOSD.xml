@@ -1,0 +1,254 @@
+<window type="dialog" id="2901">
+	
+	<defaultcontrol>602</defaultcontrol>
+	
+	<controls>
+		
+		<control type="group">
+			<posy>30</posy>
+			<animation effect="slide" start="0,145" end="0,0" time="400">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,145" time="400">WindowClose</animation>
+
+			<control type="image">
+				<description>media info background image</description>
+				<posx>260</posx>
+				<posy>930</posy>
+				<texture>breeze/osd/bg.png</texture>
+			</control>
+			
+			<control type="group">
+				<posx>35</posx>
+				<posy>950</posy>
+			
+				<control type="group" id="200"> <!--left options buttons-->
+					<posx>297</posx>
+					<posy>7</posy>
+			
+					<control type="button" id="700">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>298</label>
+						<font>-</font>
+						<aligny>top</aligny>
+						<textoffsety>60</textoffsety>
+						<texturefocus>breeze/osd/buttons/bookmarks f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/bookmarks.png</texturenofocus>
+						<onleft>705</onleft>
+						<onright>701</onright>
+						<onup>600</onup>
+						<ondown>600</ondown>
+						<onclick>ActivateWindow(125)</onclick>
+					</control>
+				
+					<control type="button" id="701">
+						<posx>85</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>13396</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/audio f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/audio.png</texturenofocus>
+						<onleft>700</onleft>
+						<onright>702</onright>
+						<onup>600</onup>
+						<ondown>600</ondown>
+						<onclick>ActivateWindow(124)</onclick>
+					</control>
+				
+					<control type="button" id="702">
+						<posx>170</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>13395</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/video f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/video.png</texturenofocus>
+						<onleft>701</onleft>
+						<onright>600</onright>
+						<onup>601</onup>
+						<ondown>601</ondown>
+						<onclick>ActivateWindow(123)</onclick>
+					</control>
+				
+				</control>
+			
+				<control type="group" id="201"> <!--right options buttons-->
+					<posx>1292</posx>
+					<posy>7</posy>
+				
+					<control type="togglebutton" id="703">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>31356</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/subtitles f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/subtitles.png</texturenofocus>
+						<alttexturefocus>breeze/osd/buttons/subtitles f.png</alttexturefocus>
+						<alttexturenofocus>breeze/osd/buttons/subtitles.png</alttexturenofocus>
+						<onleft>605</onleft>
+						<onright>704</onright>
+						<onup>604</onup>
+						<ondown>604</ondown>
+						<onclick>Close</onclick>
+						<onclick>XBMC.RunScript($INFO[Skin.String(SubtitleScript_Path)])</onclick>
+						<altclick>Skin.SetAddon(SubtitleScript_Path,xbmc.python.subtitles)</altclick>
+						<altclick>Close</altclick>
+						<altclick>XBMC.RunScript($INFO[Skin.String(SubtitleScript_Path)])</altclick>
+						<usealttexture>IsEmpty(Skin.String(SubtitleScript_Path))</usealttexture>
+					</control>
+				
+					<control type="button" id="704">
+						<posx>85</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>31355</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/dvd f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/dvd.png</texturenofocus>
+						<onleft>703</onleft>
+						<onright>705</onright>
+						<onup>605</onup>
+						<ondown>605</ondown>
+						<onclick>PlayerControl(ShowVideoMenu)</onclick>
+						<enable>VideoPlayer.HasMenu</enable>
+						<animation effect="fade" start="100" end="50" time="100" condition="!VideoPlayer.HasMenu">Conditional</animation>
+					</control>
+				
+					<control type="button" id="705">
+						<posx>170</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>10004</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/settings f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/settings.png</texturenofocus>
+						<onleft>704</onleft>
+						<onright>700</onright>
+						<onup>605</onup>
+						<ondown>605</ondown>
+						<onclick>XBMC.ActivateWindow(Settings)</onclick>
+					</control>
+				
+				</control>
+			
+				<control type="group" id="100"> <!--playback buttons-->
+					<posx>668</posx>
+					<posy>7</posy>
+				
+					<control type="button" id="600">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>210</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/previous f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/previous.png</texturenofocus>
+						<onleft>702</onleft>
+						<onright>601</onright>
+						<onup>701</onup>
+						<ondown>701</ondown>
+						<onclick>PlayerControl(Previous)</onclick>
+					</control>
+				
+					<control type="button" id="601">
+						<posx>85</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>31354</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/rewind f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/rewind.png</texturenofocus>
+						<onleft>600</onleft>
+						<onright>602</onright>
+						<onup>702</onup>
+						<ondown>702</ondown>
+						<onclick>PlayerControl(Rewind)</onclick>
+					</control>
+				
+					<control type="togglebutton" id="602">
+						<posx>170</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>31351</label>
+						<altlabel>208</altlabel>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/pause f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/pause.png</texturenofocus>
+						<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+						<alttexturefocus>breeze/osd/buttons/play f.png</alttexturefocus>
+						<alttexturenofocus>breeze/osd/buttons/play.png</alttexturenofocus>
+						<onleft>601</onleft>
+						<onright>603</onright>
+						<onup>702</onup>
+						<ondown>703</ondown>
+						<onclick>PlayerControl(Play)</onclick>
+					</control>
+				
+					<control type="button" id="603">
+						<posx>255</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>31352</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/stop f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/stop.png</texturenofocus>
+						<onleft>602</onleft>
+						<onright>604</onright>
+						<onup>703</onup>
+						<ondown>703</ondown>
+						<onclick>PlayerControl(Stop)</onclick>
+					</control>
+				
+					<control type="button" id="604">
+						<posx>340</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>31353</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/forward f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/forward.png</texturenofocus>
+						<onleft>603</onleft>
+						<onright>605</onright>
+						<onup>703</onup>
+						<ondown>703</ondown>
+						<onclick>PlayerControl(Forward)</onclick>
+					</control>
+				
+					<control type="button" id="605">
+						<posx>425</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>80</height>
+						<label>209</label>
+						<font>-</font>
+						<texturefocus>breeze/osd/buttons/next f.png</texturefocus>
+						<texturenofocus>breeze/osd/buttons/next.png</texturenofocus>
+						<onleft>604</onleft>
+						<onright>703</onright>
+						<onup>704</onup>
+						<ondown>704</ondown>
+						<onclick>PlayerControl(Next)</onclick>
+					</control>
+				
+				</control>
+     
+			</control>
+		
+		</control>
+		
+	</controls>
+	
+</window>

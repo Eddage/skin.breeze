@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<window id="133">
+
+	<zorder>1</zorder>
+  
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+  
+	<include>Animation_DialogFade</include>
+  
+	<controls>
+  
+		<control type="group">
+		
+			<include>Dialogs_Video_Scan</include>
+			<visible>!Window.IsActive(fullscreenvideo)</visible>
+	  
+		</control>
+	
+	</controls>
+  
+</window>

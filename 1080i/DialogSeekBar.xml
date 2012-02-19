@@ -1,0 +1,235 @@
+<window id="115">
+
+	<defaultcontrol>1</defaultcontrol>
+	<visible>[Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]+VideoPlayer.IsFullscreen</visible>
+	
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	
+	<controls>
+    
+		<control type="group">
+      
+			<control type="group">
+				<animation effect="slide" start="0,-100" end="0,0" time="0">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,-100" time="0">WindowClose</animation>
+				
+				<control type="image"> <!--pause bar bg (pause/ff and rw)-->
+					<posx>760</posx>
+					<posy>-30</posy>
+					<texture>breeze/osd/time bg.png</texture>
+					<visible>!Player.Playing</visible>
+				</control>	
+				
+				<control type="image"> <!--pause bar bg (seeking)-->
+					<posx>760</posx>
+					<posy>-30</posy>
+					<texture>breeze/osd/time bg.png</texture>
+					<visible>Player.DisplayAfterSeek + ![player.forwarding | player.rewinding]+!IsEmpty(Player.SeekOffset)</visible>
+				</control>	
+				
+				<control type="image"> <!--pause bar bg (buffering)-->
+					<posx>760</posx>
+					<posy>-30</posy>
+					<texture>breeze/osd/time bg.png</texture>
+					<visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+				</control>	
+		
+				<control type="label"> <!--paused label-->
+					<posx>760</posx>
+					<posy>0</posy>
+					<width>400</width>
+					<height>0</height>
+					<align>center</align>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label>Paused</label>
+					<visible>!Player.DisplayAfterSeek + !Player.Caching + !Player.Seeking</visible>
+				</control>
+
+				<control type="label"> <!--cache/buffer label-->
+					<posx>760</posx>
+					<posy>0</posy>
+					<width>400</width>
+					<height>0</height>
+					<align>center</align>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+					<visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+				</control>
+		
+				<control type="label"> <!--seek label-->
+					<posx>760</posx>
+					<posy>0</posy>
+					<width>400</width>
+					<height>0</height>
+					<align>center</align>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label>$LOCALIZE[773]</label>
+					<visible>Player.Seeking</visible>
+				</control>
+		
+				<control type="label"> <!--final seek amount label-->
+					<posx>760</posx>
+					<posy>0</posy>
+					<width>400</width>
+					<height>0</height>
+					<align>center</align>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label>$LOCALIZE[773] $INFO[Player.SeekOffset]</label>
+					<visible>Player.DisplayAfterSeek + ![player.forwarding | player.rewinding]+!IsEmpty(Player.SeekOffset)</visible>
+				</control>
+
+				<control type="label"> <!--seek time label-->
+					<posx>760</posx>
+					<posy>0</posy>
+					<width>400</width>
+					<height>0</height>
+					<align>center</align>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label>$INFO[Player.SeekTime]</label>
+					<visible>Player.Seeking</visible>
+				</control>	
+			
+				<control type ="group"> <!--fast forward labels-->
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31044] 2X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Forwarding2x</visible>
+					</control>
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31044] 4X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Forwarding4x</visible>
+					</control>
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31044] 8X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Forwarding8x</visible>
+					</control>
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31044] 16X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Forwarding16x</visible>
+					</control>
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31044] 32X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Forwarding32x</visible>
+					</control>
+				
+				</control>	
+			
+				<control type ="group"> <!--rewind labels-->
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31045] 2X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Rewinding2x</visible>
+					</control>
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31045] 4X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Rewinding4x</visible>
+					</control>
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31045] 8X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Rewinding8x</visible>
+					</control>
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31045] 16X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Rewinding16x</visible>
+					</control>
+		
+					<control type="label">
+						<posx>760</posx>
+						<posy>0</posy>
+						<width>400</width>
+						<height>0</height>
+						<label>$LOCALIZE[31045] 32X</label>
+						<align>center</align>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<visible>Player.Rewinding32x</visible>
+					</control>
+				
+				</control>		
+		
+			</control>
+	  
+		</control>	
+
+	</controls>
+  
+</window>

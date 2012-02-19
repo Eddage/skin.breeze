@@ -1,0 +1,285 @@
+<window id="25">
+	
+	<defaultcontrol always="true">50</defaultcontrol>
+	
+	<onload condition="Skin.HasSetting(tv_theme) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
+	<onload>RunScript(script.tv.show.next.aired,backend=True)</onload>
+  
+	<allowoverlay>yes</allowoverlay>
+  
+	<views>50,51,501,502,504,503,500,508,509,512,514,516,505,510,511,550,560,55,517</views>
+  
+	<controls>
+		<include>CaseLabel</include>
+		
+		<control type="group">
+			<description>Fanart</description>
+	  
+			<control type="image"> <!--background overlay-->
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<texture>breeze/background.png</texture>
+			</control> 
+		
+			<control type="image">
+				<include>CommonFanartVarsSingleScroll</include>
+				<texture background="true" fallback="special://skin/backgrounds/fallback_movies.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<visible>!Skin.HasSetting(VideoLibraryMovieFanart)</visible>
+				<visible>!Container.Content(TVShows) + ![Container.Content(Episodes) + stringcompare(Container.FolderPath,videodb://5/)]</visible>
+			</control>
+      
+			<control type="image">
+				<include>CommonFanartVarsSingleScroll</include>
+				<texture background="true" fallback="special://skin/backgrounds/fallback_tvshows.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
+				<visible>Container.Content(TVShows) | [Container.Content(Episodes) + stringcompare(Container.FolderPath,videodb://5/)]</visible>
+			</control>
+      
+			<control type="image">
+				<include>CommonFanartVarsSingleScroll</include>
+				<texture background="true" fallback="special://skin/backgrounds/fallback_tvshows.jpg">$INFO[Fanart.Image]</texture>
+				<visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
+				<visible>Container.Content(Seasons) | [Container.Content(Episodes) + !stringcompare(Container.FolderPath,videodb://5/)]</visible>
+			</control>
+      
+			<control type="image">
+				<include>CommonFanartVarsSingleScroll</include>
+				<texture background="true">$INFO[ListItem.Path]$INFO[ListItem.Label,,/fanart.jpg]</texture>
+				<visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
+				<visible>Container.Content(seasons)</visible>
+			</control>
+      
+			<control type="image">
+				<include>CommonFanartVarsSingleScroll</include>
+				<texture background="true">$INFO[ListItem.Path,,fanart.jpg]</texture>
+				<visible>!Skin.HasSetting(VideoLibraryTVFanart)</visible>
+				<visible>Container.Content(episodes)</visible>
+			</control>
+      
+			<control type="image">
+				<include>CommonFanartVarsSingleScroll</include>
+				<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<visible>!Skin.HasSetting(VideoLibraryMusicVideoFanart)</visible>
+				<visible>Container.Content(MusicVideos) | Container.Content(Artists) | Container.Content(Albums)</visible>
+			</control>
+      
+			<control type="image">
+				<include>CommonFanartVarsSingleScroll</include>
+				<texture background="true">$INFO[ListItem.Label,special://skin/extras/genre/video/fanart/,.jpg]</texture>
+				<visible>Container.Content(genres)</visible>
+			</control>	
+      
+			<include condition="Skin.HasSetting(extrafanartmovies)|Skin.HasSetting(extrafanartseries)">ExtraFanartMoviesTVShows</include>
+			<include condition="Skin.HasSetting(extrafanartseries)">ExtraFanartEpisodes</include>
+    
+		</control>		
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+		</control> 	
+				
+		<control type="image"> <!--base bar-->
+			<posy>770</posy>
+			<texture>breeze/views/base.png</texture>
+			<visible>!Control.IsVisible(511)</visible>
+		</control>
+				
+		<control type="image"> <!--base bar-->
+			<posy>770</posy>
+			<texture>breeze/views/base.png</texture>
+				<animation effect="slide" start="0,0" end="0,-150" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-150" time="150" condition="Control.HasFocus(7002) + !Container.Content(episodes) +!Skin.HasSetting(breeze_tall_list)">Conditional</animation>
+			<visible>Control.IsVisible(511)</visible>
+		</control>
+    
+		<control type="group">
+			<!-- view id = 50 -->
+			<include>CommonRootView</include>
+			<!-- view id = 500 -->
+			<include condition="!Skin.HasSetting(DisableWallVL)">Viewtype_Wall</include>
+			<!-- view id = 560 -->
+			<include condition="!Skin.HasSetting(DisableWallVL)">Viewtype_Wall_Movies</include>
+			<!-- view id = 501 Poster Fixed-->
+			<include condition="!Skin.HasSetting(DisablePosterFixed)">PosterFixed</include>
+			<!-- view id = 502 Poster Fixed Seasons-->
+			<include condition="!Skin.HasSetting(DisablePosterFixed)">PosterFixedSeasons</include>
+			<!-- view id = 508 Banner List-->
+			<include condition="!Skin.HasSetting(DisableBannersList)">BannerList</include>
+			<!-- view id = 503 Landscape-->!
+			<include condition="!Skin.HasSetting(DisableLandscapeVL)">MediaListView3</include>
+			<!-- view id = 504 Showcase DVD-->
+			<include condition="!Skin.HasSetting(DisableDVDCaseVL)">ShowcaseDVD</include>
+			<!-- view id = 505 -->
+			<include condition="!Skin.HasSetting(DisableInfoListVL)">InfoList</include>
+			<!-- view id = 511 -->
+			<include condition="!Skin.HasSetting(DisableLowListVL)">LowList</include>
+			<!-- view id = 51 -->
+			<include condition="!Skin.HasSetting(DisableBannerWallVL)">BannerWall</include>
+			<!-- view id = 550-->
+			<include condition="!Skin.HasSetting(DisablePanelVL)">Panel</include>
+			<!-- view id = 510 -->
+			<include condition="!Skin.HasSetting(DisablePostersVL)">PostersView</include>
+			<!-- view id = 509-->
+			<include condition="!Skin.HasSetting(DisableShowCaseVL)">ShowcaseQuadrate</include>
+			<!-- view id = 512-->
+			<include condition="!Skin.HasSetting(DisableInfoWallVL)">AddonWall</include>
+			<!-- view id = 516-->
+			<include condition="!Skin.HasSetting(DisableBigFanVL)">BigFan</include>
+			<!--view id = 514-->
+			<include condition="!Skin.HasSetting(DisableEpisodeVL)">Viewtype_Episode</include>
+			<!--view id = 55-->
+			<include condition="!Skin.HasSetting(DisableCarouselVL)">Carousel</include>
+		</control>
+	  
+		<control type="button" id="7002"> <!--lowlist view extra info (movies/episodes)-->
+			<include>HiddenObject</include>
+			<onup>Control.Move(511,-1)</onup>
+			<onleft>SetFocus(50)</onleft>
+			<onright>SetFocus(7009)</onright>
+			<ondown>Control.Move(511,1)</ondown>
+			<onback>50</onback>
+			<onclick>PlayMedia($INFO[ListItem.FileNameAndPath])</onclick>
+			<visible>Control.IsVisible(511)+!Container.Content(seasons)+!Container.Content(tvshows)</visible>
+		</control>      
+	
+		<control type="button" id="7002"> <!--lowlist view extra info (tv shows/seasons)-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>Control.Move(511,-1)</onup>
+			<onleft>SetFocus(50)</onleft>
+			<onright>SetFocus(7009)</onright>
+			<ondown>Control.Move(511,1)</ondown>
+			<onclick></onclick>
+			<onback>50</onback>
+		</control>
+	  
+		<control type="button" id="7003"> <!--poster view extra info-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(7009)</onup>
+			<onleft>SetFocus(50)</onleft>
+			<onright>SetFocus(50)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>SetFocus(50)</onclick>
+		</control>
+	  
+		<control type="button" id="7004"> <!--banner list view extra info-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(50)</onup>
+			<onleft>SetFocus(50)</onleft>
+			<onright>SetFocus(7009)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>SetFocus(50)</onclick>
+		</control>
+	  
+		<control type="button" id="7009"> <!--settings button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(50)</onup>
+			<onleft>SetFocus(7010)</onleft>
+			<onright>SetFocus(7010)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>SetFocus(9000)</onclick>
+		</control>
+	  
+		<control type="button" id="7010"> <!--shutdown button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(50)</onup>
+			<onleft>SetFocus(7009)</onleft>
+			<onright>SetFocus(7009)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>ActivateWindow(shutdownmenu)</onclick>
+		</control>
+    
+		<include>Breadcrumbs</include>    
+		<include>ScrollOffsetLabel</include>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+			<visible>ControlGroup(9000).HasFocus | Window.IsActive(111) | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(contentsettings) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(numericinput)</visible>
+			<visible>!Window.IsVisible(virtualkeyboard)</visible>
+		</control> 
+		
+		<control type="group">
+			<posx>1788</posx>
+			<posy>17</posy>
+			<orientation>horizontal</orientation>
+			
+			<control type="image"> <!--settings button-->
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/settings.png</texture>
+				<visible>!Control.HasFocus(7009)</visible>
+				<visible>!ControlGroup(9000).HasFocus</visible>
+				<visible>!Control.IsVisible(7011)</visible>
+			</control>
+			
+			<control type="image"> <!--settings button f-->
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/settings f.png</texture>
+				<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown.png</texture>
+				<visible>!Control.HasFocus(7010)</visible>
+				<visible>!Window.IsActive(shutdownmenu)</visible>
+				<visible>!Control.IsVisible(7012)</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button f-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown f.png</texture>
+				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+			</control>
+			
+			<control type="label">
+				<posx>-93</posx>
+				<posy>8</posy>
+				<font>breeze28b</font>
+				<label>$LOCALIZE[10004]</label>
+				<textcolor>blue2</textcolor>
+				<align>left</align>
+				<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
+			</control>
+			
+			<control type="label">
+				<posx>-75</posx>
+				<posy>8</posy>
+				<font>breeze28b</font>
+				<label>$LOCALIZE[33060]</label>
+				<textcolor>blue2</textcolor>
+				<align>left</align>
+				<visible>Control.HasFocus(7010)</visible>
+			</control>
+			
+		</control>
+		
+		<include>Media_Menu</include>				
+  
+	</controls>
+
+</window>

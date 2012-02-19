@@ -1,0 +1,726 @@
+<includes>
+
+	<include name="LowlistCDArt">
+		
+		<control type="group">
+			<posx>265</posx>
+			<posy>140</posy>
+			<visible>Control.IsVisible(506)+Container.Content(songs)+!IsEmpty(ListItem.Title)+!Skin.HasSetting(cdartfliplist)</visible>
+			
+			<control type="image">
+				<posx>12.5</posx>
+				<posy>12.5</posy>
+				<width>310</width>
+				<height>310</height>
+				<aspectratio align="bottom">keep</aspectratio>
+				<fadetime>400</fadetime>
+				<include>cdartlibrary</include>
+				<animation effect="slide" time="700" start="0,0" end="0,-110" tween="cubic" easing="out">WindowOpen</animation>
+				<animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album)">Conditional</animation>
+			</control>
+			
+		</control>
+		
+	</include>
+
+	<include name="LowListMusic">
+	
+		<control type="group">
+			<visible>Control.IsVisible(506)</visible>	
+			
+			<control type="image">
+				<posy>1080</posy>
+				<texture>breeze/views/low list base.png</texture>				
+				<animation effect="slide" start="0,0" end="0,-105" time="150" condition="Skin.HasSetting(breeze_tall_list_music) + Control.IsVisible(506)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-105" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002) + Control.IsVisible(506)">Conditional</animation>
+			</control>	
+			
+			<control type="fixedlist" id="506">
+				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
+				<posx>600</posx>
+				<posy>780</posy>
+				<width>1320</width>
+				<height>450</height>
+				<onleft>65</onleft>
+				<onright condition="IsEmpty(ListItem.Artist) + Container.Content(albums)">7009</onright>
+				<onright condition="!IsEmpty(ListItem.Artist) + Container.Content(albums)">7002</onright>
+				<onright condition="Container.Content(artists)">7002</onright>
+				<onright condition="Container.Content(songs)">7009</onright>				
+				<onup>506</onup>
+				<ondown>506</ondown>
+				<viewtype label="$LOCALIZE[31153]">list</viewtype>
+				<pagecontrol>65</pagecontrol>
+				<focusposition>1</focusposition>
+				<scrolltime>300</scrolltime>
+				<animation effect="slide" start="0,0" end="0,-105" time="150" condition="Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+				<animation effect="fade" start="100" end="0" time="250" condition="Control.HasFocus(7002)">Conditional</animation>
+				
+				<itemlayout height="100" width="1320">
+					
+					<control type="label"> <!--cases view-->
+						<posx>114</posx>
+						<posy>10</posy>
+						<width>800</width>
+						<height>44</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>blue</selectedcolor>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>Skin.HasSetting(breeze_lowlist_cd_cases) + !Container.Content(episodes)</visible>
+						<animation effect="slide" start="0,0" end="0,15" time="0" condition="IsEmpty(ListItem.Artist)">Conditional</animation>
+					</control>
+					
+					<control type="label"> <!--cover view-->
+						<posx>49</posx>
+						<posy>10</posy>
+						<width>800</width>
+						<height>44</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>blue</selectedcolor>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!Skin.HasSetting(breeze_lowlist_cd_cases) + !Container.Content(episodes)</visible>
+					</control>
+						
+					<control type="label"> <!--artist genre-->
+						<posx>49</posx>
+						<posy>50</posy>
+						<width>270</width>
+						<height>43</height>
+						<font>breeze28</font>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>blue</selectedcolor>
+						<aligny>center</aligny>
+						<align>left</align>
+						<label fallback="Unknown Genre">$INFO[ListItem.Property(Artist_Genre)]</label>
+						<visible>!Container.Content(songs) + !Container.Content(albums)</visible>
+						<animation effect="slide" start="0,0" end="65,0" time="0" condition="Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+					</control>
+						
+					<control type="label"> <!--album artist-->
+						<posx>49</posx>
+						<posy>50</posy>
+						<width>270</width>
+						<height>43</height>
+						<font>breeze28</font>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>blue</selectedcolor>
+						<aligny>center</aligny>
+						<align>left</align>
+						<label fallback="Unknown Artist">$INFO[ListItem.Artist]</label>
+						<visible>Container.Content(albums)</visible>
+						<animation effect="slide" start="0,0" end="65,0" time="0" condition="Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						<visible>!IsEmpty(ListItem.Artist)</visible>
+					</control>
+						
+					<control type="label"> <!--artist/album (songs)-->
+						<posx>49</posx>
+						<posy>50</posy>
+						<width>700</width>
+						<height>43</height>
+						<font>breeze28</font>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>blue</selectedcolor>
+						<aligny>center</aligny>
+						<align>left</align>
+						<label fallback="Unknown Artist">$INFO[ListItem.Artist] $INFO[ListItem.Album,| ]</label>
+						<visible>Container.Content(songs)</visible>
+						<animation effect="slide" start="0,0" end="65,0" time="0" condition="Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+					</control>
+						
+					<control type="label"> <!--song length-->
+						<posx>1270</posx>
+						<posy>10</posy>
+						<width>270</width>
+						<height>43</height>
+						<font>breeze34b</font>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>blue</selectedcolor>
+						<aligny>center</aligny>
+						<align>right</align>
+						<label fallback="Unknown">$INFO[ListItem.Duration]</label>
+						<visible>Container.Content(songs)</visible>
+					</control>
+					
+				</itemlayout>
+				
+				<focusedlayout height="100" width="1320">
+					
+					<control type="image"> <!--focused texture (cases albums)-->
+						<posx>94</posx>
+						<posy>0</posy>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true">breeze/views/low list music f bg.png</texture>
+						<visible>Container.Content(albums) + Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					</control>
+					
+					<control type="image"> <!--focused texture (cover albums)-->
+						<posx>29</posx>
+						<posy>0</posy>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true">breeze/views/low list music cover f bg.png</texture>
+						<visible>Container.Content(albums) + !Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					</control>
+					
+					<control type="image"> <!--focused texture (cases)-->
+						<posx>94</posx>
+						<posy>0</posy>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true">breeze/views/low list music long f bg.png</texture>
+						<visible>!Container.Content(albums) + Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					</control>
+					
+					<control type="image"> <!--focused texture (cover)-->
+						<posx>29</posx>
+						<posy>0</posy>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture background="true">breeze/views/low list music cover long f bg.png</texture>
+						<visible>!Container.Content(albums) + !Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					</control>
+					
+					<control type="label"> <!--label (cases)-->
+						<posx>114</posx>
+						<posy>10</posy>
+						<width>800</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>Skin.HasSetting(breeze_lowlist_cd_cases) + !Container.Content(episodes)</visible>
+						<animation effect="slide" start="0,0" end="0,18" time="0" condition="IsEmpty(ListItem.Artist)">Conditional</animation>
+					</control>
+					
+					<control type="label"> <!--label (cover)-->
+						<posx>49</posx>
+						<posy>10</posy>
+						<width>800</width>
+						<height>43</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<font>breeze34b</font>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!Skin.HasSetting(breeze_lowlist_cd_cases) + !Container.Content(episodes)</visible>
+					</control>
+						
+					<control type="label"> <!--artist genre-->
+						<posx>49</posx>
+						<posy>50</posy>
+						<width>270</width>
+						<height>43</height>
+						<font>breeze28</font>
+						<textcolor>white</textcolor>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<aligny>center</aligny>
+						<align>left</align>
+						<label fallback="Unknown Genre">$INFO[ListItem.Property(Artist_Genre)]</label>
+						<visible>!Container.Content(songs) + !Container.Content(albums)</visible>
+						<animation effect="slide" start="0,0" end="65,0" time="0" condition="Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+					</control>
+						
+					<control type="label"> <!--album artist-->
+						<posx>49</posx>
+						<posy>50</posy>
+						<width>270</width>
+						<height>43</height>
+						<font>breeze28</font>
+						<textcolor>white</textcolor>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<aligny>center</aligny>
+						<align>left</align>
+						<label fallback="Unknown Artist">$INFO[ListItem.Artist]</label>
+						<visible>Container.Content(albums)</visible>
+						<animation effect="slide" start="0,0" end="65,0" time="0" condition="Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						<visible>!IsEmpty(ListItem.Artist)</visible>
+					</control>
+						
+					<control type="label"> <!--artist/album (songs)-->
+						<posx>49</posx>
+						<posy>50</posy>
+						<width>700</width>
+						<height>43</height>
+						<font>breeze28</font>
+						<textcolor>white</textcolor>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<aligny>center</aligny>
+						<align>left</align>
+						<label fallback="Unknown Artist">$INFO[ListItem.Artist] $INFO[ListItem.Album,| ]</label>
+						<visible>Container.Content(songs)</visible>
+						<animation effect="slide" start="0,0" end="65,0" time="0" condition="Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+					</control>
+						
+					<control type="label"> <!--song length-->
+						<posx>1270</posx>
+						<posy>10</posy>
+						<width>270</width>
+						<height>43</height>
+						<font>breeze34b</font>
+						<textcolor>white</textcolor>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<aligny>center</aligny>
+						<align>right</align>
+						<label fallback="Unknown">$INFO[ListItem.Duration]</label>
+						<visible>Container.Content(songs)</visible>
+					</control>
+					
+				</focusedlayout>
+				
+			</control>
+	  
+			<control type="group"> 
+				<posx>0</posx>
+				<posy>520</posy>
+				
+				<control type="group">
+					<include>BreezeTimePanel</include>
+					<animation effect="slide" start="0,0" end="0,-52.5" time="150" condition="Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-52.5" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002)">Conditional</animation>
+				</control>
+				
+				<control type="group">
+					<include>BreezeRightInfo</include>
+					<animation effect="slide" start="0,0" end="0,-52.5" time="150" condition="Skin.HasSetting(breeze_tall_list_music) + !Container.Content(episodes)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-52.5" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002)">Conditional</animation>
+				</control>
+		
+				<control type="image"> <!--vertical divider (left)-->
+					<posx>226</posx>
+					<posy>290</posy>
+					<width>6</width>
+					<height>240</height>
+					<texture>breeze/views/v divider.png</texture>
+				</control> 
+		
+				<control type="image"> <!--vertical divider (right)-->
+					<posx>1687</posx>
+					<posy>290</posy>
+					<width>6</width>
+					<height>240</height>
+					<texture>breeze/views/v divider.png</texture>
+					<visible>!Container.Content(artists)</visible>
+					<visible>!Container.Content(songs)</visible>
+				</control> 
+	  
+				<control type="scrollbar" id="65"> <!--scroll bar (cases)-->
+					<posx>665</posx>
+					<posy>155</posy>
+					<width>30</width>
+					<height>370</height>
+					<texturesliderbackground>-</texturesliderbackground>
+					<texturesliderbar>-</texturesliderbar>
+					<texturesliderbarfocus>-</texturesliderbarfocus>
+					<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
+					<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+					<orientation>vertical</orientation>
+					<showonepage>false</showonepage>
+					<onleft>506</onleft>
+					<onright>506</onright>
+					<visible>Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					<visible>Control.IsVisible(506)</visible>
+				</control>
+	  
+				<control type="scrollbar" id="65"> <!--scroll bar (covers)-->
+					<posx>603</posx>
+					<posy>190</posy>
+					<width>30</width>
+					<height>335</height>
+					<texturesliderbackground>-</texturesliderbackground>
+					<texturesliderbar>-</texturesliderbar>
+					<texturesliderbarfocus>-</texturesliderbarfocus>
+					<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
+					<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+					<orientation>vertical</orientation>
+					<showonepage>false</showonepage>
+					<onleft>506</onleft>
+					<onright>506</onright>
+					<visible>!Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					<visible>Control.IsVisible(506)</visible>
+				</control>
+				
+				<control type="group">
+					<animation effect="slide" start="0,0" end="-5,0" time="150" condition="Control.HasFocus(65)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-7" time="150" condition="Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-7" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002)">Conditional</animation>
+					<visible>Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					
+					<control type="group">
+						<posx>50</posx>
+						<posy>-43</posy>
+						<include condition="Window.IsActive(musiclibrary)|Window.IsActive(musicfiles)|Window.IsActive(musicplaylist)">LowlistCDArt</include>
+					</control>
+		
+					<control type="group"> <!--cases-->
+						<posx>150</posx>
+						<posy>10</posy>
+						<include>BreezeCDCases</include>		
+					</control>
+				
+				</control> 
+				
+				<control type="group">
+					<animation effect="slide" start="0,0" end="-9,0" time="150" condition="Control.HasFocus(65)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-7" time="150" condition="Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-7" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002)">Conditional</animation>
+					<visible>!Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					
+					<include condition="Window.IsActive(musiclibrary)|Window.IsActive(musicfiles)|Window.IsActive(musicplaylist)">LowlistCDArt</include>	
+		
+					<control type="group"> <!--covers-->
+						<posx>-328</posx>
+						<posy>20</posy>
+						<include>coversmusic</include>		
+					</control>
+				
+				</control>
+				
+				<control type="group"> <!--extra info-->
+					<animation effect="fade" start="100" end="0" time="250" condition="!Control.HasFocus(7002)">Conditional</animation>
+					<visible>[Container.Content(artists) | Container.Content(albums)] + Control.HasFocus(7002)</visible>
+					<posy>45</posy>
+				
+					<control type="label"> <!--title (cases)-->
+						<posx>695</posx>
+						<posy>120</posy>
+						<width>970</width>
+						<font>beaufort50</font>
+						<textcolor>infogrey</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+						<scroll>true</scroll>
+					</control>
+				
+					<control type="label"> <!--title (cover)-->
+						<posx>630</posx>
+						<posy>120</posy>
+						<width>1030</width>
+						<font>beaufort50</font>
+						<textcolor>infogrey</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+						<scroll>true</scroll>
+					</control>
+		
+					<control type="label"> <!--album artist (cases)-->
+						<posx>695</posx>
+						<posy>175</posy>
+						<width>970</width>
+						<font>beaufort32</font>
+						<label>$INFO[ListItem.Artist]</label>
+						<visible>Skin.HasSetting(breeze_lowlist_cd_cases) + Container.Content(albums)</visible>
+					</control>
+		
+					<control type="label"> <!--album artist (cover)-->
+						<posx>630</posx>
+						<posy>175</posy>
+						<width>1030</width>
+						<font>beaufort32</font>
+						<textcolor>infogreynf</textcolor>
+						<label>$INFO[ListItem.Artist]</label>
+						<visible>!Skin.HasSetting(breeze_lowlist_cd_cases) + Container.Content(albums)</visible>
+					</control>	
+		
+					<control type="label"> <!--album artist (all albums) (cases)-->
+						<posx>695</posx>
+						<posy>175</posy>
+						<width>970</width>
+						<font>beaufort32</font>
+						<label>$INFO[Container.FolderName]</label>
+						<visible>Skin.HasSetting(breeze_lowlist_cd_cases) + Container.Content(albums)</visible>
+						<visible>IsEmpty(ListItem.Artist)</visible>
+					</control>
+		
+					<control type="label"> <!--album artist (all albums) (cover)-->
+						<posx>630</posx>
+						<posy>175</posy>
+						<width>1030</width>
+						<font>beaufort32</font>
+						<textcolor>infogreynf</textcolor>
+						<label>$INFO[Container.FolderName]</label>
+						<visible>!Skin.HasSetting(breeze_lowlist_cd_cases) + Container.Content(albums)</visible>
+						<visible>IsEmpty(ListItem.Artist)</visible>
+					</control>	
+
+					<control type="group">
+						<visible>Container.Content(artists)</visible>
+						<posy>125</posy>
+					
+						<control type="label"> <!--genre label-->
+							<posx>695</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[515]:</label>
+							<textcolor>ff6b85a4</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>							
+					
+						<control type="label"> <!--genre-->
+							<posx>780</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>1030</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Property(Artist_Genre)]</label>
+							<textcolor>infogrey</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>
+					
+						<control type="label"> <!--born/formed label-->
+							<posx>695</posx>
+							<posy>40</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[21893]/$LOCALIZE[21894]:</label>
+							<textcolor>ff6b85a4</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>							
+					
+						<control type="label"> <!--born/formed-->
+							<posx>860</posx>
+							<posy>40</posy>
+							<height>150</height>
+							<width>1030</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Property(Artist_Born)]$INFO[ListItem.Property(Artist_Formed)]</label>
+							<textcolor>infogrey</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>	
+		  
+						<control type="label"> <!--died/disbanded label-->
+							<posx>695</posx>
+							<posy>80</posy>
+							<align>left</align>
+							<height>150</height>
+							<width>970</width>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[21897]/$LOCALIZE[21896]:</label>
+							<textcolor>ff6b85a4</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>	
+		  
+						<control type="label"> <!--died/disbanded-->
+							<posx>895</posx>
+							<posy>80</posy>
+							<align>left</align>
+							<height>150</height>
+							<width>1030</width>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Property(Artist_Died)]$INFO[ListItem.Property(Artist_Disbanded)]</label>
+							<textcolor>infogrey</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>
+		  
+						<control type="label"> <!--years active label-->
+							<posx>695</posx>
+							<posy>120</posy>
+							<align>left</align>
+							<height>150</height>
+							<width>970</width>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[21898]:</label>
+							<textcolor>ff6b85a4</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>	
+		  
+						<control type="label"> <!--years active-->
+							<posx>842</posx>
+							<posy>120</posy>
+							<align>left</align>
+							<height>150</height>
+							<width>1030</width>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Property(Artist_YearsActive)]</label>
+							<textcolor>infogrey</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>
+
+					</control>	
+
+					<control type="group">
+						<visible>Container.Content(albums)</visible>						
+						<posy>160</posy>
+					
+						<control type="label"> <!--genre label-->
+							<posx>695</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[515]:</label>
+							<textcolor>ff6b85a4</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>		
+					
+						<control type="label"> <!--genre-->
+							<posx>780</posx>
+							<posy>0</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Genre]</label>
+							<textcolor>infogrey</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>
+					
+						<control type="label"> <!--year label-->
+							<posx>695</posx>
+							<posy>40</posy>
+							<height>150</height>
+							<width>970</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label>$LOCALIZE[31485]:</label>
+							<textcolor>ff6b85a4</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>							
+					
+						<control type="label"> <!--year-->
+							<posx>795</posx>
+							<posy>40</posy>
+							<height>150</height>
+							<width>1030</width>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<label fallback="31482">$INFO[ListItem.Year]</label>
+							<textcolor>infogrey</textcolor>
+							<animation effect="slide" start="0,0" end="-65,0" time="0" condition="!Skin.HasSetting(breeze_lowlist_cd_cases)">Conditional</animation>
+						</control>
+
+					</control>	
+				
+				</control>
+				
+				<control type="image"> <!--music logo-->
+					<posx>1455</posx>
+					<posy>150</posy>
+					<width>375</width>
+					<height>120</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
+					<visible>Skin.HasSetting(breeze_artist_logos) + !Container.Content(songs)</visible>
+					<animation effect="slide" start="0,0" end="0,-105" time="150" condition="Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-105" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002)">Conditional</animation>
+				</control>
+			
+				<control type="image"> <!--artist logo (songs)-->
+					<posx>1455</posx>
+					<posy>150</posy>
+					<width>375</width>
+					<height>120</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[ListItem.path,,../logo.png]</texture>
+					<visible>Skin.HasSetting(breeze_artist_logos) + Container.Content(songs)</visible>
+					<animation effect="slide" start="0,0" end="0,-105" time="150" condition="Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-105" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002)">Conditional</animation>
+				</control>
+				
+				<control type="group"> <!--artist bio-->
+					<animation effect="fade" start="100" end="0" time="250" condition="!Control.HasFocus(7002)">Conditional</animation>
+					<visible>Control.HasFocus(7002)</visible>
+					<posy>340</posy>
+				
+					<control type="textbox"> <!--cases view-->
+						<posx>695</posx>
+						<posy>50</posy>
+						<width>1190</width>
+						<height>135</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[ListItem.Property(Artist_Description)]</label>
+						<autoscroll delay="18000" time="4000" repeat="19000">Control.HasFocus(7002)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>Container.Content(artists) + Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					</control>
+				
+					<control type="textbox"> <!--cover view-->
+						<posx>630</posx>
+						<posy>50</posy>
+						<width>1250</width>
+						<height>135</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[ListItem.Property(Artist_Description)]</label>
+						<autoscroll delay="19000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>Container.Content(artists) + !Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					</control>
+					
+				</control>
+				
+				<control type="group"> <!--album review-->
+					<animation effect="fade" start="100" end="0" time="250" condition="!Control.HasFocus(7002)">Conditional</animation>
+					<visible>Control.HasFocus(7002)</visible>
+					<posy>300</posy>
+				
+					<control type="textbox"> <!--cases view-->
+						<posx>695</posx>
+						<posy>50</posy>
+						<width>970</width>
+						<height>180</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[ListItem.Property(Album_Description)]</label>
+						<autoscroll delay="12000" time="4000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>Container.Content(albums) + Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					</control>
+				
+					<control type="textbox"> <!--cover view-->
+						<posx>630</posx>
+						<posy>50</posy>
+						<width>1030</width>
+						<height>180</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[ListItem.Property(Album_Description)]</label>
+						<autoscroll delay="13000" time="4000" repeat="11000">Skin.HasSetting(AutoScroll)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>Container.Content(albums) + !Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+					</control>
+					
+				</control>
+			
+			</control> 
+	  
+			<control type="group">
+				<visible>Control.IsVisible(506)</visible>	
+				<include>BreezeNowPlayingRight</include>		
+			</control>
+	  
+		</control>
+		
+	</include>
+  
+</includes>

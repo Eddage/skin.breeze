@@ -1,0 +1,149 @@
+<window id="20">
+
+	<defaultcontrol>50</defaultcontrol>
+	
+	<allowoverlay>no</allowoverlay>
+	
+	<views>50</views>
+	
+	<controls>
+	
+		<include>CommonAddonsBackground</include>	 
+	
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			<include>backgroundfade</include>
+			<fadetime>FanartCrossfadeTime</fadetime>
+			<include condition="Skin.HasSetting(animatedbg)">Animation_Background</include>
+		</control>	
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+		</control> 	
+				
+		<control type="image"> <!--base bar-->
+			<posy>770</posy>
+			<texture>breeze/views/base.png</texture>
+				<animation effect="slide" start="0,0" end="0,-101" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-101" time="150" condition="Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
+			<!--visible>!Control.IsVisible(511)</visible-->
+		</control>
+    
+		<control type="group">
+			<include>CommonRootView</include>
+		</control>
+    
+		<control type="button" id="7000">
+			<include>HiddenObject</include>
+			<onfocus>SetFocus(9000)</onfocus>
+			<visible>Control.IsVisible(509)</visible>
+		</control>
+    
+		<include>ScrollOffsetLabel</include>
+		<include>Breadcrumbs</include>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+			<visible>ControlGroup(9000).HasFocus | ControlGroup(7001).HasFocus | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(contentsettings) | Window.IsActive(contextmenu) | Window.IsActive(shutdownmenu) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(virtualkeyboard) | Window.IsActive(numericinput)</visible>
+		</control> 
+	  
+		<control type="button" id="7009"> <!--settings button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(50)</onup>
+			<onleft>SetFocus(7010)</onleft>
+			<onright>SetFocus(7010)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>SetFocus(9000)</onclick>
+		</control>
+	  
+		<control type="button" id="7010"> <!--shutdown button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(50)</onup>
+			<onleft>SetFocus(7009)</onleft>
+			<onright>SetFocus(7009)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>ActivateWindow(shutdownmenu)</onclick>
+		</control>
+		
+		<control type="group">
+			<posx>1788</posx>
+			<posy>17</posy>
+			<orientation>horizontal</orientation>
+			
+			<control type="image"> <!--settings button-->
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/settings.png</texture>
+				<visible>!Control.HasFocus(7009)</visible>
+				<visible>!ControlGroup(9000).HasFocus</visible>
+				<visible>!Control.IsVisible(7011)</visible>
+			</control>
+			
+			<control type="image"> <!--settings button f-->
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/settings f.png</texture>
+				<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown.png</texture>
+				<visible>!Control.HasFocus(7010)</visible>
+				<visible>!Window.IsActive(shutdownmenu)</visible>
+				<visible>!Control.IsVisible(7012)</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button f-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown f.png</texture>
+				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+			</control>
+			
+			<control type="label">
+				<posx>-93</posx>
+				<posy>8</posy>
+				<font>breeze28b</font>
+				<label>$LOCALIZE[10004]</label>
+				<textcolor>blue2</textcolor>
+				<align>left</align>
+				<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
+			</control>
+			
+			<control type="label">
+				<posx>-75</posx>
+				<posy>8</posy>
+				<font>breeze28b</font>
+				<label>$LOCALIZE[33060]</label>
+				<textcolor>blue2</textcolor>
+				<align>left</align>
+				<visible>Control.HasFocus(7010)</visible>
+			</control>
+			
+		</control>
+		
+		<include>Media_Menu</include>
+  
+	</controls>
+	
+</window>
