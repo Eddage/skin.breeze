@@ -1,3 +1,6 @@
-19/02/2012...
+25/02/2012
 
-First beta uploaded
+Coded DialogContextSettings.xml
+Changed default keyboard focus to "Done"
+Disabled RSS feed (until horizontal menu is done)
+Adjusted DialogFullScreenInfo.xml to account for movies with no tagline.

@@ -191,6 +191,7 @@
 	
 			<control type="image"> <!--base bar-->
 				<texture>breeze/osd/bg.png</texture>
+				<animation effect="slide" start="0,0" end="0,30" time="0" condition="VideoPlayer.Content(movies) + IsEmpty(VideoPlayer.Tagline)">Conditional</animation>
 			</control>
 		
 			<control type="label"> <!--video title-->
@@ -204,6 +205,7 @@
 				<font>breeze50</font>
 				<label>$INFO[VideoPlayer.Title]</label>
 				<scroll>true</scroll>
+				<animation effect="slide" start="0,0" end="0,35" time="0" condition="VideoPlayer.Content(movies) + IsEmpty(VideoPlayer.Tagline)">Conditional</animation>
 			</control>
 		
 			<control type="label"> <!--movie tagline-->
@@ -220,9 +222,9 @@
 				<visible>VideoPlayer.Content(movies)</visible>
 			</control>	
 		
-			<control type="label"> <!--tv show title-->
+			<control type="label"> <!--tv show season/episode-->
 				<posx>30</posx>
-				<posy>75</posy>
+				<posy>80</posy>
 				<width>1340</width>
 				<height>45</height>
 				<align>center</align>

@@ -213,7 +213,7 @@
 			<width>1920</width>
 			<height>1080</height>
 			<texture>breeze/bg 75.png</texture>
-			<visible>ControlGroup(9000).HasFocus | Window.IsActive(111) | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(contentsettings) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(numericinput)</visible>
+			<visible>ControlGroup(9000).HasFocus | Window.IsActive(111) | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(numericinput)</visible>
 			<visible>!Window.IsVisible(virtualkeyboard)</visible>
 		</control> 
 		

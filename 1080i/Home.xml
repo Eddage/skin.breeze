@@ -65,7 +65,7 @@
 		</control>
 		
 		<!-- RSS -->
-		<include>rssnormal</include>
+		<!--include>rssnormal</include>
 		
 		<!-- Latest/Random Items -->
 		<control type="group">

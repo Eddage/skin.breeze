@@ -19,6 +19,7 @@
 			<height>1080</height>
 			<texture>breeze/bg 75.png</texture>
 			<visible>!Window.IsVisible(virtualkeyboard)</visible>
+			<visible>!Window.IsVisible(contentsettings)</visible>
 		</control> 
 	
 		<control type="group">
