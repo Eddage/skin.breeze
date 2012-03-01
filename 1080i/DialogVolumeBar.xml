@@ -8,42 +8,109 @@
 		<posy>0</posy>
 	</coordinates>
   
-	<include>Animation_DialogSlide</include>
-  
 	<controls>
   
 		<control type="group">
-			<include>SmallerDialogs</include>
-			<include>Dialogs_Group</include>
-			<include>Dialogs_Tablet</include>
+			<posx>1228</posx>
+			<posy>15</posy>
+	
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" time="400" tween="sine" easing="inout" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="400" tween="sine" easing="inout" />
+			</animation>
+		
+			<animation type="Visible" reversible="false">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
+			</animation>
+			<animation type="Hidden" reversible="false">
+				<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+			</animation>
+			
+			<control type="group">
+				<posx>68</posx>
+				<posy>63</posy>
+		
+				<control type="group">
+					<posy>7</posy>
+					<animation effect="slide" start="0,0" end="-68,-63" time="0" condition="Window.IsActive(home)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-8,-78" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="90,0" time="200" delay="500" condition="!Window.IsActive(musicscan) + !Window.IsActive(videoscan)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-450,0" time="200" delay="500" condition="Window.IsActive(infodialog)">Conditional</animation>
+				
+					<control type="image">
+						<width>530</width>
+						<height>80</height>
+						<texture>breeze/dialogs/notification bg.png</texture>
+						<animation type="WindowOpen" reversible="false">
+							<effect type="zoom" start="380,0,80,80" end="0,0,530,80" time="400" center="530,0"/>
+						</animation>
+						<animation type="WindowClose" reversible="false">
+							<effect type="zoom" start="0,0,530,80" end="381,0,80,80" time="250" center="463.7,0" delay="500"/>
+						</animation>
+					</control>
+			
+					<control type="group">
+						<posx>450</posx>
+						<posy>-12</posy>
+						<include>Dialogs_VolumeIcon</include>
+						<animation type="WindowOpen" reversible="false">
+							<effect type="zoom" start="50" end="100" center="490,28" time="500" tween="back" easing="out"/>
+							<effect type="fade" start="0" end="100" time="50"/>
+						</animation>
+						<animation type="WindowClose" reversible="false">
+							<effect type="zoom" start="100" end="50" center="490,28" time="500" tween="back" easing="inout"/>
+							<effect type="fade" start="100" end="0" time="1500"/>
+						</animation>
+					</control>
+		
+				</control>		
       
-			<control type="group">
-				<posy>2</posy>
-				<visible>!player.passthrough</visible>
+				<control type="group">
+					<posx>-85</posx>
+					<posy>2</posy>
+					<visible>!player.passthrough</visible>
+					<animation effect="slide" start="0,0" end="-68,-63" time="0" condition="Window.IsActive(home)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-8,-78" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="90,0" time="200" delay="500" condition="!Window.IsActive(musicscan) + !Window.IsActive(videoscan)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-450,0" time="200" delay="500" condition="Window.IsActive(infodialog)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="200" delay="300">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="150" delay="0">WindowClose</animation>
+			
+					<control type="progress" id="20">
+						<include>Dialogs_Progress</include>
+						<info>Player.Volume</info>
+					</control>
 		
-				<control type="progress" id="20">
-					<include>Dialogs_Progress</include>
-					<info>Player.Volume</info>
+					<control type="label" id="1">
+						<posx>540</posx>
+						<include>Dialogs_Label2</include>
+						<label>$LOCALIZE[13376]: [COLOR FF7f7f7f]$INFO[Player.Volume][/COLOR]</label>
+					</control>
+		
 				</control>
-		
-				<include>Dialogs_VolumeIcon</include>
-		
-				<control type="label" id="1">
-					<include>Dialogs_Label2</include>
-					<label>$LOCALIZE[13376]: [COLOR FF7f7f7f]$INFO[Player.Volume][/COLOR]</label>
-				</control>
-		
-			</control>
 	  
-			<control type="group">
-				<visible>player.passthrough</visible>
-				<include>Dialogs_VolumeIcon</include>
-        
-				<control type="label">
-					<include>Dialogs_Label2</include>
-					<label>29802</label>
-				</control>
+				<control type="group">
+					<posx>-85</posx>
+					<visible>player.passthrough</visible>
+					<animation effect="slide" start="0,0" end="-68,-63" time="0" condition="Window.IsActive(home)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-8,-78" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="90,0" time="200" delay="500" condition="!Window.IsActive(musicscan) + !Window.IsActive(videoscan)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-450,0" time="200" delay="500" condition="Window.IsActive(infodialog)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="200" delay="0">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="150" delay="0">WindowClose</animation>
+			
+					<control type="label">
+						<include>Dialogs_Label2</include>
+						<label>29802</label>
+					</control>
 		
+				</control>
+			
 			</control>
 	  
 		</control>

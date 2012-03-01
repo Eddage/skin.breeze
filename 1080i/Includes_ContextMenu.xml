@@ -80,6 +80,26 @@
 			<onleft>Dialog.Close(contextmenu)</onleft>
 			<onright>Dialog.Close(contextmenu)</onright>
 		</include>
+	
+		<include name="VidInfoExtraButton">
+			<description>button template</description>
+			<posx>0</posx>
+			<posy></posy>
+			<height>55</height>
+			<width>318</width>
+			<textcolor>infogreynf</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<disabledcolor>red</disabledcolor>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>breeze/menus/vidinfo extra f.png</texturefocus>
+			<align>center</align>
+			<aligny>top</aligny>
+			<font>breeze32</font>
+			<pulseonselect>no</pulseonselect>
+			<textoffsety>1.5</textoffsety>
+			<onleft>Dialog.Close(60)</onleft>
+			<onright>Dialog.Close(60)</onright>
+		</include>
 
 		<include name="HomeContextTop">
 			<posx>0</posx>

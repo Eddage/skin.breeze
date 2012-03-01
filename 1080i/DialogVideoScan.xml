@@ -16,6 +16,16 @@
 		<control type="group">
 		
 			<include>Dialogs_Video_Scan</include>
+			<visible>Window.IsActive(home)</visible>
+	  
+		</control>
+  
+		<control type="group">
+			<posx>1817</posx>
+			<posy>-20</posy>
+		
+			<include>Dialogs_Busy</include>
+			<visible>!Window.IsActive(home)</visible>
 			<visible>!Window.IsActive(fullscreenvideo)</visible>
 	  
 		</control>

@@ -1821,25 +1821,13 @@
 		<height>91</height>
 	</include>
 	
-	<include name="Dialogs_Tablet">
-	
-		<control type="image">
-			<posx>-408</posx>
-			<posy>-22</posy>
-			<aspectratio>keep</aspectratio>
-			<height>170</height>
-			<texture>breeze/dialogs/popup bg.png</texture>
-		</control>
-		
-	</include>
-	
 	<include name="Dialogs_Exclam">
 	
 		<control type="image">
 			<posx>17</posx>
 			<posy>22</posy>
-			<width>60</width>
-			<height>60</height>
+			<width>80</width>
+			<height>80</height>
 			<texture>breeze/dialogs/exclamation.png</texture>
 			<!--animation effect="fade" start="100" end="70" time="600" pulse="true" condition="true">Conditional</animation-->
 		</control>
@@ -1851,17 +1839,17 @@
 		<control type="image">
 			<posx>17</posx>
 			<posy>22</posy>
-			<width>60</width>
-			<height>60</height>
+			<width>80</width>
+			<height>80</height>
 			<texture>breeze/dialogs/busy bg.png</texture>
 		</control>
-		
+	
 		<control type="image">
 			<posx>17</posx>
 			<posy>22</posy>
-			<width>60</width>
-			<height>60</height>
-			<texture>breeze/dialogs/busy.png</texture>
+			<width>80</width>
+			<height>80</height>
+			<texture>breeze/dialogs/busy centre.png</texture>
 			<animation effect="rotate" start="360" end="0" center="auto" time="1000" loop="true" condition="true">conditional</animation>
 		</control>
 		
@@ -1985,15 +1973,15 @@
 	
 	<include name="Dialogs_Progress">
 		<description>Progressbar</description>
-		<posx>85</posx>
+		<posx>210</posx>
 		<posy>55</posy>
-		<width>350</width>
-		<height>10</height>
+		<width>330</width>
+		<height>11</height>
 		<reveal>true</reveal>
-		<texturebg>breeze/dialogs/progress bg.png</texturebg>
-		<lefttexture>breeze/dialogs/progress left.png</lefttexture>
-		<midtexture>breeze/dialogs/progress mid.png</midtexture>
-		<righttexture>breeze/dialogs/progress right.png</righttexture>
+		<texturebg>breeze/dialogs/progress bar bg.png</texturebg>
+		<lefttexture>breeze/dialogs/progress bar left.png</lefttexture>
+		<midtexture>breeze/dialogs/progress bar mid.png</midtexture>
+		<righttexture>breeze/dialogs/progress bar right.png</righttexture>
 		<overlaytexture>-</overlaytexture>
 	</include>
 	
@@ -2063,9 +2051,9 @@
 		<posy>20</posy>
 		<include>Dialogs_LabelVars</include>
 		<textcolor>infogrey</textcolor>
-		<align>left</align>
+		<align>right</align>
 		<aligny>center</aligny>
-		<font>breeze28b</font>
+		<font>breeze24</font>
 		<scroll>false</scroll>
 	</include>
 	

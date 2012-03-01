@@ -9,9 +9,9 @@
     </font>		
 	
     <font>
-      <name>breeze85</name>
+      <name>breeze75</name>
       <filename>breeze.ttf</filename>
-      <size>65</size>
+      <size>75</size>
     </font>		
 	
     <font>
@@ -36,13 +36,19 @@
       <name>breeze40</name>
       <filename>breeze.ttf</filename>
       <size>40</size>
-    </font>		
+    </font>			
 	
     <font>
       <name>breeze36</name>
       <filename>breeze.ttf</filename>
       <size>36</size>
     </font>	
+	
+    <font>
+      <name>breeze34</name>
+      <filename>breeze.ttf</filename>
+      <size>34</size>
+    </font>
 	
     <font>
       <name>breeze34b</name>
@@ -87,6 +93,19 @@
       <name>breeze28b</name>
       <filename>breeze.ttf</filename>
       <size>25</size>
+	  <style>bold</style>
+    </font>
+	
+    <font>
+      <name>breeze24</name>
+      <filename>breeze.ttf</filename>
+      <size>24</size>
+    </font>	
+	
+    <font>
+      <name>breeze24b</name>
+      <filename>breeze.ttf</filename>
+      <size>24</size>
 	  <style>bold</style>
     </font>
 	

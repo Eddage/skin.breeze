@@ -1,6 +1,31 @@
+01/03/2012
+
+Updated DialogVideoInfo.xml
+
+
+27/02/2012
+
+Coded script-Actors-DialogInfo.xml (Metadata Actors addon)
+
+
+26/02/2012
+
+Updated DialogVideoInfo.xml
+Updated DialogButtonMenu.xml (changed shutdownmenu for home screen)
+Updated DialogBusy.xml
+Updated DialogMuteBug.xml
+Updated DialogKaiToast.xml
+Updated Addon.xml to recognise sources of inspiration.
+Coded script-globalsearch-main.xml.
+Added icons to shutdown menu.
+Added option to run global search from shutdown menu.
+Added global search script as dependency.
+Removed logo downloader dependency and integrated artwork downloader.
+
+
 25/02/2012
 
-Coded DialogContextSettings.xml
+Coded DialogContentSettings.xml
 Changed default keyboard focus to "Done"
 Disabled RSS feed (until horizontal menu is done)
 Adjusted DialogFullScreenInfo.xml to account for movies with no tagline.

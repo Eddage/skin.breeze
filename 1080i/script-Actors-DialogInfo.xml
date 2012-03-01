@@ -1,0 +1,648 @@
+<window id="3000">
+
+	<defaultcontrol always="true">8</defaultcontrol>
+	
+	<allowoverlay>no</allowoverlay>
+	
+	<controls>
+	
+		<control type="group">
+			<visible>![Window.IsVisible(FileBrowser) | Window.IsVisible(script-Actors-Browser.xml) | [Window.IsVisible(DialogSelect.xml) + StringCompare(Window.Property(actorsselect),1)]]</visible>
+			<animation effect="slide" start="1920,0" end="0,0" time="600" tween="quadratic" easing="out">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="1920,0" time="600" tween="quadratic" easing="out">WindowClose</animation>
+
+			<control type="image"> <!--fanart-->
+				<description>background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<texture fallback="breeze/background.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+			</control>
+
+			<control type="image"> <!--white bg-->
+				<description>background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<texture>breeze/bg 75.png</texture>
+			</control>
+	
+			<control type="image"> <!--base bar-->
+				<posy>770</posy>
+				<texture>breeze/views/base.png</texture>
+			</control>
+	
+			<control type="image"> <!--bg-->
+				<posx>33</posx>
+				<posy>40</posy>
+				<texture>breeze/vid info/bg.png</texture>
+			</control>
+
+			<control type="image"> <!--fanart/ep thumb border-->
+				<description>background image</description>
+				<posx>250</posx>
+				<posy>790</posy>
+				<width>464</width>
+				<height>270</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture>breeze/masks/thumb border blue.png</texture>
+				<visible>!ControlGroup(2500).HasFocus</visible>
+			</control> 
+
+			<control type="image"> <!--fanart-->
+				<description>background image</description>
+				<posx>260</posx>
+				<posy>800</posy>
+				<width>444</width>
+				<height>250</height>
+				<aspectratio scalediffuse="false">scale</aspectratio> 
+				<texture diffuse="breeze/masks/thumb.png" fallback="breeze/bookmark.png">$INFO[Listitem.Property(Fanart_Image)]</texture>
+				<visible>!ControlGroup(2500).HasFocus</visible>
+			</control> 
+			
+			<control type="group">
+				
+				<control type="label"> <!--name-->
+					<description>header label</description>
+					<posx>430</posx>
+					<posy>65</posy>
+					<width>1450</width>
+					<font>breeze75</font>
+					<textcolor>infogrey</textcolor>
+					<shadowcolor>90ffffff</shadowcolor>
+					<label>$INFO[ListItem.Title]</label>
+					<scroll>true</scroll>
+					<scrollsuffix>       | </scrollsuffix>
+				</control>
+				
+				<control type="group">  <!--actor info-->
+					<visible>!ControlGroup(2500).HasFocus</visible>
+					<posx>735</posx>
+					<posy>805</posy>
+				
+					<control type="label"> <!--also known as label-->
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label>$ADDON[script.metadata.actors 32016]:</label>
+						<textcolor>blue2</textcolor>
+					</control>	
+				
+					<control type="label"> <!--also known as-->
+						<posx>178</posx>
+						<posy>0</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label fallback="31482">$INFO[ListItem.Property(AlsoKnownAs)]</label>
+						<textcolor>infogrey</textcolor>
+					</control>	
+				
+					<control type="label"> <!--known movies label-->
+						<posx>0</posx>
+						<posy>40</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label>$ADDON[script.metadata.actors 32011]:</label>
+						<textcolor>blue2</textcolor>
+					</control>	
+				
+					<control type="label"> <!--known movies-->
+						<posx>177</posx>
+						<posy>40</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label fallback="31482">$INFO[ListItem.Property(TotalMovies)]</label>
+						<textcolor>infogrey</textcolor>
+					</control>	
+				
+					<control type="label"> <!--birthday label-->
+						<posx>0</posx>
+						<posy>80</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label>$ADDON[script.metadata.actors 32012]:</label>
+						<textcolor>blue2</textcolor>
+					</control>		
+				
+					<control type="label"> <!--birthday-->
+						<posx>106</posx>
+						<posy>80</posy>
+						<width>930</width>
+						<height>200</height>
+						<align>left</align>
+						<font>breeze32</font>
+						<label fallback="31482">$INFO[ListItem.Property(Birthday)]$INFO[ListItem.Property(AgeLong), (,)]</label>
+						<textcolor>infogrey</textcolor>
+					</control>
+						
+					<control type="label"> <!--died label-->
+						<posx>0</posx>
+						<posy>120</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>$ADDON[script.metadata.actors 32013]:</label>
+					</control>
+						
+					<control type="label"> <!--died-->
+						<posx>157</posx>
+						<posy>120</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label fallback="31482">$INFO[ListItem.Property(Deathday)]$INFO[ListItem.Property(DeathageLong), (,)]</label>
+					</control>
+	  
+					<control type="label"> <!--bith place label-->
+						<posx>0</posx>
+						<posy>160</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>$ADDON[script.metadata.actors 32014]:</label>
+					</control>	
+	  
+					<control type="label"> <!--birth place-->
+						<posx>161</posx>
+						<posy>160</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label>$INFO[ListItem.Property(PlaceOfBirth)]</label>
+					</control>	
+	  
+					<control type="label"> <!--adult label-->
+						<posx>0</posx>
+						<posy>200</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>blue2</textcolor>
+						<label>$ADDON[script.metadata.actors 32015]:</label>
+					</control>
+	  
+					<control type="label"> <!--adult?-->
+						<posx>140</posx>
+						<posy>200</posy>
+						<width>930</width>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze32</font>
+						<textcolor>infogrey</textcolor>
+						<label>$INFO[ListItem.Property(Adult)]</label>
+					</control>
+														
+							<!--item>
+								<label>$ADDON[script.metadata.actors 32016]:</label>
+								<label2>$INFO[ListItem.Property(AlsoKnownAs)]</label2>
+								<onclick>-</onclick>
+								<visible>!IsEmpty(ListItem.Property(AlsoKnownAs))</visible>
+							</item>
+							
+							<item>
+								<label>$ADDON[script.metadata.actors 32017]:</label>
+								<label2>$INFO[ListItem.Property(Homepage)]</label2>
+								<onclick>RunScript(script.metadata.actors,homepage=$INFO[ListItem.Property(Homepage)])</onclick>
+								<visible>!IsEmpty(ListItem.Property(Homepage))</visible>
+							</item-->
+					
+				</control>	
+
+				<control type="textbox" id="400"> <!--plot-->
+					<description>Plot</description>
+					<posx>480</posx>
+					<posy>200</posy>
+					<width>1315</width>
+					<height>520</height>
+					<align>justify</align>
+					<font>breeze34</font>
+					<pagecontrol>60</pagecontrol>
+					<label fallback="312577">$INFO[ListItem.Plot]</label>
+					<autoscroll delay="27000" time="4000" repeat="30000">!Control.HasFocus(61) + Skin.HasSetting(AutoScroll)</autoscroll>
+					<textcolor>infogrey</textcolor>
+					<visible>!Control.IsVisible(150)</visible>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+				</control>
+				
+				<control type="group"> <!--actor image-->
+					<posx>45</posx>
+					<posy>51</posy>
+					<animation effect="fade" time="300">Visible</animation>
+					<animation effect="fade" time="300">Hidden</animation>
+
+					<control type="image"> <!--thumb border-->
+						<description>background image</description>
+						<posx>10</posx>
+						<posy>10</posy>
+						<width>330</width>
+						<height>472</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture>breeze/masks/vid info folder border.png</texture>
+					</control> 
+
+					<control type="image"> <!--thumb-->
+						<description>background image</description>
+						<posx>20</posx>
+						<posy>20</posy>
+						<width>310</width>
+						<height>452</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="breeze/masks/vid info folder.png">$INFO[Listitem.Icon]</texture>
+					</control>
+					
+				</control>
+    
+				<control type="panel" id="150"> <!--filmography focused-->
+					<posx>450</posx>
+					<posy>200</posy>
+					<width>1300</width>
+					<height>555</height>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onback>9000</onback>
+					<onup>150</onup>
+					<ondown>150</ondown>				
+					<viewtype label="">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime>0</scrolltime>
+					<orientation>vertical</orientation>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+						<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+				
+					<itemlayout height="55" width="1300">
+				
+						<control type="label">
+							<posx>40</posx>
+							<posy>8</posy>
+							<width>965</width>
+							<height>35</height>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze34</font>
+							<textcolor>infogreynf</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						
+						<control type="image">
+							<posx>0</posx>
+							<posy>10</posy>
+							<width>35</width>
+							<height>35</height>
+							<texture>breeze/masks/watched.png</texture>
+							<visible>!IsEmpty(ListItem.Property(LibraryHasMovie))</visible>
+						</control>
+					
+					</itemlayout>
+				
+					<focusedlayout height="55" width="1300">
+					
+						<control type="label">
+							<posx>40</posx>
+							<posy>8</posy>
+							<width>1200</width>
+							<height>35</height>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<scrollspeed>30</scrollspeed>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						
+						<control type="image">
+							<posx>0</posx>
+							<posy>10</posy>
+							<width>35</width>
+							<height>35</height>
+							<texture>breeze/masks/watched.png</texture>
+							<visible>!IsEmpty(ListItem.Property(LibraryHasMovie))</visible>
+						</control>
+					
+					</focusedlayout>
+				
+				</control>	
+	  
+				<control type="image"> <!--film cover-->
+					<description>Actor image</description>
+					<posx>65</posx>
+					<posy>71</posy>
+					<width>310</width>
+					<height>452</height>
+					<texture diffuse="breeze/masks/vid info folder.png">$INFO[Container(150).Listitem.Icon]</texture>
+					<visible>Control.IsVisible(150)</visible>
+				</control>
+	  
+				<control type="image"> <!--film cover-->
+					<description>Actor image</description>
+					<posx>65</posx>
+					<posy>71</posy>
+					<width>310</width>
+					<height>452</height>
+					<texture diffuse="breeze/masks/vid info folder.png">DefaultVideoBigPoster.png</texture>
+					<visible>Control.IsVisible(150)</visible>
+					<visible>IsEmpty(Container(150).Listitem.Icon)</visible>
+				</control>
+				
+				<control type="list" id="50">
+					<description>container actor properties</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>1</width>
+					<height>1</height>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<viewtype label="">list</viewtype>
+					<pagecontrol>-</pagecontrol>
+					<itemlayout height="1" width="1" />
+					<focusedlayout height="1" width="1" />
+				</control>
+
+				<control type="group" id="2500"> <!--thumb selection-->
+					<visible>ControlGroup(2500).HasFocus</visible>
+					<posx>248</posx>
+					<posy>806</posy>
+					<animation effect="fade" time="300">Visible</animation>
+					<animation effect="fade" time="300">Hidden</animation>
+					
+					<control type="wraplist" id="250">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>1900</width>
+						<height>360</height>
+						<onleft>250</onleft>
+						<onright>250</onright>
+						<onup>9000</onup>
+						<ondown>60</ondown>
+						<pagecontrol>60</pagecontrol>
+						<scrolltime>0</scrolltime>
+						<focusposition>0</focusposition>
+						<orientation>horizontal</orientation>
+						<preloaditems>5</preloaditems>
+					
+						<itemlayout height="500" width="185">
+				
+							<control type="image"> <!--border-->
+								<posx>8</posx>
+								<posy>0</posy>
+								<width>168</width>
+								<height>244</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture>breeze/home/folder border small.png</texture>
+							</control>
+				
+							<control type="image"> <!--actor thumb-->
+								<posx>15</posx>
+								<posy>7</posy>
+								<width>153</width>
+								<height>230</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture diffuse="breeze/home/vert folder small.png" background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+						
+						</itemlayout>
+					
+						<focusedlayout height="500" width="185">
+						
+							<control type="image"> <!--border-->
+								<posx>5</posx>
+								<posy>0</posy>
+								<width>168</width>
+								<height>244</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture>breeze/home/folder border small blue.png</texture>
+								<animation type="Focus" reversible="false">
+									<effect type="zoom" center="120,7" start="85" end="100" time="300" tween="sine" easing="inout" />
+								</animation>
+							</control>	
+				
+							<control type="image"> <!--actor thumb-->
+								<posx>13</posx>
+								<posy>8</posy>
+								<width>153</width>
+								<height>230</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture diffuse="breeze/home/vert folder.png" background="true">$INFO[ListItem.Icon]</texture>
+								<animation type="Focus" reversible="false">
+									<effect type="zoom" center="120,7" start="85" end="100" time="300" tween="sine" easing="inout" />
+								</animation>
+							</control>	
+						
+						</focusedlayout>
+						
+					</control>
+					
+					<control type="label">
+						<posx>0</posx>
+						<posy>385</posy>
+						<width>1030</width>
+						<height>25</height>
+						<font>font12</font>
+						<textcolor>FF999999</textcolor>
+						<selectedcolor>FFEB9E17</selectedcolor>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>[COLOR=FF0084ff]$LOCALIZE[553]:[/COLOR] $INFO[Container(250).ListItem.Label]  [COLOR=FF0084ff]Ratio:[/COLOR] $INFO[Container(250).ListItem.Property(aspect_ratio)]</label>
+						<visible>ControlGroup(2500).HasFocus</visible>
+						<animation effect="fade" time="300">Visible</animation>
+						<animation effect="fade" time="300">Hidden</animation>
+					</control>
+					
+				</control>
+
+				<control type="grouplist" id="9000"> <!--buttons-->
+					<posx>55</posx>
+					<posy>545</posy>
+					<width>330</width>
+					<height>175</height>
+					<itemgap>0</itemgap>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<onright>150</onright>
+					<orientation>vertical</orientation>
+					<align>top</align>
+					
+					<control type="button" id="8">
+						<description>browse to Show</description>
+						<height>58</height>
+						<width>330</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>55</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze30</font>
+						<label>1024</label>
+					</control>
+					
+					<control type="button" id="5">
+						<description>Filmography/Biography</description>
+						<height>58</height>
+						<width>330</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>55</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze30</font>
+						<label>$ADDON[script.metadata.actors 32010]</label>
+					</control>
+					
+					<control type="button" id="6">
+						<description>Refresh</description>
+						<height>58</height>
+						<width>330</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>55</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze30</font>
+						<label>184</label>
+					</control>
+					
+					<control type="button" id="10">
+						<description>Get Thumb</description>
+						<height>58</height>
+						<width>330</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>55</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze30</font>
+						<label>13405</label>
+						<onclick>SetFocus(250)</onclick>
+					</control>
+					
+					<control type="button" id="20">
+						<description>Get Fanart</description>
+						<height>58</height>
+						<width>330</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>55</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze30</font>
+						<label>20413</label>
+					</control>
+					
+					<control type="button" id="11">
+						<description>edit (require tmdb account)</description>
+						<height>58</height>
+						<width>330</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>55</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze30</font>
+						<label>20067</label>
+					</control>
+					
+					<control type="button" id="25">
+						<description>addon settings</description>
+						<height>58</height>
+						<width>330</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>55</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze30</font>
+						<label>24002</label>
+					</control>
+					
+				</control>
+				
+			</control>
+
+			<control type="group"> 
+				<posx>0</posx>
+				<posy>520</posy>
+				
+				<control type="group">
+					<include>BreezeTimePanel</include>
+				</control>
+			
+			</control>	
+			
+		</control>
+		
+	</controls>
+	
+</window>
