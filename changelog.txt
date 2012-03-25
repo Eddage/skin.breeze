@@ -1,3 +1,11 @@
+0.3.0
+
+Other changes that I forgot to write down as I went along....
+Reworked current views to keep consistent style
+Added Horizontal/Metro home view
+
+0.2.0
+
 01/03/2012
 
 Updated DialogVideoInfo.xml

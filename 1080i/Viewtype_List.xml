@@ -106,7 +106,7 @@
 							<include>musiclistcolornofocus</include>
 							<aligny>center</aligny>
 							<align>left</align>
-							<label>$INFO[ListItem.Date,$LOCALIZE[31239]: ]</label>
+							<label>$INFO[ListItem.Premiered,$LOCALIZE[31239]: ]</label>
 							<visible>Container.Content(episodes)</visible>
 						</control>
 						
@@ -220,6 +220,18 @@
 							<visible>!Container.Content(artists)</visible>
 							<visible>!Container.Content(albums)</visible>
 							<visible>!Container.Content(songs)</visible>
+							<visible>!StringCompare(ListItem.Label,Actors)</visible>
+							<visible>!StringCompare(ListItem.Label,Directors)</visible>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultActorSmall.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Actors) | StringCompare(ListItem.Label,Directors)</visible>
 						</control>
 						
 						<control type="image"> <!--artist thumb-->
@@ -346,7 +358,7 @@
 							<selectedcolor>white</selectedcolor>
 							<aligny>center</aligny>
 							<align>left</align>
-							<label>$INFO[ListItem.Date,$LOCALIZE[31239]: ]</label>
+							<label>$INFO[ListItem.Premiered,$LOCALIZE[31239]: ]</label>
 							<visible>Container.Content(episodes)</visible>
 						</control>
 						
@@ -463,6 +475,18 @@
 							<visible>!Container.Content(artists)</visible>
 							<visible>!Container.Content(albums)</visible>
 							<visible>!Container.Content(songs)</visible>
+							<visible>!StringCompare(ListItem.Label,Actors)</visible>
+							<visible>!StringCompare(ListItem.Label,Directors)</visible>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultActorSmall.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Actors) | StringCompare(ListItem.Label,Directors)</visible>
 						</control>
 						
 						<control type="image"> <!--artist thumb-->

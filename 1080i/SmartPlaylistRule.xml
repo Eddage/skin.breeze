@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <window id="129">
   <defaultcontrol always="true">15</defaultcontrol>
   <coordinates>
@@ -9,42 +9,42 @@
   <include>Animation_DialogPopup</include>
   <controls>
     <control type="group">
-      <posx>247</posx>
-      <posy>248</posy>
-      <width>847</width>
-      <height>328</height>
+      <posx>370</posx>
+      <posy>372</posy>
+      <width>1270</width>
+      <height>492</height>
       <control type="image">
         <description>background image</description>
         <posx>0</posx>
         <posy>0</posy>
-        <width>861</width>
-        <height>316</height>
+        <width>1292</width>
+        <height>474</height>
         <texture>dialogs/scrapersettings_back.png</texture>
       </control>
       <control type="label">
         <description>heading label</description>
         <posx>0</posx>
-        <posy>40</posy>
-        <width>692</width>
+        <posy>60</posy>
+        <width>1038</width>
         <align>center</align>
         <font>Font_Reg22</font>
         <label>[UPPERCASE]$LOCALIZE[21421][/UPPERCASE]</label>
       </control>
       <control type="label" id="0">
         <description>Rule match label</description>
-        <posx>25</posx>
-        <posy>75</posy>
-        <width>480</width>
+        <posx>38</posx>
+        <posy>112</posy>
+        <width>720</width>
         <font>Font_Reg18</font>
         <label>21422</label>
       </control>
       <control type="group" id="9001">
         <control type="spincontrolex" id="15">
           <description>Rule Field</description>
-          <posx>14</posx>
-          <posy>110</posy>
-          <width>322</width>
-          <height>41</height>
+          <posx>21</posx>
+          <posy>165</posy>
+          <width>483</width>
+          <height>62</height>
           <font>Font_Reg18</font>
           <texturefocus>views/listpanel_selectbar.png</texturefocus>
           <texturenofocus>dialogs/setcontent_button_nofocus.png</texturenofocus>
@@ -58,7 +58,7 @@
           <spinposx>-4</spinposx>
           <spinwidth>40</spinwidth>
           <spinheight>65</spinheight>
-          <textoffsetx>20</textoffsetx>
+          <textoffsetx>30</textoffsetx>
           <aligny>center</aligny>
           <reverse>yes</reverse>
           <onright>16</onright>
@@ -68,10 +68,10 @@
         </control>
         <control type="spincontrolex" id="16">
           <description>Rule operator</description>
-          <posx>336</posx>
-          <posy>110</posy>
-          <width>346</width>
-          <height>41</height>
+          <posx>504</posx>
+          <posy>165</posy>
+          <width>519</width>
+          <height>62</height>
           <font>Font_Reg18</font>
           <texturefocus>views/listpanel_selectbar.png</texturefocus>
           <texturenofocus>dialogs/setcontent_button_nofocus.png</texturenofocus>
@@ -85,7 +85,7 @@
           <spinposx>-4</spinposx>
           <spinwidth>40</spinwidth>
           <spinheight>65</spinheight>
-          <textoffsetx>20</textoffsetx>
+          <textoffsetx>30</textoffsetx>
           <aligny>center</aligny>
           <reverse>yes</reverse>
           <onright>9000</onright>
@@ -96,16 +96,16 @@
       </control>
       <control type="button" id="17">
         <description>Value Button</description>
-        <textoffsetx>12</textoffsetx>
-        <posx>28</posx>
-        <posy>202</posy>
-        <width>653</width>
-        <height>44</height>
+        <textoffsetx>18</textoffsetx>
+        <posx>42</posx>
+        <posy>303</posy>
+        <width>980</width>
+        <height>66</height>
         <font>Font_Reg18</font>
         <align>center</align>
         <aligny>center</aligny>
         <texturefocus>-</texturefocus>
-        <texturenofocus/>
+        <texturenofocus />
         <textcolor>FF6a6565</textcolor>
         <selectedcolor>FFe4ec06</selectedcolor>
         <focusedcolor>FFFFFFFF</focusedcolor>
@@ -117,29 +117,28 @@
         <texturefocus>-</texturefocus>
         <texturenofocus>-</texturenofocus>
       </control>
-      
       <control type="image">
-        <posx>28</posx>
-        <posy>199</posy>
-        <width>635</width>
-        <height>52</height>
+        <posx>42</posx>
+        <posy>298</posy>
+        <width>952</width>
+        <height>78</height>
         <texture>dialogs/addsource_highlight.png</texture>
         <include>Animation_CommonFade</include>
         <visible>Control.HasFocus(17)</visible>
       </control>
       <control type="button" id="20">
         <description>Browse Button</description>
-        <posx>682</posx>
-        <posy>204</posy>
-        <width>156</width>
-        <height>41</height>
+        <posx>1023</posx>
+        <posy>306</posy>
+        <width>234</width>
+        <height>62</height>
         <font>Font_Bold22</font>
         <label>1024</label>
         <align>left</align>
         <textcolor>FFf5f5f5</textcolor>
         <focusedcolor>FF262728</focusedcolor>
         <selectedcolor>FF262728</selectedcolor>
-        <textoffsetx>20</textoffsetx>
+        <textoffsetx>30</textoffsetx>
         <onup>9000</onup>
         <onleft>17</onleft>
         <onright>20</onright>
@@ -148,20 +147,20 @@
         <texturefocus>dialogs/setcontent_rightmenu_highlight.png</texturefocus>
       </control>
       <control type="group" id="9000">
-        <posx>382</posx>
-        <posy>110</posy>
+        <posx>573</posx>
+        <posy>165</posy>
         <control type="button" id="18">
           <description>Button: OK</description>
           <posy>0</posy>
-          <width>156</width>
-          <height>41</height>
+          <width>234</width>
+          <height>62</height>
           <font>Font_Bold22</font>
           <label>186</label>
           <align>left</align>
           <textcolor>FFf5f5f5</textcolor>
           <focusedcolor>FF262728</focusedcolor>
           <selectedcolor>FF262728</selectedcolor>
-          <textoffsetx>20</textoffsetx>
+          <textoffsetx>30</textoffsetx>
           <onup>18</onup>
           <onleft>9001</onleft>
           <onright>18</onright>
@@ -171,16 +170,16 @@
         </control>
         <control type="button" id="19">
           <description>Cancel Button</description>
-          <posy>41</posy>
-          <width>156</width>
-          <height>41</height>
+          <posy>62</posy>
+          <width>234</width>
+          <height>62</height>
           <font>Font_Bold22</font>
           <label>222</label>
           <align>left</align>
           <textcolor>FFf5f5f5</textcolor>
           <focusedcolor>FF262728</focusedcolor>
           <selectedcolor>FF262728</selectedcolor>
-          <textoffsetx>20</textoffsetx>
+          <textoffsetx>30</textoffsetx>
           <texturenofocus>-</texturenofocus>
           <texturefocus>dialogs/setcontent_rightmenu_highlight.png</texturefocus>
           <onup>18</onup>

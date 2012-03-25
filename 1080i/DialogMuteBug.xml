@@ -13,32 +13,15 @@
 	<controls>
 
 		<control type="group">
-			<posx>160</posx>
-			<posy>-15</posy>
-			<visible>Window.IsActive(fullscreenvideo)</visible>
+			<posx>30</posx>
+			<posy>-18</posy>
 			
 			<include>Animation_DialogFadeMute</include>		
 			<include>Dialogs_Mute</include>
-    
-		</control>
-
-		<control type="group">
-			<visible>Window.IsActive(home)</visible>
-			<animation effect="slide" start="0,0" end="90,0" time="200" delay="500" condition="!Window.IsActive(musicscan) + !Window.IsActive(videoscan)">Conditional</animation>
 			
-			<include>Animation_DialogFadeMute</include>		
-			<include>Dialogs_Mute</include>
-    
-		</control>
-
-		<control type="group">
-			<posx>160</posx>
-			<posy>63</posy>
-			<visible>!Window.IsActive(home)</visible>
-			<visible>!Window.IsActive(fullscreenvideo)</visible>
-			
-			<include>Animation_DialogFadeMute</include>		
-			<include>Dialogs_Mute</include>
+			<animation effect="slide" start="0,0" end="-1570,0" time="0" condition="Skin.HasSetting(VerticalMenu) + Window.IsActive(home)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsVisible(movieinformation)">Conditional</animation>
     
 		</control>
   

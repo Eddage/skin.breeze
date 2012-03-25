@@ -22,6 +22,7 @@
 			<align>top</align>	
 			<include>shutdown drop animation</include>
 			<visible>!Window.IsActive(home)</visible>
+			<visible>!Window.IsActive(movieinformation)</visible>
 			
 			<control type="image">
 				<width>280</width>
@@ -264,8 +265,513 @@
 			<width>1920</width>
 			<height>1080</height>
 			<texture>breeze/bg 75.png</texture>
-			<visible>Window.IsActive(home)</visible>
+			<visible>Window.IsActive(home) | Window.IsActive(movieinformation)</visible>
 		</control> 
+		
+		<control type="grouplist" id="800">
+			<posx>20</posx>
+			<posy>49</posy>
+			<width>280</width>
+			<height>750</height>
+			<itemgap>0</itemgap>
+			<onup>800</onup>
+			<ondown>800</ondown>
+			<orientation>vertical</orientation>
+			<align>top</align>	
+			<visible>Window.IsActive(home) + Skin.HasSetting(VerticalMenu)</visible>
+				
+			<animation type="windowopen">
+				<effect type="fade" start="0" end="100" time="250" delay="0"/>
+				<effect type="zoom" center="110,57" start="0" end="100" time="300" delay="0"/>
+			</animation>	
+		
+			<animation type="windowclose">
+				<effect type="rotatey" start="0" end="180" time="350" tween="cubic" easing="inout" center="160,0" delay="0" />
+				<effect type="fade" start="100" end="0" time="300" delay="0" />
+			</animation>	
+			
+			<control type="image">
+				<width>280</width>
+				<height>41</height>
+				<texture>breeze/menus/shutdown vert top.png</texture>
+			</control>
+      
+			<control type="button" id="1">
+				<description>Exit XBMC</description>
+				<label>Close XBMC</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg exit.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f exit.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg exit.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f exit.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>XBMC.Quit()</onclick>
+				<visible>System.ShowExitButton</visible>
+				<onup>14</onup>
+			</control>
+      
+			<control type="button" id="2">
+				<description>Powerdown XBMC</description>
+				<label>Shutdown</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg shutdown.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f shutdown.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg shutdown.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f shutdown.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>XBMC.Powerdown()</onclick>
+			</control>
+      
+			<control type="button" id="5">
+				<description>Suspend</description>
+				<label>Sleep</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg sleep.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f sleep.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg sleep.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f sleep.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>XBMC.Suspend()</onclick>
+			</control>
+      
+			<control type="button" id="6">
+				<description>Reboot</description>
+				<label>Restart</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg restart.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f restart.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg restart.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f restart.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>XBMC.Reset()</onclick>
+			</control>
+      
+			<control type="button" id="7">
+				<description>Log Out</description>
+				<label>$INFO[system.profilename,$LOCALIZE[20126] ]</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg logout.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f logout.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg logout.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f logout.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>dialog.close(all,true)</onclick>
+				<onclick>System.LogOff</onclick>
+				<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
+				<visible>System.Loggedon</visible>
+			</control>
+      
+			<control type="togglebutton" id="8">
+				<description>Master mode button</description>
+				<label>$LOCALIZE[20046]</label>
+				<altlabel>$LOCALIZE[20045]</altlabel>
+				<height>50</height>
+				<width>300</width>
+				<texturenofocus>breeze/menus/shutdown bg master.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f master.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg master.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f master.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>xbmc.mastermode</onclick>
+				<usealttexture>!System.IsMaster</usealttexture>
+				<visible>System.HasLocks</visible>
+			</control>
+      
+			<control type="button" id="9">
+				<description>Settings</description>
+				<label>Settings</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg settings.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f settings.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg settings.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f settings.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>ActivateWindow(Settings)</onclick>
+			</control>
+      
+			<control type="button" id="11">
+				<description>Eject Tray</description>
+				<label>Eject Disc</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg eject.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f eject.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg eject.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f eject.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>EjectTray()</onclick>
+				<visible>System.HasMediaDVD</visible>
+			</control>
+      
+			<control type="button" id="13">
+				<description>Add-ons</description>
+				<label>Add-ons</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg addons.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f addons.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg addons.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f addons.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>ActivateWindow(AddonBrowser)</onclick>
+			</control>
+      
+			<control type="button" id="14">
+				<description>Global Search</description>
+				<label>Global Search</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg search.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f search.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg search.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f search.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>RunScript(script.globalsearch)</onclick>
+				<ondown>1</ondown>
+			</control>
+			
+			<control type="image">
+				<posx>-5</posx>
+				<width>280</width>
+				<height>25</height>
+				<texture>breeze/menus/shutdown bottom.png</texture>
+			</control>
+    
+		</control>
+		
+		<control type="grouplist" id="800">
+			<posx>1640</posx>
+			<posy>49</posy>
+			<width>280</width>
+			<height>750</height>
+			<itemgap>0</itemgap>
+			<onup>800</onup>
+			<ondown>800</ondown>
+			<orientation>vertical</orientation>
+			<align>top</align>	
+			<include>shutdown drop animation</include>
+			<visible>Window.IsActive(home) + !Skin.HasSetting(VerticalMenu)</visible>
+			
+			<control type="image">
+				<width>280</width>
+				<height>41</height>
+				<texture>breeze/menus/shutdown top.png</texture>
+			</control>
+      
+			<control type="button" id="1">
+				<description>Exit XBMC</description>
+				<label>Close XBMC</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg exit.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f exit.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg exit.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f exit.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>XBMC.Quit()</onclick>
+				<visible>System.ShowExitButton</visible>
+				<onup>14</onup>
+			</control>
+      
+			<control type="button" id="2">
+				<description>Powerdown XBMC</description>
+				<label>Shutdown</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg shutdown.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f shutdown.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg shutdown.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f shutdown.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>XBMC.Powerdown()</onclick>
+			</control>
+      
+			<control type="button" id="5">
+				<description>Suspend</description>
+				<label>Sleep</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg sleep.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f sleep.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg sleep.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f sleep.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>XBMC.Suspend()</onclick>
+			</control>
+      
+			<control type="button" id="6">
+				<description>Reboot</description>
+				<label>Restart</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg restart.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f restart.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg restart.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f restart.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>XBMC.Reset()</onclick>
+			</control>
+      
+			<control type="button" id="7">
+				<description>Log Out</description>
+				<label>$INFO[system.profilename,$LOCALIZE[20126] ]</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg logout.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f logout.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg logout.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f logout.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>dialog.close(all,true)</onclick>
+				<onclick>System.LogOff</onclick>
+				<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
+				<visible>System.Loggedon</visible>
+			</control>
+      
+			<control type="togglebutton" id="8">
+				<description>Master mode button</description>
+				<label>$LOCALIZE[20046]</label>
+				<altlabel>$LOCALIZE[20045]</altlabel>
+				<height>50</height>
+				<width>300</width>
+				<texturenofocus>breeze/menus/shutdown bg master.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f master.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg master.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f master.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>xbmc.mastermode</onclick>
+				<usealttexture>!System.IsMaster</usealttexture>
+				<visible>System.HasLocks</visible>
+			</control>
+      
+			<control type="button" id="9">
+				<description>Settings</description>
+				<label>Settings</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg settings.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f settings.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg settings.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f settings.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>ActivateWindow(Settings)</onclick>
+			</control>
+      
+			<control type="button" id="11">
+				<description>Eject Tray</description>
+				<label>Eject Disc</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg eject.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f eject.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg eject.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f eject.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>EjectTray()</onclick>
+				<visible>System.HasMediaDVD</visible>
+			</control>
+      
+			<control type="button" id="13">
+				<description>Add-ons</description>
+				<label>Add-ons</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg addons.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f addons.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg addons.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f addons.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>ActivateWindow(AddonBrowser)</onclick>
+			</control>
+      
+			<control type="button" id="14">
+				<description>Global Search</description>
+				<label>Global Search</label>
+				<height>50</height>
+				<width>280</width>
+				<texturenofocus>breeze/menus/shutdown bg search.png</texturenofocus>
+				<texturefocus>breeze/menus/shutdown bg f search.png</texturefocus>
+				<alttexturenofocus>breeze/menus/shutdown bg search.png</alttexturenofocus>
+				<alttexturefocus>breeze/menus/shutdown bg f search.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogreynf</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>55</textoffsetx>
+				<textoffsety>7</textoffsety>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>breeze28b</font>
+				<onclick>RunScript(script.globalsearch)</onclick>
+				<ondown>1</ondown>
+			</control>
+			
+			<control type="image">
+				<posx>-5</posx>
+				<width>280</width>
+				<height>25</height>
+				<texture>breeze/menus/shutdown bottom.png</texture>
+			</control>
+    
+		</control>
     
 		<control type="grouplist" id="800">
 			<posx>820</posx>
@@ -277,7 +783,7 @@
 			<ondown>800</ondown>
 			<orientation>vertical</orientation>
 			<align>top</align>	
-			<visible>Window.IsActive(home)</visible>
+			<visible>Window.IsActive(movieinformation)</visible>
 				
 			<animation type="windowopen">
 				<effect type="fade" start="50" end="100" time="150" delay="0"/>

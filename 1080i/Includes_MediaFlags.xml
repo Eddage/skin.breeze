@@ -345,6 +345,213 @@
 	
   </include>
   
+  <include name="FloorRatingFlagsGS">
+    
+	<!--US-->
+    <control type="image">
+      <include>FloorRatingVarsBig2</include>
+      <texture>flags/rating/MPAA_NR_Certificate_US.png</texture>
+      <visible>IsEmpty(Container(100).ListItem.Property(Mpaa))+!IsEmpty(ListItem.Title)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVarsBig2</include>
+      <texture>flags/rating/MPAA_NR_Certificate_US.png</texture>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),Not yet rated)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/MPAA_G_Certificate_US.png</texture>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),US:G) | SubString(Container(100).ListItem.Property(Mpaa),USA:G) | SubString(Container(100).ListItem.Property(Mpaa),Rated G)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/MPAA_PG_Certificate_US.png</texture>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),UK:PG)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVarsBig</include>
+      <texture>flags/rating/MPAA_PG-13_Certificate_US.png</texture>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),PG-13)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/MPAA_R_Certificate_US.png</texture>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),US:R) | SubString(Container(100).ListItem.Property(Mpaa),USA:R) | SubString(Container(100).ListItem.Property(Mpaa),Rated R) | StringCompare(Container(100).ListItem.Property(Mpaa),R)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVarsBig</include>
+      <texture>flags/rating/MPAA_NC-17_Certificate_US.png</texture>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),US:NC-17) | SubString(Container(100).ListItem.Property(Mpaa),USA:NC-17) | SubString(Container(100).ListItem.Property(Mpaa),Rated NC-17)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/TV-G_Certificate_US.png</texture>
+      <visible>substring(Container(100).ListItem.Property(Mpaa),TV-G)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/TV-PG_Certificate_US.png</texture>
+      <visible>substring(Container(100).ListItem.Property(Mpaa),TV-PG)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/TV-14_Certificate_US.png</texture>
+      <visible>substring(Container(100).ListItem.Property(Mpaa),TV-14)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/TV-MA_Certificate_US.png</texture>
+      <visible>substring(Container(100).ListItem.Property(Mpaa),TV-MA)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/tv-y.png</texture>
+      <visible>substring(Container(100).ListItem.Property(Mpaa),TV-Y)+!substring(Container(100).ListItem.Property(Mpaa),TV-Y7)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/tv-y7.png</texture>
+      <visible>substring(Container(100).ListItem.Property(Mpaa),TV-Y7)</visible>
+	  <colordiffuse>7563abfc</colordiffuse>
+    </control>
+    
+	<!--UK-->
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/BBFC_U_Certificate_UK.png</texture>
+	  <colordiffuse>7500916f</colordiffuse>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),U)</visible>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars</include>
+      <texture>flags/rating/BBFC_PG_Certificate_UK.png</texture>
+	  <colordiffuse>75fcd213</colordiffuse>
+      <visible>[Substring(Container(100).ListItem.Property(Mpaa),Rated PG) | StringCompare(Container(100).ListItem.Property(Mpaa),PG)] + !substring(Container(100).ListItem.Property(Mpaa),PG-13)</visible>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars2</include>
+      <texture>flags/rating/BBFC_12_Certificate_UK.png</texture>
+	  <colordiffuse>75ec192d</colordiffuse>
+      <visible>[SubString(Container(100).ListItem.Property(Mpaa),UK:12) | SubString(Container(100).ListItem.Property(Mpaa),12)] + !SubString(Container(100).ListItem.Property(Mpaa),UK:12A) + !SubString(Container(100).ListItem.Property(Mpaa),12A)</visible>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars2</include>
+      <texture>flags/rating/BBFC_12A_Certificate_UK.png</texture>
+	  <colordiffuse>75f4782a</colordiffuse>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),UK:12A) | SubString(Container(100).ListItem.Property(Mpaa),12A)</visible>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars2</include>
+      <texture>flags/rating/BBFC_15_Certificate_UK.png</texture>
+	  <colordiffuse>75ec192d</colordiffuse>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),UK:15) | SubString(Container(100).ListItem.Property(Mpaa),15)</visible>
+    </control>
+	
+    <control type="image">
+      <include>FloorRatingVars2</include>
+      <texture>flags/rating/BBFC_18_Certificate_UK.png</texture>
+	  <colordiffuse>75ec192d</colordiffuse>
+      <visible>SubString(Container(100).ListItem.Property(Mpaa),UK:18) | SubString(Container(100).ListItem.Property(Mpaa),18)</visible>
+    </control>
+	
+  </include>
+  
+  <include name="FloorSourceFlags"> <!--source flags episode view-->
+    
+	<control type="image">
+	  <width>75</width>
+	  <aspectratio>keep</aspectratio>
+      <include>AudioFlagsVars</include>	  
+      <texture>flags/source/sdtv.png</texture>
+      <visible>SubString(ListItem.filename,PDTV) | SubString(ListItem.filename,sdtv)</visible>
+    </control>
+	
+	<control type="image"> <!--tv shows-->
+	  <width>75</width>
+	  <aspectratio>keep</aspectratio>
+      <include>AudioFlagsVars</include>
+      <texture>flags/source/sdtv.png</texture>
+      <visible>SubString(ListItem.filename,tv)</visible>
+    </control>
+	
+    <control type="image">
+	  <width>75</width>
+	  <aspectratio>keep</aspectratio>
+      <include>AudioFlagsVars</include>
+      <texture>flags/source/hdtv.png</texture>
+      <visible>SubString(ListItem.Filename,hdtv)</visible>
+    </control>
+	
+    <control type="image"> <!--hd dvd-->
+	  <width>75</width>
+	  <aspectratio>keep</aspectratio>
+      <include>AudioFlagsVars</include>
+      <texture>flags/source/hddvd.png</texture>
+      <visible>SubString(ListItem.Filename,hddvd) | SubString(ListItem.Filename,hd-dvd | SubString(ListItem.Filename,hd dvd)</visible>
+    </control>
+	
+    <control type="image"> <!--blu ray-->
+	  <width>75</width>
+	  <aspectratio>keep</aspectratio>
+      <include>AudioFlagsVars</include>
+      <texture>flags/source/bluray.png</texture>
+      <visible>SubString(ListItem.Filename,bluray) | SubString(ListItem.Filename,blu-ray) | SubString(ListItem.Filename,bdrip) | SubString(ListItem.Filename,brrip | SubString(ListItem.Filename,blu ray)</visible>
+    </control>
+	
+    <control type="image"> <!--dvd-->
+	  <width>75</width>
+	  <aspectratio>keep</aspectratio>
+      <include>AudioFlagsVars</include>
+      <texture>flags/source/dvd.png</texture>
+      <visible>[SubString(ListItem.Filename,dvd) + !SubString(ListItem.Filename,hddvd) + !SubString(ListItem.Filename,hd-dvd) + !SubString(ListItem.Filename,bluray)] | [SubString(ListItem.Filename,.iso,Right) + !SubString(ListItem.Filename,bluray)] | SubString(ListItem.Filename,.ifo,Right)</visible>
+    </control>
+	
+    <control type="image">
+	  <width>75</width>
+	  <aspectratio>keep</aspectratio>
+      <include>AudioFlagsVars</include>
+      <texture>flags/source/dvb.png</texture>
+      <visible>SubString(ListItem.Filename,dvb)</visible>
+    </control>
+	
+    <control type="image"> <!--download-->
+	  <width>75</width>
+	  <aspectratio>keep</aspectratio>
+      <include>AudioFlagsVars</include>
+      <texture>flags/source/web-dl.png</texture>
+      <visible>SubString(ListItem.Filename,web-dl | SubString(ListItem.Filename,download)</visible>
+    </control>
+	
+  </include>
+  
   <include name="StudioGenerator">
     <control type="group">
       <include>HiddenObject</include>

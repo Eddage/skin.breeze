@@ -50,6 +50,27 @@
 			<width>338</width>
 			<textcolor>infogreynf</textcolor>
 			<focusedcolor>white</focusedcolor>
+			<disabledcolor>red</disabledcolor>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>breeze/menus/list context f.png</texturefocus>
+			<align>center</align>
+			<aligny>top</aligny>
+			<font>breeze32</font>
+			<pulseonselect>no</pulseonselect>
+			<textoffsety>1.5</textoffsety>
+			<onleft>Dialog.Close(contextmenu)</onleft>
+			<onright>Dialog.Close(contextmenu)</onright>
+		</include>
+	
+		<include name="PosterContextButton">
+			<description>button template</description>
+			<posx>0</posx>
+			<posy></posy>
+			<height>55</height>
+			<width>338</width>
+			<textcolor>infogreynf</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<disabledcolor>red</disabledcolor>
 			<texturenofocus>-</texturenofocus>
 			<texturefocus>breeze/menus/list context f.png</texturefocus>
 			<align>center</align>
@@ -219,12 +240,13 @@
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
 				<width>380</width>
-				<height min="0" max="385">auto</height>
-				<posx>1465</posx>
-				<posy>69</posy>
+				<height min="0" max="440">auto</height>
+				<posx>1479</posx>
+				<posy>37</posy>
 				<itemgap>0</itemgap>
 				<scrolltime>0</scrolltime>
 				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+					<animation effect="slide" start="0,0" end="0,-35" time="0" condition="Skin.HasSetting(breeze_tv_logos) + !Container.Content(movies)">Conditional</animation>
 			</control>
 			
 			<control type="button" id="1000">
@@ -232,27 +254,29 @@
 			</control>
 	  
 			<control type="image"> <!--up arrow-->
-				<posx>1627</posx>
-				<posy>40</posy>
+				<posx>1641</posx>
+				<posy>5</posy>
 				<width>15</width>
 				<height>15</height>
 				<texture flipy="true">breeze/menus/context arrow.png</texture>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 				<visible>Window.IsActive(contextmenu)</visible>
-				<visible>Control.IsVisible(1008)</visible>
+				<visible>Control.IsVisible(1009)</visible>
 				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,-35" time="0" condition="Skin.HasSetting(breeze_tv_logos) + !Container.Content(movies)">Conditional</animation>
 			</control>
 	  
 			<control type="image"> <!--down arrow-->
-				<posx>1627</posx>
-				<posy>465</posy>
+				<posx>1641</posx>
+				<posy>495</posy>
 				<width>15</width>
 				<height>15</height>
 				<texture>breeze/menus/context arrow.png</texture>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 				<visible>Window.IsActive(contextmenu)</visible>
-				<visible>Control.IsVisible(1008)</visible>
+				<visible>Control.IsVisible(1009)</visible>
 				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,-35" time="0" condition="Skin.HasSetting(breeze_tv_logos) + !Container.Content(movies)">Conditional</animation>
 			</control>
 		
 		</include>
@@ -266,10 +290,10 @@
 				<control type="image"> <!--film cover border-->
 					<posx>580</posx>
 					<posy>163</posy>
-					<width>358</width>
-					<height>513</height>
+					<width>392</width>
+					<height>576</height>
 					<aspectratio>stretch</aspectratio>
-					<texture>breeze/masks/info list folder border.png</texture>
+					<texture>breeze/home/search folder f border.png</texture>
 					<visible>Window.IsVisible(contextmenu)</visible>
 		
 					<animation type="WindowOpen">
@@ -287,10 +311,10 @@
 				<control type="image"> <!--context menu bg-->
 					<posx>590</posx>
 					<posy>173</posy>
-					<width>338</width>
-					<height>493</height>
+					<width>372</width>
+					<height>556</height>
 					<aspectratio>stretch</aspectratio>
-					<texture>breeze/masks/info list folder.png</texture>
+					<texture>breeze/home/folder tile dif.png</texture>
 					<visible>Window.IsVisible(contextmenu)</visible>
 		
 					<animation type="WindowOpen">
@@ -309,8 +333,8 @@
 					<description>background image</description>
 					<posx>590</posx>
 					<posy>173</posy>
-					<width>338</width>
-					<height>493</height>
+					<width>372</width>
+					<height>556</height>
 					<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>	
 					<visible>Window.IsVisible(contextmenu)</visible>
@@ -332,9 +356,9 @@
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
 				<width>380</width>
-				<height min="0" max="385">auto</height>
-				<posx>331</posx>
-				<posy>110</posy>
+				<height min="0" max="440">auto</height>
+				<posx>318</posx>
+				<posy>112</posy>
 				<itemgap>0</itemgap>
 				<scrolltime>0</scrolltime>
 				<animation effect="fade" start="0" end="100" time="500" delay="400">WindowOpen</animation>
@@ -342,30 +366,30 @@
 			</control>
 			
 			<control type="button" id="1000">
-				<include>InfoListContextButton</include>
+				<include>PosterContextButton</include>
 			</control>
 	  
 			<control type="image"> <!--up arrow-->
-				<posx>493</posx>
+				<posx>480</posx>
 				<posy>81</posy>
 				<width>15</width>
 				<height>15</height>
 				<texture flipy="true">breeze/menus/context arrow.png</texture>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 				<visible>Window.IsActive(contextmenu)</visible>
-				<visible>Control.IsVisible(1008)</visible>
+				<visible>Control.IsVisible(1009)</visible>
 				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 			</control>
 	  
 			<control type="image"> <!--down arrow-->
-				<posx>493</posx>
-				<posy>506</posy>
+				<posx>480</posx>
+				<posy>571</posy>
 				<width>15</width>
 				<height>15</height>
 				<texture>breeze/menus/context arrow.png</texture>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 				<visible>Window.IsActive(contextmenu)</visible>
-				<visible>Control.IsVisible(1008)</visible>
+				<visible>Control.IsVisible(1009)</visible>
 				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 			</control>
 		
@@ -768,15 +792,15 @@
 		<include name="ContextLowList"> <!--lowlist-->
 		
 			<control type="group">
-				<posx>-1203</posx>
-				<posy>380</posy>
+				<posx>-1184</posx>
+				<posy>347</posy>
 	
 				<control type="grouplist" id="996">
 					<description>grouplist for context buttons</description>
 					<width>380</width>
-					<height min="0" max="385">auto</height>
-					<posx>1465</posx>
-					<posy>69</posy>
+					<height min="0" max="440">auto</height>
+					<posx>1479</posx>
+					<posy>37</posy>
 					<itemgap>0</itemgap>
 					<scrolltime>0</scrolltime>
 					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
@@ -787,26 +811,26 @@
 				</control>
 	  
 				<control type="image"> <!--up arrow-->
-					<posx>1627</posx>
-					<posy>40</posy>
+					<posx>1641</posx>
+					<posy>5</posy>
 					<width>15</width>
 					<height>15</height>
 					<texture flipy="true">breeze/menus/context arrow.png</texture>
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 					<visible>Window.IsActive(contextmenu)</visible>
-					<visible>Control.IsVisible(1008)</visible>
+					<visible>Control.IsVisible(1009)</visible>
 					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 				</control>
 	  
 				<control type="image"> <!--down arrow-->
-					<posx>1627</posx>
-					<posy>465</posy>
+					<posx>1641</posx>
+					<posy>495</posy>
 					<width>15</width>
 					<height>15</height>
 					<texture>breeze/menus/context arrow.png</texture>
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 					<visible>Window.IsActive(contextmenu)</visible>
-					<visible>Control.IsVisible(1008)</visible>
+					<visible>Control.IsVisible(1009)</visible>
 					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 				</control>
 			

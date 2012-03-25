@@ -13,8 +13,8 @@
 	<controls>
   
 		<control type="group">
-			<posx>1228</posx>
-			<posy>15</posy>
+			<posx>1182</posx>
+			<posy>-67</posy>
 	
 			<animation type="WindowOpen" reversible="false">
 				<effect type="fade" start="0" end="100" time="400" tween="sine" easing="inout" />
@@ -36,10 +36,9 @@
 		
 				<control type="group">
 					<posy>7</posy>
-					<animation effect="slide" start="0,0" end="-68,-63" time="0" condition="Window.IsActive(home)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-8,-78" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="90,0" time="200" delay="500" condition="!Window.IsActive(musicscan) + !Window.IsActive(videoscan)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug) + ![Skin.HasSetting(VerticalMenu) + Window.IsActive(home)]">Conditional</animation>
+					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsVisible(movieinformation)">Conditional</animation>
 				
 					<control type="image">
 						<width>530</width>
@@ -71,13 +70,13 @@
 		
 				<control type="group">
 					<posx>375</posx>
-					<animation effect="slide" start="0,0" end="-68,-63" time="0" condition="Window.IsActive(home)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-8,-78" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="90,0" time="200" delay="500" condition="!Window.IsActive(musicscan) + !Window.IsActive(videoscan)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug) + ![Skin.HasSetting(VerticalMenu) + Window.IsActive(home)]">Conditional</animation>
+					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsVisible(movieinformation)">Conditional</animation>
 	  
 					<control type="label" id="401">
 						<posy>20</posy>
+						<label>test</label>
 						<include>Dialogs_LabelVars</include>
 						<textcolor>infogrey</textcolor>
 						<align>right</align>

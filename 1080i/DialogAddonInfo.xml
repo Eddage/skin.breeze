@@ -1,9 +1,9 @@
-<window id="146">
+﻿<window id="146">
   <defaultcontrol always="true">9000</defaultcontrol>
   <coordinates>
     <system>1</system>
-    <posx>160</posx>
-    <posy>55</posy>
+    <posx>240</posx>
+    <posy>82</posy>
     <origin x="185" y="10">!IsEmpty(ListItem.Property(Addon.broken))</origin>
   </coordinates>
   <include>Animation_OpenCloseZoom</include>
@@ -15,38 +15,38 @@
         <description>background image</description>
         <posx>0</posx>
         <posy>0</posy>
-        <width>960</width>
-        <height>610</height>
+        <width>1440</width>
+        <height>915</height>
         <texture>settings/settings_panelback.png</texture>
       </control>
       <control type="label">
         <description>header label</description>
         <label>24003</label>
-        <posx>200</posx>
-        <posy>30</posy>
-        <width>700</width>
-        <posx>72</posx>
-        <posy>70</posy>
-        <width>936</width>
-        <height>49</height>
+        <posx>300</posx>
+        <posy>45</posy>
+        <width>1050</width>
+        <posx>108</posx>
+        <posy>105</posy>
+        <width>1404</width>
+        <height>74</height>
         <textcolor>FFbec0c2</textcolor>
         <font>Font_ShowcaseMainLabel2</font>
         <align>center</align>
       </control>
       <control type="image">
-        <posx>30</posx>
-        <posy>40</posy>
-        <width>140</width>
-        <height>140</height>
+        <posx>45</posx>
+        <posy>60</posy>
+        <width>210</width>
+        <height>210</height>
         <aspectratio>stretch</aspectratio>
         <texture background="true">$INFO[ListItem.Icon]</texture>
       </control>
       <control type="label">
         <description>Addon Title value</description>
-        <posx>270</posx>
-        <posy>80</posy>
-        <width>580</width>
-        <height>30</height>
+        <posx>405</posx>
+        <posy>120</posy>
+        <width>870</width>
+        <height>45</height>
         <align>left</align>
         <aligny>center</aligny>
         <font>Font_Bold22</font>
@@ -55,14 +55,14 @@
         <scroll>true</scroll>
       </control>
       <control type="group">
-        <posx>270</posx>
-        <posy>130</posy>
+        <posx>405</posx>
+        <posy>195</posy>
         <control type="label">
           <description>Type txt</description>
-          <posx>96</posx>
+          <posx>144</posx>
           <posy>0</posy>
-          <width>140</width>
-          <height>25</height>
+          <width>210</width>
+          <height>38</height>
           <label>$LOCALIZE[146]</label>
           <align>right</align>
           <aligny>center</aligny>
@@ -71,10 +71,10 @@
         </control>
         <control type="label">
           <description>Type Value</description>
-          <posx>116</posx>
+          <posx>174</posx>
           <posy>0</posy>
-          <width>500</width>
-          <height>25</height>
+          <width>750</width>
+          <height>38</height>
           <label fallback="416">$INFO[ListItem.Property(Addon.Type)]</label>
           <align>left</align>
           <aligny>center</aligny>
@@ -83,10 +83,10 @@
         </control>
         <control type="label">
           <description>Author txt</description>
-          <posx>96</posx>
-          <posy>30</posy>
-          <width>140</width>
-          <height>25</height>
+          <posx>144</posx>
+          <posy>45</posy>
+          <width>210</width>
+          <height>38</height>
           <label>$LOCALIZE[21863]:</label>
           <align>right</align>
           <aligny>center</aligny>
@@ -95,10 +95,10 @@
         </control>
         <control type="label">
           <description>Author Value</description>
-          <posx>116</posx>
-          <posy>30</posy>
-          <width>500</width>
-          <height>25</height>
+          <posx>174</posx>
+          <posy>45</posy>
+          <width>750</width>
+          <height>38</height>
           <label fallback="416">$INFO[ListItem.Property(Addon.Creator)]</label>
           <align>left</align>
           <aligny>center</aligny>
@@ -107,10 +107,10 @@
         </control>
         <control type="label">
           <description>Version txt</description>
-          <posx>96</posx>
-          <posy>60</posy>
-          <width>140</width>
-          <height>25</height>
+          <posx>144</posx>
+          <posy>90</posy>
+          <width>210</width>
+          <height>38</height>
           <label>$LOCALIZE[24051]</label>
           <align>right</align>
           <aligny>center</aligny>
@@ -119,10 +119,10 @@
         </control>
         <control type="label">
           <description>Version Value</description>
-          <posx>116</posx>
-          <posy>60</posy>
-          <width>500</width>
-          <height>25</height>
+          <posx>174</posx>
+          <posy>90</posy>
+          <width>750</width>
+          <height>38</height>
           <label fallback="416">$INFO[ListItem.Property(Addon.Version)]</label>
           <align>left</align>
           <aligny>center</aligny>
@@ -151,10 +151,10 @@
 				</control -->
         <control type="label">
           <description>Summary txt</description>
-          <posx>96</posx>
-          <posy>90</posy>
-          <width>140</width>
-          <height>25</height>
+          <posx>144</posx>
+          <posy>135</posy>
+          <width>210</width>
+          <height>38</height>
           <label>$LOCALIZE[20037]:</label>
           <align>right</align>
           <aligny>center</aligny>
@@ -163,10 +163,10 @@
         </control>
         <control type="fadelabel">
           <description>Summary Value</description>
-          <posx>116</posx>
-          <posy>90</posy>
-          <width>500</width>
-          <height>25</height>
+          <posx>174</posx>
+          <posy>135</posy>
+          <width>750</width>
+          <height>38</height>
           <label fallback="416">$INFO[ListItem.Property(Addon.Summary)]</label>
           <align>left</align>
           <font>Font_Reg20</font>
@@ -176,17 +176,17 @@
         </control>
         <control type="image">
           <posx>0</posx>
-          <posy>160</posy>
-          <width>600</width>
-          <height>1</height>
+          <posy>240</posy>
+          <width>900</width>
+          <height>2</height>
           <texture>home/nowplaying/nowplayline.png</texture>
         </control>
         <control type="label">
           <description>Description txt</description>
           <posx>0</posx>
-          <posy>170</posy>
-          <width>300</width>
-          <height>25</height>
+          <posy>255</posy>
+          <width>450</width>
+          <height>38</height>
           <label>$LOCALIZE[21821]</label>
           <align>left</align>
           <aligny>center</aligny>
@@ -197,10 +197,10 @@
           <visible>!IsEmpty(ListItem.Property(Addon.Disclaimer))</visible>
           <control type="label">
             <description>Description Page Count</description>
-            <posx>600</posx>
-            <posy>170</posy>
-            <width>300</width>
-            <height>25</height>
+            <posx>900</posx>
+            <posy>255</posy>
+            <width>450</width>
+            <height>38</height>
             <label>$INFO[Container(400).CurrentPage, $LOCALIZE[31024] ]$INFO[Container(400).NumPages,/,]</label>
             <align>right</align>
             <aligny>center</aligny>
@@ -209,10 +209,10 @@
           </control>
           <control type="textbox" id="400">
             <description>Description</description>
-            <posx>10</posx>
-            <posy>195</posy>
-            <width>580</width>
-            <height>160</height>
+            <posx>15</posx>
+            <posy>292</posy>
+            <width>870</width>
+            <height>240</height>
             <font>Font_Info</font>
             <align>-</align>
             <textcolor>white</textcolor>
@@ -220,13 +220,13 @@
             <pagecontrol>60</pagecontrol>
           </control>
           <control type="scrollbar" id="60">
-            <posx>610</posx>
-            <posy>190</posy>
-            <width>25</width>
-            <height>175</height>
-            <texturesliderbackground border="0,14,0,14">views/scrollBarV.png</texturesliderbackground>
-            <texturesliderbar border="0,14,0,14">views/scrollBarV_bar.png</texturesliderbar>
-            <texturesliderbarfocus border="0,14,0,14">views/scrollBarV_bar_focus.png</texturesliderbarfocus>
+            <posx>915</posx>
+            <posy>285</posy>
+            <width>38</width>
+            <height>262</height>
+            <texturesliderbackground border="0,21,0,21">views/scrollBarV.png</texturesliderbackground>
+            <texturesliderbar border="0,21,0,21">views/scrollBarV_bar.png</texturesliderbar>
+            <texturesliderbarfocus border="0,21,0,21">views/scrollBarV_bar_focus.png</texturesliderbarfocus>
             <textureslidernib>views/ScrollBarNib.png</textureslidernib>
             <textureslidernibfocus>views/ScrollBarNib.png</textureslidernibfocus>
             <onleft>9000</onleft>
@@ -237,9 +237,9 @@
           <control type="label">
             <description>Disclaimer txt</description>
             <posx>0</posx>
-            <posy>370</posy>
-            <width>600</width>
-            <height>25</height>
+            <posy>555</posy>
+            <width>900</width>
+            <height>38</height>
             <label>$LOCALIZE[24052]</label>
             <align>left</align>
             <aligny>center</aligny>
@@ -248,10 +248,10 @@
           </control>
           <control type="textbox">
             <description>Disclaimer</description>
-            <posx>10</posx>
-            <posy>395</posy>
-            <width>580</width>
-            <height>40</height>
+            <posx>15</posx>
+            <posy>592</posy>
+            <width>870</width>
+            <height>60</height>
             <font>Font_Info</font>
             <align>-</align>
             <textcolor>white</textcolor>
@@ -263,10 +263,10 @@
           <visible>IsEmpty(ListItem.Property(Addon.Disclaimer))</visible>
           <control type="label">
             <description>Description Page Count</description>
-            <posx>600</posx>
-            <posy>170</posy>
-            <width>300</width>
-            <height>25</height>
+            <posx>900</posx>
+            <posy>255</posy>
+            <width>450</width>
+            <height>38</height>
             <label>$INFO[Container(401).CurrentPage, $LOCALIZE[31024] ]$INFO[Container(401).NumPages,/,]</label>
             <align>right</align>
             <aligny>center</aligny>
@@ -276,9 +276,9 @@
           <control type="textbox" id="401">
             <description>Description</description>
             <posx>0</posx>
-            <posy>195</posy>
-            <width>580</width>
-            <height>250</height>
+            <posy>292</posy>
+            <width>870</width>
+            <height>375</height>
             <font>Font_Info</font>
             <align>-</align>
             <textcolor>white</textcolor>
@@ -286,13 +286,13 @@
             <pagecontrol>61</pagecontrol>
           </control>
           <control type="scrollbar" id="61">
-            <posx>610</posx>
-            <posy>190</posy>
-            <width>25</width>
-            <height>250</height>
-            <texturesliderbackground border="0,14,0,14">views/scrollBarV.png</texturesliderbackground>
-            <texturesliderbar border="0,14,0,14">views/scrollBarV_bar.png</texturesliderbar>
-            <texturesliderbarfocus border="0,14,0,14">views/scrollBarV_bar_focus.png</texturesliderbarfocus>
+            <posx>915</posx>
+            <posy>285</posy>
+            <width>38</width>
+            <height>375</height>
+            <texturesliderbackground border="0,21,0,21">views/scrollBarV.png</texturesliderbackground>
+            <texturesliderbar border="0,21,0,21">views/scrollBarV_bar.png</texturesliderbar>
+            <texturesliderbarfocus border="0,21,0,21">views/scrollBarV_bar_focus.png</texturesliderbarfocus>
             <textureslidernib>views/ScrollBarNib.png</textureslidernib>
             <textureslidernibfocus>views/ScrollBarNib.png</textureslidernibfocus>
             <onleft>60</onleft>
@@ -303,21 +303,21 @@
         </control>
       </control>
       <control type="group" id="9000">
-        <posx>4</posx>
-        <posy>280</posy>
-        <control type="button" id ="6">
+        <posx>6</posx>
+        <posy>420</posy>
+        <control type="button" id="6">
           <description>Enable Addon button</description>
-          <posx>12</posx>
+          <posx>18</posx>
           <posy>0</posy>
-          <width>167</width>
-          <height>51</height>
-          <textoffsetx>20</textoffsetx>
+          <width>250</width>
+          <height>76</height>
+          <textoffsetx>30</textoffsetx>
           <label>24022</label>
           <font>Font_Bold20</font>
           <textcolor>FFf5f5f5</textcolor>
           <focusedcolor>FF262728</focusedcolor>
           <align>right</align>
-          <texturenofocus border="5">-</texturenofocus>
+          <texturenofocus border="8">-</texturenofocus>
           <texturefocus>views/listpanel_selectbar.png</texturefocus>
           <onleft>60</onleft>
           <onright>60</onright>
@@ -326,17 +326,17 @@
         </control>
         <control type="button" id="7">
           <description>Disable Addon button</description>
-          <posx>12</posx>
-          <posy>50</posy>
-          <width>167</width>
-          <height>51</height>
-          <textoffsetx>20</textoffsetx>
+          <posx>18</posx>
+          <posy>75</posy>
+          <width>250</width>
+          <height>76</height>
+          <textoffsetx>30</textoffsetx>
           <label>24021</label>
           <font>Font_Bold20</font>
           <textcolor>FFf5f5f5</textcolor>
           <focusedcolor>FF262728</focusedcolor>
           <align>right</align>
-          <texturenofocus border="5">-</texturenofocus>
+          <texturenofocus border="8">-</texturenofocus>
           <texturefocus>views/listpanel_selectbar.png</texturefocus>
           <onleft>60</onleft>
           <onright>60</onright>
@@ -345,17 +345,17 @@
         </control>
         <control type="button" id="9">
           <description>Addon Settings</description>
-          <posx>12</posx>
-          <posy>100</posy>
-          <width>167</width>
-          <height>51</height>
-          <textoffsetx>20</textoffsetx>
+          <posx>18</posx>
+          <posy>150</posy>
+          <width>250</width>
+          <height>76</height>
+          <textoffsetx>30</textoffsetx>
           <label>24020</label>
           <font>Font_Bold20</font>
           <textcolor>FFf5f5f5</textcolor>
           <focusedcolor>FF262728</focusedcolor>
           <align>right</align>
-          <texturenofocus border="5">-</texturenofocus>
+          <texturenofocus border="8">-</texturenofocus>
           <texturefocus>views/listpanel_selectbar.png</texturefocus>
           <onleft>60</onleft>
           <onright>60</onright>
@@ -364,17 +364,17 @@
         </control>
         <control type="button" id="8">
           <description>Update Addon button</description>
-          <posx>12</posx>
-          <posy>150</posy>
-          <width>167</width>
-          <height>51</height>
-          <textoffsetx>20</textoffsetx>
+          <posx>18</posx>
+          <posy>225</posy>
+          <width>250</width>
+          <height>76</height>
+          <textoffsetx>30</textoffsetx>
           <label>24069</label>
           <textcolor>FFf5f5f5</textcolor>
           <focusedcolor>FF262728</focusedcolor>
           <font>Font_Bold20</font>
           <align>right</align>
-          <texturenofocus border="5">-</texturenofocus>
+          <texturenofocus border="8">-</texturenofocus>
           <texturefocus>views/listpanel_selectbar.png</texturefocus>
           <onleft>60</onleft>
           <onright>60</onright>
@@ -383,17 +383,17 @@
         </control>
         <control type="button" id="11">
           <description>Changelog button</description>
-          <posx>12</posx>
-          <posy>250</posy>
-          <width>167</width>
-          <height>51</height>
-          <textoffsetx>20</textoffsetx>
+          <posx>18</posx>
+          <posy>375</posy>
+          <width>250</width>
+          <height>76</height>
+          <textoffsetx>30</textoffsetx>
           <label>24048</label>
           <textcolor>FFf5f5f5</textcolor>
           <focusedcolor>FF262728</focusedcolor>
           <font>Font_Bold20</font>
           <align>right</align>
-          <texturenofocus border="5">-</texturenofocus>
+          <texturenofocus border="8">-</texturenofocus>
           <texturefocus>views/listpanel_selectbar.png</texturefocus>
           <onleft>60</onleft>
           <onright>60</onright>
@@ -402,17 +402,17 @@
         </control>
         <control type="button" id="10">
           <description>Changelog button</description>
-          <posx>12</posx>
-          <posy>200</posy>
-          <width>167</width>
-          <height>51</height>
-          <textoffsetx>20</textoffsetx>
+          <posx>18</posx>
+          <posy>300</posy>
+          <width>250</width>
+          <height>76</height>
+          <textoffsetx>30</textoffsetx>
           <label>24036</label>
           <textcolor>FFf5f5f5</textcolor>
           <focusedcolor>FF262728</focusedcolor>
           <font>Font_Bold20</font>
           <align>right</align>
-          <texturenofocus border="5">-</texturenofocus>
+          <texturenofocus border="8">-</texturenofocus>
           <texturefocus>views/listpanel_selectbar.png</texturefocus>
           <onleft>60</onleft>
           <onright>60</onright>
@@ -422,17 +422,17 @@
       </control>
       <control type="group">
         <visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
-        <posx>226</posx>
+        <posx>339</posx>
         <include>Dialogs_Group</include>
         <include>Dialogs_Tablet</include>
         <include>Dialogs_Exclam</include>
         <control type="label">
           <description>header label</description>
           <label>24096</label>
-          <posx>105</posx>
+          <posx>158</posx>
           <posy>0</posy>
-          <width>376</width>
-          <height>45</height>
+          <width>564</width>
+          <height>68</height>
           <textcolor>abFFFFFF</textcolor>
           <align>left</align>
           <aligny>center</aligny>
@@ -442,10 +442,10 @@
         <control type="textbox">
           <description>Reason label</description>
           <label>$INFO[ListItem.Property(Addon.broken)]</label>
-          <posx>105</posx>
-          <posy>46</posy>
-          <width>376</width>
-          <height>45</height>
+          <posx>158</posx>
+          <posy>69</posy>
+          <width>564</width>
+          <height>68</height>
           <textcolor>abFFFFFF</textcolor>
           <align>left</align>
           <aligny>top</aligny>

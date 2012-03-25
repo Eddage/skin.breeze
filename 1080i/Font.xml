@@ -1,12 +1,6 @@
 <fonts>
 	<fontset id="Default" idloc="31390" unicode="true"> 
-    <!--Breeze-->	
-
-    <font>
-      <name>home menu</name>
-      <filename>RegularLow.ttf</filename>
-      <size>75</size>
-    </font>		
+    <!--Breeze-->
 	
     <font>
       <name>breeze75</name>
@@ -36,12 +30,26 @@
       <name>breeze40</name>
       <filename>breeze.ttf</filename>
       <size>40</size>
+    </font>		
+	
+    <font>
+      <name>breeze40b</name>
+      <filename>breeze.ttf</filename>
+      <size>40</size>
+	  <style>bold</style>
     </font>			
 	
     <font>
       <name>breeze36</name>
       <filename>breeze.ttf</filename>
       <size>36</size>
+    </font>			
+	
+    <font>
+      <name>breeze36b</name>
+      <filename>breeze.ttf</filename>
+      <size>36</size>
+	  <style>bold</style>
     </font>	
 	
     <font>
@@ -77,6 +85,13 @@
     </font>	
 	
     <font>
+      <name>breeze30b</name>
+      <filename>breeze.ttf</filename>
+      <size>30</size>
+	  <style>bold</style>
+    </font>	
+	
+    <font>
       <name>breeze29b</name>
       <filename>breeze.ttf</filename>
       <size>29</size>
@@ -107,6 +122,14 @@
       <filename>breeze.ttf</filename>
       <size>24</size>
 	  <style>bold</style>
+    </font>
+	
+    <font>
+      <name>breeze22bn</name>
+      <filename>breeze.ttf</filename>
+      <size>22</size>
+	  <style>bold</style>
+	  <aspect>0.8</aspect>
     </font>
 	
     <font>

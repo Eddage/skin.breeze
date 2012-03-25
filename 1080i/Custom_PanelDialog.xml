@@ -1,0 +1,18 @@
+<window type="dialog" id="3003">
+	<defaultcontrol always="true">3</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	
+	<controls>
+	
+		<control type="label">
+			<posx>500</posx>
+			<posy>200</posy>
+			<width>500</width>
+			<height>100</height>
+			<label>TEST</label>
+			<font>breeze50</font>
+			<textcolor>infogrey</textcolor>
+		</control>
+		
+	</controls>
+</window>

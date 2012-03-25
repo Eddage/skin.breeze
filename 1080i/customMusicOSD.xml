@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <window type="dialog" id="1117">
   <defaultcontrol always="true">450</defaultcontrol>
   <coordinates>
@@ -10,25 +10,25 @@
   <controls>
     <control type="image">
       <description>Panel</description>
-      <posx>200</posx>
-      <posy>120</posy>
-      <width>881</width>
-      <height>481</height>
+      <posx>300</posx>
+      <posy>180</posy>
+      <width>1322</width>
+      <height>722</height>
       <texture>osd/osd_settings_back.png</texture>
     </control>
     <control type="image">
-      <posx>250</posx>
-      <posy>155</posy>
-      <width>781</width>
-      <height>40</height>
+      <posx>375</posx>
+      <posy>232</posy>
+      <width>1172</width>
+      <height>60</height>
       <texture>osd/osd_settings_buttonnf.png</texture>
     </control>
     <control type="label">
       <description>Header Label</description>
-      <posx>280</posx>
-      <posy>150</posy>
-      <width>400</width>
-      <height>40</height>
+      <posx>420</posx>
+      <posy>225</posy>
+      <width>600</width>
+      <height>60</height>
       <textcolor>white</textcolor>
       <font>Font_Bold19</font>
       <label>$LOCALIZE[12006]</label>
@@ -36,10 +36,10 @@
       <aligny>center</aligny>
     </control>
     <control type="grouplist" id="450">
-      <posx>250</posx>
-      <posy>195</posy>
-      <width>781</width>
-      <height>360</height>
+      <posx>375</posx>
+      <posy>292</posy>
+      <width>1172</width>
+      <height>540</height>
       <itemgap>0</itemgap>
       <aligny>center</aligny>
       <pagecontrol>60</pagecontrol>
@@ -50,13 +50,13 @@
       <control type="radiobutton" id="451">
         <description>Bigger Top Bar</description>
         <label>31124</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -67,13 +67,13 @@
       <control type="radiobutton" id="452">
         <description>Bigger Top Bar</description>
         <label>31142</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -85,13 +85,13 @@
       <control type="radiobutton" id="453">
         <description>Bigger Top Bar</description>
         <label>31297</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -104,13 +104,13 @@
       <control type="radiobutton" id="460">
         <description>Bigger Top Bar</description>
         <label>31373</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -123,13 +123,13 @@
       <control type="radiobutton" id="454">
         <description>Bigger Top Bar</description>
         <label>31143</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -141,13 +141,13 @@
       <control type="radiobutton" id="455">
         <description>Bigger Top Bar</description>
         <label>31104</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -159,13 +159,13 @@
       <control type="radiobutton" id="456">
         <description>Bigger Top Bar</description>
         <label>31267</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -177,13 +177,13 @@
       <control type="radiobutton" id="458">
         <description>Bigger Top Bar</description>
         <label>31371</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -195,13 +195,13 @@
       <control type="radiobutton" id="461">
         <description>Bigger Top Bar</description>
         <label>31148</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -212,13 +212,13 @@
       <control type="radiobutton" id="459">
         <description>Bigger Top Bar</description>
         <label>31361</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -229,14 +229,14 @@
       <!-- Cd Wall -->
       <control type="radiobutton" id="462">
         <description>cd wall button</description>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <label>31455</label>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
-        <radioposx>680</radioposx>
+        <textoffsetx>45</textoffsetx>
+        <radioposx>1020</radioposx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
@@ -246,13 +246,13 @@
       </control>
       <control type="button" id="463">
         <description>cd wall path button</description>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <label>31456</label>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
+        <textoffsetx>45</textoffsetx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <label2>[COLOR selected]$INFO[Skin.String(CDWall_Folder_Path)][/COLOR]</label2>
@@ -263,12 +263,12 @@
       <control type="button" id="457">
         <description>Bigger Top Bar</description>
         <label>$LOCALIZE[13012]</label>
-        <width>781</width>
-        <height>40</height>
+        <width>1172</width>
+        <height>60</height>
         <font>Font_Reg20</font>
         <textcolor>grey2</textcolor>
         <focusedcolor>white</focusedcolor>
-        <textoffsetx>30</textoffsetx>
+        <textoffsetx>45</textoffsetx>
         <texturefocus>osd/osd_settings_buttonf.png</texturefocus>
         <texturenofocus>osd/osd_settings_buttonnf.png</texturenofocus>
         <onclick>Dialog.Close(1117)</onclick>

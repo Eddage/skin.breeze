@@ -1,28 +1,46 @@
-<window>
-  <defaultcontrol always="true">10</defaultcontrol>
-  <allowoverlay>no</allowoverlay>
-  <onload condition="Library.HasContent(tvshows)">XBMC.AlarmClock(NextAired,XBMC.RunScript(script.tv.show.next.aired,silent=True),00:00:10,true)</onload>
-  <onload condition="IsEmpty(Skin.String(diffuse))">Skin.SetString(diffuse,FF6db9e5)</onload>
-  <onload condition="IsEmpty(Skin.String(diffuse_bar))">Skin.SetString(diffuse_bar,FFFFFFFF)</onload>
-  <controls>
-    <control type="button" id="10">
-      <description>trigger</description>
-      <onfocus>ReplaceWindow(Home)</onfocus>
-      <texturenofocus>-</texturenofocus>
-      <texturefocus>-</texturefocus>
-      <visible>!Skin.HasSetting(Use_Startup_Playlist)</visible>
-    </control>
-    <control type="button" id="10">
-      <description>trigger with startup Playlist</description>
-      <onfocus>XBMC.PlayMedia($INFO[Skin.String(Startup_Playlist_Path)])</onfocus>
-      <onfocus>ReplaceWindow(Home)</onfocus>
-      <texturenofocus>-</texturenofocus>
-      <texturefocus>-</texturefocus>
-      <visible>Skin.HasSetting(Use_Startup_Playlist)</visible>
-    </control>
-    <control type="image">
-      <include>FullscreenDimensions</include>
-      <texture>common/black.png</texture>
-    </control>
-  </controls>
+<window id="2999">
+
+	<defaultcontrol always="true">10</defaultcontrol>
+	
+	<allowoverlay>no</allowoverlay>
+	
+	<!--onload>XBMC.PlayMedia(special://skin/intro.mkv)</onload-->
+	
+	<controls>
+	
+		<include>Loading</include>
+		
+		<control type="button" id="10">
+			<include>HiddenObject</include>
+			<onfocus>SetProperty(Startup,1)</onfocus>
+			<onfocus condition="System.HasAddon(script.randomitems)">RunScript(script.randomitems,limit=5&amp;albums=True)</onfocus>
+			<onfocus condition="Skin.HasSetting(HorizontalMenu) + System.HasAddon(script.watchlist)">RunScript(script.watchlist,movies=true&amp;episodes=true&amp;limit=5)</onfocus>
+			<onfocus condition="Skin.HasSetting(HorizontalMenu)">SetFocus(11)</onfocus>
+			<onfocus condition="!Skin.HasSetting(HorizontalMenu)">SetFocus(12)</onfocus>
+		</control>
+		
+		<!-- Show home if watchlist loading is finished -->
+		<control type="button" id="11">
+			<include>HiddenObject</include>
+		    <onfocus condition="!System.HasAddon(script.watchlist)">SetFocus(12)</onfocus>
+			<onfocus condition="System.HasAddon(script.watchlist)">SetFocus(11)</onfocus>
+			<visible>IsEmpty(Window(Home).Property(WatchList_Running))</visible>
+			<animation effect="fade" start="0" end="100" time="0" delay="1000">Focus</animation>
+		</control>
+		
+		<control type="button" id="11">
+			<include>HiddenObject</include>
+			<onfocus>ReplaceWindow(Home)</onfocus>
+			<visible>!IsEmpty(Window(Home).Property(WatchList_Running))</visible>
+			<animation effect="fade" start="0" end="100" time="0" delay="1000">Focus</animation>
+		</control>
+		
+		<control type="button" id="12">
+			<include>HiddenObject</include>
+			<onfocus>ReplaceWindow(Home)</onfocus>
+			<animation effect="fade" start="0" end="100" time="0" delay="4000">Focus</animation>
+		</control>
+		
+	</controls>
+	
 </window>

@@ -14,11 +14,14 @@
 	<controls>
     
 		<control type="group"> 
-			<animation effect="slide" start="0,0" end="50,0" time="500" condition="!Window.IsActive(home)">Conditional</animation>
+			<posx>67</posx>
+			<posy>-19</posy>
 		
 			<include>Dialogs_Music_Scan</include>
 			<visible>!Window.IsActive(fullscreenvideo)</visible>
 			<visible>!Window.IsActive(videoscan)</visible>
+			
+			<animation effect="slide" start="0,0" end="-1823,0" time="0" condition="Skin.HasSetting(VerticalMenu) + Window.IsActive(home)">Conditional</animation>
 	  
 		</control>
 	

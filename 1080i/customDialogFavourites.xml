@@ -1,301 +1,620 @@
 <?xml version="1.0"?>
 <window type="dialog" id="1115">
-  <defaultcontrol always="true">451</defaultcontrol>
-  <coordinates>
-    <system>1</system>
-    <posx>0</posx>
-    <posy>0</posy>
-  </coordinates>
-  <include>Animation_DialogPopup2</include>
-  <controls>
-    <control type="button" id="451">
-      <description>Run Favourites script</description>
-      <posx>-20</posx>
-      <posy>-20</posy>
-      <width>1</width>
-      <height>1</height>
-      <label>-</label>
-      <font>-</font>
-      <texturenofocus>-</texturenofocus>
-      <texturefocus>-</texturefocus>
-      <onfocus>RunScript(script.favourites,!playlists=play)</onfocus>
-      <onfocus>SetFocus(450)</onfocus>
-    </control>
-    <control type="image">
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>1280</width>
-      <height>720</height>
-      <colordiffuse>AAFFFFFF</colordiffuse>
-      <texture>common/black.png</texture>
-      <animation effect="fade" start="0" end="100" time="3000">WindowOpen</animation>
-      <animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-    </control>
-    <include condition="Skin.HasSetting(effect_bg)">BG_Effect_Home</include>
-    <control type="image">
-      <description>Panel</description>
-      <posx>200</posx>
-      <posy>120</posy>
-      <width>881</width>
-      <height>481</height>
-      <texture>osd/osd_settings_back.png</texture>
-    </control>
-    <control type="image">
-      <posx>250</posx>
-      <posy>155</posy>
-      <width>781</width>
-      <height>40</height>
-      <texture>osd/osd_settings_buttonnf.png</texture>
-    </control>
-    <control type="label">
-      <description>Header Label</description>
-      <posx>280</posx>
-      <posy>150</posy>
-      <width>400</width>
-      <height>40</height>
-      <textcolor>white</textcolor>
-      <font>Font_Bold19</font>
-      <label>$LOCALIZE[1036]</label>
-      <align>left</align>
-      <aligny>center</aligny>
-    </control>
-    <control type="list" id="450">
-      <posx>250</posx>
-      <posy>195</posy>
-      <width>781</width>
-      <height>360</height>
-      <onleft>61</onleft>
-      <onright>61</onright>
-      <onup>450</onup>
-      <ondown>450</ondown>
-      <pagecontrol>61</pagecontrol>
-      <scrolltime>0</scrolltime>
-      <itemlayout height="40">
-        <control type="image">
-          <posx>0</posx>
-          <posy>0</posy>
-          <width>781</width>
-          <height>40</height>
-          <texture>osd/osd_settings_buttonnf.png</texture>
-        </control>
-        <control type="label">
-          <posx>30</posx>
-          <posy>0</posy>
-          <width>721</width>
-          <height>40</height>
-          <textcolor>FF929191</textcolor>
-          <aligny>center</aligny>
-          <font>Font_Reg19</font>
-          <info>ListItem.Label</info>
-        </control>
-      </itemlayout>
-      <focusedlayout height="40">
-        <control type="image">
-          <posx>0</posx>
-          <posy>0</posy>
-          <width>781</width>
-          <height>40</height>
-          <texture>osd/osd_settings_buttonf.png</texture>
-        </control>
-        <control type="label">
-          <posx>30</posx>
-          <posy>0</posy>
-          <width>721</width>
-          <height>40</height>
-          <textcolor>white</textcolor>
-          <aligny>center</aligny>
-          <font>Font_Reg19</font>
-          <info>ListItem.Label</info>
-        </control>
-      </focusedlayout>
-      <content>
-        <item id="21">
-          <label>$LOCALIZE[231] $LOCALIZE[24040]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],)</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],)</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>true</visible>
-        </item>
-        <item id="1">
-          <label>$INFO[Window(0).Property(favourite.1.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.1.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.1.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.1.name))</visible>
-        </item>
-        <item id="2">
-          <label>$INFO[Window(0).Property(favourite.2.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.2.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.2.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.2.name))</visible>
-        </item>
-        <item id="3">
-          <label>$INFO[Window(0).Property(favourite.3.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.3.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.3.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.3.name))</visible>
-        </item>
-        <item id="4">
-          <label>$INFO[Window(0).Property(favourite.4.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.4.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.4.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.4.name))</visible>
-        </item>
-        <item id="5">
-          <label>$INFO[Window(0).Property(favourite.5.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.5.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.5.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.5.name))</visible>
-        </item>
-        <item id="6">
-          <label>$INFO[Window(0).Property(favourite.6.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.6.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.6.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.6.name))</visible>
-        </item>
-        <item id="7">
-          <label>$INFO[Window(0).Property(favourite.7.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.7.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.7.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.7.name))</visible>
-        </item>
-        <item id="8">
-          <label>$INFO[Window(0).Property(favourite.8.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.8.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.8.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.8.name))</visible>
-        </item>
-        <item id="9">
-          <label>$INFO[Window(0).Property(favourite.9.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.9.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.9.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.9.name))</visible>
-        </item>
-        <item id="10">
-          <label>$INFO[Window(0).Property(favourite.10.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.10.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.10.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.10.name))</visible>
-        </item>
-        <item id="11">
-          <label>$INFO[Window(0).Property(favourite.11.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.11.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.11.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.11.name))</visible>
-        </item>
-        <item id="12">
-          <label>$INFO[Window(0).Property(favourite.12.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.12.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.12.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.12.name))</visible>
-        </item>
-        <item id="13">
-          <label>$INFO[Window(0).Property(favourite.13.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.13.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.13.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.13.name))</visible>
-        </item>
-        <item id="14">
-          <label>$INFO[Window(0).Property(favourite.14.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.14.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.14.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.14.name))</visible>
-        </item>
-        <item id="15">
-          <label>$INFO[Window(0).Property(favourite.15.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.15.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.15.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.15.name))</visible>
-        </item>
-        <item id="16">
-          <label>$INFO[Window(0).Property(favourite.16.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.16.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.16.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.16.name))</visible>
-        </item>
-        <item id="17">
-          <label>$INFO[Window(0).Property(favourite.17.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.17.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.17.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.17.name))</visible>
-        </item>
-        <item id="18">
-          <label>$INFO[Window(0).Property(favourite.18.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.18.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.18.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.18.name))</visible>
-        </item>
-        <item id="19">
-          <label>$INFO[Window(0).Property(favourite.19.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.19.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.19.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.19.name))</visible>
-        </item>
-        <item id="20">
-          <label>$INFO[Window(0).Property(favourite.20.name)]</label>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Path)],$INFO[Window(0).Property(favourite.20.path)])</onclick>
-          <onclick>Skin.SetString($INFO[Skin.String(HomeMenuFavourite_Label)],$INFO[Window(0).Property(favourite.20.name)])</onclick>
-          <onclick>Dialog.Close(1115)</onclick>
-          <onclick>SetFocus(9008)</onclick>
-          <visible>!IsEmpty(Window(0).Property(favourite.20.name))</visible>
-        </item>
-      </content>
-    </control>
-    <control type="scrollbar" id="61">
-      <description>Scrollbar</description>
-      <posx>230</posx>
-      <posy>190</posy>
-      <width>28</width>
-      <height>360</height>
-      <texturesliderbackground>views/scrollbarbacklist.png</texturesliderbackground>
-      <texturesliderbar>-</texturesliderbar>
-      <texturesliderbarfocus>-</texturesliderbarfocus>
-      <textureslidernib>views/scrollbarnub-nofocus.png</textureslidernib>
-      <textureslidernibfocus>views/scrollbarnub-focus.png</textureslidernibfocus>
-      <onleft>450</onleft>
-      <onright>450</onright>
-      <ondown>61</ondown>
-      <onup>61</onup>
-      <showonepage>false</showonepage>
-      <orientation>vertical</orientation>
-    </control>
-  </controls>
+
+	<defaultcontrol always="true">460</defaultcontrol>
+	
+	<coordinates>
+		<system>1</system>
+		<posx>300</posx>
+		<posy>185</posy>
+	</coordinates>
+	
+    <animation type="WindowOpen" reversible="false">
+      <effect type="zoom" start="80" end="100" center="960,540" easing="out" tween="back" time="300" />
+      <effect type="fade" start="0" end="100" time="300" />
+    </animation>
+    <animation type="WindowClose" reversible="false">
+      <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="300" />
+      <effect type="fade" start="100" end="0" time="300" />
+    </animation>
+	
+	<controls>
+	
+		<control type="button" id="460">
+			<description>Run Favourites script</description>
+			<posx>-20</posx>
+			<posy>-20</posy>
+			<width>1</width>
+			<height>1</height>
+			<label>-</label>
+			<font>-</font>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<onfocus>RunScript(script.favourites,!playlists=play)</onfocus>
+			<onfocus>SetFocus(449)</onfocus>
+		</control>
+		
+		<control type="image">
+			<posx>250</posx>
+			<posy>120</posy>
+			<texture>breeze/settings/custom favourites bg.png</texture>
+		</control>
+		
+		<control type="image">
+			<posx>250</posx>
+			<posy>155</posy>
+			<width>781</width>
+			<height>40</height>
+			<texture>osd/osd_settings_buttonnf.png</texture>
+		</control>
+		
+		<control type="label">
+			<description>Header Label</description>
+			<posx>250</posx>
+			<posy>155</posy>
+			<width>849</width>
+			<height>40</height>
+			<textcolor>infogrey</textcolor>
+			<font>breeze50</font>
+			<label>Select shortcut</label>
+			<align>center</align>
+			<aligny>center</aligny>
+		</control>
+		
+		<control type="list" id="449">
+			<posx>290</posx>
+			<posy>240</posy>
+			<width>175</width>
+			<height>500</height>
+			<onright condition="Container(449).Hasfocus(1)">450</onright>
+			<onright condition="Container(449).Hasfocus(2)">451</onright>
+			<onright condition="Container(449).Hasfocus(3)">452</onright>
+			<onright condition="Container(449).Hasfocus(4)">453</onright>
+			<pagecontrol>61</pagecontrol>
+			<scrolltime>0</scrolltime>
+			
+			<itemlayout height="60">
+				
+				<control type="label">
+					<posx>150</posx>
+					<posy>0</posy>
+					<width>175</width>
+					<height>60</height>
+					<textcolor>infogrey</textcolor>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>breeze32</font>
+					<info>ListItem.Label</info>
+				</control>
+				
+			</itemlayout>
+			
+			<focusedlayout height="60">
+			
+				<control type="image">
+					<posx>0</posx>
+					<posy>3</posy>
+					<width>175</width>
+					<height>60</height>
+					<texture>breeze/dialogs/media source f.png</texture>
+				</control>
+				
+				<control type="label">
+					<posx>150</posx>
+					<posy>0</posy>
+					<width>175</width>
+					<height>60</height>
+					<textcolor>white</textcolor>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>breeze32</font>
+					<info>ListItem.Label</info>
+				</control>
+				
+			</focusedlayout>
+			
+			<content>
+			
+				<item id="1">
+					<label>Favourites</label>
+					<onclick>SetFocus(450)</onclick>
+					<onright>SetFocus(450)</onright>
+				</item>
+				
+				<item id="2">
+					<label>TV Shows</label>
+					<onclick>SetFocus(451)</onclick>
+					<onright>SetFocus(451)</onright>
+				</item>
+				
+				<item id="3">
+					<label>Films</label>
+					<onclick>SetFocus(452)</onclick>
+					<onright>SetFocus(452)</onright>
+				</item>
+				
+				<item id="4">
+					<label>Music</label>
+					<onclick>SetFocus(453)</onclick>
+					<onright>SetFocus(453)</onright>
+				</item>
+				
+			</content>
+			
+		</control>
+		
+		<control type="grouplist" id="450"> <!--favourites-->
+			<posx>493</posx>
+			<posy>237</posy>
+			<width>550</width>
+			<height>250</height>
+			<onleft>449</onleft>
+			<onright>63</onright>
+			<pagecontrol>63</pagecontrol>
+			<scrolltime>0</scrolltime>
+			<itemgap>0</itemgap>
+			<visible>Container(449).Hasfocus(1)</visible>
+			
+				<control type="button" id="41">
+					<label>$LOCALIZE[231] $LOCALIZE[24040]</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>true</visible>
+				</control>
+				
+				<control type="button" id="21">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.1.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.1.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.1.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.1.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.1.name))</visible>
+				</control>
+				
+				<control type="button" id="22">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.2.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.2.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.2.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.2.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.2.name))</visible>
+				</control>
+				
+				<control type="button" id="23">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.3.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.3.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.3.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.3.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.3.name))</visible>
+				</control>
+				
+				<control type="button" id="24">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.4.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.4.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.4.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.4.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.4.name))</visible>
+				</control>
+				
+				<control type="button" id="25">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.5.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.5.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.5.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.5.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.5.name))</visible>
+				</control>
+				
+				<control type="button" id="26">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.6.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.6.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.6.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.6.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.6.name))</visible>
+				</control>
+				
+				<control type="button" id="27">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.7.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.7.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.7.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.7.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.7.name))</visible>
+				</control>
+				
+				<control type="button" id="28">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.8.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.8.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.8.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.8.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.8.name))</visible>
+				</control>
+				
+				<control type="button" id="29">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.9.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.9.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.9.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.9.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.9.name))</visible>
+				</control>
+				
+				<control type="button" id="30">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.10.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.10.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.10.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.10.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.10.name))</visible>
+				</control>
+				
+				<control type="button" id="31">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.11.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.11.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.11.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.11.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.11.name))</visible>
+				</control>
+				
+				<control type="button" id="32">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.12.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.12.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.12.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.12.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.12.name))</visible>
+				</control>
+				
+				<control type="button" id="33">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.13.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.13.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.13.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.13.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.13.name))</visible>
+				</control>
+				
+				<control type="button" id="34">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.14.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.14.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.14.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.14.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.14.name))</visible>
+				</control>
+				
+				<control type="button" id="35">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.15.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.15.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.15.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.15.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.15.name))</visible>
+				</control>
+				
+				<control type="button" id="36">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.16.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.16.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.16.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.16.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.16.name))</visible>
+				</control>
+				
+				<control type="button" id="37">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.17.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.17.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.17.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.17.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.17.name))</visible>
+				</control>
+				
+				<control type="button" id="38">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.18.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.18.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.18.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.18.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.18.name))</visible>
+				</control>
+				
+				<control type="button" id="39">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.19.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.19.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.19.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.19.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.19.name))</visible>
+				</control>
+				
+				<control type="button" id="40">
+					<include>CustomTileButtonVars</include>
+					<label>$INFO[Window(0).Property(favourite.20.name)]</label>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.20.path)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.20.name)])</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.20.thumb)])</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>!IsEmpty(Window(0).Property(favourite.20.name))</visible>
+				</control>
+			
+		</control>
+		
+		<control type="grouplist" id="451"> <!--tv show shortcuts-->
+			<posx>493</posx>
+			<posy>237</posy>
+			<width>550</width>
+			<height>250</height>
+			<onleft>449</onleft>
+			<onright>63</onright>
+			<pagecontrol>63</pagecontrol>
+			<scrolltime>0</scrolltime>
+			<itemgap>0</itemgap>
+			<visible>Container(449).Hasfocus(2)</visible>
+				
+				<control type="button" id="1">
+					<label>Genres</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowGenres,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="2">
+					<label>Year</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowYears,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="3">
+					<label>Actors</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowActors,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="4">
+					<label>Studios</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowStudios,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+			
+		</control>
+		
+		<control type="grouplist" id="452"> <!--film shortcuts-->
+			<posx>493</posx>
+			<posy>237</posy>
+			<width>550</width>
+			<height>250</height>
+			<onleft>449</onleft>
+			<onright>63</onright>
+			<pagecontrol>63</pagecontrol>
+			<scrolltime>0</scrolltime>
+			<itemgap>0</itemgap>
+			<visible>Container(449).HasFocus(3)</visible>
+				
+				<control type="button" id="1">
+					<label>Genres</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieGenres,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="2">
+					<label>Year</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieYears,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="3">
+					<label>Actors</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieActors,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="4">
+					<label>Directors</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieDirectors,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Directors)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="5">
+					<label>Studios</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieStudios,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="6">
+					<label>Countries</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieCountries,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Countries)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon countries.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>ControlGroup(449).HasFocus(3)</visible>
+				</control>
+				
+		</control>
+		
+		<control type="grouplist" id="453"> <!--music shortcuts-->
+			<posx>493</posx>
+			<posy>237</posy>
+			<width>550</width>
+			<height>250</height>
+			<onleft>449</onleft>
+			<onright>63</onright>
+			<pagecontrol>63</pagecontrol>
+			<scrolltime>0</scrolltime>
+			<itemgap>0</itemgap>
+			<visible>Container(449).HasFocus(4)</visible>
+				
+				<control type="button" id="1">
+					<label>Genres</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieGenres,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="2">
+					<label>Year</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieYears,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="3">
+					<label>Actors</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieActors,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="4">
+					<label>Directors</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieDirectors,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Directors)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="5">
+					<label>Studios</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieStudios,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+				</control>
+				
+				<control type="button" id="6">
+					<label>Countries</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieCountries,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Countries)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon countries.png)</onclick>
+					<onclick>Dialog.Close(1115)</onclick>
+					<onclick>SetFocus(9008)</onclick>
+					<visible>ControlGroup(449).HasFocus(3)</visible>
+				</control>
+			
+		</control>
+
+			<control type="scrollbar" id="63">
+				<posx>1043</posx>
+				<posy>228</posy>
+				<width>30</width>
+				<height>240</height>
+				<texturesliderbackground>-</texturesliderbackground>
+				<texturesliderbar>-</texturesliderbar>
+				<texturesliderbarfocus>-</texturesliderbarfocus>
+				<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
+				<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+				<pulseonselect>no</pulseonselect>
+				<onright condition="Container(449).Hasfocus(1)">450</onright>
+				<onright condition="Container(449).Hasfocus(2)">451</onright>
+				<onright condition="Container(449).Hasfocus(3)">452</onright>
+				<onright condition="Container(449).Hasfocus(4)">453</onright>
+				<onleft condition="Container(449).Hasfocus(1)">450</onleft>
+				<onleft condition="Container(449).Hasfocus(2)">451</onleft>
+				<onleft condition="Container(449).Hasfocus(3)">452</onleft>
+				<onleft condition="Container(449).Hasfocus(4)">453</onleft>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+			</control>
+		
+	</controls>
+	
 </window>

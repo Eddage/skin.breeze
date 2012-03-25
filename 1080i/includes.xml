@@ -38,14 +38,48 @@
 	<include file="Includes_Weather.xml" />
 	<include file="Includes_MainMenu.xml" />
 	<include file="Includes_ContextMenu.xml" />
+	<include file="Includes_HorizontalHome.xml" />
+	<include file="Includes_VerticalHome.xml" />
+	<include file="Includes_Settings.xml" />
 	<constant name="FanartCrossfadeTime">500</constant>
 	<constant name="IconCrossfadeTime">400</constant>
 	<constant name="IconCrossfadeTime2">100</constant>
 	
 	
+	<include name="Loading">	
+	  
+		<control type="image"> <!--background overlay-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/loading.png</texture>
+		</control> 	
+	  
+		<control type="image">
+			<posx>0</posx>
+			<posy>300</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/dialogs/loading outer.png</texture>
+			<animation effect="fade" start="0" end="100" time="250">WindowOpen</animation>
+		</control> 	
+	  
+		<control type="image">
+			<posx>0</posx>
+			<posy>300</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/dialogs/loading inner.png</texture>
+			<animation effect="fade" start="0" end="100" time="250">WindowOpen</animation>
+			<animation effect="rotate" start="360" end="0" center="auto" time="2000" loop="true" condition="true">conditional</animation>
+		</control> 	
+	
+	</include>
+	
 	<include name="BreezeRightInfo">
 	
-		<control type ="group">
+		<control type="group">
 			<posx>580</posx>
 			<posy>275</posy>
 		
@@ -440,7 +474,7 @@
 				<height>66</height>
 				<aspectratio>keep</aspectratio>
 				<texture>flags/source/bluray.png</texture>
-				<visible>SubString(ListItem.Filenameandpath,blu ray) | SubString(ListItem.Filenameandpath,blu-ray) | SubString(ListItem.Filenameandpath,bdrip) | SubString(ListItem.Filenameandpath,brrip)</visible>
+				<visible>SubString(ListItem.Filenameandpath,blu ray) | SubString(ListItem.Filenameandpath,bluray) | SubString(ListItem.Filenameandpath,blu-ray) | SubString(ListItem.Filenameandpath,bdrip) | SubString(ListItem.Filenameandpath,brrip)</visible>
 			</control>
 		  
 			<control type="image"> <!--dvd-->
@@ -517,6 +551,169 @@
 			<width>100</width> 
 			<height>66</height>
 			<texture>$INFO[ListItem.AudioChannels,flags/audio/,.png]</texture>
+        </control>
+	
+	</include>
+	
+	<include name="BreezeMediaFlagsGS">
+		<posx>250</posx>
+		<posy>292</posy>
+	
+		<control type="group"> <!--bg boxes-->
+			<posy>171</posy>
+	
+			<control type="image">
+				<posx>0</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>
+	
+			<control type="image">
+				<posx>100</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>
+	
+			<control type="image">
+				<posx>200</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>	
+	
+			<control type="image">
+				<posx>300</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>	
+	
+			<control type="image">
+				<posx>400</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>		
+	
+			<control type="image">
+				<posx>500</posx>
+				<width>100</width> 
+				<height>69</height>
+				<aspectratio>keep</aspectratio>
+				<texture>breeze/flag box.png</texture>
+			</control>		
+			
+		</control>
+	
+		<control type="group"> <!--source flags-->
+			<posx>0</posx>
+			<posy>171</posy>  
+          
+			<control type="image"> <!--tv shows-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/tv.png</texture>
+				<visible>[SubString(Container(100).ListItem.Property(Path),tv) + !SubString(Container(100).ListItem.Property(Path),blu ray) + !SubString(Container(100).ListItem.Property(Path),blu-ray) + !SubString(Container(100).ListItem.Property(Path),bdrip) + !SubString(Container(100).ListItem.Property(Path),brrip) + !SubString(Container(100).ListItem.Property(Path),dvd)]</visible>
+			</control>
+		  
+			<control type="image"> <!--hd dvd-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/hddvd.png</texture>			
+				<visible>SubString(Container(100).ListItem.Property(Path),hddvd) | SubString(Container(100).ListItem.Property(Path),hd-dvd) | SubString(Container(100).ListItem.Property(Path),hd dvd)</visible>
+			</control>
+		  
+			<control type="image"> <!--blu ray-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/bluray.png</texture>
+				<visible>SubString(Container(100).ListItem.Property(Path),blu ray) | SubString(Container(100).ListItem.Property(Path),bluray) | SubString(Container(100).ListItem.Property(Path),blu-ray) | SubString(Container(100).ListItem.Property(Path),bdrip) | SubString(Container(100).ListItem.Property(Path),brrip)</visible>
+			</control>
+		  
+			<control type="image"> <!--dvd-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/dvd.png</texture>
+				<visible>[SubString(Container(100).ListItem.Property(Path),dvd) + !SubString(Container(100).ListItem.Property(Path),hddvd) + !SubString(Container(100).ListItem.Property(Path),hd-dvd) + !SubString(Container(100).ListItem.Property(Path),hd dvd) + !SubString(Container(100).ListItem.Property(Path),bluray)] | [SubString(Container(100).ListItem.Property(Path),.iso,Right) + !SubString(Container(100).ListItem.Property(Path),bluray)] | SubString(Container(100).ListItem.Property(Path),.ifo,Right)</visible>
+			</control>
+		  
+			<control type="image"> <!--dvd (copies)-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/dvd.png</texture>
+				<visible>SubString(Container(100).ListItem.Property(Path),copies)</visible>
+			</control>
+		  
+			<control type="image"> <!--downloads-->
+				<width>100</width> 
+				<height>66</height>
+				<aspectratio>keep</aspectratio>
+				<texture>flags/source/web-dl.png</texture>
+				<visible>SubString(Container(100).ListItem.Property(Path),downloads)</visible>
+			</control>
+			
+        </control>
+		
+        <control type="image"> <!--aspect ratio flag-->
+			<posx>100</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<include>AudioFlagsVars</include>
+			<texture>$INFO[Container(100).ListItem.Property(VideoAspect),flags/aspectratio/,.png]</texture>
+        </control>		
+		
+        <control type="image"> <!--resolution flag-->
+			<posx>200</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<include>AudioFlagsVars</include>
+			<texture>$INFO[Container(100).ListItem.Property(VideoResolution),flags/resolution/,.png]</texture>
+        </control>
+		
+        <control type="image"> <!--video codec flag-->
+			<posx>300</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<texture>$INFO[Container(100).ListItem.Property(VideoCodec),flags/videocodec/,.png]</texture>
+        </control>		
+		
+        <control type="group"> <!--audio codec flag-->
+			<description>Audio Flags</description>
+			<posx>400</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+		  
+			<control type="image">
+				<width>100</width> 
+				<height>66</height>
+				<include>AudioFlagsVars</include>
+				<texture>$INFO[Container(100).ListItem.Property(AudioCodec),flags/audio/,.png]</texture>
+			</control>
+		  
+        </control>
+		
+        <control type="image"> <!--audio channels flag-->
+			<posx>500</posx>
+			<posy>172</posy>
+			<width>100</width> 
+			<height>66</height>
+			<texture>$INFO[Container(100).ListItem.Property(AudioChannels),flags/audio/,.png]</texture>
         </control>
 	
 	</include>
@@ -603,7 +800,7 @@
 				<height>66</height>
 				<aspectratio>keep</aspectratio>
 				<texture>flags/source/bluray.png</texture>
-				<visible>SubString(Player.Filenameandpath,blu ray) | SubString(Player.Filenameandpath,blu-ray) | SubString(Player.Filenameandpath,bdrip) | SubString(Player.Filenameandpath,brrip)</visible>
+				<visible>SubString(Player.Filenameandpath,blu ray) | SubString(Player.Filenameandpath,bluray) | SubString(Player.Filenameandpath,blu-ray) | SubString(Player.Filenameandpath,bdrip) | SubString(Player.Filenameandpath,brrip)</visible>
 			</control>
 		  
 			<control type="image"> <!--dvd-->
@@ -960,59 +1157,61 @@
 		<control type="image"> <!--film cover border-->
 			<posx>580</posx>
 			<posy>163</posy>
-			<width>358</width>
-			<height>513</height>
+			<width>392</width>
+			<height>576</height>
 			<aspectratio>stretch</aspectratio>
-			<texture>breeze/masks/info list folder border.png</texture>
+			<texture>breeze/home/search folder f border.png</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
+			
 		</control>
 
 		<control type="image"> <!--film cover border-->
 			<posx>580</posx>
 			<posy>163</posy>
-			<width>358</width>
-			<height>513</height>
+			<width>392</width>
+			<height>576</height>
 			<aspectratio>stretch</aspectratio>
-			<texture>breeze/masks/info list folder border.png</texture>
+			<texture>breeze/home/search folder f border.png</texture>
 			<visible>Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
+			
 		</control>
 
 		<control type="image"> <!--film cover-->
 			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>493</height>
+			<width>372</width>
+			<height>556</height>
 			<aspectratio>stretch</aspectratio>
-			<texture diffuse="breeze/masks/info list folder.png">$INFO[ListItem.Icon]</texture>
+			<texture diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 			
@@ -1021,19 +1220,19 @@
 		<control type="image"> <!--context menu bg-->
 			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>493</height>
+			<width>372</width>
+			<height>556</height>
 			<aspectratio>stretch</aspectratio>
-			<texture>breeze/masks/info list folder.png</texture>
+			<texture>breeze/home/folder tile dif.png</texture>
 			<visible>Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 			
@@ -1043,19 +1242,19 @@
 			<description>background image</description>
 			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>493</height>
+			<width>372</width>
+			<height>556</height>
 			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>	
 			<visible>Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 			
@@ -1068,60 +1267,62 @@
 		<control type="image"> <!--film cover border-->
 			<posx>580</posx>
 			<posy>163</posy>
-			<width>358</width>
-			<height>513</height>
+			<width>392</width>
+			<height>576</height>
 			<aspectratio>stretch</aspectratio>
-			<texture>breeze/masks/info list folder border.png</texture>
+			<texture>breeze/home/search folder f border.png</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
+			
 		</control>
 
 		<control type="image"> <!--film cover border-->
 			<posx>580</posx>
 			<posy>163</posy>
-			<width>358</width>
-			<height>513</height>
+			<width>392</width>
+			<height>576</height>
 			<aspectratio>stretch</aspectratio>
-			<texture>breeze/masks/info list folder border.png</texture>
+			<texture>breeze/home/search folder f border.png</texture>
 			<visible>Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
+			
 		</control>
 
 		<control type="image"> <!--cover-->
 			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>493</height>
+			<width>372</width>
+			<height>556</height>
 			<aspectratio>stretch</aspectratio>
-			<texture diffuse="breeze/masks/info list folder.png">$INFO[Container.TVShowThumb]</texture>
+			<texture diffuse="breeze/home/folder tile dif.png">$INFO[Container.TVShowThumb]</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 			<visible>!SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 			
@@ -1130,20 +1331,20 @@
 		<control type="image"> <!--cover (recently added)-->
 			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>493</height>
+			<width>372</width>
+			<height>556</height>
 			<aspectratio>stretch</aspectratio>
-			<texture diffuse="breeze/masks/info list folder.png">$INFO[ListItem.path,,../folder.jpg]</texture>
+			<texture diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.path,,../folder.jpg]</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 			<visible>SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 			
@@ -1152,42 +1353,42 @@
 		<control type="image"> <!--context menu bg-->
 			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>493</height>
+			<width>372</width>
+			<height>556</height>
 			<aspectratio>stretch</aspectratio>
-			<texture>breeze/masks/info list folder.png</texture>
+			<texture>breeze/home/folder tile dif.png</texture>
 			<visible>Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 			
-		</control>	  
+		</control> 
 	  
 		<control type="image"> <!--context menu bg-->
 			<description>background image</description>
 			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>493</height>
+			<width>372</width>
+			<height>556</height>
 			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[Container.TVShowThumb]</texture>
 			<visible>Container.Content(episodes)</visible>	
 			<visible>Window.IsVisible(contextmenu)</visible>
 			<visible>!SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 			
@@ -1197,15 +1398,15 @@
 			<description>background image</description>
 			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>493</height>
+			<width>372</width>
+			<height>556</height>
 			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.path,,../folder.jpg]</texture>
 			<visible>Container.Content(episodes)</visible>	
 			<visible>Window.IsVisible(contextmenu)</visible>
 			<visible>SubString(Container.FolderPath,videodb://5/)+!SubString(ListItem.Episode,S)+!IsEmpty(ListItem.Title)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="775,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
@@ -1246,7 +1447,7 @@
 			<posy>146</posy>
 			<width>340</width>
 			<height>365</height>
-			<texture fallback="Breeze/Artist.png">$INFO[ListItem.Thumb]</texture>
+			<texture fallback="Breeze/Artist.png">$INFO[ListItem.Icon]</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Conditional" condition="Container.Content(episodes)">
@@ -1327,39 +1528,37 @@
 		<control type="image"> <!--cover border-->
 			<posx>580</posx>
 			<posy>163</posy>
-			<width>360</width>
-			<height>360</height>
-			<aspectratio>stretch</aspectratio>
-			<texture>breeze/masks/album border.png</texture>
+			<width>392</width>
+			<height>392</height>
+			<texture background="true">breeze/home/music tile small border.png</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		</control>
 
 		<control type="image"> <!--cover border-->
-			<posx>582.5</posx>
+			<posx>580</posx>
 			<posy>163</posy>
-			<width>357.5</width>
-			<height>360</height>
-			<aspectratio>stretch</aspectratio>
-			<texture>breeze/masks/album border.png</texture>
+			<width>392</width>
+			<height>392</height>
+			<texture background="true">breeze/home/music tile small border.png</texture>
 			<visible>Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 		</control>
@@ -1367,40 +1566,40 @@
 		<control type="image"> <!--cover-->
 			<posx>590</posx>
 			<posy>173</posy>
-			<width>340</width>
-			<height>340</height>
+			<width>372</width>
+			<height>372</height>
 			<aspectratio>stretch</aspectratio>
-			<texture diffuse="breeze/masks/album.png" fallback="Breeze/Artist.png">$INFO[ListItem.Thumb]</texture>
+			<texture diffuse="breeze/home/music tile small dif.png" fallback="Breeze/Artist.png">$INFO[ListItem.Thumb]</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 			
 		</control>
 
 		<control type="image"> <!--context menu bg-->
-			<posx>592</posx>
+			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>340</height>
+			<width>372</width>
+			<height>372</height>
 			<aspectratio>stretch</aspectratio>
-			<texture>breeze/masks/album.png</texture>
+			<texture>breeze/home/music tile small dif.png</texture>
 			<visible>Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 			
@@ -1408,21 +1607,21 @@
 	  
 		<control type="image"> <!--context menu bg-->
 			<description>background image</description>
-			<posx>591</posx>
+			<posx>590</posx>
 			<posy>173</posy>
-			<width>338</width>
-			<height>340</height>
+			<width>372</width>
+			<height>372</height>
 			<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
 			<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs)</visible>
 			<visible>Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Visible">
-				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="0" end="100" time="200" delay="150" />
 			</animation>
 		
 			<animation type="Hidden">
-				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="759,0" delay="25" />
+				<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="776,0" delay="25" />
 				<effect type="fade" start="100" end="0" time="200" delay="150" />
 			</animation>
 			
@@ -1873,11 +2072,10 @@
 		<posx>1750</posx>
 	
 		<control type="image">
-			<posx>17</posx>
-			<posy>22</posy>
-			<width>80</width>
-			<height>80</height>
-			<texture>breeze/dialogs/busy video.png</texture>
+			<posx>32</posx>
+			<posy>36</posy>
+			<texture>breeze/dialogs/scan.png</texture>
+			<visible>!Window.IsActive(shutdownmenu)</visible>
 		</control>
 	
 		<control type="image">
@@ -1907,11 +2105,10 @@
 		<posx>1750</posx>
 	
 		<control type="image">
-			<posx>17</posx>
-			<posy>22</posy>
-			<width>80</width>
-			<height>80</height>
-			<texture>breeze/dialogs/busy music.png</texture>
+			<posx>32</posx>
+			<posy>36</posy>
+			<texture>breeze/dialogs/scan.png</texture>
+			<visible>!Window.IsActive(shutdownmenu)</visible>
 		</control>
 	
 		<control type="image">
@@ -2016,14 +2213,14 @@
 	<include name="Dialogs_LabelVars">
 		<posx>85</posx>
 		<posy>0</posy>
-		<width>370</width>
+		<width>337</width>
 		<height>25</height>
 	</include>
 	
 	<include name="Dialogs_LabelVars2">
 		<posx>440</posx>
 		<posy>0</posy>
-		<width>340</width>
+		<width>337</width>
 		<height>25</height>
 	</include>
 	

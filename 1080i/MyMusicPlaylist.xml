@@ -1,16 +1,16 @@
-<window id="500">
-	<defaultcontrol always="true">50</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
-	<views>50,51,506</views>
-	<controls>
-		<include>CommonMusicBackground</include>
+﻿<window id="500">
+  <defaultcontrol always="true">50</defaultcontrol>
+  <allowoverlay>no</allowoverlay>
+  <views>50,51,506</views>
+  <controls>
+    <include>CommonMusicBackground</include>
     <control type="group">
       <include>Animation_OpenCloseZoom</include>
       <control type="image">
         <posx>0</posx>
         <posy>0</posy>
-        <width>1280</width>
-        <height>720</height>
+        <width>1920</width>
+        <height>1080</height>
         <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
         <include>backgroundfade</include>
         <fadetime>FanartCrossfadeTime</fadetime>
@@ -20,8 +20,8 @@
       <control type="image">
         <posx>0</posx>
         <posy>0</posy>
-        <width>1280</width>
-        <height>720</height>
+        <width>1920</width>
+        <height>1080</height>
         <texture background="true">$INFO[Fanart.Image]</texture>
         <include>backgroundfade</include>
         <fadetime>FanartCrossfadeTime</fadetime>
@@ -36,8 +36,9 @@
       <include>Furniture_Showcase</include>
     </control>
     <control type="group">
-			<include>Animation_OpenCloseZoom</include>		
-			<include>CommonRootView</include> <!-- view id = 50 -->
+      <include>Animation_OpenCloseZoom</include>
+      <include>CommonRootView</include>
+      <!-- view id = 50 -->
       <include>LowListMusic</include>
       <!-- view id = 506 -->
     </control>

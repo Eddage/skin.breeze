@@ -88,13 +88,12 @@
 					<posx>0</posx>
 					<posy>0</posy>
 			
-													<!--control type="label">
-														<posy>10</posy>
-														<label>$INFO[ListItem.Path]</label>
-														<font>breeze34b</font>
-														<textcolor>infogrey</textcolor>
-													</control-->
-
+					<!--control type="label">
+						<posy>10</posy>
+						<label>$INFO[ListItem.Path]</label>
+						<font>breeze34b</font>
+						<textcolor>infogrey</textcolor>
+					</control-->
 	
 					<control type="image"> <!--base bar-->
 						<posy>770</posy>
@@ -106,8 +105,8 @@
 					</control>
 	
 					<control type="image"> <!--bg-->
-						<posx>33</posx>
-						<posy>40</posy>
+						<posx>5</posx>
+						<posy>5</posy>
 						<texture>breeze/vid info/bg.png</texture>
 						<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 						<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
@@ -120,17 +119,17 @@
 						<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 						<animation effect="fade" start="0" end="100" time="500" delay="500"condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
 						<animation effect="fade" start="100" end="0" time="500" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
-						<posx>45</posx>
-						<posy>51</posy>
+						<posx>12.5</posx>
+						<posy>12.5</posy>
 
 						<control type="image"> <!--cover border-->
 							<description>background image</description>
 							<posx>10</posx>
 							<posy>10</posy>
-							<width>330</width>
-							<height>472</height>
+							<width>392</width>
+							<height>576</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
-							<texture>breeze/masks/vid info folder border white.png</texture>
+							<texture>breeze/home/search folder f border.png</texture>
 							<visible>!Window.IsVisible(60)</visible>
 		
 							<animation type="Hidden">
@@ -149,30 +148,30 @@
 							<description>background image</description>
 							<posx>10</posx>
 							<posy>10</posy>
-							<width>330</width>
-							<height>472</height>
+							<width>392</width>
+							<height>576</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
-							<texture>breeze/masks/vid info folder border.png</texture>
+							<texture>breeze/home/search folder f border.png</texture>
 							<visible>ControlGroup(5001).HasFocus</visible>
 						</control> 
 
-						<control type="image"> <!--cover border-->
+						<control type="image"> <!--context menu border-->
 							<description>background image</description>
 							<posx>10</posx>
 							<posy>10</posy>
-							<width>330</width>
-							<height>472</height>
+							<width>392</width>
+							<height>576</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
-							<texture>breeze/masks/vid info folder border.png</texture>
+							<texture>breeze/home/search folder f border.png</texture>
 							<visible>Window.IsVisible(60)</visible>
 		
 							<animation type="Visible">
-								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="0" end="100" time="200" delay="150" />
 							</animation>
 		
 							<animation type="Hidden">
-								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="100" end="0" time="200" delay="150" />
 							</animation>
 			
@@ -181,19 +180,19 @@
 						<control type="image"> <!--context menu bg-->
 							<posx>20</posx>
 							<posy>20</posy>
-							<width>310</width>
-							<height>452</height>
+							<width>372</width>
+							<height>556</height>
 							<aspectratio>stretch</aspectratio>
-							<texture>breeze/masks/vid info folder.png</texture>
+							<texture>breeze/home/folder tile dif.png</texture>
 							<visible>Window.IsVisible(60)</visible>
 		
 							<animation type="Visible">
-								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="0" end="100" time="200" delay="150" />
 							</animation>
 		
 							<animation type="Hidden">
-								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="100" end="0" time="200" delay="150" />
 							</animation>
 			
@@ -203,19 +202,19 @@
 							<description>background image</description>
 							<posx>20</posx>
 							<posy>20</posy>
-							<width>310</width>
-							<height>452</height>
+							<width>372</width>
+							<height>556</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
-							<texture diffuse="breeze/masks/vid info folder.png">$INFO[Listitem.Thumb]</texture>
+							<texture diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
 							<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + !Window.IsVisible(60)</visible>
 		
 							<animation type="Hidden">
-								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="100" end="0" time="200" delay="150" />
 							</animation>
 		
 							<animation type="Visible">
-								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="0" end="100" time="200" delay="150" />
 							</animation>
 							
@@ -225,19 +224,19 @@
 							<description>background image</description>
 							<posx>20</posx>
 							<posy>20</posy>
-							<width>310</width>
-							<height>452</height>
+							<width>372</width>
+							<height>556</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[Listitem.Thumb]</texture>
 							<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + Window.IsVisible(60)</visible>
 		
 							<animation type="Visible">
-								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="0" end="100" time="200" delay="150" />
 							</animation>
 		
 							<animation type="Hidden">
-								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="100" end="0" time="200" delay="150" />
 							</animation>
 							
@@ -247,20 +246,20 @@
 							<description>background image</description>
 							<posx>20</posx>
 							<posy>20</posy>
-							<width>310</width>
-							<height>452</height>
+							<width>372</width>
+							<height>556</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
-							<texture diffuse="breeze/masks/vid info folder.png">$INFO[ListItem.Property(SeasonThumb)]</texture>
+							<texture diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Property(SeasonThumb)]</texture>
 							<visible>Container.Content(episodes)</visible>
 							<visible>!SubString(ListItem.Filenameandpath,season 0) + !Window.IsVisible(60)</visible>
 		
 							<animation type="Hidden">
-								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="100" end="0" time="200" delay="150" />
 							</animation>
 		
 							<animation type="Visible">
-								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="0" end="100" time="200" delay="150" />
 							</animation>
 							
@@ -270,66 +269,66 @@
 							<description>background image</description>
 							<posx>20</posx>
 							<posy>20</posy>
-							<width>310</width>
-							<height>452</height>
+							<width>372</width>
+							<height>556</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Property(SeasonThumb)]</texture>
 							<visible>Container.Content(episodes)</visible>
-							<visible>!SubString(ListItem.Filenameandpath,season 0) + !Window.IsVisible(60)</visible>
+							<visible>!SubString(ListItem.Filenameandpath,season 0) + Window.IsVisible(60)</visible>
 		
 							<animation type="Visible">
-								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="0" end="100" time="200" delay="150" />
 							</animation>
 		
 							<animation type="Hidden">
-								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="100" end="0" time="200" delay="150" />
 							</animation>
 							
 						</control> 
 
-						<control type="image"> <!--cover (episodes)-->
+						<control type="image"> <!--cover (episodes specials)-->
 							<description>background image</description>
 							<posx>20</posx>
 							<posy>20</posy>
-							<width>310</width>
-							<height>452</height>
+							<width>372</width>
+							<height>556</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
-							<texture diffuse="breeze/masks/vid info folder.png">$INFO[ListItem.path,,../season00.tbn]</texture>
+							<texture diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.path,,../season00.tbn]</texture>
 							<visible>Container.Content(episodes)</visible>
 							<visible>SubString(ListItem.Filenameandpath,season 0) + !Window.IsVisible(60)</visible>
 		
 							<animation type="Hidden">
-								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="100" end="0" time="200" delay="150" />
 							</animation>
 		
 							<animation type="Visible">
-								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="0" end="100" time="200" delay="150" />
 							</animation>
 							
 						</control> 
 
-						<control type="image"> <!--cover (episodes) (more options)-->
+						<control type="image"> <!--cover (episodes specials) (more options)-->
 							<description>background image</description>
 							<posx>20</posx>
 							<posy>20</posy>
-							<width>310</width>
-							<height>452</height>
+							<width>372</width>
+							<height>556</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<texture flipx="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.path,,../season00.tbn]</texture>
 							<visible>Container.Content(episodes)</visible>
-							<visible>SubString(ListItem.Filenameandpath,season 0) + !Window.IsVisible(60)</visible>
+							<visible>SubString(ListItem.Filenameandpath,season 0) + Window.IsVisible(60)</visible>
 		
 							<animation type="Visible">
-								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="0" end="100" time="200" delay="150" />
 							</animation>
 		
 							<animation type="Hidden">
-								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="175,0" delay="25" />
+								<effect type="rotatey" start="180" end="0" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
 								<effect type="fade" start="100" end="0" time="200" delay="150" />
 							</animation>
 							
@@ -402,14 +401,14 @@
 						<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 						<animation effect="fade" start="0" end="100" time="500" delay="500"condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
 						<animation effect="fade" start="100" end="0" time="500" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
-						<posx>230</posx>
+						<posx>271</posx>
 						<posy>0</posy>
 		
 						<control type="label"> <!--title-->
 							<description>Movie title</description>
 							<posx>0</posx>
 							<posy>15</posy>
-							<width>1450</width>
+							<width>1400</width>
 							<font>breeze75</font>
 							<textcolor>infogrey</textcolor>
 							<shadowcolor>90ffffff</shadowcolor>
@@ -423,7 +422,7 @@
 							<description>Movie title</description>
 							<posx>0</posx>
 							<posy>15</posy>
-							<width>1450</width>
+							<width>1400</width>
 							<font>breeze75</font>
 							<textcolor>infogrey</textcolor>
 							<shadowcolor>90ffffff</shadowcolor>
@@ -437,7 +436,7 @@
 							<description>Tagline</description>
 							<posx>0</posx>
 							<posy>115</posy>
-							<width>1450</width>
+							<width>1400</width>
 							<font>breeze45</font>
 							<label>$INFO[ListItem.Tagline]</label>
 							<scroll>true</scroll>
@@ -451,7 +450,7 @@
 							<description>Tagline</description>
 							<posx>0</posx>
 							<posy>105</posy>
-							<width>1450</width>
+							<width>1400</width>
 							<font>breeze45</font>
 							<label>$INFO[ListItem.Season,$LOCALIZE[20373] ] $INFO[ListItem.Episode,| $LOCALIZE[20359] ]</label>
 							<textcolor>infogreynf</textcolor>
@@ -464,7 +463,7 @@
 							<description>Movie title</description>
 							<posx>0</posx>
 							<posy>105</posy>
-							<width>1450</width>
+							<width>1400</width>
 							<font>breeze45</font>
 							<textcolor>infogreynf</textcolor>
 							<shadowcolor>90ffffff</shadowcolor>
@@ -617,7 +616,7 @@
 							<aligny>top</aligny>
 							<font>breeze32</font>
 							<textcolor>infogrey</textcolor>
-							<label fallback="31482">$INFO[ListItem.Date]</label>
+							<label fallback="31482">$INFO[ListItem.Premiered]</label>
 						</control>
 		
 						<control type="label"> <!--runtime-->
@@ -775,7 +774,7 @@
 							<aligny>top</aligny>
 							<font>breeze32</font>
 							<textcolor>infogrey</textcolor>
-							<label fallback="31482">$INFO[ListItem.Date]</label>
+							<label fallback="31482">$INFO[ListItem.Premiered]</label>
 						</control>
 	  
 						<control type="label"> <!--total episodes-->
@@ -815,7 +814,7 @@
 
 					<control type="textbox"> <!--plot-->
 						<description>Plot</description>
-						<posx>280</posx>
+						<posx>314</posx>
 						<posy>250</posy>
 						<width>1315</width>
 						<height>425</height>
@@ -835,25 +834,26 @@
 				</control>				
 				
 				<control type="grouplist" id="5000">
-					<posx>55</posx>
-					<posy>545</posy>
-					<width>330</width>
-					<height>750</height>
+					<posx>33</posx>
+					<posy>610</posy>
+					<width>387</width>
+					<height>130</height>
 					<itemgap>0</itemgap>
-					<onup>5001</onup>
+					<onup>5000</onup>
 					<ondown>5000</ondown>
 					<orientation>vertical</orientation>
 					<align>top</align>
+					<scrolltime>0</scrolltime>
 					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>	
 					<animation effect="fade" start="0" end="100" time="500" delay="500"condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="500" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
 
 					<control type="button" id="8">
-						<description>Play/browse to Show</description>
+						<description>Play</description>
 						<label>$LOCALIZE[208]</label>
-						<height>58</height>
-						<width>330</width>
+						<height>65</height>
+						<width>371</width>
 						<texturenofocus>breeze/vid info/button.png</texturenofocus>
 						<texturefocus>breeze/vid info/button f.png</texturefocus>
 						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
@@ -862,153 +862,152 @@
 						<textcolor>infogrey</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>5</textoffsety>
-						<align>left</align>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
 						<aligny>top</aligny>
-						<font>breeze30</font>
+						<font>breeze30b</font>
 						<altlabel>1024</altlabel>
+						<visible>Container.Content(movies) | Container.Content(episodes)</visible>
 					</control>
-				
-					<control type="button" id="1">
-						<description>Cast</description>
-						<label>Cast</label>
-						<height>58</height>
-						<width>330</width>
-						<texturenofocus>breeze/vid info/button.png</texturenofocus>
-						<texturefocus>breeze/vid info/button f.png</texturefocus>
-						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
-						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
-						<pulseonselect>false</pulseonselect>
-						<textcolor>infogrey</textcolor>
-						<focusedcolor>white</focusedcolor>
-						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>6</textoffsety>
-						<align>left</align>
-						<aligny>top</aligny>
-						<font>breeze30</font>
-						<onclick>SetFocus(50)</onclick>
-						<animation effect="fade" start="100" end="0" time="0" condition="Control.HasFocus(50)">Conditional</animation>
-					</control>
-				
-					<control type="button" id="90">
-						<description>Get Thumb</description>
-						<label>More...</label>
-						<height>58</height>
-						<width>330</width>
-						<texturenofocus>breeze/vid info/button.png</texturenofocus>
-						<texturefocus>breeze/vid info/button f.png</texturefocus>
-						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
-						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
-						<pulseonselect>false</pulseonselect>
-						<textcolor>infogrey</textcolor>
-						<focusedcolor>white</focusedcolor>
-						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>6</textoffsety>
-						<align>left</align>
-						<aligny>top</aligny>
-						<font>breeze30</font>
-						<onclick>ActivateWindow(60)</onclick>
-					</control>
-				
-				</control>	
-				
-				<control type="image">
-					<posx>55</posx>
-					<posy>603</posy>
-					<texture>breeze/vid info/button f faded.png</texture>
-					<visible>Control.HasFocus(50)</visible>
-					<animation effect="fade" start="0" end="100" time="500" delay="500"condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="500" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
-				</control>	
-				
-				<control type="label">
-					<posx>110</posx>
-					<posy>609</posy>
-					<label>Cast</label>
-					<font>breeze30</font>
-					<textcolor>white</textcolor>
-					<visible>Control.HasFocus(50)</visible>
-					<animation effect="fade" start="0" end="100" time="500" delay="500"condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="500" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
-				</control>
-				
-				<control type="image">
-					<posx>64</posx>
-					<posy>461</posy>
-					<texture>breeze/vid info/trailer bg.png</texture>
-					<visible>ControlGroup(5001).HasFocus</visible>
-					<animation effect="fade" start="0" end="100" time="250">VisibleChange</animation>
-				</control>		
-				
-				<control type="grouplist" id="5001">
-					<posx>80</posx>
-					<posy>467</posy>
-					<width>330</width>
-					<height>750</height>
-					<itemgap>0</itemgap>
-					<onup>5000</onup>
-					<ondown>5000</ondown>
-					<onleft>5001</onleft>
-					<onright>5001</onright>
-					<orientation>horizontal</orientation>
-					<align>top</align>
-					<visible allowhiddenfocus="true">ControlGroup(5001).HasFocus</visible>
-					<animation effect="fade" start="0" end="100" time="350">Visible</animation>
-					<animation effect="fade" start="100" end="0" time="150">Hidden</animation>
-					<animation effect="fade" start="0" end="100" time="500" delay="500"condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="500" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
 
-					<control type="button" id="100">
-						<description>trailer</description>
-						<height>50</height>
-						<width>46</width>
-						<texturenofocus>breeze/vid info/trailer.png</texturenofocus>
-						<texturefocus>breeze/vid info/trailer f.png</texturefocus>
-						<alttexturenofocus>-</alttexturenofocus>
-						<alttexturefocus>-</alttexturefocus>
+					<control type="button" id="94">
+						<description>Play</description>
+						<label>$LOCALIZE[31260]</label>
+						<height>65</height>
+						<width>371</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
 						<pulseonselect>false</pulseonselect>
-						<onclick>SendClick(2003,11)</onclick>
-						<visible>!IsEmpty(ListItem.Trailer)+Container.Content(movies)</visible>	
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
+						<aligny>top</aligny>
+						<font>breeze30b</font>
+						<onclick>Dialog.Close(MovieInformation)</onclick>
+						<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 					</control>
 				
-					<control type="button" id="101">
-						<description>cinema exp</description>
-						<height>50</height>
-						<width>46</width>
-						<texturenofocus>breeze/vid info/cinema exp.png</texturenofocus>
-						<texturefocus>breeze/vid info/cinema exp f.png</texturefocus>
-						<alttexturenofocus>-</alttexturenofocus>
-						<alttexturefocus>-</alttexturefocus>
+					<control type="button" id="91">
+						<description>Trailer</description>
+						<label>$LOCALIZE[20410]</label>
+						<height>65</height>
+						<width>371</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
 						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
+						<aligny>top</aligny>
+						<font>breeze30b</font>
+						<onclick>SendClick(2003,11)</onclick>
+						<visible>!IsEmpty(ListItem.Trailer)+Container.Content(movies)</visible>
+					</control>
+				
+					<control type="button" id="95">
+						<description>Cast</description>
+						<label>$LOCALIZE[206]</label>
+						<height>65</height>
+						<width>371</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
+						<aligny>top</aligny>
+						<font>breeze30b</font>
+						<onclick>SetFocus(50)</onclick>
+					</control>
+				
+					<control type="button" id="92">
+						<description>Cinema Experience</description>
+						<label>$LOCALIZE[31262]</label>
+						<height>65</height>
+						<width>371</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
+						<aligny>top</aligny>
+						<font>breeze30b</font>
 						<onclick>Playlist.Clear</onclick>
 						<onclick>Dialog.Close(MovieInformation)</onclick>
 						<onclick>XBMC.RunScript(script.cinema.experience)</onclick>
 						<visible>Container.Content(Movies) + system.hasaddon(script.cinema.experience) + !SubString(Container.FolderPath,plugin)</visible>
-					</control>				
+					</control>
 				
+					<control type="button" id="90">
+						<description>More</description>
+						<label>More...</label>
+						<height>65</height>
+						<width>371</width>
+						<texturenofocus>breeze/vid info/button.png</texturenofocus>
+						<texturefocus>breeze/vid info/button f.png</texturefocus>
+						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+						<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogrey</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
+						<aligny>top</aligny>
+						<font>breeze30b</font>
+						<onclick>ActivateWindow(60)</onclick>
+					</control>
+				
+				</control>	
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>213</posx>
+					<posy>743</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
+					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>	
+					<animation effect="fade" start="0" end="100" time="500" delay="500"condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="500" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
 				</control>
-				
-				<control type="label">
-					<posx>175</posx>
-					<posy>475</posy>
-					<label>Play Trailer</label>
-					<font>breeze28b</font>
-					<textcolor>infogrey</textcolor>
-					<visible>Control.HasFocus(100)</visible>
-					<animation effect="slide" start="0,0" end="-45,0" time="0" condition="!system.hasaddon(script.cinema.experience)">Conditional</animation>
-				</control>
-				
-				<control type="label">
-					<posx>175</posx>
-					<posy>475</posy>
-					<label>Cinema Experience</label>
-					<font>breeze28b</font>
-					<textcolor>infogrey</textcolor>
-					<visible>Control.HasFocus(101)</visible>
-					<animation effect="slide" start="0,0" end="-45,0" time="0" condition="IsEmpty(ListItem.Trailer)">Conditional</animation>
+						
+				<control type="label"> <!--press right label-->
+					<posx>480</posx>
+					<posy>250</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze30b</font>
+					<textcolor>blue2</textcolor>
+					<label>$LOCALIZE[31346]</label>
+					<visible>Control.HasFocus(50) + System.HasAddon(script.metadata.actors)</visible>
+					<shadowcolor>90ffffff</shadowcolor>
+					<animation effect="fade" start="0" end="100" time="500" delay="500"condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="500" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
 				</control>
     
 				<control type="panel" id="50"> <!--cast focused-->
@@ -1044,6 +1043,7 @@
 							<font>breeze34</font>
 							<textcolor>infogreynf</textcolor>
 							<label>$INFO[ListItem.Label]</label>
+							<shadowcolor>90ffffff</shadowcolor>
 						</control>
 					
 					</itemlayout>
@@ -1061,19 +1061,21 @@
 							<textcolor>infogrey</textcolor>
 							<scrollspeed>30</scrollspeed>
 							<label>$INFO[ListItem.Label]</label>
+							<shadowcolor>90ffffff</shadowcolor>
 						</control>
 					
 					</focusedlayout>
 				
 				</control>	
 	  
-				<control type="image"> <!--actor image-->
+				<control type="image" id="501"> <!--actor image-->
 					<description>Actor image</description>
-					<posx>65</posx>
-					<posy>71</posy>
-					<width>310</width>
-					<height>452</height>
-					<texture diffuse="breeze/masks/vid info folder.png" background="true">$INFO[Container(50).Listitem.Icon]</texture>
+					<posx>32.5</posx>
+					<posy>33</posy>
+					<width>372</width>
+					<height>556</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture diffuse="breeze/home/folder tile dif.png">$INFO[Container(50).Listitem.Icon]</texture>
 					<visible>Control.IsVisible(50)</visible>
 					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>

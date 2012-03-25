@@ -34,6 +34,8 @@
 		</control>
 		
 		<control type="group"> <!--banner list-->
+			<posx>415</posx>
+			<posy>-25</posy>
 			
 			<include condition="Control.IsVisible(508)">ContextBannerList</include>
 		
@@ -46,6 +48,8 @@
 		</control>
 		
 		<control type="group"> <!--poster fixed-->
+			<posx>-243</posx>
+			<posy>-102</posy>
 			
 			<include condition="Control.IsVisible(501)">ContextPoster</include>
 			<include condition="Control.IsVisible(502)">ContextPoster</include>
@@ -73,6 +77,8 @@
 		</control>
 		
 		<control type="group"> <!--low list music (no cases)-->
+			<posx>37</posx>
+			<posy>-15</posy>
 			
 			<include condition="Control.IsVisible(506) + !Skin.HasSetting(breeze_lowlist_cd_cases)">ContextLowListMusic</include>
 		

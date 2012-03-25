@@ -1,4 +1,4 @@
-<window id="1114" type="dialog">
+﻿<window id="1114" type="dialog">
   <defaultcontrol always="true">8</defaultcontrol>
   <zorder>4</zorder>
   <coordinates>
@@ -25,12 +25,12 @@
       <control type="label">
         <include>Dialogs_Label1</include>
         <label>31187</label>
-        <animation effect="slide" start="0,0" end="-20,0" time="0" condition="false">Conditional</animation>
+        <animation effect="slide" start="0,0" end="-30,0" time="0" condition="false">Conditional</animation>
       </control>
       <control type="button" id="10">
-        <posx>220</posx>
-        <posy>50</posy>
-        <width>98</width>
+        <posx>330</posx>
+        <posy>75</posy>
+        <width>147</width>
         <align>center</align>
         <textcolor>abFFFFFF</textcolor>
         <font>Font_Reg18</font>
@@ -52,9 +52,9 @@
         <visible allowhiddenfocus="true">Control.HasFocus(10)</visible>
       </control>
       <control type="button" id="11">
-        <posx>220</posx>
-        <posy>50</posy>
-        <width>98</width>
+        <posx>330</posx>
+        <posy>75</posy>
+        <width>147</width>
         <align>center</align>
         <textcolor>abFFFFFF</textcolor>
         <font>Font_Reg18</font>
@@ -76,9 +76,9 @@
         <visible allowhiddenfocus="true">Control.HasFocus(11)</visible>
       </control>
       <control type="button" id="12">
-        <posx>220</posx>
-        <posy>50</posy>
-        <width>98</width>
+        <posx>330</posx>
+        <posy>75</posy>
+        <width>147</width>
         <align>center</align>
         <textcolor>abFFFFFF</textcolor>
         <font>Font_Reg18</font>
@@ -100,9 +100,9 @@
         <visible allowhiddenfocus="true">Control.HasFocus(12)</visible>
       </control>
       <control type="button" id="13">
-        <posx>220</posx>
-        <posy>50</posy>
-        <width>98</width>
+        <posx>330</posx>
+        <posy>75</posy>
+        <width>147</width>
         <align>center</align>
         <textcolor>abFFFFFF</textcolor>
         <font>Font_Reg18</font>
@@ -124,9 +124,9 @@
         <visible allowhiddenfocus="true">Control.HasFocus(13)</visible>
       </control>
       <control type="button" id="14">
-        <posx>220</posx>
-        <posy>50</posy>
-        <width>98</width>
+        <posx>330</posx>
+        <posy>75</posy>
+        <width>147</width>
         <align>center</align>
         <textcolor>abFFFFFF</textcolor>
         <font>Font_Reg18</font>
@@ -149,22 +149,22 @@
       </control>
       <control type="image">
         <description>left arrow</description>
-        <posx>195</posx>
-        <posy>62</posy>
-        <width>20</width>
-        <height>20</height>
+        <posx>292</posx>
+        <posy>93</posy>
+        <width>30</width>
+        <height>30</height>
         <texture>views/multiplex_arrow2.png</texture>
         <include>Animation_CommonFade</include>
       </control>
       <control type="image">
         <description>right arrow</description>
-        <posx>322</posx>
-        <posy>62</posy>
-        <width>20</width>
-        <height>20</height>
+        <posx>483</posx>
+        <posy>93</posy>
+        <width>30</width>
+        <height>30</height>
         <texture>views/multiplex_arrow.png</texture>
         <include>Animation_CommonFade</include>
       </control>
-     </control>
+    </control>
   </controls>
 </window>

@@ -1,8 +1,15 @@
 <window id="0">
 	
-	<defaultcontrol>9000</defaultcontrol>
+	<defaultcontrol>11999</defaultcontrol>
 	
 	<allowoverlay>yes</allowoverlay>
+	
+	<onload condition="Container(9000).HasFocus(2) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage1,Control.Move(110011,1),00:05,silent,loop)</onload>
+	<onload condition="Container(9000).HasFocus(2) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage2,Control.Move(110021,1),00:05,silent,loop)</onload>
+	<onload condition="Container(9000).HasFocus(11) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage3,Control.Move(120021,1),00:05,silent,loop)</onload>
+	<onload condition="Container(9000).HasFocus(10) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onload>
+	<onload condition="Container(9000).HasFocus(3) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onload>
+	<onunload condition="!Skin.HasSetting(VerticalMenu)">CancelAlarm(MultiImage,true)</onunload>
 	
 	<controls>
 				
@@ -19,6 +26,14 @@
 			<include>CommonFanartVars</include>
 			<imagepath background="true">$INFO[Container(9000).ListItem.Icon]</imagepath>
 			<visible>!Control.HasFocus(8000)</visible>
+		</control>
+	
+		<control type="multiimage">
+			<description>extrafanart</description>
+			<randomize>false</randomize>
+			<include>CommonFanartVars</include>
+			<imagepath background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/extrafanart]</imagepath>
+			<visible>Player.HasAudio + Skin.HasSetting(musicfanarthome)</visible>	
 		</control>
 		
 		<control type="image">
@@ -46,7 +61,7 @@
 			<description>Fanart</description>
 			<include>CommonFanartVarsSingle</include>
 			<texture background="true">$INFO[Container(8003).ListItem.Property(Fanart)]</texture>
-			<visible>Control.HasFocus(8003)</visible>
+			<visible>Control.HasFocus(8003) + Skin.HasSetting(VerticalMenu)</visible>
 		</control>
 		
 		<control type="image">
@@ -55,44 +70,72 @@
 			<texture background="true">$INFO[Container(8006).ListItem.Property(Fanart)]</texture>
 			<visible>Control.HasFocus(8006) | Control.HasFocus(8008) | Control.HasFocus(8009) | Control.HasFocus(8010)</visible>
 		</control>
-	
-		<control type="multiimage">
-			<description>extrafanart</description>
-			<randomize>false</randomize>
-			<include>CommonFanartVars</include>
-			<imagepath background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/extrafanart]</imagepath>
-			<visible>Player.HasAudio + Skin.HasSetting(musicfanarthome)</visible>	
+
+		<control type="image"> <!--white bg-->
+			<description>background image</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 50.png</texture>
+			<visible>!Skin.HasSetting(VerticalMenu) + !Skin.HasSetting(HorizDimBG)</visible>
+		</control>
+
+		<control type="image"> <!--white bg-->
+			<description>background image</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 50.png</texture>
+			<visible>Skin.HasSetting(VerticalMenu) + Skin.HasSetting(HorizDimBG)</visible>
+		</control>
+
+		<control type="image"> <!--white bg-->
+			<description>background image</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 90.png</texture>
+			<visible>!Skin.HasSetting(VerticalMenu) + Skin.HasSetting(HorizDimBG)</visible>
 		</control>
 		
 		<!-- RSS -->
 		<!--include>rssnormal</include>
 		
-		<!-- Latest/Random Items -->
-		<control type="group">
-			<include condition="Skin.HasSetting(horizontalmenu)">LatestFilmsHoriz</include>
-			<include condition="Skin.HasSetting(horizontalmenu)">LatestTVHoriz</include>
-			<include condition="Skin.HasSetting(horizontalmenu)">LatestAlbumsHoriz</include>
-			<include>SideMenuVert</include>
-			<include>LatestFilmsVert</include>
-			<include>vertmenutabs</include>
-		</control>
+		<!--Horizontal Menu-->
+		<include condition="!Skin.HasSetting(verticalmenu)">HorizontalMenuBG</include>
+		<include condition="!Skin.HasSetting(verticalmenu)">HorizontalMenuHiddenButtons</include>
+		<include condition="!Skin.HasSetting(verticalmenu)">HorizontalMenuNav</include>
+		<include condition="!Skin.HasSetting(verticalmenu)">HorizontalMenuNavLabels</include>
+		<include condition="!Skin.HasSetting(verticalmenu)">HorizontalMenuItems</include>
+		<include condition="!Skin.HasSetting(verticalmenu)">HorizontalMenuTopButtons</include>	
+
+		<!--Vertical Menu-->		
+		<include condition="Skin.HasSetting(verticalmenu)">VerticalMenuHiddenButtons</include>	
+		<include condition="Skin.HasSetting(verticalmenu)">VerticalMenuNav</include>
+		<include condition="Skin.HasSetting(verticalmenu)">VerticalMenuSub</include>
+		<include condition="Skin.HasSetting(verticalmenu)">VerticalMenuBG</include>
+		<include condition="Skin.HasSetting(verticalmenu)">VerticalMenuTopButtons</include>
 		
-		<include condition="Skin.HasSetting(horizontalmenu)">HorizontalMenu</include>
-		<include>VerticalMenu</include>
+		<include condition="Skin.HasSetting(verticalmenu)">SideMenuVert</include>
+		<include condition="Skin.HasSetting(verticalmenu)">LatestFilmsVert</include>
+		<include condition="Skin.HasSetting(verticalmenu)">vertmenutabs</include>
 		
 		<!--Weather info-->
-		<include condition="!Skin.HasSetting(homepageWeatherinfo)+!StringCompare(Weather.Plugin,weather.weatherplus)">Weather_Widget_Standard</include>
-		<include condition="!Skin.HasSetting(homepageWeatherinfo)+StringCompare(Weather.Plugin,weather.weatherplus)">Weather_Widget_Plus</include>
+		<!--include>Weather_Widget_Standard</include>
+		<!--include condition="!Skin.HasSetting(homepageWeatherinfo)+StringCompare(Weather.Plugin,weather.weatherplus)">Weather_Widget_Plus</include-->
 		
 		<!-- Music Now Playing -->
-		<include condition="Skin.HasSetting(horizontalmenu)">MusicNowPlayingHomeHoriz</include>
-		<include condition="!Skin.HasSetting(homenowplayingvertvis)">MusicNowPlayingHomeVert</include>
-		<include condition="Skin.HasSetting(homenowplayingvertvis)">MusicNowPlayingHomeVertVis</include>
+		<include condition="Skin.HasSetting(homenowplayinghorizvis)">MusicNowPlayingHomeHoriz</include>
+		<include condition="!Skin.HasSetting(homenowplayingvertvis) + Skin.HasSetting(verticalmenu)">MusicNowPlayingHomeVert</include>
+		<include condition="Skin.HasSetting(homenowplayingvertvis) + Skin.HasSetting(verticalmenu)">MusicNowPlayingHomeVertVis</include>
 		
 		<!-- Video Now Playing -->
-		<include condition="Skin.HasSetting(horizontalmenu)">VideoNowPlayingHomeHoriz</include>
-		<include condition="!Skin.HasSetting(homenowplayingvertvis)">VideoNowPlayingHomeVert</include>
-		<include condition="Skin.HasSetting(homenowplayingvertvis)">VideoNowPlayingHomeVertVis</include>
+		<include condition="Skin.HasSetting(homenowplayinghorizvis)">VideoNowPlayingHomeHoriz</include>
+		<include condition="!Skin.HasSetting(homenowplayingvertvis) + Skin.HasSetting(verticalmenu)">VideoNowPlayingHomeVert</include>
+		<include condition="Skin.HasSetting(homenowplayingvertvis) + Skin.HasSetting(verticalmenu)">VideoNowPlayingHomeVertVis</include>
 		
 	</controls>
 	

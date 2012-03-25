@@ -89,19 +89,19 @@
 							<width>633</width>
 							<height>60</height>
 							<align>left</align>
-							<label>$INFO[ListItem.Date] |</label>
+							<label>$INFO[ListItem.Premiered] |</label>
 							<font>breeze28</font>
 							<textcolor>infogreynf</textcolor>
 							<shadowcolor>90ffffff</shadowcolor>
 							<visible>!SubString(Container.FolderPath,videodb://5/)+!IsEmpty(ListItem.Title)</visible>
-							<visible>!IsEmpty(ListItem.Date)</visible>
+							<visible>!IsEmpty(ListItem.Premiered)</visible>
 						</control>
 		  
 						<control type="image"> <!--rating star-->
 							<posx>418</posx>
 							<posy>57</posy>
 							<texture>breeze/views/s star.png</texture>
-							<animation effect="slide" start="0,0" end="-118" time="0" condition="IsEmpty(ListItem.Date)">Conditional</animation>
+							<animation effect="slide" start="0,0" end="-118" time="0" condition="IsEmpty(ListItem.Premiered)">Conditional</animation>
 							<visible>!SubString(Container.FolderPath,videodb://5/)+!IsEmpty(ListItem.Title)</visible>
 						</control>
 		  
@@ -116,7 +116,7 @@
 							<textcolor>infogreynf</textcolor>
 							<shadowcolor>90ffffff</shadowcolor>
 							<visible>!SubString(Container.FolderPath,videodb://5/)+!IsEmpty(ListItem.Title)</visible>
-							<animation effect="slide" start="0,0" end="-118" time="0" condition="IsEmpty(ListItem.Date)">Conditional</animation>
+							<animation effect="slide" start="0,0" end="-118" time="0" condition="IsEmpty(ListItem.Premiered)">Conditional</animation>
 						</control>
 		  
 					</control>  
@@ -189,7 +189,7 @@
 							<width>633</width>
 							<height>60</height>
 							<align>left</align>
-							<label>$INFO[ListItem.Date,$LOCALIZE[31239]: ]</label>
+							<label>$INFO[ListItem.Premiered,$LOCALIZE[31239]: ]</label>
 							<font>breeze32</font>
 							<textcolor>blue2</textcolor>
 						</control>
@@ -204,7 +204,7 @@
 							<font>breeze32</font>
 							<textcolor>infogrey</textcolor>        
 							<autoscroll delay="7500" time="4000" repeat="5500">Skin.HasSetting(AutoScroll)</autoscroll>
-							<visible>IsEmpty(ListItem.Date)</visible>
+							<visible>IsEmpty(ListItem.Premiered)</visible>
 						</control>
 	  
 						<control type="textbox"> <!--plot-->
@@ -217,7 +217,7 @@
 							<font>breeze32</font>
 							<textcolor>infogrey</textcolor>        
 							<autoscroll delay="7500" time="4000" repeat="5500">Skin.HasSetting(AutoScroll)</autoscroll>
-							<visible>!IsEmpty(ListItem.Date)</visible>
+							<visible>!IsEmpty(ListItem.Premiered)</visible>
 						</control>
 
 						<control type="group">

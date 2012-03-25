@@ -125,6 +125,19 @@
   <string id="31333">Recent</string>
   <string id="31334">Latest</string>
   <string id="31335">In Progress</string>
+  <string id="31336">Image</string>  
+  <string id="31337">Configure custom tiles</string>  
+  <string id="31338">TV shows tile 1</string> 
+  <string id="31339">TV shows tile 2</string> 
+  <string id="31340">Films tile 1</string> 
+  <string id="31341">Films tile 2</string> 
+  <string id="31342">Apps tile 1</string> 
+  <string id="31343">Apps tile 2</string> 
+  <string id="31344">Apps tile 3</string> 
+  <string id="31345">Apps tile 4</string>
+  <string id="31346">*Press RIGHT for actor info*</string>
+  <string id="31347">Temperature</string>
+  <string id="31347">Feels Like</string>
   
   <!-- Video and Music OSD Labels  -->
   <string id="31351">Pause</string>
@@ -399,14 +412,14 @@
   <string id="31466">Choose which views to enable</string>
   <string id="31467">Programs sub menu shortcuts</string> 
   <string id="31468">Edit program</string>   
-  <string id="31469">Now playing widget options (horizontal menu)</string>  
+  <string id="31469">Now playing widget options</string>  
   <string id="31470">Enable now playing CD Art (music)</string>   
   <string id="31471">Enable now playing artist logo (music)</string>  
-  <string id="31472">Enable now playing logo (tv shows)</string>  
+  <string id="31472">Show now playing tile (horizontal menu)</string>  
   <string id="31473">TV Shows</string>  
   <string id="31474">Skin</string>   
   <string id="31475">Specials</string>  
-  <string id="31476">Always show now playing tab when media is playing</string> 
+  <string id="31476">Always show now playing tab when media is playing (vertical menu)</string> 
   <string id="31477">IMDb</string> 
   <string id="31478">Now playing widget options (vertical menu)</string> 
   <string id="31479">Close Window</string> 
@@ -426,6 +439,9 @@
   <string id="31493">Set fanart</string> 
   <string id="31494">Get tune</string> 
   <string id="31495">Enable TV Show cover in vid info (requires folder.jpg in show folder)</string> 
+  <string id="31496">Dim background image</string> 
+  <string id="31497">Current weather</string> 
+  <string id="31498">Forecast</string> 
   
   <!-- Home Menu -->
   <string id="31500">Pictures</string>
@@ -440,6 +456,14 @@
   <string id="31509">Favourites</string>
   <string id="31510">Weather</string>
   <string id="31511">Play Disc</string>
+  <string id="31512">Apps</string>
+  <string id="31513">Featured Albums</string>
+  <string id="31514">New Films</string>
+  <string id="31515">New Episodes</string>
+  <string id="31516">New Albums</string>
+  <string id="31517">Featured Films</string>
+  <string id="31518">Ongoing TV Shows</string>
+  <string id="31519">search XBMC for</string>
 
   <!-- Weather plugin -->
   <string id="31900">MAPS</string>

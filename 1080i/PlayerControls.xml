@@ -1,4 +1,4 @@
-<window type="dialog" id="114">
+﻿<window type="dialog" id="114">
   <defaultcontrol always="true">602</defaultcontrol>
   <visible>Player.HasMedia + Window.IsActive(PlayerControls) + !Window.IsActive(FullscreenVideo) + !Window.IsActive(Visualisation)</visible>
   <controls>
@@ -6,8 +6,8 @@
       <control type="image">
         <posx>0</posx>
         <posy>0</posy>
-        <width>1280</width>
-        <height>720</height>
+        <width>1920</width>
+        <height>1080</height>
         <colordiffuse>DDFFFFFF</colordiffuse>
         <texture>common/black.png</texture>
         <animation effect="fade" start="0" end="70" time="500" reversible="true">WindowOpen</animation>
@@ -16,13 +16,13 @@
       <include condition="Skin.HasSetting(effect_bg)">BG_Effect_Home</include>
       <control type="group">
         <include>Animation_DialogZoom</include>
-        <posx>380</posx>
-        <posy>278</posy>
+        <posx>570</posx>
+        <posy>417</posy>
         <control type="image">
           <posx>0</posx>
-          <posy>5</posy>
-          <width>520</width>
-          <height>164</height>
+          <posy>8</posy>
+          <width>780</width>
+          <height>246</height>
           <texture>views/listpanel_back_noreflect.png</texture>
         </control>
         <control type="group">
@@ -30,43 +30,43 @@
           <control type="image">
             <visible>VideoPlayer.Content(movies)</visible>
             <description>Cover Image</description>
-            <posx>42</posx>
-            <posy>20</posy>
-            <width>86</width>
-            <height>130</height>
+            <posx>63</posx>
+            <posy>30</posy>
+            <width>129</width>
+            <height>195</height>
             <texture background="true" diffuse="thumbs/movieposter_mask.png">$INFO[VideoPlayer.Cover]</texture>
             <aspectratio>stretch</aspectratio>
           </control>
           <control type="image">
             <visible>VideoPlayer.Content(movies)</visible>
             <description>Cover Image</description>
-            <posx>42</posx>
-            <posy>20</posy>
-            <width>86</width>
-            <height>130</height>
+            <posx>63</posx>
+            <posy>30</posy>
+            <width>129</width>
+            <height>195</height>
             <texture background="true" diffuse="thumbs/movieposter_mask.png">thumbs/poster_glass_noedge.png</texture>
-            <bordertexture border="-5">thumbs/poster_shadow.png</bordertexture>
+            <bordertexture border="-8">thumbs/poster_shadow.png</bordertexture>
             <aspectratio>stretch</aspectratio>
           </control>
           <control type="image">
             <visible>!VideoPlayer.Content(movies)</visible>
             <description>Cover Image</description>
-            <posx>20</posx>
-            <posy>50</posy>
-            <width>130</width>
-            <height>72</height>
+            <posx>30</posx>
+            <posy>75</posy>
+            <width>195</width>
+            <height>108</height>
             <texture background="true" diffuse="thumbs/multiplex_tvmask.png">$INFO[VideoPlayer.Cover]</texture>
             <aspectratio>stretch</aspectratio>
           </control>
           <control type="image">
             <visible>!VideoPlayer.Content(movies)</visible>
             <description>Cover Image</description>
-            <posx>20</posx>
-            <posy>50</posy>
-            <width>130</width>
-            <height>72</height>
+            <posx>30</posx>
+            <posy>75</posy>
+            <width>195</width>
+            <height>108</height>
             <texture background="true" diffuse="thumbs/multiplex_tvmask.png">thumbs/cd_glass_noedge.png</texture>
-            <bordertexture border="-5">thumbs/multiplex_tvborder.png</bordertexture>
+            <bordertexture border="-8">thumbs/multiplex_tvborder.png</bordertexture>
             <aspectratio>stretch</aspectratio>
           </control>
         </control>
@@ -74,34 +74,34 @@
           <visible>Player.HasAudio</visible>
           <control type="image">
             <description>Cover image</description>
-            <posx>20</posx>
-            <posy>20</posy>
-            <width>130</width>
-            <height>130</height>
+            <posx>30</posx>
+            <posy>30</posy>
+            <width>195</width>
+            <height>195</height>
             <aspectratio scaledifuuse="false">stretch</aspectratio>
             <texture background="true" diffuse="thumbs/cdcover_mask.png">common/black.png</texture>
             <info>MusicPlayer.Cover</info>
           </control>
           <control type="image">
             <description>Cover image</description>
-            <posx>20</posx>
-            <posy>20</posy>
-            <width>130</width>
-            <height>130</height>
+            <posx>30</posx>
+            <posy>30</posy>
+            <width>195</width>
+            <height>195</height>
             <aspectratio scaledifuuse="false">stretch</aspectratio>
             <texture background="true" diffuse="thumbs/cdcover_mask.png">thumbs/cd_glass_noedge.png</texture>
-            <bordertexture border="-7">thumbs/cd_shadow.png</bordertexture>
+            <bordertexture border="-10">thumbs/cd_shadow.png</bordertexture>
           </control>
         </control>
         <control type="grouplist" id="599">
-          <posx>160</posx>
-          <posy>110</posy>
-          <width>400</width>
+          <posx>240</posx>
+          <posy>165</posy>
+          <width>600</width>
           <orientation>horizontal</orientation>
           <itemgap>-15</itemgap>
           <control type="button" id="600">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>210</label>
             <font>-</font>
             <texturefocus>osd/buttons/OSDPrevTrackFO.png</texturefocus>
@@ -109,8 +109,8 @@
             <onclick>PlayerControl(Previous)</onclick>
           </control>
           <control type="button" id="601">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>31354</label>
             <font>-</font>
             <texturefocus>osd/buttons/OSDRewindFO.png</texturefocus>
@@ -118,8 +118,8 @@
             <onclick>PlayerControl(Rewind)</onclick>
           </control>
           <control type="togglebutton" id="602">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>31351</label>
             <altlabel>208</altlabel>
             <font>-</font>
@@ -131,8 +131,8 @@
             <onclick>PlayerControl(Play)</onclick>
           </control>
           <control type="button" id="603">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>31352</label>
             <font>-</font>
             <texturefocus>osd/buttons/OSDStopFO.png</texturefocus>
@@ -141,8 +141,8 @@
             <onclick>Dialog.Close(114)</onclick>
           </control>
           <control type="button" id="604">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>31353</label>
             <font>-</font>
             <texturefocus>osd/buttons/OSDForwardFO.png</texturefocus>
@@ -150,8 +150,8 @@
             <onclick>PlayerControl(Forward)</onclick>
           </control>
           <control type="button" id="605">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>209</label>
             <font>-</font>
             <texturefocus>osd/buttons/OSDNextTrackFO.png</texturefocus>
@@ -159,8 +159,8 @@
             <onclick>PlayerControl(Next)</onclick>
           </control>
           <control type="button" id="700">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>10517</label>
             <font>-</font>
             <texturefocus>osd/buttons/OSDPlaylistFO.png</texturefocus>
@@ -174,8 +174,8 @@
             <visible>Player.HasAudio</visible>
           </control>
           <control type="button" id="701">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>10517</label>
             <font>-</font>
             <texturefocus>osd/buttons/OSDPlaylistFO.png</texturefocus>
@@ -189,8 +189,8 @@
             <visible>Player.HasVideo</visible>
           </control>
           <control type="togglebutton" id="705">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>$LOCALIZE[590]$INFO[Playlist.Random, : ]</label>
             <font>-</font>
             <texturefocus>osd/buttons/OSDRandomOffFO.png</texturefocus>
@@ -201,50 +201,50 @@
             <onclick>XBMC.PlayerControl(Random)</onclick>
           </control>
           <control type="image" id="706">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <texture>osd/buttons/OSDRepeatNF.png</texture>
             <visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
             <visible>!Control.HasFocus(704)</visible>
           </control>
           <control type="image" id="707">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <texture>osd/buttons/OSDRepeatFO.png</texture>
             <visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
             <visible>Control.HasFocus(704)</visible>
           </control>
           <control type="image" id="708">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <texture>osd/buttons/OSDRepeatOneNF.png</texture>
             <visible>Playlist.IsRepeatOne</visible>
             <visible>!Control.HasFocus(704)</visible>
           </control>
           <control type="image" id="709">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <texture>osd/buttons/OSDRepeatOneFO.png</texture>
             <visible>Playlist.IsRepeatOne</visible>
             <visible>Control.HasFocus(704)</visible>
           </control>
           <control type="image" id="710">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <texture>osd/buttons/OSDRepeatAllNF.png</texture>
             <visible>Playlist.IsRepeat</visible>
             <visible>!Control.HasFocus(704)</visible>
           </control>
           <control type="image" id="711">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <texture>osd/buttons/OSDRepeatAllFO.png</texture>
             <visible>Playlist.IsRepeat</visible>
             <visible>Control.HasFocus(704)</visible>
           </control>
           <control type="button" id="704">
-            <width>50</width>
-            <height>50</height>
+            <width>75</width>
+            <height>75</height>
             <label>$LOCALIZE[486]$INFO[Playlist.Repeat, : ]</label>
             <font>-</font>
             <texturefocus>-</texturefocus>
@@ -256,10 +256,10 @@
           <visible>Player.HasAudio</visible>
           <control type="label">
             <description>Artist label</description>
-            <posx>170</posx>
-            <posy>20</posy>
-            <height>30</height>
-            <width>321</width>
+            <posx>255</posx>
+            <posy>30</posy>
+            <height>45</height>
+            <width>482</width>
             <label>[UPPERCASE]$INFO[MusicPlayer.Artist][/UPPERCASE]</label>
             <align>left</align>
             <aligny>center</aligny>
@@ -270,10 +270,10 @@
           </control>
           <control type="label">
             <description>Artist label</description>
-            <posx>170</posx>
-            <posy>38</posy>
-            <height>30</height>
-            <width>321</width>
+            <posx>255</posx>
+            <posy>57</posy>
+            <height>45</height>
+            <width>482</width>
             <label>[UPPERCASE]$INFO[MusicPlayer.Album][/UPPERCASE]</label>
             <align>left</align>
             <aligny>center</aligny>
@@ -284,10 +284,10 @@
           </control>
           <control type="label">
             <description>Title label</description>
-            <posx>170</posx>
-            <posy>62</posy>
-            <height>60</height>
-            <width>321</width>
+            <posx>255</posx>
+            <posy>93</posy>
+            <height>90</height>
+            <width>482</width>
             <label>[UPPERCASE]$INFO[MusicPlayer.Title][/UPPERCASE]</label>
             <align>left</align>
             <font>Font_Info</font>
@@ -297,10 +297,10 @@
           </control>
           <control type="label">
             <description>Title label</description>
-            <posx>170</posx>
-            <posy>80</posy>
-            <height>60</height>
-            <width>321</width>
+            <posx>255</posx>
+            <posy>120</posy>
+            <height>90</height>
+            <width>482</width>
             <label>[UPPERCASE]$INFO[MusicPlayer.offset(1).Title,[COLOR 91FFFFFF]$LOCALIZE[209]: [/COLOR]][/UPPERCASE]</label>
             <align>left</align>
             <font>Font_Info</font>
@@ -313,10 +313,10 @@
           <visible>Player.HasVideo</visible>
           <control type="label">
             <description>Artist label</description>
-            <posx>170</posx>
-            <posy>14</posy>
-            <height>30</height>
-            <width>321</width>
+            <posx>255</posx>
+            <posy>21</posy>
+            <height>45</height>
+            <width>482</width>
             <label>[UPPERCASE]$INFO[VideoPlayer.Title][/UPPERCASE]</label>
             <align>left</align>
             <aligny>center</aligny>
@@ -326,10 +326,10 @@
             <scroll>true</scroll>
           </control>
           <control type="textbox">
-            <posx>170</posx>
-            <posy>40</posy>
-            <width>321</width>
-            <height>74</height>
+            <posx>255</posx>
+            <posy>60</posy>
+            <width>482</width>
+            <height>111</height>
             <font>Font_Reg15</font>
             <label fallback="312577">$INFO[VideoPlayer.Plot]</label>
             <textcolor>d0FFFFFF</textcolor>

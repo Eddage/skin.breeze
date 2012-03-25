@@ -17,7 +17,7 @@
 				<posy>0</posy>
 				<width>1920</width>
 				<height>1080</height>
-				<texture fallback="breeze/background.png">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<texture>breeze/background.png</texture>
 			</control>
 
 			<control type="image"> <!--white bg-->
@@ -35,8 +35,8 @@
 			</control>
 	
 			<control type="image"> <!--bg-->
-				<posx>33</posx>
-				<posy>40</posy>
+				<posx>5</posx>
+				<posy>5</posy>
 				<texture>breeze/vid info/bg.png</texture>
 			</control>
 
@@ -66,7 +66,7 @@
 				
 				<control type="label"> <!--name-->
 					<description>header label</description>
-					<posx>430</posx>
+					<posx>471</posx>
 					<posy>65</posy>
 					<width>1450</width>
 					<font>breeze75</font>
@@ -232,7 +232,7 @@
 
 				<control type="textbox" id="400"> <!--plot-->
 					<description>Plot</description>
-					<posx>480</posx>
+					<posx>514</posx>
 					<posy>200</posy>
 					<width>1315</width>
 					<height>520</height>
@@ -248,8 +248,8 @@
 				</control>
 				
 				<control type="group"> <!--actor image-->
-					<posx>45</posx>
-					<posy>51</posy>
+					<posx>12.5</posx>
+					<posy>12.5</posy>
 					<animation effect="fade" time="300">Visible</animation>
 					<animation effect="fade" time="300">Hidden</animation>
 
@@ -257,26 +257,26 @@
 						<description>background image</description>
 						<posx>10</posx>
 						<posy>10</posy>
-						<width>330</width>
-						<height>472</height>
+						<width>392</width>
+						<height>576</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture>breeze/masks/vid info folder border.png</texture>
+						<texture>breeze/home/search folder f border.png</texture>
 					</control> 
 
 					<control type="image"> <!--thumb-->
 						<description>background image</description>
 						<posx>20</posx>
 						<posy>20</posy>
-						<width>310</width>
-						<height>452</height>
+						<width>372</width>
+						<height>556</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture diffuse="breeze/masks/vid info folder.png">$INFO[Listitem.Icon]</texture>
+						<texture diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					
 				</control>
     
 				<control type="panel" id="150"> <!--filmography focused-->
-					<posx>450</posx>
+					<posx>514</posx>
 					<posy>200</posy>
 					<width>1300</width>
 					<height>555</height>
@@ -345,25 +345,25 @@
 				
 				</control>	
 	  
-				<control type="image"> <!--film cover-->
+				<control type="image" id="501"> <!--film cover-->
 					<description>Actor image</description>
-					<posx>65</posx>
-					<posy>71</posy>
-					<width>310</width>
-					<height>452</height>
-					<texture diffuse="breeze/masks/vid info folder.png">$INFO[Container(150).Listitem.Icon]</texture>
+					<posx>32.5</posx>
+					<posy>32.5</posy>
+					<width>372</width>
+					<height>556</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture fallback="DefaultVideoBigPoster.png" diffuse="breeze/home/folder tile dif.png">$INFO[Container(150).Listitem.Icon]</texture>
 					<visible>Control.IsVisible(150)</visible>
 				</control>
 	  
 				<control type="image"> <!--film cover-->
 					<description>Actor image</description>
-					<posx>65</posx>
-					<posy>71</posy>
-					<width>310</width>
-					<height>452</height>
-					<texture diffuse="breeze/masks/vid info folder.png">DefaultVideoBigPoster.png</texture>
-					<visible>Control.IsVisible(150)</visible>
-					<visible>IsEmpty(Container(150).Listitem.Icon)</visible>
+					<posx>32.5</posx>
+					<posy>32.5</posy>
+					<width>372</width>
+					<height>556</height>
+					<texture fallback="DefaultVideoBigPoster.png" diffuse="breeze/home/folder tile dif.png">DefaultVideoBigPoster.png</texture>
+					<visible>Control.IsVisible(150) + SubString(Control.GetLabel(501),DefaultMovies.png)</visible>
 				</control>
 				
 				<control type="list" id="50">
@@ -475,21 +475,22 @@
 				</control>
 
 				<control type="grouplist" id="9000"> <!--buttons-->
-					<posx>55</posx>
-					<posy>545</posy>
-					<width>330</width>
-					<height>175</height>
+					<posx>33</posx>
+					<posy>610</posy>
+					<width>387</width>
+					<height>130</height>
 					<itemgap>0</itemgap>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
 					<onright>150</onright>
 					<orientation>vertical</orientation>
 					<align>top</align>
+					<scrolltime>0</scrolltime>
 					
 					<control type="button" id="8">
 						<description>browse to Show</description>
-						<height>58</height>
-						<width>330</width>
+						<height>65</height>
+						<width>371</width>
 						<texturenofocus>breeze/vid info/button.png</texturenofocus>
 						<texturefocus>breeze/vid info/button f.png</texturefocus>
 						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
@@ -498,18 +499,18 @@
 						<textcolor>infogrey</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>6</textoffsety>
-						<align>left</align>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
 						<aligny>top</aligny>
-						<font>breeze30</font>
+						<font>breeze30b</font>
 						<label>1024</label>
 					</control>
 					
 					<control type="button" id="5">
 						<description>Filmography/Biography</description>
-						<height>58</height>
-						<width>330</width>
+						<height>65</height>
+						<width>371</width>
 						<texturenofocus>breeze/vid info/button.png</texturenofocus>
 						<texturefocus>breeze/vid info/button f.png</texturefocus>
 						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
@@ -518,18 +519,18 @@
 						<textcolor>infogrey</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>6</textoffsety>
-						<align>left</align>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
 						<aligny>top</aligny>
-						<font>breeze30</font>
+						<font>breeze30b</font>
 						<label>$ADDON[script.metadata.actors 32010]</label>
 					</control>
 					
 					<control type="button" id="6">
 						<description>Refresh</description>
-						<height>58</height>
-						<width>330</width>
+						<height>65</height>
+						<width>371</width>
 						<texturenofocus>breeze/vid info/button.png</texturenofocus>
 						<texturefocus>breeze/vid info/button f.png</texturefocus>
 						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
@@ -538,18 +539,18 @@
 						<textcolor>infogrey</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>6</textoffsety>
-						<align>left</align>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
 						<aligny>top</aligny>
-						<font>breeze30</font>
+						<font>breeze30b</font>
 						<label>184</label>
 					</control>
 					
 					<control type="button" id="10">
 						<description>Get Thumb</description>
-						<height>58</height>
-						<width>330</width>
+						<height>65</height>
+						<width>371</width>
 						<texturenofocus>breeze/vid info/button.png</texturenofocus>
 						<texturefocus>breeze/vid info/button f.png</texturefocus>
 						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
@@ -558,19 +559,19 @@
 						<textcolor>infogrey</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>6</textoffsety>
-						<align>left</align>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
 						<aligny>top</aligny>
-						<font>breeze30</font>
+						<font>breeze30b</font>
 						<label>13405</label>
 						<onclick>SetFocus(250)</onclick>
 					</control>
 					
 					<control type="button" id="20">
 						<description>Get Fanart</description>
-						<height>58</height>
-						<width>330</width>
+						<height>65</height>
+						<width>371</width>
 						<texturenofocus>breeze/vid info/button.png</texturenofocus>
 						<texturefocus>breeze/vid info/button f.png</texturefocus>
 						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
@@ -579,18 +580,18 @@
 						<textcolor>infogrey</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>6</textoffsety>
-						<align>left</align>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
 						<aligny>top</aligny>
-						<font>breeze30</font>
+						<font>breeze30b</font>
 						<label>20413</label>
 					</control>
 					
 					<control type="button" id="11">
 						<description>edit (require tmdb account)</description>
-						<height>58</height>
-						<width>330</width>
+						<height>65</height>
+						<width>371</width>
 						<texturenofocus>breeze/vid info/button.png</texturenofocus>
 						<texturefocus>breeze/vid info/button f.png</texturefocus>
 						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
@@ -599,18 +600,18 @@
 						<textcolor>infogrey</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>6</textoffsety>
-						<align>left</align>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
 						<aligny>top</aligny>
-						<font>breeze30</font>
+						<font>breeze30b</font>
 						<label>20067</label>
 					</control>
 					
 					<control type="button" id="25">
 						<description>addon settings</description>
-						<height>58</height>
-						<width>330</width>
+						<height>65</height>
+						<width>371</width>
 						<texturenofocus>breeze/vid info/button.png</texturenofocus>
 						<texturefocus>breeze/vid info/button f.png</texturefocus>
 						<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
@@ -619,14 +620,22 @@
 						<textcolor>infogrey</textcolor>
 						<focusedcolor>white</focusedcolor>
 						<disabledcolor>disabled</disabledcolor>
-						<textoffsetx>55</textoffsetx>
-						<textoffsety>6</textoffsety>
-						<align>left</align>
+						<textoffsetx>0</textoffsetx>
+						<textoffsety>9</textoffsety>
+						<align>center</align>
 						<aligny>top</aligny>
-						<font>breeze30</font>
+						<font>breeze30b</font>
 						<label>24002</label>
 					</control>
 					
+				</control>
+	  
+				<control type="image"> <!--down arrow-->
+					<posx>213</posx>
+					<posy>743</posy>
+					<width>15</width>
+					<height>15</height>
+					<texture>breeze/menus/context arrow.png</texture>
 				</control>
 				
 			</control>
