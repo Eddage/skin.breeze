@@ -36,7 +36,7 @@
 				<onleft>9010</onleft>
 				<onright>9010</onright>
 				<onclick>9010</onclick>
-				<onup>9000</onup>
+				<onup>7010</onup>
 				<ondown>9000</ondown>
 				<pagecontrol>-</pagecontrol>
 				<scrolltime>300</scrolltime>
@@ -1555,7 +1555,7 @@
 						<selected>!Skin.HasSetting(DisableShowPosterFixed)</selected>
 					</control>
 					
-					<control type="radiobutton" id="602">
+					<!--control type="radiobutton" id="602">
 						<label>$LOCALIZE[24022] $LOCALIZE[31151]</label>
 						<include>Default_SettingRadioButton</include>
 						<onclick>Skin.ToggleSetting(DisableDVDCaseVL)</onclick>
@@ -1567,7 +1567,7 @@
 						<include>Default_SettingRadioButton</include>
 						<onclick>Skin.ToggleSetting(DisableLandscapeVL)</onclick>
 						<selected>!Skin.HasSetting(DisableLandscapeVL)</selected>
-					</control>
+					</control-->
 					
 					<control type="radiobutton" id="604">
 						<label>$LOCALIZE[24022] $LOCALIZE[31153]</label>
@@ -1576,7 +1576,7 @@
 						<selected>!Skin.HasSetting(DisableLowListVL)</selected>
 					</control>
 					
-					<control type="radiobutton" id="605">
+					<!--control type="radiobutton" id="605">
 						<label>$LOCALIZE[24022] $LOCALIZE[31231]</label>
 						<include>Default_SettingRadioButton</include>
 						<onclick>Skin.ToggleSetting(DisableBannerWallVL)</onclick>
@@ -1602,7 +1602,7 @@
 						<include>Default_SettingRadioButton</include>
 						<onclick>Skin.ToggleSetting(DisablePostersVL)</onclick>
 						<selected>!Skin.HasSetting(DisablePostersVL)</selected>
-					</control>
+					</control-->
 					
 					<control type="radiobutton" id="609">
 						<label>$LOCALIZE[24022] $LOCALIZE[31235]</label>
@@ -1618,7 +1618,7 @@
 						<selected>!Skin.HasSetting(DisableBannersList)</selected>
 					</control>
 					
-					<control type="radiobutton" id="611">
+					<!--control type="radiobutton" id="611">
 						<label>$LOCALIZE[24022] $LOCALIZE[31283]</label>
 						<include>Default_SettingRadioButton</include>
 						<onclick>Skin.ToggleSetting(DisableInfoWallVL)</onclick>
@@ -1630,7 +1630,7 @@
 						<include>Default_SettingRadioButton</include>
 						<onclick>Skin.ToggleSetting(DisableBigFanVL)</onclick>
 						<selected>!Skin.HasSetting(DisableBigFanVL)</selected>
-					</control>
+					</control-->
 					
 					<control type="radiobutton" id="613">
 						<label>$LOCALIZE[24022] $LOCALIZE[20359]</label>
@@ -1639,7 +1639,7 @@
 						<selected>!Skin.HasSetting(DisableEpisodeVL)</selected>
 					</control>
 					
-					<control type="radiobutton" id="614">
+					<!--control type="radiobutton" id="614">
 						<label>$LOCALIZE[24022] $LOCALIZE[31376]</label>
 						<include>Default_SettingRadioButton</include>
 						<onclick>Skin.ToggleSetting(DisableCarouselVL)</onclick>
@@ -1651,13 +1651,15 @@
 						<include>Default_SettingRadioButton</include>
 						<onclick>Skin.ToggleSetting(DisableStripshowVL)</onclick>
 						<selected>!Skin.HasSetting(DisableStripshowVL)</selected>
-					</control>
+					</control-->
 					
 				</control>
 				
 			</control>
 			
 		</control>
+		
+		<include>BreadcrumbsSettings</include>
 	  
 		<control type="image"> <!--background overlay (white)-->
 			<posx>0</posx>
@@ -1667,8 +1669,42 @@
 			<texture>breeze/bg 75.png</texture>
 			<visible>ControlGroup(9000).HasFocus | ControlGroup(7001).HasFocus | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(contentsettings) | Window.IsActive(contextmenu) | Window.IsActive(shutdownmenu) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(virtualkeyboard) | Window.IsActive(numericinput)</visible>
 		</control> 
+	  
+		<control type="button" id="7010"> <!--shutdown button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(9000)</onup>
+			<onleft>SetFocus(7009)</onleft>
+			<onright>SetFocus(7009)</onright>
+			<ondown>SetFocus(9000)</ondown>
+			<onclick>ActivateWindow(shutdownmenu)</onclick>
+		</control>
 		
-		<include>BreadcrumbsSettings</include>
+		<control type="group">
+			<posx>1788</posx>
+			<posy>17</posy>
+			<orientation>horizontal</orientation>
+			
+			<control type="image"> <!--shutdown button-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown.png</texture>
+				<visible>!Control.HasFocus(7010)</visible>
+				<visible>!Window.IsActive(shutdownmenu)</visible>
+				<visible>!Control.IsVisible(7012)</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button f-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown f.png</texture>
+				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+			</control>
+			
+		</control>
 		
 	</controls>
 	

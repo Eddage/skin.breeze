@@ -175,26 +175,6 @@
 				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
 			</control>
 			
-			<control type="label">
-				<posx>-93</posx>
-				<posy>8</posy>
-				<font>breeze28b</font>
-				<label>$LOCALIZE[10004]</label>
-				<textcolor>blue2</textcolor>
-				<align>left</align>
-				<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
-			</control>
-			
-			<control type="label">
-				<posx>-75</posx>
-				<posy>8</posy>
-				<font>breeze28b</font>
-				<label>$LOCALIZE[33060]</label>
-				<textcolor>blue2</textcolor>
-				<align>left</align>
-				<visible>Control.HasFocus(7010)</visible>
-			</control>
-			
 		</control>
     
 		<include>Media_Menu</include>

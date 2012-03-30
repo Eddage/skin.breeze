@@ -7,13 +7,15 @@
 			<posy>0</posy>
 			<width>1920</width>
 			<texture>breeze/breadcrumb bg.png</texture>
+			<animation effect="slide" start="0,-100" end="0,0" time="250">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,-100" time="250">WindowClose</animation>
 		</control>
 		
-		<control type="image"> <!--base bar-->
-			<posx>0</posx>
+		<!--control type="image"> <!--base bar-->
+			<!--posx>0</posx>
 			<posy>974</posy>
 			<texture>breeze/home/base.png</texture>
-		</control>	
+		</control-->	
 	  
 		<control type="label">
 			<description>time label</description>
@@ -27,6 +29,8 @@
 			<textcolor>infogreynf</textcolor>
 			<shadowcolor>-</shadowcolor>
 			<label>$INFO[System.Date(DDD)],  $INFO[System.Date(MMM)] $INFO[System.Date(dd)]  |  $INFO[System.Time]</label>
+			<animation effect="slide" start="0,-100" end="0,0" time="250">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,-100" time="250">WindowClose</animation>
 		</control>
 		
 	</include>
@@ -696,19 +700,16 @@
         
 		<control type="GroupList">
 			<description>Button labels</description>
-            
-			<animation type="WindowOpen">
-				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
-				<effect type="slide" start="0,-75" end="0,0" time="350" tween="cubic" easing="out" />
-			</animation>
-			<animation type="Visible">
-				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" delay="300" />
-				<effect type="slide" start="0,-75" end="0,0" time="350" tween="sine" easing="out" delay="300" />
-			</animation>
-			<animation type="WindowClose">
-				<effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
-				<effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
-			</animation>
+				
+                <animation type="WindowOpen" reversible="true">
+                  	<effect type="zoom" start="0" end="100" center="600,250" tween="back" easing="out" time="700" /> 
+                   	<effect type="fade" start="0" end="100" tween="sine" easing="in" time="500" />
+                </animation>
+                <animation type="WindowClose" reversible="true">
+                  	<effect type="zoom" start="100" end="0" center="600,250" tween="back" easing="inout" time="700" /> 
+                   	<effect type="fade" start="100" end="0" tween="cubic" easing="out" time="500" />
+                </animation>
+				
 			<animation type="Hidden">
 				<effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
 				<effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
@@ -723,7 +724,7 @@
 			</animation>
 				
 			<posx>40</posx>
-			<posy>995</posy>
+			<posy>110</posy>
 			<width>1720</width>
 			<height>60</height>
 			<orientation>horizontal</orientation>
@@ -817,6 +818,17 @@
 			<posy>250</posy>
 			
 			<control type="group"> <!--search-->
+				<posy>70</posy>
+				
+                <animation type="WindowOpen" reversible="true">
+                  	<effect type="zoom" start="0" end="100" center="600,250" tween="back" easing="out" time="700" /> 
+                   	<effect type="fade" start="0" end="100" tween="sine" easing="in" time="500" />
+                </animation>
+                <animation type="WindowClose" reversible="true">
+                  	<effect type="zoom" start="100" end="0" center="600,250" tween="back" easing="inout" time="700" /> 
+                   	<effect type="fade" start="100" end="0" tween="cubic" easing="out" time="500" />
+                </animation>
+				
 				<animation effect="fade" start="100" end="0" time="750" condition="!Container(9000).HasFocus(15)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="-1920,0" time="750" condition="Container(9000).HasFocus(2)" tween="back" easing="inout">Conditional</animation>
 				<animation effect="slide" start="0,0" end="1920,0" time="750" condition="Container(9000).HasFocus(5)" tween="back" easing="inout">Conditional</animation>
@@ -825,8 +837,8 @@
 			
 					<control type="button" id="19999"> <!--buttons-->
 						<include>HiddenObject</include>
-						<onup>19000</onup>
-						<ondown>7009</ondown>
+						<onup>7009</onup>
+						<ondown>19000</ondown>
 						<onright>CancelAlarm(MultiImage1,true)</onright>
 						<onright>CancelAlarm(MultiImage2,true)</onright>
 						<onright>AlarmClock(MultiImage1,Control.Move(110011,1),00:05,silent,loop)</onright>
@@ -840,8 +852,8 @@
 			
 					<control type="button" id="19000">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
-						<ondown>19999</ondown>
+						<onup>19999</onup>
+						<ondown>7009</ondown>
 						<onright>AlarmClock(MultiImage1,Control.Move(110011,1),00:05,silent,loop)</onright>
 						<onright>AlarmClock(MultiImage2,Control.Move(110021,1),00:05,silent,loop)</onright>
 						<onright>Control.Move(9000,1)</onright>
@@ -921,6 +933,7 @@
 			
 			<control type="group"> <!--home-->
 				<posx>-108</posx>
+				<posy>70</posy>
 				
                 <animation type="WindowOpen" reversible="true">
                   	<effect type="zoom" start="0" end="100" center="600,250" tween="back" easing="out" time="700" /> 
@@ -942,8 +955,8 @@
 			
 					<control type="button" id="11999">
 						<include>HiddenObject</include>
-						<onup>11000</onup>
-						<ondown>7009</ondown>
+						<onup>7009</onup>
+						<ondown>11000</ondown>
 						<onright>CancelAlarm(MultiImage1,true)</onright>
 						<onright>CancelAlarm(MultiImage2,true)</onright>
 						<onright>AlarmClock(MultiImage3,Control.Move(120021,1),00:05,silent,loop)</onright>
@@ -958,7 +971,7 @@
 			
 					<control type="button" id="11000">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>11999</onup>
 						<ondown>11001</ondown>
 						<onright>11002</onright>
 						<onleft>CancelAlarm(MultiImage1,true)</onleft>
@@ -975,7 +988,7 @@
 						<include>HiddenObject</include>
 						<onup>11000</onup>
 						<ondown condition="Player.HasMedia">11010</ondown>
-						<ondown condition="!Player.HasMedia">11999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>11002</onright>
 						<onleft>CancelAlarm(MultiImage1,true)</onleft>
 						<onleft>CancelAlarm(MultiImage2,true)</onleft>
@@ -990,7 +1003,7 @@
 					<control type="button" id="11002">
 						<include>HiddenObject</include>
 						<onup>AlarmClock(MultiImage1,Control.Move(110011,1),00:05,silent,loop)</onup>
-						<onup>7009</onup>
+						<onup>11999</onup>
 						<ondown>Control.Move(110011,1)</ondown>
 						<onright>AlarmClock(MultiImage1,Control.Move(110011,1),00:05,silent,loop)</onright>
 						<onright>11003</onright>
@@ -1006,7 +1019,7 @@
 					<control type="button" id="11003">
 						<include>HiddenObject</include>
 						<onup>AlarmClock(MultiImage2,Control.Move(110021,1),00:05,silent,loop)</onup>
-						<onup>7009</onup>
+						<onup>11999</onup>
 						<ondown>Control.Move(110021,1)</ondown>
 						<onright>AlarmClock(MultiImage3,Control.Move(120021,1),00:05,silent,loop)</onright>
 						<onright>CancelAlarm(MultiImage1,true)</onright>
@@ -1025,7 +1038,7 @@
 						<include>HiddenObject</include>
 						<onup>AlarmClock(MultiImage2,Control.Move(110021,1),00:05,silent,loop)</onup>
 						<onup>11001</onup>
-						<ondown>11999</ondown>
+						<ondown>7009</ondown>
 						<onright>CancelAlarm(MultiImage1,true)</onright>
 						<onright>CancelAlarm(MultiImage2,true)</onright>
 						<onright>AlarmClock(MultiImage3,Control.Move(120021,1),00:05,silent,loop)</onright>
@@ -1237,6 +1250,7 @@
 								<property name="RunningTime">$INFO[Window(Home).Property(RandomMovie.1.RunningTime)]</property>
 								<property name="Fanart">$INFO[Window(Home).Property(RandomMovie.1.Fanart)]</property>
 								<property name="Trailer">$INFO[Window(Home).Property(RandomMovie.1.Trailer)]</property>
+								<property name="Path">$INFO[Window(Home).Property(RandomMovie.1.Path)]</property>
 							</item>
 						
 							<item id="2">
@@ -1250,6 +1264,7 @@
 								<property name="RunningTime">$INFO[Window(Home).Property(RandomMovie.2.RunningTime)]</property>
 								<property name="Fanart">$INFO[Window(Home).Property(RandomMovie.2.Fanart)]</property>
 								<property name="Trailer">$INFO[Window(Home).Property(RandomMovie.2.Trailer)]</property>
+								<property name="Path">$INFO[Window(Home).Property(RandomMovie.2.Path)]</property>
 							</item>
 						
 							<item id="3">
@@ -1263,6 +1278,7 @@
 								<property name="RunningTime">$INFO[Window(Home).Property(RandomMovie.3.RunningTime)]</property>
 								<property name="Fanart">$INFO[Window(Home).Property(RandomMovie.3.Fanart)]</property>
 								<property name="Trailer">$INFO[Window(Home).Property(RandomMovie.3.Trailer)]</property>
+								<property name="Path">$INFO[Window(Home).Property(RandomMovie.3.Path)]</property>
 							</item>
 						
 							<item id="4">
@@ -1276,6 +1292,7 @@
 								<property name="RunningTime">$INFO[Window(Home).Property(RandomMovie.4.RunningTime)]</property>
 								<property name="Fanart">$INFO[Window(Home).Property(RandomMovie.4.Fanart)]</property>
 								<property name="Trailer">$INFO[Window(Home).Property(RandomMovie.4.Trailer)]</property>
+								<property name="Path">$INFO[Window(Home).Property(RandomMovie.4.Path)]</property>
 							</item>
 						
 							<item id="5">
@@ -1289,6 +1306,7 @@
 								<property name="RunningTime">$INFO[Window(Home).Property(RandomMovie.5.RunningTime)]</property>
 								<property name="Fanart">$INFO[Window(Home).Property(RandomMovie.5.Fanart)]</property>
 								<property name="Trailer">$INFO[Window(Home).Property(RandomMovie.5.Trailer)]</property>
+								<property name="Path">$INFO[Window(Home).Property(RandomMovie.5.Path)]</property>
 							</item>
 						
 						</content>
@@ -1631,6 +1649,7 @@
 			
 			<control type="group"> <!--tv shows-->
 				<posx>-123</posx>
+				<posy>70</posy>
 				
 				<animation type="WindowOpen" reversible="true">
                   	<effect type="zoom" start="0" end="100" center="600,250" tween="back" easing="out" time="700" /> 
@@ -1652,8 +1671,8 @@
 			
 					<control type="button" id="12999">
 						<include>HiddenObject</include>
-						<onup>12000</onup>
-						<ondown>7009</ondown>
+						<onup>7009</onup>
+						<ondown>12000</ondown>
 						<onright>CancelAlarm(MultiImage3,true)</onright>
 						<onright>AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onright>
 						<onright>Control.Move(9000,1)</onright>
@@ -1668,7 +1687,7 @@
 			
 					<control type="button" id="12000">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>12999</onup>
 						<ondown>12001</ondown>
 						<onright>12002</onright>
 						<onleft>CancelAlarm(MultiImage3,true)</onleft>
@@ -1686,7 +1705,7 @@
 						<include>HiddenObject</include>
 						<onup>12000</onup>
 						<ondown condition="Player.HasMedia">12010</ondown>
-						<ondown condition="!Player.HasMedia">12999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>12002</onright>
 						<onleft>CancelAlarm(MultiImage3,true)</onleft>
 						<onleft>AlarmClock(MultiImage1,Control.Move(110011,1),00:05,silent,loop)</onleft>
@@ -1702,7 +1721,7 @@
 					<control type="button" id="12002">
 						<include>HiddenObject</include>
 						<onup>AlarmClock(MultiImage3,Control.Move(120021,1),00:05,silent,loop)</onup>
-						<onup>7009</onup>
+						<onup>12999</onup>
 						<ondown>Control.Move(120021,1)</ondown>
 						<onright>AlarmClock(MultiImage3,Control.Move(120021,1),00:05,silent,loop)</onright>
 						<onright>12003</onright>
@@ -1719,7 +1738,7 @@
 			
 						<control type="button" id="12003">
 							<include>HiddenObject</include>
-							<onup>7009</onup>
+							<onup>12999</onup>
 							<ondown>12004</ondown>
 							<onright>AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onright>
 							<onright>CancelAlarm(MultiImage3,true)</onright>
@@ -1737,7 +1756,7 @@
 							<include>HiddenObject</include>
 							<onup>12003</onup>
 							<ondown condition="Player.HasMedia">12010</ondown>
-							<ondown condition="!Player.HasMedia">12999</ondown>
+							<ondown condition="!Player.HasMedia">7009</ondown>
 							<onright>AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onright>
 							<onright>CancelAlarm(MultiImage3,true)</onright>
 							<onright>Control.Move(9000,1)</onright>
@@ -1756,7 +1775,7 @@
 						<include>HiddenObject</include>
 						<onup>AlarmClock(MultiImage2,Control.Move(110021,1),00:05,silent,loop)</onup>
 						<onup>12001</onup>
-						<ondown>12999</ondown>
+						<ondown>7009</ondown>
 						<onright>CancelAlarm(MultiImage3,true)</onright>
 						<onright>AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onright>
 						<onright>Control.Move(9000,1)</onright>
@@ -2185,6 +2204,7 @@
 			
 			<control type="group"> <!--films-->
 				<posx>-123</posx>
+				<posy>70</posy>
 				
                 <animation type="WindowOpen" reversible="true">
                   	<effect type="zoom" start="0" end="100" center="600,250" tween="back" easing="out" time="700" /> 
@@ -2206,8 +2226,8 @@
 			
 					<control type="button" id="13999">
 						<include>HiddenObject</include>
-						<onup>13000</onup>
-						<ondown>7009</ondown>
+						<onup>7009</onup>
+						<ondown>13000</ondown>
 						<onright>CancelAlarm(MultiImage4,true)</onright>
 						<onright>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onright>
 						<onright>Control.Move(9000,1)</onright>
@@ -2221,7 +2241,7 @@
 			
 					<control type="button" id="13000">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>13999</onup>
 						<ondown>13001</ondown>
 						<onright>13002</onright>
 						<onleft>CancelAlarm(MultiImage4,true)</onleft>
@@ -2238,7 +2258,7 @@
 						<include>HiddenObject</include>
 						<onup>13000</onup>
 						<ondown condition="Player.HasMedia">13010</ondown>
-						<ondown condition="!Player.HasMedia">13999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>13002</onright>
 						<onleft>CancelAlarm(MultiImage4,true)</onleft>
 						<onleft>AlarmClock(MultiImage3,Control.Move(120021,1),00:05,silent,loop)</onleft>
@@ -2253,7 +2273,7 @@
 					<control type="button" id="13002">
 						<include>HiddenObject</include>
 						<onup>AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onup>
-						<onup>7009</onup>
+						<onup>13999</onup>
 						<ondown>Control.Move(130021,1)</ondown>
 						<onright>AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onright>
 						<onright>13005</onright>
@@ -2270,7 +2290,7 @@
 			
 						<control type="button" id="13005">
 							<include>HiddenObject</include>
-							<onup>7009</onup>
+							<onup>13999</onup>
 							<ondown>13006</ondown>
 							<onright>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onright>
 							<onright>CancelAlarm(MultiImage4,true)</onright>
@@ -2288,7 +2308,7 @@
 							<include>HiddenObject</include>
 							<onup>13005</onup>
 							<ondown condition="Player.HasMedia">13010</ondown>
-							<ondown condition="!Player.HasMedia">13999</ondown>
+							<ondown condition="!Player.HasMedia">7009</ondown>
 							<onright>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onright>
 							<onright>CancelAlarm(MultiImage4,true)</onright>
 							<onright>Control.Move(9000,1)</onright>
@@ -2306,7 +2326,7 @@
 					<control type="button" id="13010">
 						<include>HiddenObject</include>
 						<onup>13001</onup>
-						<ondown>13999</ondown>
+						<ondown>7009</ondown>
 						<onright>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onright>
 						<onright>CancelAlarm(MultiImage4,true)</onright>
 						<onright>Control.Move(9000,1)</onright>
@@ -2816,6 +2836,7 @@
 			
 			<control type="group"> <!--music-->
 				<posx>-131</posx>
+				<posy>70</posy>
 				
                 <animation type="WindowOpen" reversible="true">
                   	<effect type="zoom" start="0" end="100" center="600,250" tween="back" easing="out" time="700" /> 
@@ -2837,8 +2858,8 @@
 			
 					<control type="button" id="14999">
 						<include>HiddenObject</include>
-						<onup>14000</onup>
-						<ondown>7009</ondown>
+						<onup>7009</onup>
+						<ondown>14000</ondown>
 						<onright>CancelAlarm(MultiImage5,true)</onright>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>15999</onright>
@@ -2851,7 +2872,7 @@
 			
 					<control type="button" id="14000">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>14999</onup>
 						<ondown>14001</ondown>
 						<onright>14003</onright>
 						<onleft>CancelAlarm(MultiImage5,true)</onleft>
@@ -2868,7 +2889,7 @@
 						<include>HiddenObject</include>
 						<onup>14000</onup>
 						<ondown condition="Player.HasMedia">14010</ondown>
-						<ondown condition="!Player.HasMedia">14999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>14004</onright>
 						<onleft>CancelAlarm(MultiImage5,true)</onleft>
 						<onleft>AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onleft>
@@ -2883,7 +2904,7 @@
 					<control type="button" id="14002">
 						<include>HiddenObject</include>
 						<onup>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onup>
-						<onup>7009</onup>
+						<onup>14999</onup>
 						<ondown>Control.Move(140021,1)</ondown>
 						<onright>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onright>
 						<onright>14005</onright>
@@ -2891,7 +2912,7 @@
 						<onleft>14003</onleft>
 						<onfocus>CancelAlarm(MultiImage5,true)</onfocus>
 						<onclick>PlayList.Clear</onclick>
-						<onclick>PlayMedia($INFO[Container(140021).ListItem.Property(Path)])</onclick>
+						<onclick>$INFO[Container(140021).ListItem.Property(Path)]</onclick>
 						<onback>14999</onback>
 						<texturenofocus>-</texturenofocus>
 						<texturefocus>-</texturefocus>
@@ -2899,7 +2920,7 @@
 			
 					<control type="button" id="14003">
 						<include>HiddenObject</include>
-						<onup>14000</onup>
+						<onup>14999</onup>
 						<ondown>14004</ondown>
 						<onright>14002</onright>
 						<onleft>14000</onleft>
@@ -2913,7 +2934,7 @@
 						<include>HiddenObject</include>
 						<onup>14003</onup>
 						<ondown condition="Player.HasMedia">14010</ondown>
-						<ondown condition="!Player.HasMedia">14999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>14002</onright>
 						<onleft>14001</onleft>
 						<onclick>ActivateWindow(MusicLibrary,Playlists,return)</onclick>
@@ -2924,7 +2945,7 @@
 			
 					<control type="button" id="14005">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>14999</onup>
 						<ondown>14006</ondown>
 						<onright>CancelAlarm(MultiImage5,true)</onright>
 						<onright>Control.Move(9000,1)</onright>
@@ -2970,7 +2991,8 @@
 					<control type="button" id="14008">
 						<include>HiddenObject</include>
 						<onup>14007</onup>
-						<ondown>14999</ondown>
+						<ondown condition="Player.HasMedia">14010</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>CancelAlarm(MultiImage5,true)</onright>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>15001</onright>
@@ -2985,7 +3007,7 @@
 					<control type="button" id="14010">
 						<include>HiddenObject</include>
 						<onup>14001</onup>
-						<ondown>14999</ondown>
+						<ondown>7009</ondown>
 						<onright>CancelAlarm(MultiImage5,true)</onright>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>15000</onright>
@@ -3557,63 +3579,43 @@
 						<content>
 					
 							<item id="1">
+								<onclick>-</onclick>
 								<icon>$INFO[Window.Property(RandomAlbum.1.Thumb)]</icon>
 								<label>$INFO[Window.Property(RandomAlbum.1.Title)]</label>
 								<label2>$INFO[Window.Property(RandomAlbum.1.Artist)]</label2>
-								<property name="Rating">$INFO[Window.Property(RandomAlbum.1.Rating)]</property>
-								<property name="Album">$INFO[Window.Property(RandomAlbum.1.Album)]</property>
-								<property name="Fanart">$INFO[Window.Property(RandomAlbum.1.Fanart)]</property>
-								<property name="Path">$INFO[Window.Property(RandomAlbum.1.Path)]</property>
-								<onclick>PlayList.Clear</onclick>
-								<onclick>PlayMedia("$INFO[Window.Property(RandomAlbum.1.Path)]")</onclick>
+                                <property name="Path">$INFO[Window.Property(RandomAlbum.1.Path)]</property>
 							</item>
 						
 							<item id="2">
+								<onclick>-</onclick>
 								<icon>$INFO[Window.Property(RandomAlbum.2.Thumb)]</icon>
 								<label>$INFO[Window.Property(RandomAlbum.2.Title)]</label>
 								<label2>$INFO[Window.Property(RandomAlbum.2.Artist)]</label2>
-								<property name="Rating">$INFO[Window.Property(RandomAlbum.2.Rating)]</property>
-								<property name="Album">$INFO[Window.Property(RandomAlbum.2.Album)]</property>
-								<property name="Fanart">$INFO[Window.Property(RandomAlbum.2.Fanart)]</property>
-								<property name="Path">$INFO[Window.Property(RandomAlbum.2.Path)]</property>
-								<onclick>PlayList.Clear</onclick>
-								<onclick>PlayMedia("$INFO[Window.Property(RandomAlbum.2.Path)]")</onclick>
+                                <property name="Path">$INFO[Window.Property(RandomAlbum.2.Path)]</property>
 							</item>
 						
 							<item id="3">
+								<onclick>-</onclick>
 								<icon>$INFO[Window.Property(RandomAlbum.3.Thumb)]</icon>
 								<label>$INFO[Window.Property(RandomAlbum.3.Title)]</label>
 								<label2>$INFO[Window.Property(RandomAlbum.3.Artist)]</label2>
-								<property name="Rating">$INFO[Window.Property(RandomAlbum.3.Rating)]</property>
-								<property name="Album">$INFO[Window.Property(RandomAlbum.3.Album)]</property>
-								<property name="Fanart">$INFO[Window.Property(RandomAlbum.3.Fanart)]</property>
-								<property name="Path">$INFO[Window.Property(RandomAlbum.3.Path)]</property>
-								<onclick>PlayList.Clear</onclick>
-								<onclick>PlayMedia("$INFO[Window.Property(RandomAlbum.3.Path)]")</onclick>
+                                <property name="Path">$INFO[Window.Property(RandomAlbum.3.Path)]</property>
 							</item>
 						
 							<item id="4">
+								<onclick>-</onclick>
 								<icon>$INFO[Window.Property(RandomAlbum.4.Thumb)]</icon>
 								<label>$INFO[Window.Property(RandomAlbum.4.Title)]</label>
 								<label2>$INFO[Window.Property(RandomAlbum.4.Artist)]</label2>
-								<property name="Rating">$INFO[Window.Property(RandomAlbum.4.Rating)]</property>
-								<property name="Album">$INFO[Window.Property(RandomAlbum.4.Album)]</property>
-								<property name="Fanart">$INFO[Window.Property(RandomAlbum.4.Fanart)]</property>
-								<property name="Path">$INFO[Window.Property(RandomAlbum.4.Path)]</property>
-								<onclick>PlayList.Clear</onclick>
-								<onclick>PlayMedia("$INFO[Window.Property(RandomAlbum.4.Path)]")</onclick>
+                                <property name="Path">$INFO[Window.Property(RandomAlbum.4.Path)]</property>
 							</item>
 						
 							<item id="5">
+								<onclick>-</onclick>
 								<icon>$INFO[Window.Property(RandomAlbum.5.Thumb)]</icon>
 								<label>$INFO[Window.Property(RandomAlbum.5.Title)]</label>
 								<label2>$INFO[Window.Property(RandomAlbum.5.Artist)]</label2>
-								<property name="Rating">$INFO[Window.Property(RandomAlbum.5.Rating)]</property>
-								<property name="Album">$INFO[Window.Property(RandomAlbum.5.Album)]</property>
-								<property name="Fanart">$INFO[Window.Property(RandomAlbum.5.Fanart)]</property>
-								<property name="Path">$INFO[Window.Property(RandomAlbum.5.Path)]</property>
-								<onclick>PlayList.Clear</onclick>
-								<onclick>PlayMedia("$INFO[Window.Property(RandomAlbum.5.Path)]")</onclick>
+                                <property name="Path">$INFO[Window.Property(RandomAlbum.5.Path)]</property>
 							</item>
 						
 						</content>
@@ -3697,6 +3699,7 @@
 			</control>
 			
 			<control type="group"> <!--apps-->
+				<posy>70</posy>
 				
                 <animation type="WindowOpen" reversible="true">
                   	<effect type="zoom" start="0" end="100" center="600,250" tween="back" easing="out" time="700" /> 
@@ -3718,8 +3721,8 @@
 			
 					<control type="button" id="15999">
 						<include>HiddenObject</include>
-						<onup>15000</onup>
-						<ondown>7009</ondown>
+						<onup>7009</onup>
+						<ondown>15000</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>16999</onright>
 						<onleft>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onleft>
@@ -3730,7 +3733,7 @@
 			
 					<control type="button" id="15000">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>15999</onup>
 						<ondown>15001</ondown>
 						<onright>15002</onright>
 						<onleft>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onleft>
@@ -3746,7 +3749,7 @@
 						<include>HiddenObject</include>
 						<onup>15000</onup>
 						<ondown condition="Player.HasMedia">15010</ondown>
-						<ondown condition="!Player.HasMedia">15999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>15003</onright>
 						<onleft>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onleft>
 						<onleft>Control.Move(9000,-1)</onleft>
@@ -3759,7 +3762,7 @@
 			
 					<control type="button" id="15002">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>15999</onup>
 						<ondown>15003</ondown>
 						<onright>15004</onright>
 						<onleft>15000</onleft>
@@ -3773,7 +3776,7 @@
 						<include>HiddenObject</include>
 						<onup>15002</onup>
 						<ondown condition="Player.HasMedia">15010</ondown>
-						<ondown condition="!Player.HasMedia">15999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>15005</onright>
 						<onleft>15001</onleft>
 						<onclick>ActivateWindow(AddonBrowser)</onclick>
@@ -3786,7 +3789,7 @@
 			
 						<control type="button" id="15004">
 							<include>HiddenObject</include>
-							<onup>7009</onup>
+							<onup>15999</onup>
 							<ondown>15005</ondown>
 							<onright>15006</onright>
 							<onleft>15002</onleft>
@@ -3801,7 +3804,7 @@
 							<include>HiddenObject</include>
 							<onup>15004</onup>
 							<ondown condition="Player.HasMedia">15010</ondown>
-							<ondown condition="!Player.HasMedia">15999</ondown>
+							<ondown condition="!Player.HasMedia">7009</ondown>
 							<onright>15007</onright>
 							<onleft>15003</onleft>
 							<onclick condition="!IsEmpty(Skin.String(AppTile2.Path))">$INFO[Skin.String(AppTile2.Path)]</onclick>
@@ -3813,7 +3816,7 @@
 			
 						<control type="button" id="15006">
 							<include>HiddenObject</include>
-							<onup>7009</onup>
+							<onup>15999</onup>
 							<ondown>15007</ondown>
 							<onright>Control.Move(9000,1)</onright>
 							<onright>16000</onright>
@@ -3829,7 +3832,7 @@
 							<include>HiddenObject</include>
 							<onup>15006</onup>
 							<ondown condition="Player.HasMedia">15010</ondown>
-							<ondown condition="!Player.HasMedia">15999</ondown>
+							<ondown condition="!Player.HasMedia">7009</ondown>
 							<onright>Control.Move(9000,1)</onright>
 							<onright>16001</onright>
 							<onleft>15005</onleft>
@@ -3845,7 +3848,7 @@
 					<control type="button" id="15010">
 						<include>HiddenObject</include>
 						<onup>15001</onup>
-						<ondown>15999</ondown>
+						<ondown>7009</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>16000</onright>
 						<onleft>AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onleft>
@@ -4204,6 +4207,7 @@
 			</control>
 			
 			<control type="group"> <!--weather--> 
+				<posy>70</posy>
 				
                 <animation type="WindowOpen" reversible="true">
                   	<effect type="zoom" start="0" end="100" center="600,250" tween="back" easing="out" time="700" /> 
@@ -4225,8 +4229,8 @@
 			
 					<control type="button" id="16999">
 						<include>HiddenObject</include>
-						<onup>16000</onup>
-						<ondown>7009</ondown>
+						<onup>7009</onup>
+						<ondown>16000</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>17999</onright>
 						<onleft>Control.Move(9000,-1)</onleft>
@@ -4236,7 +4240,7 @@
 			
 					<control type="button" id="16000">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>16999</onup>
 						<ondown>16001</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>17000</onright>
@@ -4252,7 +4256,7 @@
 						<include>HiddenObject</include>
 						<onup>16000</onup>
 						<ondown condition="Player.HasMedia">16010</ondown>
-						<ondown condition="!Player.HasMedia">16999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>17001</onright>
 						<onleft>Control.Move(9000,-1)</onleft>
@@ -4266,7 +4270,7 @@
 					<control type="button" id="16010">
 						<include>HiddenObject</include>
 						<onup>16001</onup>
-						<ondown>16999</ondown>
+						<ondown>7009</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>17000</onright>
 						<onleft>Control.Move(9000,-1)</onleft>
@@ -4859,6 +4863,7 @@
 			
 			<control type="group"> <!--settings-->
 				<posx>-55</posx>
+				<posy>70</posy>
 				
                 <animation type="WindowOpen" reversible="true">
                   	<effect type="zoom" start="0" end="100" center="600,250" tween="back" easing="out" time="700" /> 
@@ -4880,8 +4885,8 @@
 			
 					<control type="button" id="17999">
 						<include>HiddenObject</include>
-						<onup>17000</onup>
-						<ondown>7009</ondown>
+						<onup>7009</onup>
+						<ondown>17000</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>19999</onright>
 						<onleft>Control.Move(9000,-1)</onleft>
@@ -4891,7 +4896,7 @@
 			
 					<control type="button" id="17000">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>17999</onup>
 						<ondown>17001</ondown>
 						<onright>17002</onright>
 						<onleft>Control.Move(9000,-1)</onleft>
@@ -4906,7 +4911,7 @@
 						<include>HiddenObject</include>
 						<onup>17000</onup>
 						<ondown condition="Player.HasMedia">17010</ondown>
-						<ondown condition="!Player.HasMedia">17999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>17003</onright>
 						<onleft>Control.Move(9000,-1)</onleft>
 						<onleft>16001</onleft>
@@ -4918,7 +4923,7 @@
 			
 					<control type="button" id="17002">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>17999</onup>
 						<ondown>17003</ondown>
 						<onright>17004</onright>
 						<onleft>17000</onleft>
@@ -4932,7 +4937,7 @@
 						<include>HiddenObject</include>
 						<onup>17002</onup>
 						<ondown condition="Player.HasMedia">17010</ondown>
-						<ondown condition="!Player.HasMedia">17999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>17005</onright>
 						<onleft>17001</onleft>
 						<onclick>ActivateWindow(profiles)</onclick>
@@ -4943,7 +4948,7 @@
 			
 					<control type="button" id="17004">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>17999</onup>
 						<ondown>17005</ondown>
 						<onright>17006</onright>
 						<onleft>17002</onleft>
@@ -4957,7 +4962,7 @@
 						<include>HiddenObject</include>
 						<onup>17004</onup>
 						<ondown condition="Player.HasMedia">17010</ondown>
-						<ondown condition="!Player.HasMedia">17999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>17007</onright>
 						<onleft>17003</onleft>
 						<onclick>ActivateWindow(addonbrowser)</onclick>
@@ -4968,7 +4973,7 @@
 			
 					<control type="button" id="17006">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>17999</onup>
 						<ondown>17007</ondown>
 						<onright>17008</onright>
 						<onleft>17004</onleft>
@@ -4982,7 +4987,7 @@
 						<include>HiddenObject</include>
 						<onup>17006</onup>
 						<ondown condition="Player.HasMedia">17010</ondown>
-						<ondown condition="!Player.HasMedia">17999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>17009</onright>
 						<onleft>17005</onleft>
 						<onclick>ActivateWindow(1111)</onclick>
@@ -4993,7 +4998,7 @@
 			
 					<control type="button" id="17008">
 						<include>HiddenObject</include>
-						<onup>7009</onup>
+						<onup>17999</onup>
 						<ondown>17009</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>19000</onright>
@@ -5008,7 +5013,7 @@
 						<include>HiddenObject</include>
 						<onup>17008</onup>
 						<ondown condition="Player.HasMedia">17010</ondown>
-						<ondown condition="!Player.HasMedia">17999</ondown>
+						<ondown condition="!Player.HasMedia">7009</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>19000</onright>
 						<onleft>17007</onleft>
@@ -5021,7 +5026,7 @@
 					<control type="button" id="17010">
 						<include>HiddenObject</include>
 						<onup>17001</onup>
-						<ondown>17999</ondown>
+						<ondown>7009</ondown>
 						<onright>Control.Move(9000,1)</onright>
 						<onright>19000</onright>
 						<onleft>Control.Move(9000,-1)</onleft>
@@ -5382,17 +5387,31 @@
 			<include>HiddenObject</include>
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
-    		<onup condition="Container(9000).HasFocus(15)">19999</onup>
-    		<onup condition="Container(9000).HasFocus(2)">11999</onup>
-    		<onup condition="Container(9000).HasFocus(11)">12999</onup>
-    		<onup condition="Container(9000).HasFocus(10)">13999</onup>
-    		<onup condition="Container(9000).HasFocus(3)">14999</onup>
-    		<onup condition="Container(9000).HasFocus(1)">15999</onup>
-    		<onup condition="Container(9000).HasFocus(6)">16999</onup>
-    		<onup condition="Container(9000).HasFocus(5)">17999</onup>
+    		<ondown condition="Container(9000).HasFocus(15)">19999</ondown>
+    		<ondown condition="Container(9000).HasFocus(2)">11999</ondown>
+    		<ondown condition="Container(9000).HasFocus(11)">12999</ondown>
+    		<ondown condition="Container(9000).HasFocus(10)">13999</ondown>
+    		<ondown condition="Container(9000).HasFocus(3)">14999</ondown>
+    		<ondown condition="Container(9000).HasFocus(1)">15999</ondown>
+    		<ondown condition="Container(9000).HasFocus(6)">16999</ondown>
+    		<ondown condition="Container(9000).HasFocus(5)">17999</ondown>
 			<onleft>SetFocus(7010)</onleft>
 			<onright>SetFocus(7010)</onright>
-			<ondown>SetFocus(340)</ondown>
+    		<onup condition="Container(9000).HasFocus(15)">19000</onup>
+    		<onup condition="Container(9000).HasFocus(2) + !Player.HasMedia">11001</onup>
+    		<onup condition="Container(9000).HasFocus(11) + !Player.HasMedia">12001</onup>
+    		<onup condition="Container(9000).HasFocus(10) + !Player.HasMedia">13001</onup>
+    		<onup condition="Container(9000).HasFocus(3) + !Player.HasMedia">14001</onup>
+    		<onup condition="Container(9000).HasFocus(1) + !Player.HasMedia">15001</onup>
+    		<onup condition="Container(9000).HasFocus(6) + !Player.HasMedia">16001</onup>
+    		<onup condition="Container(9000).HasFocus(5) + !Player.HasMedia">17001</onup>
+    		<onup condition="Container(9000).HasFocus(2) + Player.HasMedia">11010</onup>
+    		<onup condition="Container(9000).HasFocus(11) + Player.HasMedia">12010</onup>
+    		<onup condition="Container(9000).HasFocus(10) + Player.HasMedia">13010</onup>
+    		<onup condition="Container(9000).HasFocus(3) + Player.HasMedia">14010</onup>
+    		<onup condition="Container(9000).HasFocus(1) + Player.HasMedia">15010</onup>
+    		<onup condition="Container(9000).HasFocus(6) + Player.HasMedia">16010</onup>
+    		<onup condition="Container(9000).HasFocus(5) + Player.HasMedia">17010</onup>
 			<onclick>ActivateWindow(Favourites)</onclick>
 		</control>
 	  
@@ -5400,17 +5419,31 @@
 			<include>HiddenObject</include>
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
-    		<onup condition="Container(9000).HasFocus(15)">19999</onup>
-    		<onup condition="Container(9000).HasFocus(2)">11999</onup>
-    		<onup condition="Container(9000).HasFocus(11)">12999</onup>
-    		<onup condition="Container(9000).HasFocus(10)">13999</onup>
-    		<onup condition="Container(9000).HasFocus(3)">14999</onup>
-    		<onup condition="Container(9000).HasFocus(1)">15999</onup>
-    		<onup condition="Container(9000).HasFocus(6)">16999</onup>
-    		<onup condition="Container(9000).HasFocus(5)">17999</onup>
+    		<ondown condition="Container(9000).HasFocus(15)">19999</ondown>
+    		<ondown condition="Container(9000).HasFocus(2)">11999</ondown>
+    		<ondown condition="Container(9000).HasFocus(11)">12999</ondown>
+    		<ondown condition="Container(9000).HasFocus(10)">13999</ondown>
+    		<ondown condition="Container(9000).HasFocus(3)">14999</ondown>
+    		<ondown condition="Container(9000).HasFocus(1)">15999</ondown>
+    		<ondown condition="Container(9000).HasFocus(6)">16999</ondown>
+    		<ondown condition="Container(9000).HasFocus(5)">17999</ondown>
 			<onleft>SetFocus(7009)</onleft>
 			<onright>SetFocus(7009)</onright>
-			<ondown>SetFocus(340)</ondown>
+    		<onup condition="Container(9000).HasFocus(15)">19000</onup>
+    		<onup condition="Container(9000).HasFocus(2) + !Player.HasMedia">11001</onup>
+    		<onup condition="Container(9000).HasFocus(11) + !Player.HasMedia">12001</onup>
+    		<onup condition="Container(9000).HasFocus(10) + !Player.HasMedia">13001</onup>
+    		<onup condition="Container(9000).HasFocus(3) + !Player.HasMedia">14001</onup>
+    		<onup condition="Container(9000).HasFocus(1) + !Player.HasMedia">15001</onup>
+    		<onup condition="Container(9000).HasFocus(6) + !Player.HasMedia">16001</onup>
+    		<onup condition="Container(9000).HasFocus(5) + !Player.HasMedia">17001</onup>
+    		<onup condition="Container(9000).HasFocus(2) + Player.HasMedia">11010</onup>
+    		<onup condition="Container(9000).HasFocus(11) + Player.HasMedia">12010</onup>
+    		<onup condition="Container(9000).HasFocus(10) + Player.HasMedia">13010</onup>
+    		<onup condition="Container(9000).HasFocus(3) + Player.HasMedia">14010</onup>
+    		<onup condition="Container(9000).HasFocus(1) + Player.HasMedia">15010</onup>
+    		<onup condition="Container(9000).HasFocus(6) + Player.HasMedia">16010</onup>
+    		<onup condition="Container(9000).HasFocus(5) + Player.HasMedia">17010</onup>
 			<onclick>ActivateWindow(shutdownmenu)</onclick>
 		</control>
 		
@@ -5418,6 +5451,8 @@
 			<posx>1788</posx>
 			<posy>17</posy>
 			<orientation>horizontal</orientation>
+			<animation effect="slide" start="0,-100" end="0,0" time="250">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="0,-100" time="250">WindowClose</animation>
 			
 			<control type="image"> <!--settings button-->
 				<width>51</width>
@@ -5460,7 +5495,7 @@
     <include name="HomeLabel">
         <width min="0" max="500">auto</width>
         <height>100</height>
-        <font>breeze40</font>
+        <font>breeze45</font>
 		<textcolour>infogrey</textcolour>
         <align>left</align>
         <aligny>top</aligny>
@@ -5570,7 +5605,7 @@
       
 				<control type="label"> <!--title-->
 					<posx>280</posx>
-					<posy>110</posy>
+					<posy>111</posy>
 					<width>460</width>
 					<font>breeze22bn</font>
 					<height>28</height>
