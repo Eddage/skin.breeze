@@ -138,6 +138,9 @@
   <string id="31346">*Press RIGHT for actor info*</string>
   <string id="31347">Temperature</string>
   <string id="31347">Feels Like</string>
+  <string id="31348">Audio Visualisation</string>
+  <string id="31349">Hide text overlay</string>
+  <string id="31350">Enable extra fanart</string>
   
   <!-- Video and Music OSD Labels  -->
   <string id="31351">Pause</string>
@@ -464,6 +467,9 @@
   <string id="31517">Featured Films</string>
   <string id="31518">Ongoing TV Shows</string>
   <string id="31519">search XBMC for</string>
+  
+  <!--Breeze-->
+  <string id="31600">Alternative colour scheme</string>
 
   <!-- Weather plugin -->
   <string id="31900">MAPS</string>
