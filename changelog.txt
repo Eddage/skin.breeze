@@ -1,3 +1,25 @@
+0.4.0
+
+04/05/2012
+
+DialogAlbumInfo.xml coded
+
+
+26/04/2012
+
+script-XBMC_Lyrics-main.xml coded
+VisualisationPresetList.xml coded
+MusicOSD.xml coded
+Added 'Ocean' theme (currently only for testing puropses - only window that's affected is visualisation[12006])
+MyMusicPlaylist.xml coded
+MusicVisualisation.xml coded
+
+
+14/04/2012
+
+Re-sized cd art for Vietype_LowListMusic.xml
+
+
 0.3.1
 
 20/03/2012

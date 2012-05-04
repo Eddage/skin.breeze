@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.breeze" version="0.3.0" name="Breeze" provider-name="Eddage">
+<addon id="skin.breeze" version="0.4.0" name="Breeze" provider-name="Eddage">
   <requires>
     <import addon="xbmc.gui" version="3.00"/>
 	<import addon="script.artwork.downloader" version="1.0.7"/>
@@ -8,6 +8,7 @@
 	<import addon="script.globalsearch" version="0.1.7"/>
     <import addon="script.randomitems" version="3.0.4"/>
 	<import addon="script.watchlist" version="0.1.12"/>
+	<import addon="script.playalbum" version="0.0.3"/>
   </requires>
   <extension point="xbmc.gui.skin" defaultresolution="1080i" defaultresolutionwide="1080i" defaultthemename="textures.xbt" effectslowdown="0.75" debugging="false"/>
   <extension point="xbmc.addon.metadata">
