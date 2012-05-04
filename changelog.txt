@@ -1,8 +1,21 @@
+0.3.1
+
+20/03/2012
+
+Cleaned up "enable views" section of skin settings
+Added shutdown button to settingscategory.xml
+Added option to show/hide watched icon on episode and lowlist view
+Moved horizontal menu above tiles
+Fixed featured films/albums onclick issue
+
+
 0.3.0
 
 Other changes that I forgot to write down as I went along....
 Reworked current views to keep consistent style
 Added Horizontal/Metro home view
+
+
 
 0.2.0
 

@@ -222,6 +222,8 @@
 							<visible>!Container.Content(songs)</visible>
 							<visible>!StringCompare(ListItem.Label,Actors)</visible>
 							<visible>!StringCompare(ListItem.Label,Directors)</visible>
+							<visible>!StringCompare(ListItem.Label,Songs)</visible>
+							<visible>!StringCompare(ListItem.Label,Artists)</visible>
 						</control>
 						
 						<control type="image"> <!--item thumb-->
@@ -232,6 +234,26 @@
 							<texture>DefaultActorSmall.png</texture>
 							<aspectratio>scale</aspectratio>
 							<visible>StringCompare(ListItem.Label,Actors) | StringCompare(ListItem.Label,Directors)</visible>
+						</control>
+						
+						<control type="image"> <!--"songs" thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultAddonMusic.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Songs)</visible>
+						</control>
+						
+						<control type="image"> <!--"artists" thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultMusicArtists.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Artists)</visible>
 						</control>
 						
 						<control type="image"> <!--artist thumb-->
@@ -477,6 +499,8 @@
 							<visible>!Container.Content(songs)</visible>
 							<visible>!StringCompare(ListItem.Label,Actors)</visible>
 							<visible>!StringCompare(ListItem.Label,Directors)</visible>
+							<visible>!StringCompare(ListItem.Label,Songs)</visible>
+							<visible>!StringCompare(ListItem.Label,Artists)</visible>
 						</control>
 						
 						<control type="image"> <!--item thumb-->
@@ -487,6 +511,26 @@
 							<texture>DefaultActorSmall.png</texture>
 							<aspectratio>scale</aspectratio>
 							<visible>StringCompare(ListItem.Label,Actors) | StringCompare(ListItem.Label,Directors)</visible>
+						</control>
+						
+						<control type="image"> <!--"songs" thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultAddonMusic.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Songs)</visible>
+						</control>
+						
+						<control type="image"> <!--"artists" thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultMusicArtists.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Artists)</visible>
 						</control>
 						
 						<control type="image"> <!--artist thumb-->
@@ -586,7 +630,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[ListItem.Plot]</label>
-					<autoscroll delay="20000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="20000" time="4000" repeat="20000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(movies)</visible>
 				</control>
@@ -599,7 +643,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[ListItem.Plot]</label>
-					<autoscroll delay="23000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="23000" time="4000" repeat="20000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(tvshows)</visible>
 				</control>
@@ -612,7 +656,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[Container.ShowPlot]</label>
-					<autoscroll delay="23000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="23000" time="4000" repeat="20000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(seasons)</visible>
 				</control>
@@ -625,7 +669,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[ListItem.Plot]</label>
-					<autoscroll delay="10000" time="4000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="10000" time="4000" repeat="8000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(episodes)</visible>
 				</control>
@@ -638,7 +682,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[ListItem.Property(Artist_Description)]</label>
-					<autoscroll delay="20000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="20000" time="4000" repeat="20000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(artists)</visible>
 				</control>
@@ -651,7 +695,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[ListItem.Property(Album_Description)]</label>
-					<autoscroll delay="16000" time="4000" repeat="16000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="16000" time="4000" repeat="16000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(albums)</visible>
 				</control>

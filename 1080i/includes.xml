@@ -1569,7 +1569,7 @@
 			<width>372</width>
 			<height>372</height>
 			<aspectratio>stretch</aspectratio>
-			<texture diffuse="breeze/home/music tile small dif.png" fallback="Breeze/Artist.png">$INFO[ListItem.Thumb]</texture>
+			<texture diffuse="breeze/home/music tile small dif.png" fallback="Breeze/Artist.png">$INFO[ListItem.Icon]</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Hidden">

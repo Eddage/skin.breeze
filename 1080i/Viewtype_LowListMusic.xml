@@ -5,7 +5,31 @@
 		<control type="group">
 			<posx>265</posx>
 			<posy>140</posy>
-			<visible>Control.IsVisible(506)+Container.Content(songs)+!IsEmpty(ListItem.Title)+!Skin.HasSetting(cdartfliplist)</visible>
+			<visible>Control.IsVisible(506)+Container.Content(songs) + !IsEmpty(ListItem.Title)</visible>
+			<visible>!Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
+			
+			<control type="image">
+				<posx>12.5</posx>
+				<posy>12.5</posy>
+				<width>350</width>
+				<height>350</height>
+				<aspectratio align="bottom">keep</aspectratio>
+				<fadetime>400</fadetime>
+				<include>cdartlibrary</include>
+				<animation effect="slide" time="700" start="0,0" end="0,-110" tween="cubic" easing="out">WindowOpen</animation>
+				<animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album)">Conditional</animation>
+			</control>
+			
+		</control>
+		
+	</include>
+
+	<include name="LowlistCDArtCases">
+		
+		<control type="group">
+			<posx>265</posx>
+			<posy>140</posy>
+			<visible>Control.IsVisible(506)+Container.Content(songs) + !IsEmpty(ListItem.Title) + Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
 			
 			<control type="image">
 				<posx>12.5</posx>
@@ -308,7 +332,7 @@
 					<control type="group">
 						<posx>50</posx>
 						<posy>-43</posy>
-						<include condition="Window.IsActive(musiclibrary)|Window.IsActive(musicfiles)|Window.IsActive(musicplaylist)">LowlistCDArt</include>
+						<include condition="Window.IsActive(musiclibrary)|Window.IsActive(musicfiles)|Window.IsActive(musicplaylist)">LowlistCDArtCases</include>
 					</control>
 		
 					<control type="group"> <!--cases-->
@@ -325,7 +349,11 @@
 					<animation effect="slide" start="0,0" end="0,6" time="150" condition="!Skin.HasSetting(breeze_tall_list_music) + Control.HasFocus(7002)">Conditional</animation>
 					<visible>!Skin.HasSetting(breeze_lowlist_cd_cases)</visible>
 					
-					<include condition="Window.IsActive(musiclibrary)|Window.IsActive(musicfiles)|Window.IsActive(musicplaylist)">LowlistCDArt</include>	
+					<control type="group">
+						<posx>15</posx>
+						<posy>-45</posy>
+						<include condition="Window.IsActive(musiclibrary)|Window.IsActive(musicfiles)|Window.IsActive(musicplaylist)">LowlistCDArt</include>
+					</control>
 		
 					<control type="group"> <!--covers-->
 						<posx>-310</posx>
@@ -586,7 +614,7 @@
 						<align>justify</align>
 						<font>breeze32</font>
 						<label fallback="312577">$INFO[ListItem.Property(Album_Description)]</label>
-						<autoscroll delay="12000" time="4000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+						<autoscroll delay="12000" time="4000" repeat="10000">true</autoscroll>
 						<textcolor>infogrey</textcolor>
 						<visible>Container.Content(albums)</visible>
 					</control>

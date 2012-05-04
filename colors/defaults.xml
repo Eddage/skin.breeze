@@ -2,8 +2,18 @@
 
 	<color name="blue2">FF069ace</color>
 	<color name="blue3">75069ace</color>
+	<color name="15infogrey">15333333</color>
+	<color name="25infogrey">25333333</color>
+	<color name="50infogrey">50333333</color>
+	<color name="90infogrey">90333333</color>
 	<color name="infogrey">ff333333</color>
 	<color name="infogreynf">ff666666</color>
+	<color name="15white">15ffffff</color>
+	<color name="25white">25ffffff</color>
+	<color name="50white">50ffffff</color>
+	<color name="90white">90ffffff</color>
+	<color name="infowhite">ffffffff</color>
+	<color name="infowhitenf">ff75befc</color>
 	<color name="disabled">FFcd7d7d</color>
 
 	<color name="white">FFFFFFFF</color>

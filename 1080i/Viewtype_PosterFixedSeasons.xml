@@ -178,7 +178,7 @@
 				<align>justify</align>
 				<font>breeze32</font>
 				<label fallback="312577">$INFO[Container.ShowPlot]</label>
-				<autoscroll delay="23000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+				<autoscroll delay="23000" time="4000" repeat="20000">true</autoscroll>
 				<textcolor>infogrey</textcolor>
 				<visible>!Control.HasFocus(7003)</visible>
 			</control>

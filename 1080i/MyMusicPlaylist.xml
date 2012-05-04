@@ -1,62 +1,162 @@
 ﻿<window id="500">
-  <defaultcontrol always="true">50</defaultcontrol>
-  <allowoverlay>no</allowoverlay>
-  <views>50,51,506</views>
-  <controls>
-    <include>CommonMusicBackground</include>
-    <control type="group">
-      <include>Animation_OpenCloseZoom</include>
-      <control type="image">
-        <posx>0</posx>
-        <posy>0</posy>
-        <width>1920</width>
-        <height>1080</height>
-        <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
-        <include>backgroundfade</include>
-        <fadetime>FanartCrossfadeTime</fadetime>
-        <include condition="Skin.HasSetting(animatedbg)">Animation_Background</include>
-        <visible>!Skin.HasSetting(MusicLibraryFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
-      </control>
-      <control type="image">
-        <posx>0</posx>
-        <posy>0</posy>
-        <width>1920</width>
-        <height>1080</height>
-        <texture background="true">$INFO[Fanart.Image]</texture>
-        <include>backgroundfade</include>
-        <fadetime>FanartCrossfadeTime</fadetime>
-        <include condition="Skin.HasSetting(animatedbg)">Animation_Background</include>
-        <visible>!Skin.HasSetting(MusicLibraryFanart) + !IsEmpty(Fanart.Image)</visible>
-      </control>
-    </control>
-    <control type="group">
-      <include>Animation_OpenCloseZoom</include>
-      <include>Animation_HideMusic</include>
-      <visible>Control.IsVisible(50)</visible>
-      <include>Furniture_Showcase</include>
-    </control>
-    <control type="group">
-      <include>Animation_OpenCloseZoom</include>
-      <include>CommonRootView</include>
-      <!-- view id = 50 -->
-      <include>LowListMusic</include>
-      <!-- view id = 506 -->
-    </control>
-    <control type="button" id="7002">
-      <include>HiddenObject</include>
-      <texturefocus>-</texturefocus>
-      <texturenofocus>-</texturenofocus>
-      <onup>Control.Move(506,-1)</onup>
-      <onleft>506</onleft>
-      <onright>SetFocus(9000)</onright>
-      <ondown>Control.Move(506,1)</ondown>
-      <onclick>PlayMedia($INFO[ListItem.FileNameAndPath])</onclick>
-      <visible>Control.IsVisible(506)</visible>
-    </control>
-    <include>ScrollOffsetLabel</include>
-    <include>Media_Menu</include>
-    <include condition="Skin.HasSetting(breadcrumb)">Breadcrumbs</include>
-    <include>Furniture_NowPlayingWidget</include>
-    <include condition="Skin.HasSetting(globaltime)">Furniture_Clock</include>
-  </controls>
+
+	<defaultcontrol always="true">50</defaultcontrol>
+	
+	<allowoverlay>no</allowoverlay>
+	
+	<views>50,51,506</views>
+	
+	<controls>
+	
+		<include>CommonMusicBackground</include>
+		
+		<control type="group">
+		
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<include>backgroundfade</include>
+				<fadetime>FanartCrossfadeTime</fadetime>
+				<include condition="Skin.HasSetting(animatedbg)">Animation_Background</include>
+				<visible>!Skin.HasSetting(MusicLibraryFanart) + !IsEmpty(ListItem.Property(Fanart_Image))</visible>
+			</control>
+			
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>1080</height>
+				<texture background="true">$INFO[Fanart.Image]</texture>
+				<include>backgroundfade</include>
+				<fadetime>FanartCrossfadeTime</fadetime>
+				<include condition="Skin.HasSetting(animatedbg)">Animation_Background</include>
+				<visible>!Skin.HasSetting(MusicLibraryFanart) + !IsEmpty(Fanart.Image)</visible>
+			</control>
+			
+		</control>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+		</control> 
+				
+		<control type="image"> <!--base bar-->
+			<posy>770</posy>
+			<texture>breeze/views/base.png</texture>
+			<visible>!Control.IsVisible(506)</visible>
+		</control>
+				
+		<control type="image"> <!--base bar-->
+			<posy>770</posy>
+			<texture>breeze/views/base.png</texture>
+				<animation effect="slide" start="0,0" end="0,-105" time="150" condition="Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-105" time="150" condition="Control.HasFocus(7002) +!Skin.HasSetting(breeze_tall_list_music)">Conditional</animation>
+			<visible>Control.IsVisible(506)</visible>
+		</control>
+		
+		<control type="group">
+			<include>CommonRootView</include>
+			<!-- view id = 50 -->
+			<include>LowListMusic</include>
+			<!-- view id = 506 -->
+		</control>
+		
+		<control type="button" id="7002">
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>Control.Move(506,-1)</onup>
+			<onleft>506</onleft>
+			<onright>SetFocus(9000)</onright>
+			<ondown>Control.Move(506,1)</ondown>
+			<onclick>PlayMedia($INFO[ListItem.FileNameAndPath])</onclick>
+			<visible>Control.IsVisible(506)</visible>
+		</control>
+		
+		<include>Breadcrumbs</include>
+		<include>ScrollOffsetLabel</include>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+			<visible>ControlGroup(9000).HasFocus | Window.IsActive(111) | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(contentsettings) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(numericinput)</visible>
+			<visible>!Window.IsVisible(virtualkeyboard)</visible>
+		</control> 
+	  
+		<control type="button" id="7009"> <!--settings button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(50)</onup>
+			<onleft>SetFocus(7010)</onleft>
+			<onright>SetFocus(7010)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>SetFocus(9000)</onclick>
+		</control>
+	  
+		<control type="button" id="7010"> <!--shutdown button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(50)</onup>
+			<onleft>SetFocus(7009)</onleft>
+			<onright>SetFocus(7009)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>ActivateWindow(shutdownmenu)</onclick>
+		</control>
+		
+		<control type="group">
+			<posx>1788</posx>
+			<posy>17</posy>
+			<orientation>horizontal</orientation>
+			
+			<control type="image"> <!--settings button-->
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/settings.png</texture>
+				<visible>!Control.HasFocus(7009)</visible>
+				<visible>!ControlGroup(9000).HasFocus</visible>
+				<visible>!Control.IsVisible(7011)</visible>
+			</control>
+			
+			<control type="image"> <!--settings button f-->
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/settings f.png</texture>
+				<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown.png</texture>
+				<visible>!Control.HasFocus(7010)</visible>
+				<visible>!Window.IsActive(shutdownmenu)</visible>
+				<visible>!Control.IsVisible(7012)</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button f-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown f.png</texture>
+				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+			</control>
+			
+		</control>		
+		
+		<include>Media_Menu</include>
+		
+	</controls>
+	
 </window>

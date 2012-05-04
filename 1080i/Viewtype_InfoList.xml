@@ -542,7 +542,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[ListItem.Plot]</label>
-					<autoscroll delay="20000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="20000" time="4000" repeat="20000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(movies)</visible>
 				</control>
@@ -555,7 +555,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[ListItem.Plot]</label>
-					<autoscroll delay="23000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="23000" time="4000" repeat="20000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(tvshows)</visible>
 				</control>
@@ -568,7 +568,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[Container.ShowPlot]</label>
-					<autoscroll delay="23000" time="4000" repeat="20000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="23000" time="4000" repeat="20000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(seasons)</visible>
 				</control>
@@ -581,7 +581,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">$INFO[ListItem.Plot]</label>
-					<autoscroll delay="10000" time="4000" repeat="8000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="10000" time="4000" repeat="8000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(episodes)</visible>
 				</control>

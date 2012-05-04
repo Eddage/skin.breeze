@@ -1,0 +1,79 @@
+﻿<window type="dialog" id="61" >
+	
+	<defaultcontrol always="true">500</defaultcontrol>
+	
+	<coordinates>
+		<system>1</system>
+	</coordinates>
+	
+	<controls>
+	
+	<control type="group">
+		<posx>38</posx>
+		<posy>30</posy>
+		<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			
+			<control type="grouplist" id="500">
+				<posx>10</posx>
+				<posy>28</posy>
+				<width>358</width>
+				<height min="0" max="385">auto</height>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<onright>402</onright>
+				<scrolltime>150</scrolltime>
+				<itemgap>0</itemgap>
+				
+				<!--refresh-->
+				<control type="button" id="501">
+					<label>$LOCALIZE[31299]</label>
+					<onclick>Close</onclick>
+					<onclick>SendClick(2003,6)</onclick>
+					<include>InfoListContextButton</include>
+				</control>
+				
+				<!--thumbnail-->
+				<control type="button" id="502">
+					<label>$LOCALIZE[31492]</label>
+					<onclick>Close</onclick>
+					<onclick>SendClick(10)</onclick>
+					<include>InfoListContextButton</include>
+				</control>
+				
+				<!--fanart-->
+				<control type="button" id="503">
+					<label>$LOCALIZE[31493]</label>
+					<onclick>Close</onclick> 
+					<onclick>SendClick(12)</onclick>
+					<include>InfoListContextButton</include>
+				</control>
+				
+				<!--artwork-->
+				<control type="button" id="504">
+					<label>$LOCALIZE[31173]</label>
+					<onclick>Close</onclick>
+					<onclick condition="Container.Content(tvshows)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, medianame=$INFO[ListItem.TVShowTitle])</onclick>
+					<onclick condition="Container.Content(movies)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=movie, medianame=$INFO[ListItem.Title],mediapath=$INFO[ListItem.Path])</onclick>
+					<onclick condition="Container.Content(musicvideos)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=musicvideo, medianame=$INFO[ListItem.Title],mediapath=$INFO[ListItem.Path])</onclick>
+					<include>InfoListContextButton</include>
+					<visible>Container.Content(tvshows)</visible>
+					<visible>!Container.Content(movies)</visible>
+				</control>
+				
+				<!--tune-->
+				<control type="button" id="505">
+					<label>$LOCALIZE[31494]</label>
+					<onclick>Close</onclick>
+					<onclick>XBMC.RunScript(script.tvtunes,mode=solo&amp;tvpath=$INFO[ListItem.FilenameAndPath]&amp;tvname=$INFO[ListItem.TVShowTitle])</onclick>
+					<include>InfoListContextButton</include>
+					<enable>system.hasaddon(script.tvtunes)</enable>
+					<visible>Container.Content(tvshows)</visible>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+	</controls>
+	
+</window>

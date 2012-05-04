@@ -203,7 +203,7 @@
 							<label>$INFO[ListItem.Plot]</label>
 							<font>breeze32</font>
 							<textcolor>infogrey</textcolor>        
-							<autoscroll delay="7500" time="4000" repeat="5500">Skin.HasSetting(AutoScroll)</autoscroll>
+							<autoscroll delay="7500" time="4000" repeat="5500">true</autoscroll>
 							<visible>IsEmpty(ListItem.Premiered)</visible>
 						</control>
 	  
@@ -216,7 +216,7 @@
 							<label>$INFO[ListItem.Plot]</label>
 							<font>breeze32</font>
 							<textcolor>infogrey</textcolor>        
-							<autoscroll delay="7500" time="4000" repeat="5500">Skin.HasSetting(AutoScroll)</autoscroll>
+							<autoscroll delay="7500" time="4000" repeat="5500">true</autoscroll>
 							<visible>!IsEmpty(ListItem.Premiered)</visible>
 						</control>
 
@@ -252,7 +252,7 @@
 					<align>justify</align>
 					<font>breeze32</font>
 					<label fallback="312577">[COLOR ff6b85a4]TV Show Plot:[/COLOR] $INFO[Container.ShowPlot]</label>
-					<autoscroll delay="12000" time="4000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+					<autoscroll delay="12000" time="4000" repeat="10000">true</autoscroll>
 					<textcolor>infogrey</textcolor>
 					<visible>Container.Content(episodes)</visible>
 					<visible>!substring(Container.FolderPath,videodb://5)</visible>

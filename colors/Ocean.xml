@@ -1,0 +1,37 @@
+<colors>
+
+	<color name="blue2">FF069ace</color>
+	<color name="blue3">75069ace</color>
+	<color name="15infogrey">15ffffff</color>
+	<color name="25infogrey">25ffffff</color>
+	<color name="50infogrey">50ffffff</color>
+	<color name="90infogrey">90ffffff</color>
+	<color name="infogrey">ffffffff</color>
+	<color name="infogreynf">ff75befc</color>
+	<color name="15white">15333333</color>
+	<color name="25white">25333333</color>
+	<color name="50white">50333333</color>
+	<color name="90white">90333333</color>
+	<color name="infowhite">ff333333</color>
+	<color name="infowhitenf">ff666666</color>
+	<color name="disabled">FFcd7d7d</color>
+
+	<color name="white">FFFFFFFF</color>
+	<color name="grey">FFb4b4b4</color>
+	<color name="grey2">88FFFFFF</color>
+	<color name="grey3">33FFFFFF</color>
+	<color name="black">FF000000</color>
+	<color name="blue">FF0084ff</color>
+  <color name="selected">9b3cd2fd</color>
+  <color name="dialogheader">DDced8da</color>
+  <color name="red">FFCE4421</color>
+  <color name="floor">FFe1e1e1</color>
+  <color name="white2">FFe5e5e5</color>
+  <color name="high">FFC61F26</color>
+  <color name="low">FF0055be</color>
+  <color name="green">FF00FF00</color>
+  <color name="yellow">FFFFFF00</color>
+  <color name="orange">FFFEAF33</color>
+  <color name="default">FFFFFFFF</color>
+  <color name="rss_headline">FF0055be</color>
+</colors>

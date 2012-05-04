@@ -3,6 +3,27 @@
     <!--Breeze-->
 	
     <font>
+      <name>light300n</name>
+      <filename>light.ttf</filename>
+      <size>300</size>
+	  <aspect>0.75</aspect>
+    </font>	
+	
+    <font>
+      <name>light200n</name>
+      <filename>light.ttf</filename>
+      <size>160</size>
+	  <aspect>0.75</aspect>
+    </font>	
+	
+    <font>
+      <name>breeze200n</name>
+      <filename>breeze.ttf</filename>
+      <size>200</size>
+	  <aspect>0.9</aspect>
+    </font>	
+	
+    <font>
       <name>breeze75</name>
       <filename>breeze.ttf</filename>
       <size>75</size>
