@@ -1,3 +1,38 @@
+0.5.0
+
+26/06/2012
+
+MusicOverlay.xml coded
+VideoOverlay.xml coded
+
+25/06/2012
+
+MyMusicSongs.xml coded
+
+19/06/2012
+
+Re-coded DialogMuteBug.xml
+Re-coded DialogVolumeBar.xml
+Re-coded the dialogs for custom tiles
+Cleaned up the 'Home' category in skin settings
+FileBrowser.xml coded
+Re-coded DialogMediaSource.xml
+Re-coded Dialog ContentSettings.xml
+
+10/06/2012
+
+Coded PlayerControls.xml
+Fixed issue of now playing film cover not showing on homescreen np tile
+
+
+07/06/2012
+
+DialogSongInfo.xml coded
+Fixed icon inconsistnecy for Viewtype_List.xml and Viewtype_LowListMusic.xml
+Fixed double title issue when viewing all episodes of a tv show in Viewtype_List.xml
+Changed Startup.xml (hopefully fixed the watchlist script issue)
+
+
 0.4.0
 
 04/05/2012
