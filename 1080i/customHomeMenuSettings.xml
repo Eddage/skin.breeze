@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<window type="dialog" id="1117">
+
+	<defaultcontrol always="true">450</defaultcontrol>
+	
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	
+	<controls>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+			<visible>!Window.IsVisible(1115)</visible>
+		</control>
+	
+		<control type="group">
+			<posx>643.5</posx>
+			<posy>158</posy>
+			<visible>!Window.IsVisible(1115)</visible>
+			<include>Animation_DialogPopup</include>
+		
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<texture>breeze/settings/custom menu settings bg.png</texture>			
+			</control>
+		
+			<control type="label">
+				<description>Header Label</description>
+				<posx>0</posx>
+				<posy>40</posy>
+				<width>632</width>
+				<height>40</height>
+				<textcolor>infogrey</textcolor>
+				<font>breeze50</font>
+				<label>31337</label>
+				<align>center</align>
+				<aligny>center</aligny>
+			</control>		
+			
+			<control type="grouplist" id="450"> <!--favourites-->
+				<posx>41</posx>
+				<posy>108</posy>
+				<width>715</width>
+				<height>500</height>
+				<pagecontrol>63</pagecontrol>
+				<scrolltime>0</scrolltime>
+				<itemgap>0</itemgap>
+				<visible>stringcompare(Skin.String(Shortcut.Type),0)</visible>
+				
+				<control type="radiobutton" id="1">
+					<include>CustomTileButtonVarsRadio</include>
+					<label>$LOCALIZE[31111] $LOCALIZE[3]</label>
+					<onclick>Skin.ToggleSetting(HomeMenuNoVideosButton)</onclick>
+					<selected>Skin.HasSetting(HomeMenuNoVideosButton)</selected>
+				</control>
+				
+				<control type="radiobutton" id="2">
+					<include>CustomTileButtonVarsRadio</include>
+					<label>$LOCALIZE[31111] $LOCALIZE[20343]</label>
+					<onclick>Skin.ToggleSetting(HomeMenuNoTVShowButton)</onclick>
+					<selected>Skin.HasSetting(HomeMenuNoTVShowButton)</selected>
+					<enable>Library.HasContent(TVShows)</enable>
+				</control>
+				
+				<control type="radiobutton" id="3">
+					<include>CustomTileButtonVarsRadio</include>
+					<label>$LOCALIZE[31111] $LOCALIZE[20342]</label>
+					<onclick>Skin.ToggleSetting(HomeMenuNoMovieButton)</onclick>
+					<selected>Skin.HasSetting(HomeMenuNoMovieButton)</selected>
+					<enable>Library.HasContent(Movies)</enable>
+				</control>
+				
+				<control type="radiobutton" id="4">
+					<include>CustomTileButtonVarsRadio</include>
+					<label>$LOCALIZE[31111] $LOCALIZE[2]</label>
+					<onclick>Skin.ToggleSetting(HomeMenuNoMusicButton)</onclick>
+					<selected>Skin.HasSetting(HomeMenuNoMusicButton)</selected>
+				</control>
+				
+				<control type="radiobutton" id="5">
+					<include>CustomTileButtonVarsRadio</include>
+					<label>$LOCALIZE[31111] $LOCALIZE[0]</label>
+					<onclick>Skin.ToggleSetting(HomeMenuNoProgramsButton)</onclick>
+					<selected>Skin.HasSetting(HomeMenuNoProgramsButton)</selected>
+				</control>
+				
+				<control type="radiobutton" id="6">
+					<include>CustomTileButtonVarsRadio</include>
+					<label>$LOCALIZE[31111] $LOCALIZE[24001]</label>
+					<onclick>Skin.ToggleSetting(HomeMenuNoAddonsButton)</onclick>
+					<selected>Skin.HasSetting(HomeMenuNoAddonsButton)</selected>
+				</control>
+				
+				<control type="radiobutton" id="7">
+					<include>CustomTileButtonVarsRadio</include>
+					<label>$LOCALIZE[31111] $LOCALIZE[8]</label>
+					<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
+					<selected>Skin.HasSetting(HomeMenuNoWeatherButton)</selected>
+				</control>
+				
+				<control type="radiobutton" id="8">
+					<include>CustomTileButtonVarsRadio</include>
+					<label>$LOCALIZE[31111] $LOCALIZE[312578]</label>
+					<onclick>Skin.ToggleSetting(HomeMenuNoSettingsButton)</onclick>
+					<selected>Skin.HasSetting(HomeMenuNoSettingsButton)</selected>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+	</controls>
+	
+</window>

@@ -2,7 +2,7 @@
 
 	<defaultcontrol always="true">9000</defaultcontrol>
 	
-	<allowoverlay>no</allowoverlay>
+	<allowoverlay>yes</allowoverlay>
 	
 	<controls>			 
 	

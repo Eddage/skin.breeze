@@ -81,7 +81,7 @@
 			<posy>0</posy>
 			<width>1920</width>
 			<height>1080</height>
-			<texture>breeze/bg 90.png</texture>
+			<texture>breeze/bg 75.png</texture>
 		</control> 	
 				
 		<control type="image"> <!--base bar-->

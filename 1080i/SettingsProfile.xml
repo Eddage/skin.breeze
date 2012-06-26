@@ -1,6 +1,6 @@
 ﻿<window id="20">
   <defaultcontrol always="true">2</defaultcontrol>
-  <allowoverlay>no</allowoverlay>
+  <allowoverlay>yes</allowoverlay>
   <controls>
     <include>CommonSettingsBackground</include>
     <control type="group">

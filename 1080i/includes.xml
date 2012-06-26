@@ -53,8 +53,62 @@
 			<posy>0</posy>
 			<width>1920</width>
 			<height>1080</height>
-			<texture>breeze/loading.png</texture>
-		</control> 	
+			<texture>breeze/background.png</texture>
+		</control> 		
+	  
+		<control type="image"> <!--background overlay-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 90.png</texture>
+		</control> 
+		
+		<control type="image"> <!--top bar-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<texture>breeze/breadcrumb bg.png</texture>
+		</control>	
+	  
+		<control type="label">
+			<description>time label</description>
+			<posx>20</posx>
+			<posy>23</posy>
+			<width>600</width>
+			<height>28</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>breeze34</font>
+			<textcolor>infogreynf</textcolor>
+			<shadowcolor>-</shadowcolor>
+			<label>$INFO[System.Date(DDD)],  $INFO[System.Date(MMM)] $INFO[System.Date(dd)]  |  $INFO[System.Time]</label>
+		</control>
+		
+		<control type="group">
+			<posx>1788</posx>
+			<posy>17</posy>
+			<orientation>horizontal</orientation>
+			
+			<control type="image"> <!--shutdown button-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown.png</texture>
+				<visible>!Control.HasFocus(7010)</visible>
+				<visible>!Window.IsActive(shutdownmenu)</visible>
+				<visible>!Control.IsVisible(7012)</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button f-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown f.png</texture>
+				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+			</control>
+			
+		</control>	
 	  
 		<control type="image">
 			<posx>0</posx>
@@ -1569,7 +1623,7 @@
 			<width>372</width>
 			<height>372</height>
 			<aspectratio>stretch</aspectratio>
-			<texture diffuse="breeze/home/music tile small dif.png" fallback="Breeze/Artist.png">$INFO[ListItem.Icon]</texture>
+			<texture diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
 			<visible>!Window.IsVisible(contextmenu)</visible>
 		
 			<animation type="Hidden">
@@ -2159,11 +2213,57 @@
 	<include name="Dialogs_Mute">
 	
 		<control type="image">
-			<posx>1677</posx>
-			<posy>21</posy>
-			<width>80</width>
-			<height>80</height>
+			<posx>1727</posx>
+			<posy>17</posy>
 			<texture>breeze/dialogs/mute icon.png</texture>
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_Music">
+	
+		<control type="image">
+			<posx>1727</posx>
+			<posy>17</posy>
+			<texture>breeze/dialogs/music bg.png</texture>
+		</control>
+	
+		<control type="image">
+			<posx>1727</posx>
+			<posy>17</posy>
+			<texture>breeze/dialogs/music.png</texture>
+			<visible>!Player.Paused</visible>
+		</control>
+	
+		<control type="image">
+			<posx>1727</posx>
+			<posy>17</posy>
+			<texture>breeze/dialogs/music pause.png</texture>
+			<visible>Player.Paused</visible>
+		</control>
+		
+	</include>
+	
+	<include name="Dialogs_Video">
+	
+		<control type="image">
+			<posx>1727</posx>
+			<posy>17</posy>
+			<texture>breeze/dialogs/music bg.png</texture>
+		</control>
+	
+		<control type="image">
+			<posx>1727</posx>
+			<posy>17</posy>
+			<texture>breeze/dialogs/video.png</texture>
+			<visible>!Player.Paused</visible>
+		</control>
+	
+		<control type="image">
+			<posx>1727</posx>
+			<posy>17</posy>
+			<texture>breeze/dialogs/music pause.png</texture>
+			<visible>Player.Paused</visible>
 		</control>
 		
 	</include>
@@ -2176,6 +2276,20 @@
 		<height>11</height>
 		<reveal>true</reveal>
 		<texturebg>breeze/dialogs/progress bar bg.png</texturebg>
+		<lefttexture>breeze/dialogs/progress bar left.png</lefttexture>
+		<midtexture>breeze/dialogs/progress bar mid.png</midtexture>
+		<righttexture>breeze/dialogs/progress bar right.png</righttexture>
+		<overlaytexture>-</overlaytexture>
+	</include>
+	
+	<include name="Dialogs_Volume_Bar">
+		<description>Progressbar</description>
+		<posx>135</posx>
+		<posy>215</posy>
+		<width>250</width>
+		<height>20</height>
+		<reveal>true</reveal>
+		<texturebg>breeze/dialogs/volume bar bg.png</texturebg>
 		<lefttexture>breeze/dialogs/progress bar left.png</lefttexture>
 		<midtexture>breeze/dialogs/progress bar mid.png</midtexture>
 		<righttexture>breeze/dialogs/progress bar right.png</righttexture>
@@ -2222,16 +2336,6 @@
 		<posy>0</posy>
 		<width>337</width>
 		<height>25</height>
-	</include>
-	
-	<include name="Dialogs_Label1">
-		<posy>-16</posy>
-		<include>Dialogs_LabelHeader</include>
-		<textcolor>infogrey</textcolor>
-		<align>left</align>
-		<aligny>center</aligny>
-		<font>beaufort 24</font>
-		<scroll>true</scroll>
 	</include>
 	
 	<include name="Dialogs_LabelP">
@@ -2281,6 +2385,16 @@
 		<align>left</align>
 		<aligny>center</aligny>
 		<font>dialogs</font>
+		<scroll>false</scroll>
+	</include>
+	
+	<include name="Dialogs_Label_Volume">
+		<posy>20</posy>
+		<include>Dialogs_LabelVars</include>
+		<textcolor>infogrey</textcolor>
+		<align>right</align>
+		<aligny>center</aligny>
+		<font>breeze30</font>
 		<scroll>false</scroll>
 	</include>
 	

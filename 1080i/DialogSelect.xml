@@ -5,19 +5,10 @@
 	<zorder>4</zorder>
   
 	<controls>
-	  
-		<control type="image"> <!--background overlay (white)-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<texture>breeze/bg 75.png</texture>
-			<visible>Window.IsVisible(visualisation)</visible>
-		</control> 
 	
 		<control type="group">
-			<posx>532</posx>
-			<posy>90</posy>
+			<posx>456.5</posx>
+			<posy>156 </posy>
 			<animation effect="slide" start="0,0" end="0,100" time="0" condition="Window.IsVisible(visualisation)">Conditional</animation>
   
 			<include>Animation_DialogPopup2</include>
@@ -25,13 +16,21 @@
 			<control type="image"> <!--bg panel-->
 				<posx>0</posx>
 				<posy>0</posy>
-				<texture>breeze/dialogs/select bg.png</texture>
+				<texture>breeze/dialogs/select common bg.png</texture>
+				<visible>!Control.IsVisible(5)</visible>
+			</control>
+      
+			<control type="image"> <!--bg panel-->
+				<posx>0</posx>
+				<posy>0</posy>
+				<texture>breeze/dialogs/select addon bg.png</texture>
+				<visible>Control.IsVisible(5)</visible>
 			</control>
     
 			<control type="label" id="1"> <!--header-->
 				<posx>0</posx>
 				<posy>40</posy>
-				<width>880</width>
+				<width>1006</width>
 				<height>40</height>
 				<textcolor>infogrey</textcolor>
 				<font>breeze60</font>
@@ -39,92 +38,78 @@
 				<align>center</align>
 				<aligny>center</aligny>
 			</control>
-    
-			<control type="button" id="5">
-				<description>Manual Button</description>
-				<posx>30</posx>
-				<posy>600</posy>
-				<width>300</width>
-				<height>51</height>
-				<texturefocus>breeze/dialogs/add button f.png</texturefocus>
-				<texturenofocus>breeze/dialogs/add button nf.png</texturenofocus>
-				<textcolor>infogrey</textcolor>
-				<focusedcolor>blue2</focusedcolor>
-				<font>breeze28b</font>
-				<label>$LOCALIZE[368]</label>
-				<textoffsetx>60</textoffsetx>
-				<onleft>10</onleft>
-				<onright>10</onright>
-				<onup>3</onup>
-				<ondown>3</ondown>
+        
+			<control type="image">
+                <posx>732</posx>
+                <posy>140</posy>
+                <width>234</width>
+				<height>234</height>
+				<texture>$INFO[Container(6).ListItem.Icon]</texture>
+				<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
 			</control>
-    
-			<control type="button" id="10">
-				<description>Manual Button</description>
-				<posx>220</posx>
-				<posy>600</posy>
-				<width>300</width>
-				<height>51</height>
-				<texturefocus>breeze/dialogs/close button f.png</texturefocus>
-				<texturenofocus>breeze/dialogs/close button nf.png</texturenofocus>
-				<textcolor>infogrey</textcolor>
-				<focusedcolor>blue2</focusedcolor>
-				<font>breeze28b</font>
-				<label>Close</label>
-				<textoffsetx>60</textoffsetx>
-				<onleft>5</onleft>
-				<onright>5</onright>
-				<onup>3</onup>
-				<ondown>3</ondown>
-				<onclick>close</onclick>
-				<animation effect="slide" start="0,0" end="-190,0" time="0" condition="!Control.IsVisible(5)">Conditional</animation>
+			
+			<control type="image">
+                <posx>732</posx>
+                <posy>140</posy>
+                <width>234</width>
+				<height>234</height>
+				<texture fallback="breeze/addon.png">$INFO[Container(6).ListItem.Icon]</texture>
+				<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 			</control>
-    
-			<control type="label"> <!--stats common list-->
-				<description>number of files/pages in list text label</description>
-				<posx>830</posx>
-				<posy>620</posy>
-				<width>300</width>
-				<height>40</height>
-				<font>breadcrumbsmall</font>
-				<align>right</align>
-				<textcolor>blue2</textcolor>
-				<label>[UPPERCASE]$INFO[Container(3).NumItems,, $LOCALIZE[31025]] [COLOR=blue3]($INFO[Container(3).CurrentPage,$LOCALIZE[31024] ]$INFO[Container(3).NumPages,/])[/COLOR][/UPPERCASE]</label>
-				<visible>Control.IsVisible(3)</visible>
-			</control>
-    
-			<control type="label"> <!--stats addon list-->
-				<description>number of files/pages in list text label</description>
-				<posx>830</posx>
-				<posy>620</posy>
-				<width>300</width>
-				<height>40</height>
-				<font>breadcrumbsmall</font>
-				<align>right</align>
-				<textcolor>blue2</textcolor>
-				<label>[UPPERCASE]$INFO[Container(6).NumItems,, $LOCALIZE[31025]] [COLOR=blue3]($INFO[Container(6).CurrentPage,$LOCALIZE[31024] ]$INFO[Container(6).NumPages,/])[/COLOR][/UPPERCASE]</label>
-				<visible>Control.IsVisible(6)</visible>
+			
+			<control type="group">
+				<posy>15</posy>
+  
+				<control type="label">
+					<posx>732</posx>
+					<posy>370</posy>
+					<width>465</width>
+					<height>40</height>
+					<textcolor>infogrey</textcolor>
+					<aligny>center</aligny>
+					<font>breeze28</font>
+					<label>By: $INFO[Container(6).ListItem.Property(Addon.Creator)]</label>
+					<visible>!IsEmpty(Container(6).ListItem.Property(Addon.Name))</visible>
+				</control>
+  
+				<control type="label">
+					<posx>732</posx>
+					<posy>405</posy>
+					<width>465</width>
+					<height>40</height>
+					<textcolor>infogrey</textcolor>
+					<aligny>center</aligny>
+					<font>breeze28</font>
+					<label>Version: $INFO[Container(6).ListItem.Property(Addon.Version)]</label>
+					<visible>!IsEmpty(Container(6).ListItem.Property(Addon.Name))</visible>
+				</control>
+			
 			</control>
     
 			<control type="list" id="3"> <!--common list-->
-				<posx>10</posx>
-				<posy>110</posy>
+				<posx>165</posx>
+				<posy>117</posy>
 				<width>836</width>
-				<height>480</height>
+				<height>350</height>
 				<onleft>61</onleft>
-				<onright>5</onright>
+				<onright>10</onright>
 				<onup>3</onup>
 				<ondown>3</ondown>
-				<scrolltime>200</scrolltime>
 				<pagecontrol>61</pagecontrol>
 				
-				<itemlayout height="68">
+				<itemlayout height="50">
+					
+					<control type="image">
+						<posx>0</posx>
+						<width>672</width>
+						<texture>breeze/settings/custom tile 2 nf.png</texture>
+					</control>
 		
 					<control type="label">  <!--label-->
-						<posx>30</posx>
-						<posy>0</posy>
+						<posx>15</posx>
+						<posy>-3</posy>
 						<width>776</width>
-						<height>60</height>
+						<height>50</height>
 						<textcolor>infogreynf</textcolor>
 						<aligny>center</aligny>
 						<font>breeze32</font>
@@ -133,21 +118,18 @@
       
 				</itemlayout>
 			
-				<focusedlayout height="68">
-			
-					<control type="image"> <!--focus bg-->
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>836</width>
-						<height>60</height>
-						<texture>breeze/dialogs/focused bg.png</texture>
+				<focusedlayout height="50">
+					
+					<control type="image">
+						<width>672</width>
+						<texture>breeze/settings/custom tile 2 f.png</texture>
 					</control>
     
 					<control type="label"> <!--label-->
-						<posx>30</posx>
-						<posy>-2</posy>
+						<posx>15</posx>
+						<posy>-3</posy>
 						<width>776</width>
-						<height>60</height>
+						<height>50</height>
 						<textcolor>white</textcolor>
 						<aligny>center</aligny>
 						<font>breeze32</font>
@@ -159,22 +141,27 @@
 			</control>
     
 			<control type="list" id="6"> <!--addon list-->
-				<posx>10</posx>
-				<posy>110</posy>
-				<width>836</width>
-				<height>480</height>
+				<posx>40</posx>
+				<posy>117</posy>
+				<width>771</width>
+				<height>350</height>
 				<onup>6</onup>
 				<ondown>6</ondown>
 				<onleft>61</onleft>
-				<onright>5</onright>
+				<onright>10</onright>
 				<pagecontrol>61</pagecontrol>
-				<scrolltime tween="back" easing="out">500</scrolltime>
 		
-				<itemlayout height="160" width="836">
+				<itemlayout height="87.5" width="836">
+					
+					<control type="image">
+						<posx>0</posx>
+						<width>672</width>
+						<texture>breeze/settings/select nf.png</texture>
+					</control>
         
 					<control type="label"> <!--label-->
-						<posx>30</posx>
-						<posy>30</posy>
+						<posx>15</posx>
+						<posy>25</posy>
 						<width>550</width>
 						<height>40</height>
 						<textcolor>infogreynf</textcolor>
@@ -185,8 +172,8 @@
 					</control>
         
 					<control type="label"> <!--label 2-->
-						<posx>30</posx>
-						<posy>80</posy>
+						<posx>15</posx>
+						<posy>75</posy>
 						<width>550</width>
 						<height>40</height>
 						<textcolor>infogreynf</textcolor>
@@ -197,102 +184,56 @@
 					</control>
         
 					<control type="label"> <!--addon title label-->
-						<posx>30</posx>
-						<posy>7</posy>
+						<posx>15</posx>
+						<posy>3</posy>
 						<width>465</width>
 						<height>40</height>
 						<textcolor>infogrey</textcolor>
 						<selectedcolor>blue2</selectedcolor>
 						<aligny>center</aligny>
-						<font>breeze34b</font>
+						<font>breeze32b</font>
 						<info>ListItem.Label</info>
 						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
   
-					<control type="label"> <!--addon creater-->
-						<posx>30</posx>
-						<posy>45</posy>
-						<width>465</width>
-						<height>40</height>
-						<textcolor>infogreynf</textcolor>
-						<selectedcolor>blue2</selectedcolor>
-						<aligny>center</aligny>
-						<font>breeze28</font>
-						<label>Created By: $INFO[ListItem.Property(Addon.Creator)]</label>
-						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
-					</control>
-  
 					<control type="label"> <!--addon "summary" label-->
-						<posx>30</posx>
-						<posy>75</posy>
+						<posx>15</posx>
+						<posy>39</posy>
 						<width>350</width>
 						<height>40</height>
 						<textcolor>infogreynf</textcolor>
 						<selectedcolor>blue2</selectedcolor>
 						<aligny>center</aligny>
-						<font>breeze28</font>
+						<font>breeze30</font>
 						<label>Summary:</label>
 						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
   
 					<control type="label"> <!--addon summary-->
-						<posx>125</posx>
-						<posy>75</posy>
-						<width>560</width>
+						<posx>128</posx>
+						<posy>39</posy>
+						<width>535</width>
 						<height>40</height>
 						<textcolor>infogreynf</textcolor>
 						<selectedcolor>blue2</selectedcolor>
 						<aligny>center</aligny>
-						<font>breeze28</font>
+						<font>breeze30</font>
 						<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
-					</control>
-  
-					<control type="label"> <!--addon version-->
-						<posx>30</posx>
-						<posy>105</posy>
-						<width>465</width>
-						<height>40</height>
-						<textcolor>infogreynf</textcolor>
-						<selectedcolor>blue2</selectedcolor>
-						<aligny>center</aligny>
-						<font>breeze28</font>
-						<label>Version: $INFO[ListItem.Property(Addon.Version)]</label>
-						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
-					</control>
-        
-					<control type="image"> <!--thumb-->
-						<posx>600</posx>
-						<posy>20</posy>
-						<width>225</width>
-						<height>112</height>
-						<texture>$INFO[Listitem.Icon]</texture>
-						<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
-					</control>
-        
-					<control type="image"> <!--addon thumb-->
-						<posx>680</posx>
-						<posy>20</posy>
-						<width>150</width>
-						<height>112</height>
-						<texture diffuse="breeze/masks/addon.png" fallback="breeze/addon.png">$INFO[Listitem.Icon]</texture>
 						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
       
 				</itemlayout>
       
-				<focusedlayout height="160" width="836">
+				<focusedlayout height="87.5" width="836">
 			
 					<control type="image">
-						<posx>1</posx>
-						<posy>1</posy>
-						<width>834</width>
-						<height>150</height>
+						<width>672</width>
+						<height>87.5</height>
 						<texture>breeze/dialogs/focused bg.png</texture>
 					</control>
         
 					<control type="label">
-						<posx>30</posx>
+						<posx>15</posx>
 						<posy>30</posy>
 						<width>550</width>
 						<height>40</height>
@@ -304,8 +245,8 @@
 					</control>
         
 					<control type="label">
-						<posx>30</posx>
-						<posy>80</posy>
+						<posx>15</posx>
+						<posy>30</posy>
 						<width>550</width>
 						<height>40</height>
 						<textcolor>white</textcolor>
@@ -317,97 +258,125 @@
 					</control>
         
 					<control type="label">
-						<posx>30</posx>
-						<posy>7</posy>
-						<width>465</width>
+						<posx>15</posx>
+						<posy>3</posy>
+						<width>440</width>
 						<height>40</height>
 						<textcolor>white</textcolor>
 						<selectedcolor>white</selectedcolor>
 						<aligny>center</aligny>
-						<font>breeze34b</font>
+						<font>breeze32b</font>
 						<info>ListItem.Label</info>
 						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
   
 					<control type="label">
-						<posx>30</posx>
-						<posy>45</posy>
+						<posx>15</posx>
+						<posy>39</posy>
 						<width>465</width>
 						<height>40</height>
 						<textcolor>white</textcolor>
 						<selectedcolor>white</selectedcolor>
 						<aligny>center</aligny>
-						<font>breeze28</font>
-						<label>Created By: $INFO[ListItem.Property(Addon.Creator)]</label>
-						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
-					</control>
-  
-					<control type="label">
-						<posx>30</posx>
-						<posy>75</posy>
-						<width>465</width>
-						<height>40</height>
-						<textcolor>white</textcolor>
-						<selectedcolor>white</selectedcolor>
-						<aligny>center</aligny>
-						<font>breeze28</font>
+						<font>breeze30</font>
 						<label>Summary:</label>
 						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
   
 					<control type="label">
-						<posx>125</posx>
-						<posy>75</posy>
-						<width>560</width>
+						<posx>128</posx>
+						<posy>39</posy>
+						<width>535</width>
 						<height>40</height>
 						<textcolor>white</textcolor>
 						<selectedcolor>white</selectedcolor>
 						<aligny>center</aligny>
-						<font>breeze28</font>
+						<font>breeze30</font>
 						<label>$INFO[ListItem.Property(Addon.Summary)]</label>
-						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
-					</control>
-  
-					<control type="label">
-						<posx>30</posx>
-						<posy>105</posy>
-						<width>465</width>
-						<height>40</height>
-						<textcolor>white</textcolor>
-						<selectedcolor>white</selectedcolor>
-						<aligny>center</aligny>
-						<font>breeze28</font>
-						<label>Version: $INFO[ListItem.Property(Addon.Version)]</label>
-						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
-					</control>
-        
-					<control type="image"> <!--thumb-->
-						<posx>600</posx>
-						<posy>20</posy>
-						<width>225</width>
-						<height>112</height>
-						<texture>$INFO[Listitem.Icon]</texture>
-						<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
-					</control>
-			
-					<control type="image"> <!--addon thumb-->
-						<posx>680</posx>
-						<posy>20</posy>
-						<width>150</width>
-						<height>112</height>
-						<texture diffuse="breeze/masks/addon.png" fallback="breeze/addon.png">$INFO[Listitem.Icon]</texture>
 						<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
       
 				</focusedlayout>
     
 			</control>
+			
+			<control type="group">
+				<posx>10</posx>
+				<posy>-115</posy>
+				<animation effect="slide" start="0,0" end="125,0" time="0" condition="!Control.IsVisible(5)">Conditional</animation>
+    
+				<control type="button" id="10">
+					<description>Manual Button</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/close button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/close button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>Close</label>
+					<textoffsetx>60</textoffsetx>
+					<onleft>5</onleft>
+					<onright>5</onright>
+					<onup>3</onup>
+					<ondown>3</ondown>
+					<onclick>close</onclick>
+				</control>
+    
+				<control type="button" id="5">
+					<description>Manual Button</description>
+					<posx>200</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/add button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/add button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>$LOCALIZE[368]</label>
+					<textoffsetx>60</textoffsetx>
+					<onleft>10</onleft>
+					<onright>10</onright>
+					<onup>3</onup>
+					<ondown>3</ondown>
+				</control>
+			
+			</control>
+    
+			<control type="label"> <!--stats common list-->
+				<posx>830</posx>
+				<posy>486</posy>
+				<width>300</width>
+				<height>51</height>
+				<font>breadcrumbsmall</font>
+				<align>right</align>
+				<aligny>center</aligny>
+				<textcolor>blue2</textcolor>
+				<label>[UPPERCASE]$INFO[Container(3).NumItems,, $LOCALIZE[31025]] [COLOR=blue3]($INFO[Container(3).CurrentPage,$LOCALIZE[31024] ]$INFO[Container(3).NumPages,/])[/COLOR][/UPPERCASE]</label>
+				<visible>Control.IsVisible(3)</visible>
+			</control>
+    
+			<control type="label"> <!--stats addon list-->
+				<posx>705</posx>
+				<posy>486</posy>
+				<width>300</width>
+				<height>51</height>
+				<font>breadcrumbsmall</font>
+				<align>right</align>
+				<aligny>center</aligny>
+				<textcolor>blue2</textcolor>
+				<label>[UPPERCASE]$INFO[Container(6).NumItems,, $LOCALIZE[31025]] [COLOR=blue3]($INFO[Container(6).CurrentPage,$LOCALIZE[31024] ]$INFO[Container(6).NumPages,/])[/COLOR][/UPPERCASE]</label>
+				<visible>Control.IsVisible(6)</visible>
+			</control>
 
 			<control type="scrollbar" id="61">
-				<posx>-19</posx>
-				<posy>50</posy>
+				<posx>135</posx>
+				<posy>127</posy>
 				<width>30</width>
-				<height>575</height>
+				<height>330</height>
 				<texturesliderbackground>-</texturesliderbackground>
 				<texturesliderbar>-</texturesliderbar>
 				<texturesliderbarfocus>-</texturesliderbarfocus>
@@ -418,6 +387,25 @@
 				<onright>6</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
+				<visible>!Control.IsVisible(5)</visible>
+			</control>
+
+			<control type="scrollbar" id="61">
+				<posx>10</posx>
+				<posy>127</posy>
+				<width>30</width>
+				<height>330</height>
+				<texturesliderbackground>-</texturesliderbackground>
+				<texturesliderbar>-</texturesliderbar>
+				<texturesliderbarfocus>-</texturesliderbarfocus>
+				<textureslidernib flipx="true">breeze/views/scrollbar nub nf list.png</textureslidernib>
+				<textureslidernibfocus flipx="true">breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+				<pulseonselect>no</pulseonselect>
+				<onleft>6</onleft>
+				<onright>6</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<visible>Control.IsVisible(5)</visible>
 			</control>
 		
 		</control>

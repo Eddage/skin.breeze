@@ -1,7 +1,9 @@
 <includes>
 	
 	<include name="CommonRootView">
+	
 		<control type="group">
+		
 			<visible>Control.IsVisible(50)</visible>
 	
 			<control type="image">
@@ -67,6 +69,22 @@
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
 							<visible>StringCompare(Container.FolderPath,musicdb://5/2/-1/) | StringCompare(Container.FolderPath,musicdb://8/-1/) | SubString(Container.FolderPath,/-1/)</visible>
+							<visible>!StringCompare(Container.FolderPath,musicdb://1/9/-1/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://2/2/2/-1/)</visible>
+						</control>
+
+						<control type="label"> <!--main label (1 line)-->
+							<posx>45</posx>
+							<posy>10</posy>
+							<width>1180</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<include>musiclistcolornofocus</include>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>StringCompare(Container.FolderPath,musicdb://1/9/-1/)</visible>
+							<animation effect="slide" start="0,0" end="0,15" time="0" condition="StringCompare(ListItem.Label,* All albums">Conditional</animation>
 						</control>
 
 						<control type="label"> <!--main label (2 lines)-->
@@ -224,6 +242,15 @@
 							<visible>!StringCompare(ListItem.Label,Directors)</visible>
 							<visible>!StringCompare(ListItem.Label,Songs)</visible>
 							<visible>!StringCompare(ListItem.Label,Artists)</visible>
+							<visible>!StringCompare(ListItem.Label,Recently added albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Recently played albums)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://2/5/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://1/6/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://1/3/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://1/5/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://2/3/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://2/4/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://1/4/)</visible>
 						</control>
 						
 						<control type="image"> <!--item thumb-->
@@ -256,24 +283,105 @@
 							<visible>StringCompare(ListItem.Label,Artists)</visible>
 						</control>
 						
+						<control type="image"> <!--"recently added" thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultMusicRecentlyAddedSmall.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Recently added albums)</visible>
+						</control>
+						
+						<control type="image"> <!--"recently played" thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultMusicRecentlyPlayedSmall.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Recently played albums)</visible>
+						</control>
+						
 						<control type="image"> <!--artist thumb-->
 							<posx>1125</posx>
 							<posy>10</posy>
 							<height>90</height>
 							<width>90</width>
-							<texture>$INFO[ListItem.Icon]</texture>
+							<texture fallback="DefaultMusicArtists.png">$INFO[ListItem.Thumb]</texture>
 							<aspectratio>scale</aspectratio>
 							<visible>Container.Content(artists)</visible>
 						</control>
 						
-						<control type="image"> <!--album/song thumb-->
+						<control type="image"> <!--album thumb-->
 							<posx>1125</posx>
 							<posy>10</posy>
 							<height>90</height>
 							<width>90</width>
-							<texture fallback="breeze/songs small.png">$INFO[ListItem.Thumb]</texture>
+							<texture fallback="DefaultAddonMusic.png">$INFO[ListItem.Thumb]</texture>
 							<aspectratio>scale</aspectratio>
-							<visible>Container.Content(albums) | Container.Content(songs)</visible>
+							<visible>Container.Content(albums) + StringCompare(ListItem.Label,* All Albums)</visible>
+						</control>
+						
+						<control type="image"> <!--album thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="DefaultMusicAlbums.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>Container.Content(albums) + !StringCompare(ListItem.Label,* All Albums)</visible>
+						</control>
+						
+						<control type="image"> <!--song thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="DefaultAddonMusic.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>Container.Content(songs)</visible>
+						</control>
+						
+						<control type="image"> <!--year thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultYear.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(Container.FolderPath,videodb://1/3/) | StringCompare(Container.FolderPath,videodb://2/3/)</visible>
+						</control>
+						
+						<control type="image"> <!--actor thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="DefaultActorSmall.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(Container.FolderPath,videodb://2/4/) | StringCompare(Container.FolderPath,videodb://1/4/)</visible>
+						</control>
+						
+						<control type="image"> <!--director thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultActorSmall.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(Container.FolderPath,videodb://1/5/)</visible>
+						</control>
+						
+						<control type="image"> <!--studio thumb-->
+							<posx>1115</posx>
+							<posy>0</posy>
+							<height>110</height>
+							<width>110</width>
+							<texture fallback="flags/studios/default-studio.png">$INFO[ListItem.Label,flags/studios/,.png]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>StringCompare(Container.FolderPath,videodb://2/5/) | StringCompare(Container.FolderPath,videodb://1/6/)</visible>
+							<colordiffuse>FF8eb7d8</colordiffuse>
 						</control>
 		  
 						<control type="image"> <!--watched icon-->
@@ -295,19 +403,6 @@
 							<height>110</height>
 							<width>1243</width>
 							<texture background="true">breeze/views/list f bg.png</texture>
-						</control>
-			
-						<control type="image">
-							<posx>1133.5</posx>
-							<posy>10</posy>
-							<width>90</width>
-							<height>90</height>
-							<aspectratio align="bottom">keep</aspectratio>
-							<fadetime>400</fadetime>
-							<include>cdartlibrary</include>
-							<animation effect="slide" time="0" start="0,0" end="-40,0" tween="cubic" easing="out" condition="ControlGroup(9000).HasFocus | Control.HasFocus(50) | Control.HasFocus(7009) | Control.HasFocus(7010) | Window.IsVisible(shutdownmenu) | Window.IsVisible(contextmenu)">Conditional</animation>
-							<animation effect="rotate" end="-360" center="auto" time="5000" loop="true" reversible="false" condition="StringCompare(ListItem.Album,MusicPlayer.Album)">Conditional</animation>
-							<visible>Container.Content(songs)</visible>
 						</control>
 
 						<control type="label"> <!--main label (1 line)-->
@@ -337,10 +432,26 @@
 							<height>50</height>
 							<font>breeze34b</font>
 							<textcolor>white</textcolor>
-							<selectedcolor>white</selectedcolor>
+							<include>musiclistcolornofocus</include>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Title]</label>
 							<visible>StringCompare(Container.FolderPath,musicdb://5/2/-1/) | StringCompare(Container.FolderPath,musicdb://8/-1/) | SubString(Container.FolderPath,/-1/)</visible>
+							<visible>!StringCompare(Container.FolderPath,musicdb://1/9/-1/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://2/2/2/-1/)</visible>
+						</control>
+
+						<control type="label"> <!--main label (1 line)-->
+							<posx>45</posx>
+							<posy>10</posy>
+							<width>1180</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>white</textcolor>
+							<include>musiclistcolornofocus</include>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>StringCompare(Container.FolderPath,musicdb://1/9/-1/)</visible>
+							<animation effect="slide" start="0,0" end="0,15" time="0" condition="StringCompare(ListItem.Label,* All albums">Conditional</animation>
 						</control>
 
 						<control type="label"> <!--main label (2 lines)-->
@@ -456,7 +567,6 @@
 							<align>right</align>
 							<label>$INFO[ListItem.Duration]</label>
 							<visible>Container.Content(songs)</visible>
-							<animation effect="slide" time="0" start="0,0" end="-40,0" tween="cubic" easing="out" condition="ControlGroup(9000).HasFocus | Control.HasFocus(50) | Control.HasFocus(7009) | Control.HasFocus(7010) | Window.IsVisible(shutdownmenu) | Window.IsVisible(contextmenu)">Conditional</animation>
 						</control>
 						
 						<control type="label"> <!--addon secondary info-->
@@ -501,6 +611,15 @@
 							<visible>!StringCompare(ListItem.Label,Directors)</visible>
 							<visible>!StringCompare(ListItem.Label,Songs)</visible>
 							<visible>!StringCompare(ListItem.Label,Artists)</visible>
+							<visible>!StringCompare(ListItem.Label,Recently added albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Recently played albums)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://2/5/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://1/6/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://1/3/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://1/5/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://2/3/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://2/4/)</visible>
+							<visible>!StringCompare(Container.FolderPath,videodb://1/4/)</visible>
 						</control>
 						
 						<control type="image"> <!--item thumb-->
@@ -533,24 +652,105 @@
 							<visible>StringCompare(ListItem.Label,Artists)</visible>
 						</control>
 						
+						<control type="image"> <!--"recently added" thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultMusicRecentlyAddedSmall.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Recently added albums)</visible>
+						</control>
+						
+						<control type="image"> <!--"recently played" thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultMusicRecentlyPlayedSmall.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Recently played albums)</visible>
+						</control>
+						
 						<control type="image"> <!--artist thumb-->
 							<posx>1125</posx>
 							<posy>10</posy>
 							<height>90</height>
 							<width>90</width>
-							<texture>$INFO[ListItem.Icon]</texture>
+							<texture fallback="DefaultMusicArtists.png">$INFO[ListItem.Thumb]</texture>
 							<aspectratio>scale</aspectratio>
 							<visible>Container.Content(artists)</visible>
 						</control>
 						
-						<control type="image"> <!--album/song thumb-->
+						<control type="image"> <!--album thumb-->
 							<posx>1125</posx>
 							<posy>10</posy>
 							<height>90</height>
 							<width>90</width>
-							<texture fallback="breeze/songs small.png">$INFO[ListItem.Thumb]</texture>
+							<texture fallback="DefaultAddonMusic.png">$INFO[ListItem.Thumb]</texture>
 							<aspectratio>scale</aspectratio>
-							<visible>Container.Content(albums) | Container.Content(songs)</visible>
+							<visible>Container.Content(albums) + StringCompare(ListItem.Label,* All Albums)</visible>
+						</control>
+						
+						<control type="image"> <!--album thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="DefaultMusicAlbums.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>Container.Content(albums) + !StringCompare(ListItem.Label,* All Albums)</visible>
+						</control>
+						
+						<control type="image"> <!--song thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="DefaultAddonMusic.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>Container.Content(songs)</visible>
+						</control>
+						
+						<control type="image"> <!--year thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultYear.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(Container.FolderPath,videodb://1/3/) | StringCompare(Container.FolderPath,videodb://2/3/)</visible>
+						</control>
+						
+						<control type="image"> <!--actor thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="DefaultActorSmall.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(Container.FolderPath,videodb://2/4/) | StringCompare(Container.FolderPath,videodb://1/4/)</visible>
+						</control>
+						
+						<control type="image"> <!--director thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultActorSmall.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(Container.FolderPath,videodb://1/5/)</visible>
+						</control>
+						
+						<control type="image"> <!--studio thumb-->
+							<posx>1115</posx>
+							<posy>0</posy>
+							<height>110</height>
+							<width>110</width>
+							<texture fallback="flags/studios/default-studio.png">$INFO[ListItem.Label,flags/studios/,.png]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>StringCompare(Container.FolderPath,videodb://2/5/) | StringCompare(Container.FolderPath,videodb://1/6/)</visible>
+							<colordiffuse>FFb3d3f0</colordiffuse>
 						</control>
 		  
 						<control type="image"> <!--watched icon-->

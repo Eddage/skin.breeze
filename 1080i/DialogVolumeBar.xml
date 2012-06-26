@@ -12,58 +12,35 @@
   
 		<control type="group">
 			<posx>1182</posx>
-			<posy>-67</posy>
-			<visible>!Window.IsActive(fullscreenvideo)</visible>
+			<posy>-177</posy>
 	
 			<animation type="WindowOpen" reversible="false">
 				<effect type="fade" start="0" end="100" time="400" tween="sine" easing="inout" />
 			</animation>
 			<animation type="WindowClose" reversible="false">
-				<effect type="fade" start="100" end="0" time="400" tween="sine" easing="inout" />
+				<effect type="fade" start="100" end="0" time="400" delay="500" tween="sine" easing="inout" />
 			</animation>
-		
-			<animation type="Visible" reversible="false">
-				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
-			</animation>
-			<animation type="Hidden" reversible="false">
-				<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
-			</animation>
+			
+			<animation effect="slide" start="0,0" end="0,110" time="0" condition="Window.IsVisible(home) | Window.IsActive(fullscreenvideo) | Window.IsActive(musicosd)">Conditional</animation>			
 			
 			<control type="group">
-				<posx>68</posx>
-				<posy>63</posy>
+				<posx>-393.5</posx>
+				<posy>468</posy>
 		
 				<control type="group">
-					<posy>7</posy>
-					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug) + ![Skin.HasSetting(VerticalMenu) + Window.IsActive(home)]">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-450,0" time="200" delay="500" condition="Window.IsActive(infodialog)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsVisible(movieinformation)">Conditional</animation>
 				
 					<control type="image">
-						<width>530</width>
-						<height>80</height>
-						<texture>breeze/dialogs/notification bg.png</texture>
-						<animation type="WindowOpen" reversible="false">
-							<effect type="zoom" start="380,0,80,80" end="0,0,530,80" time="400" center="530,0"/>
-						</animation>
-						<animation type="WindowClose" reversible="false">
-							<effect type="zoom" start="0,0,530,80" end="381,0,80,80" time="250" center="463.7,0" delay="500"/>
-						</animation>
+						<texture>breeze/dialogs/volume bg.png</texture>
 					</control>
-			
-					<control type="group">
-						<posx>450</posx>
-						<posy>-12</posy>
-						<include>Dialogs_VolumeIcon</include>
-						<animation type="WindowOpen" reversible="false">
-							<effect type="zoom" start="50" end="100" center="490,28" time="500" tween="back" easing="out"/>
-							<effect type="fade" start="0" end="100" time="50"/>
-						</animation>
-						<animation type="WindowClose" reversible="false">
-							<effect type="zoom" start="100" end="50" center="490,28" time="500" tween="back" easing="inout"/>
-							<effect type="fade" start="100" end="0" time="1500"/>
-						</animation>
+				
+					<control type="image">
+						<texture>breeze/dialogs/volume icon.png</texture>
+						<visible>!substring(Player.Volume,-60.0)</visible>
+					</control>
+				
+					<control type="image">
+						<texture>breeze/dialogs/volume icon mute.png</texture>
+						<visible>substring(Player.Volume,-60.0)</visible>
 					</control>
 		
 				</control>		
@@ -72,40 +49,30 @@
 					<posx>-85</posx>
 					<posy>2</posy>
 					<visible>!player.passthrough</visible>
-					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug) + ![Skin.HasSetting(VerticalMenu) + Window.IsActive(home)]">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-450,0" time="200" delay="500" condition="Window.IsActive(infodialog)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsVisible(movieinformation)">Conditional</animation>
-					<animation effect="fade" start="0" end="100" time="200" delay="300">WindowOpen</animation>
-					<animation effect="fade" start="100" end="0" time="150" delay="0">WindowClose</animation>
 			
 					<control type="progress" id="20">
-						<include>Dialogs_Progress</include>
+						<include>Dialogs_Volume_Bar</include>
 						<info>Player.Volume</info>
+						<visible>!substring(Player.Volume,-60.0)</visible>
+					</control>
+				
+					<control type="image">
+						<posx>86</posx>
+						<posy>-2</posy>
+						<texture>breeze/dialogs/volume bg mute.png</texture>
+						<visible>substring(Player.Volume,-60.0)</visible>
 					</control>
 		
-					<control type="label" id="1">
-						<posx>540</posx>
-						<include>Dialogs_Label2</include>
-						<width>337</width>
-						<label>$LOCALIZE[13376]: [COLOR FF7f7f7f]$INFO[Player.Volume][/COLOR]</label>
-					</control>
-		
-				</control>
+				</control>	
 	  
 				<control type="group">
 					<posx>-85</posx>
 					<visible>player.passthrough</visible>
-					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug) + ![Skin.HasSetting(VerticalMenu) + Window.IsActive(home)]">Conditional</animation>
-					<animation effect="slide" start="0,0" end="-450,0" time="200" delay="500" condition="Window.IsActive(infodialog)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsVisible(movieinformation)">Conditional</animation>
-					<animation effect="fade" start="0" end="100" time="200" delay="0">WindowOpen</animation>
-					<animation effect="fade" start="100" end="0" time="150" delay="0">WindowClose</animation>
 			
 					<control type="label">
-						<posx>540</posx>
-						<include>Dialogs_Label2</include>
+						<posx>393</posx>
+						<posy>210</posy>
+						<include>Dialogs_Label_Volume</include>
 						<label>29802</label>
 						<width>337</width>
 					</control>

@@ -10,7 +10,7 @@
 	
 	<control type="group">
 		<posx>38</posx>
-		<posy>30</posy>
+		<posy>50</posy>
 		<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 			
 			<control type="grouplist" id="500">
@@ -58,16 +58,6 @@
 					<include>InfoListContextButton</include>
 					<visible>Container.Content(tvshows)</visible>
 					<visible>!Container.Content(movies)</visible>
-				</control>
-				
-				<!--tune-->
-				<control type="button" id="505">
-					<label>$LOCALIZE[31494]</label>
-					<onclick>Close</onclick>
-					<onclick>XBMC.RunScript(script.tvtunes,mode=solo&amp;tvpath=$INFO[ListItem.FilenameAndPath]&amp;tvname=$INFO[ListItem.TVShowTitle])</onclick>
-					<include>InfoListContextButton</include>
-					<enable>system.hasaddon(script.tvtunes)</enable>
-					<visible>Container.Content(tvshows)</visible>
 				</control>
 				
 			</control>

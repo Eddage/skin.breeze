@@ -2,6 +2,8 @@
 
 	<defaultcontrol always="true">9000</defaultcontrol>
 	
+	<allowoverlay>yes</allowoverlay>
+	
 	<controls>
 	
 		<include>CommonSettingsBackground</include>
@@ -175,7 +177,7 @@
 					
 					<control type="button" id="106">
 						<label>$LOCALIZE[31378]</label>
-						<label2>[COLOR=infogreynf]$INFO[Skin.String(ArtistsLogosPath)][/COLOR]</label2>
+						<label2>$INFO[Skin.String(ArtistsLogosPath)]</label2>
 						<include>Default_SettingButton</include>
 						<onclick>Skin.SetPath(ArtistsLogosPath)</onclick>
 					</control>
@@ -299,6 +301,7 @@
 						<include>Default_SettingRadioButton</include>
 						<onclick>Skin.ToggleSetting(HorizDimBG)</onclick>
 						<selected>Skin.HasSetting(HorizDimBG)</selected>
+						<enable>Skin.HasSetting(verticalmenu)</enable>
 					</control>
 					
 					<control type="radiobutton" id="211"> <!--music fanart during playback-->
@@ -333,103 +336,6 @@
 						<selected>Skin.HasSetting(homenowplayingvertvis)</selected>
 					</control>
 					
-					<control type="label" id="260">
-						<textoffsetx>15</textoffsetx>
-						<width>936</width>
-						<height>70</height>
-						<font>breeze32</font>
-						<label>31462</label>
-						<textcolor>blue2</textcolor>
-						<align>left</align>
-						<aligny>center</aligny>
-					</control>
-					
-					<control type="radiobutton" id="261">  <!--hide videos-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[3]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoVideosButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoVideosButton)</selected>
-					</control>
-					
-					<control type="radiobutton" id="262">  <!--hide films-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[20342]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoMovieButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoMovieButton)</selected>
-						<enable>Library.HasContent(Movies)</enable>
-					</control>
-					
-					<control type="radiobutton" id="263">  <!--hide tv shows-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[20343]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoTVShowButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoTVShowButton)</selected>
-						<enable>Library.HasContent(TVShows)</enable>
-					</control>
-          
-					<control type="radiobutton" id="264">  <!--hide music-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[2]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoMusicButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoMusicButton)</selected>
-					</control>
-					
-					<control type="radiobutton" id="265">  <!--hide pictures-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[1]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoPicturesButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoPicturesButton)</selected>
-					</control>
-					
-					<control type="radiobutton" id="266">  <!--hide programs-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[0]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoProgramsButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoProgramsButton)</selected>
-					</control>
-					
-					<control type="radiobutton" id="267">  <!--hide addons-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[24001]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoAddonsButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoAddonsButton)</selected>
-					</control>
-					
-					<control type="radiobutton" id="268">  <!--hide weather-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[8]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoWeatherButton)</selected>
-					</control>
-					
-					<control type="radiobutton" id="269">  <!--hide favourites-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[1036]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoFavouritesButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoFavouritesButton)</selected>
-					</control>
-					
-					<control type="radiobutton" id="270">  <!--hide shutdown-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[13005]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoShutdownButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoShutdownButton)</selected>
-					</control>
-					
-					<control type="radiobutton" id="271">  <!--hide settings-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[13000]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoSettingsButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoSettingsButton)</selected>
-					</control>
-					
-					<control type="radiobutton" id="272">  <!--hide play disc-->
-						<include>Default_SettingRadioButton</include>
-						<label>$LOCALIZE[31111] $LOCALIZE[341]</label>
-						<onclick>Skin.ToggleSetting(HomeMenuNoDiscButton)</onclick>
-						<selected>Skin.HasSetting(HomeMenuNoDiscButton)</selected>
-					</control>
-					
 					<control type="label" id="280">
 						<textoffsetx>15</textoffsetx>
 						<width>936</width>
@@ -441,52 +347,18 @@
 						<aligny>center</aligny>
 					</control>
 					
-					<control type="button" id="282">  <!--configure custom tiles-->
+					<control type="button" id="281">  <!--configure custom tiles-->
 						<include>Default_SettingButton</include>
 						<label>$LOCALIZE[31338]</label>
-						<onclick>ActivateWindow(5001)</onclick>
+						<onclick>ActivateWindow(1117)</onclick>
+						<enable>Skin.HasSetting(verticalmenu)</enable>
 					</control>
 					
-					<control type="button" id="283">  <!--configure custom tiles-->
+					<control type="button" id="282">  <!--configure custom tiles-->
 						<include>Default_SettingButton</include>
 						<label>$LOCALIZE[31339]</label>
-						<onclick>ActivateWindow(5002)</onclick>
-					</control>
-					
-					<control type="button" id="284">  <!--configure custom tiles-->
-						<include>Default_SettingButton</include>
-						<label>$LOCALIZE[31340]</label>
-						<onclick>ActivateWindow(5003)</onclick>
-					</control>
-					
-					<control type="button" id="285">  <!--configure custom tiles-->
-						<include>Default_SettingButton</include>
-						<label>$LOCALIZE[31341]</label>
-						<onclick>ActivateWindow(5004)</onclick>
-					</control>
-					
-					<control type="button" id="286">  <!--configure custom tiles-->
-						<include>Default_SettingButton</include>
-						<label>$LOCALIZE[31342]</label>
-						<onclick>ActivateWindow(5005)</onclick>
-					</control>
-					
-					<control type="button" id="287">  <!--configure custom tiles-->
-						<include>Default_SettingButton</include>
-						<label>$LOCALIZE[31343]</label>
-						<onclick>ActivateWindow(5006)</onclick>
-					</control>
-					
-					<control type="button" id="288">  <!--configure custom tiles-->
-						<include>Default_SettingButton</include>
-						<label>$LOCALIZE[31344]</label>
-						<onclick>ActivateWindow(5007)</onclick>
-					</control>
-					
-					<control type="button" id="289">  <!--configure custom tiles-->
-						<include>Default_SettingButton</include>
-						<label>$LOCALIZE[31345]</label>
-						<onclick>ActivateWindow(5008)</onclick>
+						<onclick>ActivateWindow(1116)</onclick>
+						<enable>!Skin.HasSetting(verticalmenu)</enable>
 					</control>
 					
 				</control>

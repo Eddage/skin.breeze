@@ -1,5 +1,25 @@
-﻿<window id="2004">
-  <defaultcontrol>-</defaultcontrol>
-  <controls>
-  </controls>
+﻿<window id="2904">
+
+	<defaultcontrol>-</defaultcontrol>
+  
+	<controls>
+
+		<control type="group">			
+		
+			<animation type="WindowOpen" reversible="false">
+				<effect type="zoom" start="0" end="100" time="750" delay="500" center="1752.5,42.5" tween="elastic" easing="out" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="zoom" start="100" end="0" time="400" center="1752.5,42.5" tween="back" easing="in" />
+			</animation>
+		
+			<include>Dialogs_Video</include>
+			
+			<animation effect="slide" start="0,0" end="-1570,0" time="0" condition="Skin.HasSetting(VerticalMenu) + Window.IsActive(home)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="61,0" time="0" condition="Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)">Conditional</animation>
+    
+		</control>
+	
+	</controls>
+  
 </window>

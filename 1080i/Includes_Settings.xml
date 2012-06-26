@@ -1,11 +1,11 @@
 <includes>
 	
 	<include name="CustomTileButtonVars">
-		<width>550</width>
+		<width>552</width>
 		<height>50</height>
 		<align>left</align>
 		<aligny>top</aligny>
-		<textoffsetx>20</textoffsetx>
+		<textoffsetx>15</textoffsetx>
 		<textoffsety>0</textoffsety>
 		<font>breeze32</font>
 		<textcolor>infogrey</textcolor>
@@ -14,9 +14,29 @@
 		<texturefocus>breeze/settings/custom tile 2 f.png</texturefocus>
 	</include>
 	
+	<include name="CustomTileButtonVarsRadio">
+		<width>552</width>
+		<height>50</height>
+		<align>left</align>
+		<aligny>top</aligny>
+		<textoffsetx>15</textoffsetx>
+		<textoffsety>0</textoffsety>
+		<radioposx>480</radioposx>
+		<radioposy>11</radioposy>
+		<radiowidth>54</radiowidth>
+		<radioheight>28</radioheight>
+		<font>breeze32</font>
+		<textcolor>infogrey</textcolor>
+		<focusedcolor>white</focusedcolor>
+		<texturenofocus>breeze/settings/custom tile 2 nf.png</texturenofocus>
+		<texturefocus>breeze/settings/custom tile 2 f.png</texturefocus>
+		<textureradiofocus>breeze/settings/radio button f mid.png</textureradiofocus>
+		<textureradionofocus>breeze/settings/radio button mid.png</textureradionofocus>
+	</include>
+	
 	<include name="SettingsCustomDialogButtonVars">
-		<width>550</width>
-		<height>60</height>
+		<width>563</width>
+		<height>61</height>
 		<align>left</align>
 		<aligny>top</aligny>
 		<textoffsetx>20</textoffsetx>
@@ -28,64 +48,20 @@
 		<texturenofocus>-</texturenofocus>
 		<texturefocus>breeze/settings/custom tile f.png</texturefocus>
 	</include>
-	
-	<include name="SettingsCustomDialogRadioButtonVars">
-		<width>532</width>
-		<height>60</height>
-		<align>left</align>
-		<aligny>top</aligny>
-		<textoffsetx>20</textoffsetx>
-		<textoffsety>8</textoffsety>
-		<radioposx>422</radioposx>
-		<font>breeze32</font>
-		<textcolor>infogrey</textcolor>
-		<focusedcolor>white</focusedcolor>
-		<disabledcolor>77585858</disabledcolor>
-		<shadowcolor>20FFFFFF</shadowcolor>
-		<textureradiofocus>buttons/radio/radio-light-fo.png</textureradiofocus>
-		<textureradionofocus>buttons/radio/radio-light-nf.png</textureradionofocus>
-	</include>
 
     <include name="TVTile1">
 	
 		<control type="group">
 			<posy>100</posy>
-	
-			<animation type="WindowOpen" reversible="false">
-				<effect type="zoom" start="50" end="100" center="960,510" easing="out" tween="back" time="500" />
-				<effect type="fade" start="0" end="100" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="zoom" start="100" end="50" center="960,510" easing="in" tween="back" time="500" />
-				<effect type="fade" start="100" end="0" time="400" />
-			</animation>
-	
-			<control type="image">
-				<posx>674</posx>
-				<posy>260</posy>
-				<texture>breeze/settings/custom tile bg.png</texture>
-			</control>
-	
-			<control type="label">
-				<posx>0</posx>
-				<posy>280</posy>
-				<width>1920</width>
-				<label>$LOCALIZE[31338]</label>
-				<font>breeze50</font>
-				<textcolor>infogrey</textcolor>
-				<align>center</align>
-			</control>
 		
 			<control type="grouplist" id="4">
 				<posx>694</posx>
 				<posy>360</posy>
-				<width>550</width>
+				<width>563</width>
 				<height>360</height>
-				<itemgap>0</itemgap>
-				<onup>2406</onup>
-				<ondown>2141</ondown>
-				<onleft>5</onleft>
-				<onright>3</onright>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
 			
@@ -107,10 +83,6 @@
 					<include>SettingsCustomDialogButtonVars</include>
 					<label>$LOCALIZE[573]</label>
 					<label2>$INFO[Skin.String(TVTile1.Path)]</label2>
-					<onclick>Skin.SetString(HomeMenuCustom_Path,TVTile1.Path)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Label,TVTile1.Label)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Icon,TVTile1.Icon)</onclick>
-					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 				
 			</control>
@@ -123,42 +95,15 @@
 	
 		<control type="group">
 			<posy>100</posy>
-	
-			<animation type="WindowOpen" reversible="false">
-				<effect type="zoom" start="50" end="100" center="960,510" easing="out" tween="back" time="500" />
-				<effect type="fade" start="0" end="100" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="zoom" start="100" end="50" center="960,510" easing="in" tween="back" time="500" />
-				<effect type="fade" start="100" end="0" time="400" />
-			</animation>
-	
-			<control type="image">
-				<posx>674</posx>
-				<posy>260</posy>
-				<texture>breeze/settings/custom tile bg.png</texture>
-			</control>
-	
-			<control type="label">
-				<posx>0</posx>
-				<posy>280</posy>
-				<width>1920</width>
-				<label>$LOCALIZE[31339]</label>
-				<font>breeze50</font>
-				<textcolor>infogrey</textcolor>
-				<align>center</align>
-			</control>
 		
 			<control type="grouplist" id="4">
 				<posx>694</posx>
 				<posy>360</posy>
-				<width>550</width>
+				<width>563</width>
 				<height>360</height>
-				<itemgap>0</itemgap>
-				<onup>2406</onup>
-				<ondown>2141</ondown>
-				<onleft>5</onleft>
-				<onright>3</onright>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
 			
@@ -180,10 +125,6 @@
 					<include>SettingsCustomDialogButtonVars</include>
 					<label>$LOCALIZE[573]</label>
 					<label2>$INFO[Skin.String(TVTile2.Path)]</label2>
-					<onclick>Skin.SetString(HomeMenuCustom_Path,TVTile2.Path)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Label,TVTile2.Label)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Icon,TVTile2.Icon)</onclick>
-					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 				
 			</control>
@@ -196,42 +137,15 @@
 	
 		<control type="group">
 			<posy>100</posy>
-	
-			<animation type="WindowOpen" reversible="false">
-				<effect type="zoom" start="50" end="100" center="960,510" easing="out" tween="back" time="500" />
-				<effect type="fade" start="0" end="100" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="zoom" start="100" end="50" center="960,510" easing="in" tween="back" time="500" />
-				<effect type="fade" start="100" end="0" time="400" />
-			</animation>
-	
-			<control type="image">
-				<posx>674</posx>
-				<posy>260</posy>
-				<texture>breeze/settings/custom tile bg.png</texture>
-			</control>
-	
-			<control type="label">
-				<posx>0</posx>
-				<posy>280</posy>
-				<width>1920</width>
-				<label>$LOCALIZE[31340]</label>
-				<font>breeze50</font>
-				<textcolor>infogrey</textcolor>
-				<align>center</align>
-			</control>
 		
 			<control type="grouplist" id="4">
 				<posx>694</posx>
 				<posy>360</posy>
-				<width>550</width>
+				<width>563</width>
 				<height>360</height>
-				<itemgap>0</itemgap>
-				<onup>2406</onup>
-				<ondown>2141</ondown>
-				<onleft>5</onleft>
-				<onright>3</onright>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
 			
@@ -253,10 +167,6 @@
 					<include>SettingsCustomDialogButtonVars</include>
 					<label>$LOCALIZE[573]</label>
 					<label2>$INFO[Skin.String(FilmTile1.Path)]</label2>
-					<onclick>Skin.SetString(HomeMenuCustom_Path,FilmTile1.Path)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Label,FilmTile1.Label)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Icon,FilmTile1.Icon)</onclick>
-					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 			
 			</control>
@@ -269,42 +179,15 @@
 	
 		<control type="group">
 			<posy>100</posy>
-	
-			<animation type="WindowOpen" reversible="false">
-				<effect type="zoom" start="50" end="100" center="960,510" easing="out" tween="back" time="500" />
-				<effect type="fade" start="0" end="100" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="zoom" start="100" end="50" center="960,510" easing="in" tween="back" time="500" />
-				<effect type="fade" start="100" end="0" time="400" />
-			</animation>
-	
-			<control type="image">
-				<posx>674</posx>
-				<posy>260</posy>
-				<texture>breeze/settings/custom tile bg.png</texture>
-			</control>
-	
-			<control type="label">
-				<posx>0</posx>
-				<posy>280</posy>
-				<width>1920</width>
-				<label>$LOCALIZE[31341]</label>
-				<font>breeze50</font>
-				<textcolor>infogrey</textcolor>
-				<align>center</align>
-			</control>
 		
 			<control type="grouplist" id="4">
 				<posx>694</posx>
 				<posy>360</posy>
-				<width>550</width>
+				<width>563</width>
 				<height>360</height>
-				<itemgap>0</itemgap>
-				<onup>2406</onup>
-				<ondown>2141</ondown>
-				<onleft>5</onleft>
-				<onright>3</onright>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
 			
@@ -326,10 +209,6 @@
 					<include>SettingsCustomDialogButtonVars</include>
 					<label>$LOCALIZE[573]</label>
 					<label2>$INFO[Skin.String(FilmTile2.Path)]</label2>
-					<onclick>Skin.SetString(HomeMenuCustom_Path,FilmTile2.Path)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Label,FilmTile2.Label)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Icon,FilmTile2.Icon)</onclick>
-					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 			
 			</control>
@@ -342,42 +221,15 @@
 	
 		<control type="group">
 			<posy>100</posy>
-	
-			<animation type="WindowOpen" reversible="false">
-				<effect type="zoom" start="50" end="100" center="960,510" easing="out" tween="back" time="500" />
-				<effect type="fade" start="0" end="100" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="zoom" start="100" end="50" center="960,510" easing="in" tween="back" time="500" />
-				<effect type="fade" start="100" end="0" time="400" />
-			</animation>
-	
-			<control type="image">
-				<posx>674</posx>
-				<posy>260</posy>
-				<texture>breeze/settings/custom tile bg.png</texture>
-			</control>
-	
-			<control type="label">
-				<posx>0</posx>
-				<posy>280</posy>
-				<width>1920</width>
-				<label>$LOCALIZE[31342]</label>
-				<font>breeze50</font>
-				<textcolor>infogrey</textcolor>
-				<align>center</align>
-			</control>
 		
 			<control type="grouplist" id="4">
 				<posx>694</posx>
 				<posy>360</posy>
-				<width>550</width>
+				<width>563</width>
 				<height>360</height>
-				<itemgap>0</itemgap>
-				<onup>2406</onup>
-				<ondown>2141</ondown>
-				<onleft>5</onleft>
-				<onright>3</onright>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
 			
@@ -399,10 +251,6 @@
 					<include>SettingsCustomDialogButtonVars</include>
 					<label>$LOCALIZE[573]</label>
 					<label2>$INFO[Skin.String(AppTile1.Path)]</label2>
-					<onclick>Skin.SetString(HomeMenuCustom_Path,AppTile1.Path)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Label,AppTile1.Label)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Icon,AppTile1.Icon)</onclick>
-					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 			
 			</control>
@@ -415,42 +263,15 @@
 	
 		<control type="group">
 			<posy>100</posy>
-	
-			<animation type="WindowOpen" reversible="false">
-				<effect type="zoom" start="50" end="100" center="960,510" easing="out" tween="back" time="500" />
-				<effect type="fade" start="0" end="100" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="zoom" start="100" end="50" center="960,510" easing="in" tween="back" time="500" />
-				<effect type="fade" start="100" end="0" time="400" />
-			</animation>
-	
-			<control type="image">
-				<posx>674</posx>
-				<posy>260</posy>
-				<texture>breeze/settings/custom tile bg.png</texture>
-			</control>
-	
-			<control type="label">
-				<posx>0</posx>
-				<posy>280</posy>
-				<width>1920</width>
-				<label>$LOCALIZE[31343]</label>
-				<font>breeze50</font>
-				<textcolor>infogrey</textcolor>
-				<align>center</align>
-			</control>
 		
 			<control type="grouplist" id="4">
 				<posx>694</posx>
 				<posy>360</posy>
-				<width>550</width>
+				<width>563</width>
 				<height>360</height>
-				<itemgap>0</itemgap>
-				<onup>2406</onup>
-				<ondown>2141</ondown>
-				<onleft>5</onleft>
-				<onright>3</onright>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
 			
@@ -472,10 +293,6 @@
 					<include>SettingsCustomDialogButtonVars</include>
 					<label>$LOCALIZE[573]</label>
 					<label2>$INFO[Skin.String(AppTile2.Path)]</label2>
-					<onclick>Skin.SetString(HomeMenuCustom_Path,AppTile2.Path)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Label,AppTile2.Label)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Icon,AppTile2.Icon)</onclick>
-					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 			
 			</control>
@@ -488,42 +305,15 @@
 	
 		<control type="group">
 			<posy>100</posy>
-	
-			<animation type="WindowOpen" reversible="false">
-				<effect type="zoom" start="50" end="100" center="960,510" easing="out" tween="back" time="500" />
-				<effect type="fade" start="0" end="100" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="zoom" start="100" end="50" center="960,510" easing="in" tween="back" time="500" />
-				<effect type="fade" start="100" end="0" time="400" />
-			</animation>
-	
-			<control type="image">
-				<posx>674</posx>
-				<posy>260</posy>
-				<texture>breeze/settings/custom tile bg.png</texture>
-			</control>
-	
-			<control type="label">
-				<posx>0</posx>
-				<posy>280</posy>
-				<width>1920</width>
-				<label>$LOCALIZE[31344]</label>
-				<font>breeze50</font>
-				<textcolor>infogrey</textcolor>
-				<align>center</align>
-			</control>
 		
 			<control type="grouplist" id="4">
 				<posx>694</posx>
 				<posy>360</posy>
-				<width>550</width>
+				<width>563</width>
 				<height>360</height>
-				<itemgap>0</itemgap>
-				<onup>2406</onup>
-				<ondown>2141</ondown>
-				<onleft>5</onleft>
-				<onright>3</onright>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
 			
@@ -545,10 +335,6 @@
 					<include>SettingsCustomDialogButtonVars</include>
 					<label>$LOCALIZE[573]</label>
 					<label2>$INFO[Skin.String(AppTile3.Path)]</label2>
-					<onclick>Skin.SetString(HomeMenuCustom_Path,AppTile3.Path)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Label,AppTile3.Label)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Icon,AppTile3.Icon)</onclick>
-					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 			
 			</control>
@@ -561,42 +347,15 @@
 	
 		<control type="group">
 			<posy>100</posy>
-	
-			<animation type="WindowOpen" reversible="false">
-				<effect type="zoom" start="50" end="100" center="960,510" easing="out" tween="back" time="500" />
-				<effect type="fade" start="0" end="100" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="zoom" start="100" end="50" center="960,510" easing="in" tween="back" time="500" />
-				<effect type="fade" start="100" end="0" time="400" />
-			</animation>
-	
-			<control type="image">
-				<posx>674</posx>
-				<posy>260</posy>
-				<texture>breeze/settings/custom tile bg.png</texture>
-			</control>
-	
-			<control type="label">
-				<posx>0</posx>
-				<posy>280</posy>
-				<width>1920</width>
-				<label>$LOCALIZE[31345]</label>
-				<font>breeze50</font>
-				<textcolor>infogrey</textcolor>
-				<align>center</align>
-			</control>
 		
 			<control type="grouplist" id="4">
 				<posx>694</posx>
 				<posy>360</posy>
-				<width>550</width>
+				<width>563</width>
 				<height>360</height>
-				<itemgap>0</itemgap>
-				<onup>2406</onup>
-				<ondown>2141</ondown>
-				<onleft>5</onleft>
-				<onright>3</onright>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
 			
@@ -618,639 +377,12 @@
 					<include>SettingsCustomDialogButtonVars</include>
 					<label>$LOCALIZE[573]</label>
 					<label2>$INFO[Skin.String(AppTile4.Path)]</label2>
-					<onclick>Skin.SetString(HomeMenuCustom_Path,AppTile4.Path)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Label,AppTile4.Label)</onclick>
-					<onclick>Skin.SetString(HomeMenuCustom_Icon,AppTile4.Icon)</onclick>
-					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 			
 			</control>
 			
 		</control>
 		
-    </include>
-
-	<include name="test">
-	
-		<control type="button" id="460">
-			<description>Run Favourites script</description>
-			<posx>-20</posx>
-			<posy>-20</posy>
-			<width>1</width>
-			<height>1</height>
-			<label>-</label>
-			<font>-</font>
-			<texturenofocus>-</texturenofocus>
-			<texturefocus>-</texturefocus>
-			<onfocus>RunScript(script.favourites,!playlists=play)</onfocus>
-			<onfocus>SetFocus(449)</onfocus>
-		</control>
-		
-		<control type="image">
-			<posx>250</posx>
-			<posy>120</posy>
-			<texture>breeze/settings/custom tile bg.png</texture>
-		</control>
-		
-		<control type="image">
-			<posx>250</posx>
-			<posy>155</posy>
-			<width>781</width>
-			<height>40</height>
-			<texture>osd/osd_settings_buttonnf.png</texture>
-		</control>
-		
-		<control type="label">
-			<description>Header Label</description>
-			<posx>250</posx>
-			<posy>155</posy>
-			<width>849</width>
-			<height>40</height>
-			<textcolor>infogrey</textcolor>
-			<font>breeze50</font>
-			<label>Select shortcut</label>
-			<align>center</align>
-			<aligny>center</aligny>
-		</control>
-		
-		<control type="list" id="449">
-			<posx>290</posx>
-			<posy>240</posy>
-			<width>175</width>
-			<height>500</height>
-			<onright condition="Container(449).Hasfocus(1)">450</onright>
-			<onright condition="Container(449).Hasfocus(2)">451</onright>
-			<onright condition="Container(449).Hasfocus(3)">452</onright>
-			<onright condition="Container(449).Hasfocus(4)">453</onright>
-			<ondown>454</ondown>
-			<pagecontrol>61</pagecontrol>
-			<scrolltime>0</scrolltime>
-			
-			<itemlayout height="60">
-				
-				<control type="label">
-					<posx>150</posx>
-					<posy>0</posy>
-					<width>175</width>
-					<height>60</height>
-					<textcolor>infogrey</textcolor>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>breeze32</font>
-					<info>ListItem.Label</info>
-				</control>
-				
-			</itemlayout>
-			
-			<focusedlayout height="60">
-			
-				<control type="image">
-					<posx>0</posx>
-					<posy>3</posy>
-					<width>175</width>
-					<height>60</height>
-					<texture>breeze/dialogs/media source f.png</texture>
-					<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(449)">conditional</animation>
-				</control>
-				
-				<control type="label">
-					<posx>150</posx>
-					<posy>0</posy>
-					<width>175</width>
-					<height>60</height>
-					<textcolor>white</textcolor>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>breeze32</font>
-					<info>ListItem.Label</info>
-				</control>
-				
-			</focusedlayout>
-			
-			<content>
-			
-				<item id="1">
-					<label>Favourites</label>
-					<onclick>SetFocus(450)</onclick>
-					<onright>SetFocus(450)</onright>
-				</item>
-				
-				<item id="2">
-					<label>TV Shows</label>
-					<onclick>SetFocus(451)</onclick>
-					<onright>SetFocus(451)</onright>
-				</item>
-				
-				<item id="3">
-					<label>Films</label>
-					<onclick>SetFocus(452)</onclick>
-					<onright>SetFocus(452)</onright>
-				</item>
-				
-				<item id="4">
-					<label>Music</label>
-					<onclick>SetFocus(453)</onclick>
-					<onright>SetFocus(453)</onright>
-				</item>
-				
-			</content>
-			
-		</control>
-		
-		<control type="grouplist" id="450"> <!--favourites-->
-			<posx>493</posx>
-			<posy>237</posy>
-			<width>550</width>
-			<height>250</height>
-			<onleft>449</onleft>
-			<onright>63</onright>
-			<ondown>454</ondown>
-			<pagecontrol>63</pagecontrol>
-			<scrolltime>0</scrolltime>
-			<itemgap>0</itemgap>
-			<visible>Container(449).Hasfocus(1)</visible>
-			
-				<control type="button" id="41">
-					<label>$LOCALIZE[231] $LOCALIZE[24040]</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>true</visible>
-				</control>
-				
-				<control type="button" id="21">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.1.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.1.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.1.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.1.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.1.name))</visible>
-				</control>
-				
-				<control type="button" id="22">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.2.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.2.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.2.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.2.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.2.name))</visible>
-				</control>
-				
-				<control type="button" id="23">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.3.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.3.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.3.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.3.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.3.name))</visible>
-				</control>
-				
-				<control type="button" id="24">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.4.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.4.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.4.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.4.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.4.name))</visible>
-				</control>
-				
-				<control type="button" id="25">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.5.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.5.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.5.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.5.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.5.name))</visible>
-				</control>
-				
-				<control type="button" id="26">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.6.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.6.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.6.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.6.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.6.name))</visible>
-				</control>
-				
-				<control type="button" id="27">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.7.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.7.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.7.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.7.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.7.name))</visible>
-				</control>
-				
-				<control type="button" id="28">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.8.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.8.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.8.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.8.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.8.name))</visible>
-				</control>
-				
-				<control type="button" id="29">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.9.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.9.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.9.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.9.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.9.name))</visible>
-				</control>
-				
-				<control type="button" id="30">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.10.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.10.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.10.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.10.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.10.name))</visible>
-				</control>
-				
-				<control type="button" id="31">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.11.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.11.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.11.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.11.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.11.name))</visible>
-				</control>
-				
-				<control type="button" id="32">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.12.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.12.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.12.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.12.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.12.name))</visible>
-				</control>
-				
-				<control type="button" id="33">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.13.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.13.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.13.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.13.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.13.name))</visible>
-				</control>
-				
-				<control type="button" id="34">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.14.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.14.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.14.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.14.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.14.name))</visible>
-				</control>
-				
-				<control type="button" id="35">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.15.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.15.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.15.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.15.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.15.name))</visible>
-				</control>
-				
-				<control type="button" id="36">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.16.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.16.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.16.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.16.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.16.name))</visible>
-				</control>
-				
-				<control type="button" id="37">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.17.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.17.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.17.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.17.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.17.name))</visible>
-				</control>
-				
-				<control type="button" id="38">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.18.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.18.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.18.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.18.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.18.name))</visible>
-				</control>
-				
-				<control type="button" id="39">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.19.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.19.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.19.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.19.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.19.name))</visible>
-				</control>
-				
-				<control type="button" id="40">
-					<include>CustomTileButtonVars</include>
-					<label>$INFO[Window(0).Property(favourite.20.name)]</label>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.20.path)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.20.name)])</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.20.thumb)])</onclick>
-					<onclick>SetFocus(2141)</onclick>
-					<visible>!IsEmpty(Window(0).Property(favourite.20.name))</visible>
-				</control>
-			
-		</control>
-		
-		<control type="grouplist" id="451"> <!--tv show shortcuts-->
-			<posx>493</posx>
-			<posy>237</posy>
-			<width>550</width>
-			<height>250</height>
-			<onleft>449</onleft>
-			<onright>63</onright>
-			<ondown>454</ondown>
-			<pagecontrol>63</pagecontrol>
-			<scrolltime>0</scrolltime>
-			<itemgap>0</itemgap>
-			<visible>Container(449).Hasfocus(2)</visible>
-				
-				<control type="button" id="1">
-					<label>Genres</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowGenres,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="2">
-					<label>Year</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowYears,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="3">
-					<label>Actors</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowActors,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="4">
-					<label>Studios</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowStudios,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-			
-		</control>
-		
-		<control type="grouplist" id="452"> <!--film shortcuts-->
-			<posx>493</posx>
-			<posy>237</posy>
-			<width>550</width>
-			<height>250</height>
-			<onleft>449</onleft>
-			<onright>63</onright>
-			<ondown>454</ondown>
-			<pagecontrol>63</pagecontrol>
-			<scrolltime>0</scrolltime>
-			<itemgap>0</itemgap>
-			<visible>Container(449).HasFocus(3)</visible>
-				
-				<control type="button" id="1">
-					<label>Genres</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieGenres,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="2">
-					<label>Year</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieYears,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="3">
-					<label>Actors</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieActors,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="4">
-					<label>Directors</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieDirectors,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Directors)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="5">
-					<label>Studios</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieStudios,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="6">
-					<label>Countries</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieCountries,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Countries)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon countries.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-		</control>
-		
-		<control type="grouplist" id="453"> <!--music shortcuts-->
-			<posx>493</posx>
-			<posy>237</posy>
-			<width>550</width>
-			<height>250</height>
-			<onleft>449</onleft>
-			<onright>63</onright>
-			<ondown>454</ondown>
-			<pagecontrol>63</pagecontrol>
-			<scrolltime>0</scrolltime>
-			<itemgap>0</itemgap>
-			<visible>Container(449).HasFocus(4)</visible>
-				
-				<control type="button" id="1">
-					<label>Genres</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieGenres,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="2">
-					<label>Year</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieYears,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="3">
-					<label>Actors</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieActors,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="4">
-					<label>Directors</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieDirectors,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Directors)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="5">
-					<label>Studios</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieStudios,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-				
-				<control type="button" id="6">
-					<label>Countries</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieCountries,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Countries)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon countries.png)</onclick>
-					<onclick>SetFocus(2141)</onclick>
-				</control>
-			
-		</control>
-		
-	</include>
-    
-    <include name="PanelDialogHomeNewSingle">
-        <control type="group">
-            <visible>!Window.IsVisible(yesnodialog)</visible>
-            <animation type="Visible" reversible="false">
-            	<effect type="zoom" start="75" end="100" center="960,540" easing="out" tween="back" time="300" />
-            	<effect type="fade" start="0" end="100" time="175" />
-            </animation>
-            <animation type="Hidden" reversible="false">
-            	<effect type="fade" start="100" end="0" time="0" />
-            </animation>
-            <control type="button" id="3">
-                <onfocus>SetFocus(4)</onfocus>
-            </control>
-        	<control type="group">
-        		<include>KeyboardAnimations</include>
-        		<visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml)</visible>
-        		
-        		<control type="label">
-        			<description>Heading</description>
-        			<posx>473</posx>
-        			<posy>278</posy>
-        			<width>974</width>
-        			<font>breeze32</font>
-        			<label>$INFO[Window(1111).property(Dialog)]</label>
-        			<textcolor>infogrey</textcolor>
-        			<align>center</align>
-        		</control>
-        		
-        		<control type="image">
-        			<include>FullscreenDimensions</include>
-        			<texture>windows/settings/settings-customdialog-single.png</texture>
-        		</control>
-        		
-        		<control type="group">
-        			<posx>694</posx>
-        			<posy>360</posy>
-        		    <include condition="StringCompare(Window.Property(SingleDialog),one)">PanelDialogHomeNewVideoTile1</include>
-        		    <include condition="StringCompare(Window.Property(SingleDialog),two)">PanelDialogHomeNewVideoTile2</include>
-        		    <include condition="StringCompare(Window.Property(SingleDialog),three)">PanelDialogHomeNewVideoTile3</include>
-        		    <include condition="StringCompare(Window.Property(SingleDialog),four)">PanelDialogHomeNewVideoTile4</include>
-        		    <include condition="StringCompare(Window.Property(SingleDialog),five)">PanelDialogHomeNewTVShowTile1</include>
-        		    <include condition="StringCompare(Window.Property(SingleDialog),six)">PanelDialogHomeNewTVShowTile2</include>
-        		    <include condition="StringCompare(Window.Property(SingleDialog),seven)">PanelDialogHomeNewProgramTile1</include>
-        		    <include condition="StringCompare(Window.Property(SingleDialog),eight)">PanelDialogHomeNewProgramTile2</include>
-        		    <include condition="StringCompare(Window.Property(SingleDialog),nine)">PanelDialogHomeNewProgramTile3</include>
-        		    <include>AppTile1</include>
-        		    <include>AppTile3</include>
-        		</control> 
-        		
-        		<control type="group">
-        			<posx>682</posx>
-        			<posy>718</posy>
-        			<control type="button" id="5">
-        				<description>Close</description>
-        				<texturefocus>buttons/cancel-fo.png</texturefocus>
-        				<texturenofocus>buttons/cancel-nf.png</texturenofocus>
-        				<include>DialogButtonDimensions</include>
-        				<onleft>3</onleft>
-        				<onright>3</onright>
-        				<onup>3</onup>
-        				<ondown>3</ondown>
-        				<label>$LOCALIZE[42002]</label>
-        				<onclick>PreviousMenu</onclick>
-        			</control>
-        			<control type="label">
-        				<description>Info</description>
-        				<posx>610</posx>
-        				<width>500</width>
-        				<font>Font-Condensed-S26-B</font>
-        				<align>right</align>
-        				<include>DialogButtonDimensions</include>
-        				<label>$LOCALIZE[41154]</label>
-        				<visible>Control.HasFocus(2142)</visible>
-        				<include>visiblehidefadeinfo</include>
-        			</control>
-        		</control>		
-        	</control>
-        </control>
     </include>
 	
 </includes>

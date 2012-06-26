@@ -7,8 +7,6 @@
 			<posy>0</posy>
 			<width>1920</width>
 			<texture>breeze/breadcrumb bg.png</texture>
-			<animation effect="slide" start="0,-100" end="0,0" time="250">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="0,-100" time="250">WindowClose</animation>
 		</control>
 		
 		<!--control type="image"> <!--base bar-->
@@ -29,8 +27,6 @@
 			<textcolor>infogreynf</textcolor>
 			<shadowcolor>-</shadowcolor>
 			<label>$INFO[System.Date(DDD)],  $INFO[System.Date(MMM)] $INFO[System.Date(dd)]  |  $INFO[System.Time]</label>
-			<animation effect="slide" start="0,-100" end="0,0" time="250">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="0,-100" time="250">WindowClose</animation>
 		</control>
 		
 	</include>
@@ -1746,7 +1742,11 @@
 							<onright>13000</onright>
 							<onleft>12002</onleft>
 							<onclick condition="!IsEmpty(Skin.String(TVTile1.Path))">$INFO[Skin.String(TVTile1.Path)]</onclick>
-							<onclick condition="IsEmpty(Skin.String(TVTile1.Path))">ActivateWindow(5001)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile1.Path))">Skin.SetString(Shortcut.Tile,TV1)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile1.Path))">Skin.SetString(HomeMenuCustom_Path,TVTile1.Path)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile1.Path))">Skin.SetString(HomeMenuCustom_Label,TVTile1.Label)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile1.Path))">Skin.SetString(HomeMenuCustom_Icon,TVTile1.Icon)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile1.Path))">ActivateWindow(1115)</onclick>
 							<onback>12999</onback>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
@@ -1763,7 +1763,11 @@
 							<onright>13001</onright>
 							<onleft>12002</onleft>
 							<onclick condition="!IsEmpty(Skin.String(TVTile2.Path))">$INFO[Skin.String(TVTile2.Path)]</onclick>
-							<onclick condition="IsEmpty(Skin.String(TVTile2.Path))">ActivateWindow(5002)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile2.Path))">Skin.SetString(Shortcut.Tile,TV2)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile2.Path))">Skin.SetString(HomeMenuCustom_Path,TVTile2.Path)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile2.Path))">Skin.SetString(HomeMenuCustom_Label,TVTile2.Label)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile2.Path))">Skin.SetString(HomeMenuCustom_Icon,TVTile2.Icon)</onclick>
+							<onclick condition="IsEmpty(Skin.String(TVTile2.Path))">ActivateWindow(1115)</onclick>
 							<onback>12999</onback>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
@@ -2298,7 +2302,11 @@
 							<onright>14000</onright>
 							<onleft>13002</onleft>
 							<onclick condition="!IsEmpty(Skin.String(FilmTile1.Path))">$INFO[Skin.String(FilmTile1.Path)]</onclick>
-							<onclick condition="IsEmpty(Skin.String(FilmTile1.Path))">ActivateWindow(5003)</onclick>
+							<onclick condition="IsEmpty(Skin.String(FilmTile1.Path))">Skin.SetString(Shortcut.Tile,Film1)</onclick>
+							<onclick condition="IsEmpty(Skin.String(FilmTile1.Path))">Skin.SetString(HomeMenuCustom_Path,FilmTile1.Path)</onclick>
+							<onclick condition="IsEmpty(Skin.String(FilmTile1.Path))">Skin.SetString(HomeMenuCustom_Label,FilmTile1.Label)</onclick>
+							<onclick condition="IsEmpty(Skin.String(FilmTile1.Path))">Skin.SetString(HomeMenuCustom_Icon,FilmTile1.Icon)</onclick>
+							<onclick condition="IsEmpty(Skin.String(FilmTile1.Path))">ActivateWindow(1115)</onclick>
 							<onback>13999</onback>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
@@ -2315,7 +2323,11 @@
 							<onright>14001</onright>
 							<onleft>13002</onleft>
 							<onclick condition="!IsEmpty(Skin.String(FilmTile2.Path))">$INFO[Skin.String(FilmTile2.Path)]</onclick>
-							<onclick condition="IsEmpty(Skin.String(FilmTile2.Path))">ActivateWindow(5004)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile2.Path))">Skin.SetString(Shortcut.Tile,Film2)</onclick>
+							<onclick condition="IsEmpty(Skin.String(FilmTile2.Path))">Skin.SetString(HomeMenuCustom_Path,FilmTile2.Path)</onclick>
+							<onclick condition="IsEmpty(Skin.String(FilmTile2.Path))">Skin.SetString(HomeMenuCustom_Label,FilmTile2.Label)</onclick>
+							<onclick condition="IsEmpty(Skin.String(FilmTile2.Path))">Skin.SetString(HomeMenuCustom_Icon,FilmTile2.Icon)</onclick>
+							<onclick condition="IsEmpty(Skin.String(FilmTile2.Path))">ActivateWindow(1115)</onclick>
 							<onback>13999</onback>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
@@ -3339,7 +3351,7 @@
 							<width>118</width>
 							<height>118</height>
 							<aspectratio>stretch</aspectratio>
-							<texture diffuse="breeze/home/music new tile dif.png">$INFO[Window.Property(LatestAlbum.1.Thumb)]</texture>
+							<texture diffuse="breeze/home/music new tile dif.png" fallback="DefaultAlbumCover.png">$INFO[Window.Property(LatestAlbum.1.Thumb)]</texture>
 						</control>
       
 						<control type="label">
@@ -3389,7 +3401,7 @@
 							<width>118</width>
 							<height>118</height>
 							<aspectratio>stretch</aspectratio>
-							<texture diffuse="breeze/home/music new tile dif.png">$INFO[Window.Property(LatestAlbum.2.Thumb)]</texture>
+							<texture diffuse="breeze/home/music new tile dif.png" fallback="DefaultAlbumCover.png">$INFO[Window.Property(LatestAlbum.2.Thumb)]</texture>
 						</control>
       
 						<control type="label">
@@ -3439,7 +3451,7 @@
 							<width>118</width>
 							<height>118</height>
 							<aspectratio>stretch</aspectratio>
-							<texture diffuse="breeze/home/music new tile dif.png">$INFO[Window.Property(LatestAlbum.3.Thumb)]</texture>
+							<texture diffuse="breeze/home/music new tile dif.png" fallback="DefaultAlbumCover.png">$INFO[Window.Property(LatestAlbum.3.Thumb)]</texture>
 						</control>
       
 						<control type="label">
@@ -3489,7 +3501,7 @@
 							<width>118</width>
 							<height>118</height>
 							<aspectratio>stretch</aspectratio>
-							<texture diffuse="breeze/home/music new tile dif.png">$INFO[Window.Property(LatestAlbum.4.Thumb)]</texture>
+							<texture diffuse="breeze/home/music new tile dif.png" fallback="DefaultAlbumCover.png">$INFO[Window.Property(LatestAlbum.4.Thumb)]</texture>
 						</control>
       
 						<control type="label">
@@ -3794,7 +3806,11 @@
 							<onright>15006</onright>
 							<onleft>15002</onleft>
 							<onclick condition="!IsEmpty(Skin.String(AppTile1.Path))">$INFO[Skin.String(AppTile1.Path)]</onclick>
-							<onclick condition="IsEmpty(Skin.String(AppTile1.Path))">ActivateWindow(5005)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile1.Path))">Skin.SetString(Shortcut.Tile,App1)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile1.Path))">Skin.SetString(HomeMenuCustom_Path,AppTile1.Path)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile1.Path))">Skin.SetString(HomeMenuCustom_Label,AppTile1.Label)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile1.Path))">Skin.SetString(HomeMenuCustom_Icon,AppTile1.Icon)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile1.Path))">ActivateWindow(1115)</onclick>
 							<onback>15999</onback>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
@@ -3808,7 +3824,11 @@
 							<onright>15007</onright>
 							<onleft>15003</onleft>
 							<onclick condition="!IsEmpty(Skin.String(AppTile2.Path))">$INFO[Skin.String(AppTile2.Path)]</onclick>
-							<onclick condition="IsEmpty(Skin.String(AppTile2.Path))">ActivateWindow(5006)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile2.Path))">Skin.SetString(Shortcut.Tile,App2)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile2.Path))">Skin.SetString(HomeMenuCustom_Path,AppTile2.Path)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile2.Path))">Skin.SetString(HomeMenuCustom_Label,AppTile2.Label)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile2.Path))">Skin.SetString(HomeMenuCustom_Icon,AppTile2.Icon)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile2.Path))">ActivateWindow(1115)</onclick>
 							<onback>15999</onback>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
@@ -3822,7 +3842,11 @@
 							<onright>16000</onright>
 							<onleft>15004</onleft>
 							<onclick condition="!IsEmpty(Skin.String(AppTile3.Path))">$INFO[Skin.String(AppTile3.Path)]</onclick>
-							<onclick condition="IsEmpty(Skin.String(AppTile3.Path))">ActivateWindow(5007)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile3.Path))">Skin.SetString(Shortcut.Tile,App3)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile3.Path))">Skin.SetString(HomeMenuCustom_Path,AppTile3.Path)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile3.Path))">Skin.SetString(HomeMenuCustom_Label,AppTile3.Label)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile3.Path))">Skin.SetString(HomeMenuCustom_Icon,AppTile3.Icon)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile3.Path))">ActivateWindow(1115)</onclick>
 							<onback>15999</onback>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
@@ -3837,7 +3861,11 @@
 							<onright>16001</onright>
 							<onleft>15005</onleft>
 							<onclick condition="!IsEmpty(Skin.String(AppTile4.Path))">$INFO[Skin.String(AppTile4.Path)]</onclick>
-							<onclick condition="IsEmpty(Skin.String(AppTile4.Path))">ActivateWindow(5008)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile4.Path))">Skin.SetString(Shortcut.Tile,App4)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile4.Path))">Skin.SetString(HomeMenuCustom_Path,AppTile4.Path)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile4.Path))">Skin.SetString(HomeMenuCustom_Label,AppTile4.Label)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile4.Path))">Skin.SetString(HomeMenuCustom_Icon,AppTile4.Icon)</onclick>
+							<onclick condition="IsEmpty(Skin.String(AppTile4.Path))">ActivateWindow(1115)</onclick>
 							<onback>15999</onback>
 							<texturenofocus>-</texturenofocus>
 							<texturefocus>-</texturefocus>
@@ -4518,7 +4546,6 @@
 						</control>
 			
 						<control type="label">
-							<description>Date/Time</description>
 							<posx>760</posx>
 							<posy>255</posy>
 							<width>310</width>
@@ -4531,7 +4558,6 @@
 						</control>
 			
 						<control type="label">
-							<description>Date/Time</description>
 							<posx>760</posx>
 							<posy>310</posy>
 							<width>310</width>
@@ -4544,39 +4570,36 @@
 						</control>
 			
 						<control type="label">
-							<description>Date/Time</description>
 							<posx>760</posx>
 							<posy>365</posy>
 							<width>310</width>
 							<height>35</height>
 							<font>breeze32</font>
-							<label>$INFO[Window(weather).Property(36Hour.1.Precipitation),,%]</label>
+							<label>$INFO[Window(weather).Property(Current.Precipitation)]</label>
 							<align>right</align>
 							<aligny>center</aligny>
 							<textcolor>infogrey</textcolor>
 						</control>
 			
 						<control type="label">
-							<description>Date/Time</description>
 							<posx>760</posx>
 							<posy>420</posy>
 							<width>310</width>
 							<height>35</height>
 							<font>breeze32</font>
-							<label>$INFO[Window(weather).Property(Current.Sunrise)]</label>
+							<label>$INFO[Window(weather).Property(Today.Sunrise)]</label>
 							<align>right</align>
 							<aligny>center</aligny>
 							<textcolor>infogrey</textcolor>
 						</control>
 			
 						<control type="label">
-							<description>Date/Time</description>
 							<posx>760</posx>
 							<posy>475</posy>
 							<width>310</width>
 							<height>35</height>
 							<font>breeze32</font>
-							<label>$INFO[Window(weather).Property(Current.Sunset)]</label>
+							<label>$INFO[Window(weather).Property(Today.Sunset)]</label>
 							<align>right</align>
 							<aligny>center</aligny>
 							<textcolor>infogrey</textcolor>
@@ -4619,7 +4642,7 @@
 							<description>Day label</description>
 							<posx>955</posx>
 							<posy>20</posy>
-							<width>189</width>
+							<width>250</width>
 							<height>35</height>
 							<font>breeze28b</font>
 							<info>Window(weather).Property(Daily.1.LongDay)</info>
@@ -4630,9 +4653,9 @@
 			
 						<control type="label">
 							<description>Outlook label</description>
-							<posx>950</posx>
+							<posx>955</posx>
 							<posy>50</posy>
-							<width>189</width>
+							<width>240</width>
 							<height>35</height>
 							<font>breeze28</font>
 							<info>Window(weather).Property(Daily.1.Outlook)</info>
@@ -4645,7 +4668,7 @@
 							<description>High/Low</description>
 							<posx>950</posx>
 							<posy>80</posy>
-							<width>189</width>
+							<width>240</width>
 							<height>35</height>
 							<font>breeze28</font>
 							<label>$INFO[Window(weather).Property(Daily.1.LowTemperature), $LOCALIZE[418]: ] $INFO[Window(weather).Property(Daily.1.HighTemperature), $LOCALIZE[419]: ]</label>
@@ -4681,7 +4704,7 @@
 							<description>Day label</description>
 							<posx>955</posx>
 							<posy>20</posy>
-							<width>189</width>
+							<width>240</width>
 							<height>35</height>
 							<font>breeze28b</font>
 							<info>Window(weather).Property(Daily.2.LongDay)</info>
@@ -4692,9 +4715,9 @@
 			
 						<control type="label">
 							<description>Outlook label</description>
-							<posx>950</posx>
+							<posx>955</posx>
 							<posy>50</posy>
-							<width>189</width>
+							<width>240</width>
 							<height>35</height>
 							<font>breeze28</font>
 							<info>Window(weather).Property(Daily.2.Outlook)</info>
@@ -4707,7 +4730,7 @@
 							<description>High/Low</description>
 							<posx>950</posx>
 							<posy>80</posy>
-							<width>189</width>
+							<width>240</width>
 							<height>35</height>
 							<font>breeze28</font>
 							<label>$INFO[Window(weather).Property(Daily.2.LowTemperature), $LOCALIZE[418]: ] $INFO[Window(weather).Property(Daily.2.HighTemperature), $LOCALIZE[419]: ]</label>
@@ -4754,9 +4777,9 @@
 			
 						<control type="label">
 							<description>Outlook label</description>
-							<posx>950</posx>
+							<posx>955</posx>
 							<posy>50</posy>
-							<width>189</width>
+							<width>240</width>
 							<height>35</height>
 							<font>breeze28</font>
 							<info>Window(weather).Property(Daily.3.Outlook)</info>
@@ -4769,7 +4792,7 @@
 							<description>High/Low</description>
 							<posx>950</posx>
 							<posy>80</posy>
-							<width>189</width>
+							<width>240</width>
 							<height>35</height>
 							<font>breeze28</font>
 							<label>$INFO[Window(weather).Property(Daily.3.LowTemperature), $LOCALIZE[418]: ] $INFO[Window(weather).Property(Daily.3.HighTemperature), $LOCALIZE[419]: ]</label>
@@ -4816,9 +4839,9 @@
 			
 						<control type="label">
 							<description>Outlook label</description>
-							<posx>950</posx>
+							<posx>955</posx>
 							<posy>50</posy>
-							<width>189</width>
+							<width>240</width>
 							<height>35</height>
 							<font>breeze28</font>
 							<info>Window(weather).Property(Daily.4.Outlook)</info>
@@ -4831,7 +4854,7 @@
 							<description>High/Low</description>
 							<posx>950</posx>
 							<posy>80</posy>
-							<width>189</width>
+							<width>240</width>
 							<height>35</height>
 							<font>breeze28</font>
 							<label>$INFO[Window(weather).Property(Daily.4.LowTemperature), $LOCALIZE[418]: ] $INFO[Window(weather).Property(Daily.4.HighTemperature), $LOCALIZE[419]: ]</label>
@@ -5106,7 +5129,7 @@
 			
 					<control type="image">
 						<posx>265</posx>
-						<texture>breeze/home/tv tile.png</texture>
+						<texture>breeze/home/film tile.png</texture>
 					</control>
 			
 					<control type="image">
@@ -5451,8 +5474,6 @@
 			<posx>1788</posx>
 			<posy>17</posy>
 			<orientation>horizontal</orientation>
-			<animation effect="slide" start="0,-100" end="0,0" time="250">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="0,-100" time="250">WindowClose</animation>
 			
 			<control type="image"> <!--settings button-->
 				<width>51</width>
@@ -5552,7 +5573,18 @@
 				<height>118</height>
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<texture background="true" fallback="$INFO[VideoPlayer.Cover]" diffuse="breeze/home/music new tile dif.png">$INFO[Player.FolderPath,,/../folder.jpg]</texture>
-				<visible>Player.HasVideo</visible>
+				<visible>Player.HasVideo + VideoPlayer.Content(episodes)</visible>
+			</control>
+			
+			<control type="image"> <!--video thumb-->
+				<description>Cover image</description>
+				<posx>10</posx>
+				<posy>10</posy>
+				<width>118</width>
+				<height>118</height>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<texture background="true" fallback="$INFO[VideoPlayer.Cover]" diffuse="breeze/home/music new tile dif.png">$INFO[VideoPlayer.Cover]</texture>
+				<visible>Player.HasVideo + VideoPlayer.Content(movies)</visible>
 			</control>
 			
 			<control type="group"> <!--song info-->

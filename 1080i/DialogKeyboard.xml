@@ -14,38 +14,43 @@
 			<width>1920</width>
 			<height>1080</height>
 			<texture>breeze/bg 75.png</texture>
+			<visible>Window.IsVisible(home)</visible>
 		</control> 
 	
 		<control type="image" id="0">
 			<description>Panel</description>
 			<texture>breeze/keyboard/bg.png</texture>
 			<posx>431.5</posx>
-			<posy>130</posy>
+			<posy>118</posy>
 			<include>Animation_DialogPopup</include>
+			<animation effect="slide" start="0,0" end="0,110" time="0" condition="Window.IsVisible(home)">Conditional</animation>
 		</control>
 	
 		<control type="label" id="311">
 			<description>Dialog heading</description>
 			<posx>0</posx>
-			<posy>143</posy>
+			<posy>167</posy>
 			<width>1920</width>
 			<height>22</height>
 			<font>breeze50</font>
 			<align>center</align>
+			<aligny>center</aligny>
 			<include>Animation_DialogPopup</include>
+			<animation effect="slide" start="0,0" end="0,110" time="0" condition="Window.IsVisible(home)">Conditional</animation>
 		</control>
 	
 		<control type="group">
 			<posx>431.5</posx>
-			<posy>164</posy>
+			<posy>162</posy>
 			<width>545</width>
 			<height>289</height>
 			<include>Animation_DialogPopup</include>
+			<animation effect="slide" start="0,0" end="0,110" time="0" condition="Window.IsVisible(home)">Conditional</animation>
 		
 			<control type="label" id="310">
 				<description>Edit Text</description>
 				<posx>60</posx>
-				<posy>478</posy>
+				<posy>488</posy>
 				<width>937</width>
 				<height>22</height>
 				<font>breeze36</font>

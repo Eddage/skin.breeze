@@ -4,8 +4,6 @@
 	
 	<allowoverlay>no</allowoverlay>
 	
-	<!--onload>XBMC.PlayMedia(special://skin/intro.mkv)</onload-->
-	
 	<controls>
 	
 		<include>Loading</include>
@@ -13,10 +11,9 @@
 		<control type="button" id="10">
 			<include>HiddenObject</include>
 			<onfocus>SetProperty(Startup,1)</onfocus>
-			<onfocus condition="System.HasAddon(script.randomitems)">RunScript(script.randomitems,limit=5&amp;albums=True)</onfocus>
-			<onfocus condition="Skin.HasSetting(HorizontalMenu) + System.HasAddon(script.watchlist)">RunScript(script.watchlist,movies=true&amp;episodes=true&amp;limit=5)</onfocus>
-			<onfocus condition="Skin.HasSetting(HorizontalMenu)">SetFocus(11)</onfocus>
-			<onfocus condition="!Skin.HasSetting(HorizontalMenu)">SetFocus(12)</onfocus>
+			<onfocus>RunScript(script.randomitems,limit=5&amp;albums=True)</onfocus>
+			<onfocus>RunScript(script.watchlist,movies=true&amp;episodes=true&amp;limit=5)</onfocus>
+			<onfocus>SetFocus(11)</onfocus>
 		</control>
 		
 		<!-- Show home if watchlist loading is finished -->

@@ -4,26 +4,16 @@
 	
 	<coordinates>
 		<system>1</system>
-		<posx>0</posx>
-		<posy>0</posy>
+		<posx>84</posx>
+		<posy>-11</posy>
 	</coordinates>
+	
 	<controls>
-	  
-		<control type="image"> <!--background overlay (white)-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<texture>breeze/bg 75.png</texture>
-			<visible>!Window.IsVisible(virtualkeyboard)</visible>
-		</control> 
 	
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(AddonSettings)">Conditional</animation>
-			<posx>395</posx>
+			<posx>431.5</posx>
 			<posy>196</posy>
-			<width>847</width>
-			<height>328</height>		
 	
 			<include>Animation_DialogPopup</include>
 			
@@ -34,22 +24,34 @@
 				<texture>breeze/dialogs/content settings bg.png</texture>
 			</control>
 			
-			<control type="image">
+			<!--control type="image">
 				<description>background image</description>
-				<posx>647</posx>
-				<posy>68</posy>
+				<posx>0</posx>
+				<posy>0</posy>
 				<texture>breeze/dialogs/content settings highlight.png</texture>
 				<visible>Control.HasFocus(4)</visible>
+			</control-->
+    
+			<control type="label" id="1"> <!--header-->
+				<posx>40</posx>
+				<posy>40</posy>
+				<width>800</width>
+				<height>40</height>
+				<textcolor>infogrey</textcolor>
+				<font>breeze60</font>
+				<label>20333</label>
+				<align>center</align>
+				<aligny>center</aligny>
 			</control>
 			
 			<control type="spincontrolex" id="3">
 				<!--content picker-->
 				<description>Content Picker</description>
-				<posx>25</posx>
-				<posy>35</posy>
-				<width>610</width>
+				<posx>36</posx>
+				<posy>110</posy>
+				<width>813</width>
 				<height>60</height>
-				<font>breeze28</font>
+				<font>breeze32</font>
 				<texturefocus>breeze/dialogs/content settings focused bg.png</texturefocus>
 				<texturenofocus>-</texturenofocus>
 				<textureup>breeze/settings/spin up.png</textureup>
@@ -63,18 +65,16 @@
 				<spinwidth>32</spinwidth>
 				<spinheight>60</spinheight>
 				<textoffsetx>20</textoffsetx>
-				<onup>5</onup>
-				<ondown>5</ondown>
-				<onleft>28</onleft>
-				<onright>4</onright>
+				<onup>28</onup>
+				<ondown>4</ondown>
 				<aligny>center</aligny>
 				<subtype>text</subtype>
 			</control>
 			
 			<control type="label" id="1000">
 				<description>directory contains label</description>
-				<posx>42</posx>
-				<posy>43</posy>
+				<posx>57</posx>
+				<posy>118</posy>
 				<width>504</width>
 				<height>41</height>
 				<texturefocus>-</texturefocus>
@@ -89,8 +89,8 @@
 			
 			<control type="label" id="1000">
 				<description>directory contains label</description>
-				<posx>42</posx>
-				<posy>43</posy>
+				<posx>57</posx>
+				<posy>118</posy>
 				<width>504</width>
 				<height>41</height>
 				<texturefocus>-</texturefocus>
@@ -103,83 +103,92 @@
 				<visible>Control.HasFocus(3)</visible>
 			</control>
 			
+            <control type="image">
+                <description>Used Scraper Image</description>
+                <posx>692</posx>
+                <posy>187</posy>
+                <width>150</width>
+                <height>150</height>
+                <aspectratio>keep</aspectratio>
+                <texture>$INFO[ListItem.Icon]</texture>
+            </control>
+			
 			<control type="list" id="4">
 				<!--scraper list-->
-				<posx>675</posx>
-				<posy>70</posy>
-				<width>600</width>
-				<height>246</height>
-				<onup>4</onup>
-				<ondown>4</ondown>
-				<onleft>3</onleft>
-				<onright>28</onright>
+				<posx>40</posx>
+				<posy>188</posy>
+				<width>650</width>
+				<height>150</height>
+				<onup>3</onup>
+				<ondown>5</ondown>
 				<scrolltime>200</scrolltime>
 				
-				<itemlayout height="60">
+				<itemlayout height="50">
+					
+					<control type="image">
+						<posx>0</posx>
+						<width>641</width>
+						<texture>breeze/settings/custom tile 2 nf.png</texture>
+					</control>
 					
 					<control type="label">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>200</width>
-						<height>60</height>
-						<textcolor>90ffffff</textcolor>
+						<posx>15</posx>
+						<posy>-3</posy>
+						<width>610</width>
+						<height>50</height>
+						<textcolor>infogrey</textcolor>
 						<selectedcolor>blue2</selectedcolor>
 						<aligny>center</aligny>
 						<font>breeze32</font>
 						<align>left</align>
 						<info>ListItem.Label</info>
-						<visible>Control.HasFocus(4)</visible>
-					</control>
-					
-					<control type="label">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>200</width>
-						<height>60</height>
-						<textcolor>infogrey</textcolor>
-						<aligny>center</aligny>
-						<font>breeze32</font>
-						<align>left</align>
-						<info>ListItem.Label</info>
-						<visible>!Control.HasFocus(4)</visible>
 					</control>
 					
 				</itemlayout>
 				
-				<focusedlayout height="60">
-				
-					<control type="group">
+				<focusedlayout height="50">
+					
+					<control type="image">
+						<width>641</width>
+						<texture>breeze/settings/custom tile 2 f.png</texture>
+						<visible>Control.HasFocus(4)</visible>
+					</control>
+					
+					<control type="image">
+						<posx>0</posx>
+						<width>641</width>
+						<texture>breeze/settings/custom tile 2 nf.png</texture>
+						<visible>!Control.HasFocus(4)</visible>
+					</control>
 					
 					<control type="label">
-						<posx>0</posx>
-						<posy>0</posy>
+						<posx>15</posx>
+						<posy>-3</posy>
+						<width>610</width>
+						<height>50</height>
+						<textcolor>infogrey</textcolor>
+						<selectedcolor>blue2</selectedcolor>
+						<aligny>center</aligny>
+						<font>breeze32</font>
+						<align>left</align>
+						<info>ListItem.Label</info>
+						<scroll>true</scroll>
+						<visible>!Control.HasFocus(4)</visible>
+					</control>
+					
+					<control type="label">
+						<posx>15</posx>
+						<posy>-3</posy>
 						<width>205</width>
-						<height>60</height>
+						<height>50</height>
 						<textcolor>white</textcolor>
 						<selectedcolor>white</selectedcolor>
 						<aligny>center</aligny>
-						<font>breeze32b</font>
+						<font>breeze32</font>
 						<align>left</align>
 						<info>ListItem.Label</info>
-						<visible>Control.HasFocus(4)</visible>
 						<scroll>true</scroll>
-					</control>
-					
-					<control type="label">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>205</width>
-						<height>60</height>
-						<textcolor>blue2</textcolor>
-						<selectedcolor>blue2</selectedcolor>
-						<aligny>center</aligny>
-						<font>breeze32b</font>
-						<align>left</align>
-						<info>ListItem.Label</info>
-						<visible>!Control.HasFocus(4)</visible>
-						<scroll>false</scroll>
-					</control>
-					
+						<visible>Control.HasFocus(4)</visible>
 					</control>
 				
 				</focusedlayout>
@@ -188,15 +197,13 @@
 			
 			<control type="grouplist" id="5">
 				<description>control area</description>
-				<posx>25</posx>
-				<posy>100</posy>
-				<width>610</width>
+				<posx>35</posx>
+				<posy>352</posy>
+				<width>813</width>
 				<height>320</height>
-				<itemgap>5</itemgap>
-				<onup>3</onup>
-				<ondown>3</ondown>
-				<onleft>28</onleft>
-				<onright>4</onright>
+				<itemgap>-5</itemgap>
+				<onup>4</onup>
+				<ondown>28</ondown>
 			</control>
 			
 			<control type="button" id="7">
@@ -221,13 +228,13 @@
 			<control type="radiobutton" id="8">
 				<posx>0</posx>
 				<posy>0</posy>
-				<width>500</width>
+				<width>730</width>
 				<height>60</height>
 				<font>breeze32</font>
 				<textcolor>infogrey</textcolor>
 				<focusedcolor>white</focusedcolor>
 				<pulseonselect>false</pulseonselect>
-				<radioposx>520</radioposx>
+				<radioposx>727</radioposx>
 				<radioposy>15</radioposy>
 				<radiowidth>64</radiowidth>
 				<radioheight>33</radioheight>
@@ -241,77 +248,67 @@
 			</control>
 			
 			<control type="group">
-				<posx>235</posx>
-				<posy>-20</posy>
-			
-			<control type="button" id="6">
-				<description>settings button</description>
-				<posx>689</posx>
-				<posy>160</posy>
-				<width>175</width>
-				<height>60</height>
-				<font>breeze32</font>
-				<label>5</label>
-				<align>left</align>
-				<aligny>top</aligny>
-				<textcolor>infogrey</textcolor>
-				<focusedcolor>white</focusedcolor>
-				<selectedcolor>white</selectedcolor>
-				<textoffsetx>20</textoffsetx>
-				<textoffsety>4</textoffsety>
-				<onleft>4</onleft>
-				<onright>3</onright>
-				<onup>28</onup>
-				<ondown>29</ondown>
-				<texturenofocus>-</texturenofocus>
-				<texturefocus>breeze/dialogs/media source f.png</texturefocus>
-			</control>
-			
-			<control type="button" id="29">
-				<description>cancel button</description>
-				<posx>689</posx>
-				<posy>220</posy>
-				<width>175</width>
-				<height>60</height>
-				<font>breeze32</font>
-				<label>222</label>
-				<align>left</align>
-				<aligny>top</aligny>
-				<textcolor>infogrey</textcolor>
-				<focusedcolor>white</focusedcolor>
-				<selectedcolor>white</selectedcolor>
-				<textoffsetx>20</textoffsetx>
-				<textoffsety>5</textoffsety>
-				<onleft>4</onleft>
-				<onright>3</onright>
-				<onup>6</onup>
-				<ondown>28</ondown>
-				<texturenofocus>-</texturenofocus>
-				<texturefocus>breeze/dialogs/media source f.png</texturefocus>
-			</control>
-			
-			<control type="button" id="28">
-				<description>ok button</description>
-				<posx>689</posx>
-				<posy>280</posy>
-				<width>175</width>
-				<height>60</height>
-				<font>breeze32</font>
-				<label>186</label>
-				<align>left</align>
-				<aligny>top</aligny>
-				<textcolor>infogrey</textcolor>
-				<focusedcolor>white</focusedcolor>
-				<selectedcolor>white</selectedcolor>
-				<textoffsetx>20</textoffsetx>
-				<textoffsety>5</textoffsety>
-				<onleft>4</onleft>
-				<onright>3</onright>
-				<onup>29</onup>
-				<ondown>6</ondown>
-				<texturenofocus>-</texturenofocus>
-				<texturefocus>breeze/dialogs/media source f.png</texturefocus>
-			</control>
+				<posx>10</posx>
+				<posy>43</posy>
+    
+				<control type="button" id="28">
+					<description>Manual Button</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/select button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/select button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>424</label>
+					<textoffsetx>60</textoffsetx>
+					<onleft>6</onleft>
+					<onright>29</onright>
+					<onup>5</onup>
+					<ondown>3</ondown>
+				</control>
+    
+				<control type="button" id="29">
+					<description>Manual Button</description>
+					<posx>200</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/close button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/close button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>222</label>
+					<textoffsetx>60</textoffsetx>
+					<onleft>28</onleft>
+					<onright>6</onright>
+					<onup>5</onup>
+					<ondown>3</ondown>
+					<onclick>close</onclick>
+				</control>
+    
+				<control type="button" id="6">
+					<description>Manual Button</description>
+					<posx>590</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/settings button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/settings button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>5</label>
+					<textoffsetx>100</textoffsetx>
+					<onleft>29</onleft>
+					<onright>28</onright>
+					<onup>5</onup>
+					<ondown>3</ondown>
+					<onclick>close</onclick>
+				</control>
 			
 			</control>
 		

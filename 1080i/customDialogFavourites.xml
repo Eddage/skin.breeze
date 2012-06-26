@@ -2,169 +2,169 @@
 <window type="dialog" id="1115">
 
 	<defaultcontrol always="true">460</defaultcontrol>
+	<onload>Skin.SetString(Shortcut.Type,0)</onload>
+	<onload>Skin.SetString(Shortcut.TypeName,Favourites)</onload>
 	
 	<coordinates>
 		<system>1</system>
-		<posx>300</posx>
-		<posy>185</posy>
+		<posx>0</posx>
+		<posy>0</posy>
 	</coordinates>
 	
-    <animation type="WindowOpen" reversible="false">
-      <effect type="zoom" start="80" end="100" center="960,540" easing="out" tween="back" time="300" />
-      <effect type="fade" start="0" end="100" time="300" />
-    </animation>
-    <animation type="WindowClose" reversible="false">
-      <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="300" />
-      <effect type="fade" start="100" end="0" time="300" />
-    </animation>
-	
 	<controls>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+			<visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(filebrowser)</visible>
+		</control>
 	
-		<control type="button" id="460">
-			<description>Run Favourites script</description>
-			<posx>-20</posx>
-			<posy>-20</posy>
-			<width>1</width>
-			<height>1</height>
-			<label>-</label>
-			<font>-</font>
-			<texturenofocus>-</texturenofocus>
-			<texturefocus>-</texturefocus>
-			<onfocus>RunScript(script.favourites,!playlists=play)</onfocus>
-			<onfocus>SetFocus(449)</onfocus>
-		</control>
+		<control type="group">
+			<posx>643.5</posx>
+			<posy>128</posy>
+			<visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(filebrowser)</visible>
+			<include>Animation_DialogPopup</include>
+			<animation effect="slide" start="0,0" end="0,110" time="0" condition="Window.IsVisible(home)">Conditional</animation>
+	
+			<control type="button" id="460">
+				<description>Run Favourites script</description>
+				<posx>-20</posx>
+				<posy>-20</posy>
+				<width>1</width>
+				<height>1</height>
+				<label>-</label>
+				<font>-</font>
+				<texturenofocus>-</texturenofocus>
+				<texturefocus>-</texturefocus>
+				<onfocus>RunScript(script.favourites,!playlists=play)</onfocus>
+				<onfocus>SetFocus(2405)</onfocus>
+			</control>
 		
-		<control type="image">
-			<posx>250</posx>
-			<posy>120</posy>
-			<texture>breeze/settings/custom favourites bg.png</texture>
-		</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<texture>breeze/settings/custom favourites bg.png</texture>			
+			</control>
 		
-		<control type="image">
-			<posx>250</posx>
-			<posy>155</posy>
-			<width>781</width>
-			<height>40</height>
-			<texture>osd/osd_settings_buttonnf.png</texture>
-		</control>
+			<control type="label">
+				<description>Header Label</description>
+				<posx>0</posx>
+				<posy>40</posy>
+				<width>632</width>
+				<height>40</height>
+				<textcolor>infogrey</textcolor>
+				<font>breeze50</font>
+				<label>Select shortcut</label>
+				<align>center</align>
+				<aligny>center</aligny>
+			</control>
 		
-		<control type="label">
-			<description>Header Label</description>
-			<posx>250</posx>
-			<posy>155</posy>
-			<width>849</width>
-			<height>40</height>
-			<textcolor>infogrey</textcolor>
-			<font>breeze50</font>
-			<label>Select shortcut</label>
-			<align>center</align>
-			<aligny>center</aligny>
-		</control>
+            <control type="image">
+                <posx>35</posx>
+                <posy>121</posy>
+                <texture>breeze/settings/custom tile f.png</texture>
+                <visible>ControlGroup(2405).HasFocus</visible>
+            </control>
 		
-		<control type="list" id="449">
-			<posx>290</posx>
-			<posy>240</posy>
-			<width>175</width>
-			<height>500</height>
-			<onright condition="Container(449).Hasfocus(1)">450</onright>
-			<onright condition="Container(449).Hasfocus(2)">451</onright>
-			<onright condition="Container(449).Hasfocus(3)">452</onright>
-			<onright condition="Container(449).Hasfocus(4)">453</onright>
-			<pagecontrol>61</pagecontrol>
-			<scrolltime>0</scrolltime>
-			
-			<itemlayout height="60">
+            <control type="button">
+                <posx>55</posx>
+                <posy>118</posy>
+                <width>445</width>
+                <height>60</height>
+                <align>left</align>
+                <aligny>top</aligny>
+                <textoffsetx>0</textoffsetx>
+                <textoffsety>8</textoffsety>
+                <font>breeze32</font>
+                <textcolor>infogrey</textcolor>
+                <label>Shortcut Type</label>
+                <label2>$INFO[Skin.String(Shortcut.TypeName)]</label2>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
+		
+            <control type="button">
+                <posx>55</posx>
+                <posy>118</posy>
+                <width>445</width>
+                <height>60</height>
+                <align>left</align>
+                <aligny>top</aligny>
+                <textoffsetx>0</textoffsetx>
+                <textoffsety>8</textoffsety>
+                <font>breeze32</font>
+                <textcolor>white</textcolor>
+                <label>Shortcut Type</label>
+                <label2>$INFO[Skin.String(Shortcut.TypeName)]</label2>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+                <visible>ControlGroup(2405).HasFocus</visible>
+            </control>
+        
+			<control type="grouplist" id="2405">
+				<description>button area</description>
+				<posx>515</posx>
+				<posy>119</posy>
+				<width>120</width>
+				<height>60</height>
+				<itemgap>0</itemgap>
+				<onup>500</onup>
+				<ondown>450</ondown>
+				<orientation>horizontal</orientation>
 				
-				<control type="label">
-					<posx>150</posx>
-					<posy>0</posy>
-					<width>175</width>
+				<control type="button" id="24051">
+					<width>34</width>
 					<height>60</height>
-					<textcolor>infogrey</textcolor>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>breeze32</font>
-					<info>ListItem.Label</info>
+					<texturefocus>breeze/settings/spin down f.png</texturefocus>
+					<texturenofocus>breeze/settings/spin down.png</texturenofocus>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),3)">Skin.SetString(Shortcut.Type,0)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),3)">Skin.SetString(Shortcut.TypeName,Favourites)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),2)">Skin.SetString(Shortcut.Type,3)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),2)">Skin.SetString(Shortcut.TypeName,Music)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),1)">Skin.SetString(Shortcut.Type,2)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),1)">Skin.SetString(Shortcut.TypeName,Movies)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),0)">Skin.SetString(Shortcut.Type,1)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),0)">Skin.SetString(Shortcut.TypeName,TV Shows)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),3)">Skin.SetString(Shortcut.Type,0)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),3)">Skin.SetString(Shortcut.TypeName,Favourites)</onclick>
 				</control>
-				
-			</itemlayout>
-			
-			<focusedlayout height="60">
-			
-				<control type="image">
-					<posx>0</posx>
-					<posy>3</posy>
-					<width>175</width>
+            
+				<control type="button" id="24052">
+					<width>34</width>
 					<height>60</height>
-					<texture>breeze/dialogs/media source f.png</texture>
+					<texturefocus>breeze/settings/spin up f.png</texturefocus>
+					<texturenofocus>breeze/settings/spin up.png</texturenofocus>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),0)">Skin.SetString(Shortcut.Type,3)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),0)">Skin.SetString(Shortcut.TypeName,Music)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),1)">Skin.SetString(Shortcut.Type,0)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),1)">Skin.SetString(Shortcut.TypeName,Favourites)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),2)">Skin.SetString(Shortcut.Type,1)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),2)">Skin.SetString(Shortcut.TypeName,TV Shows)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),3)">Skin.SetString(Shortcut.Type,2)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),3)">Skin.SetString(Shortcut.TypeName,Movies)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),0)">Skin.SetString(Shortcut.Type,3)</onclick>
+					<onclick condition="stringcompare(Skin.String(Shortcut.Type),0)">Skin.SetString(Shortcut.TypeName,Music)</onclick>
 				</control>
-				
-				<control type="label">
-					<posx>150</posx>
-					<posy>0</posy>
-					<width>175</width>
-					<height>60</height>
-					<textcolor>white</textcolor>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>breeze32</font>
-					<info>ListItem.Label</info>
-				</control>
-				
-			</focusedlayout>
-			
-			<content>
-			
-				<item id="1">
-					<label>Favourites</label>
-					<onclick>SetFocus(450)</onclick>
-					<onright>SetFocus(450)</onright>
-				</item>
-				
-				<item id="2">
-					<label>TV Shows</label>
-					<onclick>SetFocus(451)</onclick>
-					<onright>SetFocus(451)</onright>
-				</item>
-				
-				<item id="3">
-					<label>Films</label>
-					<onclick>SetFocus(452)</onclick>
-					<onright>SetFocus(452)</onright>
-				</item>
-				
-				<item id="4">
-					<label>Music</label>
-					<onclick>SetFocus(453)</onclick>
-					<onright>SetFocus(453)</onright>
-				</item>
-				
-			</content>
-			
-		</control>
+			</control>
 		
-		<control type="grouplist" id="450"> <!--favourites-->
-			<posx>493</posx>
-			<posy>237</posy>
-			<width>550</width>
-			<height>250</height>
-			<onleft>449</onleft>
-			<onright>63</onright>
-			<pagecontrol>63</pagecontrol>
-			<scrolltime>0</scrolltime>
-			<itemgap>0</itemgap>
-			<visible>Container(449).Hasfocus(1)</visible>
 			
-				<control type="button" id="41">
-					<label>$LOCALIZE[231] $LOCALIZE[24040]</label>
-					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
-					<visible>true</visible>
-				</control>
+			<control type="grouplist" id="450"> <!--favourites-->
+				<posx>41</posx>
+				<posy>188</posy>
+				<width>715</width>
+				<height>150</height>
+				<onleft>63</onleft>
+				<onright>500</onright>
+				<onup>2405</onup>
+				<ondown>2141</ondown>
+				<pagecontrol>63</pagecontrol>
+				<scrolltime>0</scrolltime>
+				<itemgap>0</itemgap>
+				<visible>stringcompare(Skin.String(Shortcut.Type),0)</visible>
 				
 				<control type="button" id="21">
 					<include>CustomTileButtonVars</include>
@@ -172,8 +172,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.1.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.1.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.1.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.1.name))</visible>
 				</control>
 				
@@ -183,8 +182,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.2.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.2.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.2.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.2.name))</visible>
 				</control>
 				
@@ -194,8 +192,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.3.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.3.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.3.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.3.name))</visible>
 				</control>
 				
@@ -205,8 +202,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.4.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.4.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.4.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.4.name))</visible>
 				</control>
 				
@@ -216,8 +212,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.5.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.5.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.5.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.5.name))</visible>
 				</control>
 				
@@ -227,8 +222,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.6.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.6.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.6.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.6.name))</visible>
 				</control>
 				
@@ -238,8 +232,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.7.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.7.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.7.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.7.name))</visible>
 				</control>
 				
@@ -249,8 +242,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.8.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.8.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.8.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.8.name))</visible>
 				</control>
 				
@@ -260,8 +252,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.9.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.9.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.9.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.9.name))</visible>
 				</control>
 				
@@ -271,8 +262,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.10.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.10.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.10.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.10.name))</visible>
 				</control>
 				
@@ -282,8 +272,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.11.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.11.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.11.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.11.name))</visible>
 				</control>
 				
@@ -293,8 +282,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.12.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.12.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.12.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.12.name))</visible>
 				</control>
 				
@@ -304,8 +292,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.13.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.13.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.13.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.13.name))</visible>
 				</control>
 				
@@ -315,8 +302,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.14.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.14.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.14.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.14.name))</visible>
 				</control>
 				
@@ -326,8 +312,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.15.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.15.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.15.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.15.name))</visible>
 				</control>
 				
@@ -337,8 +322,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.16.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.16.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.16.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.16.name))</visible>
 				</control>
 				
@@ -348,8 +332,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.17.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.17.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.17.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.17.name))</visible>
 				</control>
 				
@@ -359,8 +342,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.18.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.18.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.18.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.18.name))</visible>
 				</control>
 				
@@ -370,8 +352,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.19.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.19.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.19.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.19.name))</visible>
 				</control>
 				
@@ -381,24 +362,25 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.20.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.20.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.20.thumb)])</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.20.name))</visible>
 				</control>
 			
-		</control>
+			</control>
 		
-		<control type="grouplist" id="451"> <!--tv show shortcuts-->
-			<posx>493</posx>
-			<posy>237</posy>
-			<width>550</width>
-			<height>250</height>
-			<onleft>449</onleft>
-			<onright>63</onright>
-			<pagecontrol>63</pagecontrol>
-			<scrolltime>0</scrolltime>
-			<itemgap>0</itemgap>
-			<visible>Container(449).Hasfocus(2)</visible>
+			<control type="grouplist" id="450"> <!--tv show shortcuts-->
+				<posx>41</posx>
+				<posy>188</posy>
+				<width>715</width>
+				<height>150</height>
+				<onleft>63</onleft>
+				<onright>500</onright>
+				<onup>2405</onup>
+				<ondown>2141</ondown>
+				<pagecontrol>63</pagecontrol>
+				<scrolltime>0</scrolltime>
+				<itemgap>0</itemgap>
+				<visible>stringcompare(Skin.String(Shortcut.Type),1)</visible>
 				
 				<control type="button" id="1">
 					<label>Genres</label>
@@ -406,8 +388,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowGenres,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="2">
@@ -416,8 +397,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowYears,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="3">
@@ -426,8 +406,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowActors,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="4">
@@ -436,23 +415,24 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowStudios,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 			
-		</control>
+			</control>
 		
-		<control type="grouplist" id="452"> <!--film shortcuts-->
-			<posx>493</posx>
-			<posy>237</posy>
-			<width>550</width>
-			<height>250</height>
-			<onleft>449</onleft>
-			<onright>63</onright>
-			<pagecontrol>63</pagecontrol>
-			<scrolltime>0</scrolltime>
-			<itemgap>0</itemgap>
-			<visible>Container(449).HasFocus(3)</visible>
+			<control type="grouplist" id="450"> <!--film shortcuts-->
+				<posx>41</posx>
+				<posy>188</posy>
+				<width>715</width>
+				<height>150</height>
+				<onleft>63</onleft>
+				<onright>500</onright>
+				<onup>2405</onup>
+				<ondown>2141</ondown>
+				<pagecontrol>63</pagecontrol>
+				<scrolltime>0</scrolltime>
+				<itemgap>0</itemgap>
+				<visible>stringcompare(Skin.String(Shortcut.Type),2)</visible>
 				
 				<control type="button" id="1">
 					<label>Genres</label>
@@ -460,8 +440,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieGenres,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="2">
@@ -470,8 +449,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieYears,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="3">
@@ -480,8 +458,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieActors,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="4">
@@ -490,8 +467,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieDirectors,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Directors)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="5">
@@ -500,8 +476,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieStudios,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="6">
@@ -510,24 +485,24 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieCountries,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Countries)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon countries.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
-					<visible>ControlGroup(449).HasFocus(3)</visible>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
-		</control>
+			</control>
 		
-		<control type="grouplist" id="453"> <!--music shortcuts-->
-			<posx>493</posx>
-			<posy>237</posy>
-			<width>550</width>
-			<height>250</height>
-			<onleft>449</onleft>
-			<onright>63</onright>
-			<pagecontrol>63</pagecontrol>
-			<scrolltime>0</scrolltime>
-			<itemgap>0</itemgap>
-			<visible>Container(449).HasFocus(4)</visible>
+			<control type="grouplist" id="450"> <!--music shortcuts-->
+				<posx>41</posx>
+				<posy>188</posy>
+				<width>715</width>
+				<height>150</height>
+				<onleft>63</onleft>
+				<onright>500</onright>
+				<onup>2405</onup>
+				<ondown>2141</ondown>
+				<pagecontrol>63</pagecontrol>
+				<scrolltime>0</scrolltime>
+				<itemgap>0</itemgap>
+				<visible>stringcompare(Skin.String(Shortcut.Type),3)</visible>
 				
 				<control type="button" id="1">
 					<label>Genres</label>
@@ -535,8 +510,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieGenres,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="2">
@@ -545,8 +519,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieYears,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="3">
@@ -555,8 +528,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieActors,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="4">
@@ -565,8 +537,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieDirectors,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Directors)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="5">
@@ -575,8 +546,7 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieStudios,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="6">
@@ -585,35 +555,70 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieCountries,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Countries)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon countries.png)</onclick>
-					<onclick>Dialog.Close(1115)</onclick>
-					<onclick>SetFocus(9008)</onclick>
-					<visible>ControlGroup(449).HasFocus(3)</visible>
+					<onclick>SetFocus(4)</onclick>
 				</control>
 			
-		</control>
+			</control>
+	
+			<control type="group">
+				<posx>-659</posx>
+				<posy>-110</posy>	
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),TV1)">TVTile1</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),TV2)">TVTile2</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),Film1)">FilmTile2</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),Film2)">FilmTile2</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),App1)">AppTile1</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),App2)">AppTile2</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),App3)">AppTile3</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),App4)">AppTile4</include>			
+			</control>
+			
+			<control type="group">
+				<posx>10</posx>
+				<posy>-68</posy>
+    
+				<control type="button" id="500">
+					<description>Manual Button</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/close button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/close button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>Clear current</label>
+					<textoffsetx>60</textoffsetx>
+					<onleft>415</onleft>
+					<onright>414</onright>
+					<onup>2406</onup>
+					<ondown>2405</ondown>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],)</onclick>
+				</control>
+			
+			</control>
 
 			<control type="scrollbar" id="63">
-				<posx>1043</posx>
-				<posy>228</posy>
+				<posx>11</posx>
+				<posy>198</posy>
 				<width>30</width>
-				<height>240</height>
+				<height>130</height>
 				<texturesliderbackground>-</texturesliderbackground>
 				<texturesliderbar>-</texturesliderbar>
 				<texturesliderbarfocus>-</texturesliderbarfocus>
-				<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
-				<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+				<textureslidernib flipx="true">breeze/views/scrollbar nub nf list.png</textureslidernib>
+				<textureslidernibfocus flipx="true">breeze/views/scrollbar nub f list.png</textureslidernibfocus>
 				<pulseonselect>no</pulseonselect>
-				<onright condition="Container(449).Hasfocus(1)">450</onright>
-				<onright condition="Container(449).Hasfocus(2)">451</onright>
-				<onright condition="Container(449).Hasfocus(3)">452</onright>
-				<onright condition="Container(449).Hasfocus(4)">453</onright>
-				<onleft condition="Container(449).Hasfocus(1)">450</onleft>
-				<onleft condition="Container(449).Hasfocus(2)">451</onleft>
-				<onleft condition="Container(449).Hasfocus(3)">452</onleft>
-				<onleft condition="Container(449).Hasfocus(4)">453</onleft>
+				<onright>450</onright>
+				<onleft>450</onleft>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 			</control>
+			
+		</control>
 		
 	</controls>
 	
