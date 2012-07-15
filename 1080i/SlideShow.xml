@@ -1,39 +1,1721 @@
 ﻿<window id="2007">
-  <defaultcontrol>2</defaultcontrol>
-  <controls>
-    <control type="group" id="13">
-      <posx>195r</posx>
-      <posy>15</posy>
-      <visible>!Skin.HasSetting(Show_SlideShow_Paused)</visible>
-      <control type="image">
-        <posx>0</posx>
-        <posy>0</posy>
-        <width>180</width>
-        <height>52</height>
-        <texture>black-back.png</texture>
-        <bordertexture border="4">NoCover_1.png</bordertexture>
-        <bordersize>8</bordersize>
-      </control>
-      <control type="label">
-        <description>paused label</description>
-        <posx>15</posx>
-        <posy>0</posy>
-        <width>150</width>
-        <height>52</height>
-        <align>center</align>
-        <aligny>center</aligny>
-        <font>font10</font>
-        <textcolor>white</textcolor>
-        <label>31043</label>
-      </control>
-    </control>
-    <!-- media infos -->
-    <control type="group">
-      <posx>0</posx>
-      <posy>0</posy>
-      <visible>Player.ShowInfo + Player.HasMedia</visible>
-      <include>VisibleFadeEffect</include>
-      <include>SmallMusicInfo</include>
-    </control>
-  </controls>
+
+	<defaultcontrol>2</defaultcontrol>
+	
+	<controls>
+	
+	 <control type="group">
+		<visible>Player.HasAudio</visible>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/background.png</texture>
+			<animation effect="zoom" start="110" end="105" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+			<animation effect="slide" start="-5,-5" end="5,5" time="7500" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+		</control> 	
+		
+		<control type="image"> <!--single fanart-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture fallback="breeze/background.png">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+			<include>Animation_VisibleChange400</include>
+			<include>Animation_OpenCloseZoom</include>
+			<animation effect="zoom" start="110" end="105" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+			<animation effect="slide" start="-5,-5" end="5,5" time="7500" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+			<visible>!IsEmpty(MusicPlayer.Property(Fanart_Image))+!Skin.HasSetting(nofanartmusicviz)</visible>
+		</control>
+		
+		<control type="multiimage"> <!--multi fanart-->
+			<description>extrafanart</description>
+			<randomize>false</randomize>
+			<include>CommonFanartVars</include>
+			<imagepath background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/extrafanart]</imagepath>
+			<visible>!IsEmpty(MusicPlayer.Property(Fanart_Image)) + !Skin.HasSetting(nofanartmusicviz) + Skin.HasSetting(extrafanart)</visible>
+		</control>
+		
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/music vis bg.png</texture>
+			<visible>!Skin.HasSetting(musicvisaltcolour)</visible>
+		</control>
+		
+		<control type="image">
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/music vis bg 2.png</texture>
+			<visible>Skin.HasSetting(musicvisaltcolour)</visible>
+		</control>
+		
+		<control type="visualisation" id="2">
+			<description>visualisation</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+		</control>
+		
+	  <control type="group"> <!--standard colour-->
+	  <visible>!Skin.HasSetting(musicvisaltcolour)</visible>
+		
+		<control type="group"> <!--paused label-->
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="100">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Paused Label</description>
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>[UPPERCASE]$LOCALIZE[31043][/UPPERCASE]</label>
+					<visible>Player.Paused</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+				
+				<control type="label">
+					<description>Paused Label</description>
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>[UPPERCASE]$LOCALIZE[31043][/UPPERCASE]</label>
+					<visible>Player.Paused</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Paused Label</description>
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>[UPPERCASE]$LOCALIZE[31043][/UPPERCASE]</label>
+					<visible>Player.Paused</visible>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--fast forward label-->
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="100">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 2X</label>
+					<visible>Player.Forwarding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 4X</label>
+					<visible>Player.Forwarding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 8X</label>
+					<visible>Player.Forwarding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 16X</label>
+					<visible>Player.Forwarding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 32X</label>
+					<visible>Player.Forwarding32x</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 2X</label>
+					<visible>Player.Forwarding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 4X</label>
+					<visible>Player.Forwarding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 8X</label>
+					<visible>Player.Forwarding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 16X</label>
+					<visible>Player.Forwarding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 32X</label>
+					<visible>Player.Forwarding32x</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 2X</label>
+					<visible>Player.Forwarding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 4X</label>
+					<visible>Player.Forwarding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 8X</label>
+					<visible>Player.Forwarding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 16X</label>
+					<visible>Player.Forwarding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 32X</label>
+					<visible>Player.Forwarding32x</visible>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--rewind label-->
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="100">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 2X</label>
+					<visible>Player.Rewinding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 4X</label>
+					<visible>Player.Rewinding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 8X</label>
+					<visible>Player.Rewinding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 16X</label>
+					<visible>Player.Rewinding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 32X</label>
+					<visible>Player.Rewinding32x</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 2X</label>
+					<visible>Player.Rewinding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 4X</label>
+					<visible>Player.Rewinding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 8X</label>
+					<visible>Player.Rewinding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 16X</label>
+					<visible>Player.Rewinding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 32X</label>
+					<visible>Player.Rewinding32x</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 2X</label>
+					<visible>Player.Rewinding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 4X</label>
+					<visible>Player.Rewinding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 8X</label>
+					<visible>Player.Rewinding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 16X</label>
+					<visible>Player.Rewinding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25infogrey</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 32X</label>
+					<visible>Player.Rewinding32x</visible>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--time label-->
+			<posy>-25</posy>
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="600">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Duration</description>
+					<posx>1900</posx>
+					<posy>438</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light300n</font>
+					<label>$INFO[MusicPlayer.Duration]</label>
+					<textcolor>15infogrey</textcolor>
+					<align>right</align>
+				</control>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1900</posx>
+					<posy>588</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>$INFO[MusicPlayer.Time]</label>
+					<textcolor>90infogrey</textcolor>
+					<align>right</align>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Duration</description>
+					<posx>1900</posx>
+					<posy>538</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light300n</font>
+					<label>$INFO[MusicPlayer.Duration]</label>
+					<textcolor>15infogrey</textcolor>
+					<align>right</align>
+				</control>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1900</posx>
+					<posy>688</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>$INFO[MusicPlayer.Time]</label>
+					<textcolor>90infogrey</textcolor>
+					<align>right</align>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Duration</description>
+					<posx>1900</posx>
+					<posy>638</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light300n</font>
+					<label>$INFO[MusicPlayer.Duration]</label>
+					<textcolor>15infogrey</textcolor>
+					<align>right</align>
+				</control>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1900</posx>
+					<posy>788</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>$INFO[MusicPlayer.Time]</label>
+					<textcolor>90infogrey</textcolor>
+					<align>right</align>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--artist/song label-->
+			<posy>-25</posy>
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="600">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1920</posx>
+					<posy>688</posy>
+					<width>1920</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>[COLOR=25infogrey]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25infogrey]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25infogrey]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] </label>
+					<textcolor>50infogrey</textcolor>
+					<align>right</align>
+					<scroll>true</scroll>
+					<scrollsuffix></scrollsuffix>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1920</posx>
+					<posy>788</posy>
+					<width>1920</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>[COLOR=25infogrey]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25infogrey]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25infogrey]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] </label>
+					<textcolor>50infogrey</textcolor>
+					<align>right</align>
+					<scroll>true</scroll>
+					<scrollsuffix></scrollsuffix>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1920</posx>
+					<posy>888</posy>
+					<width>1920</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>[COLOR=25infogrey]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25infogrey]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25infogrey]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] </label>
+					<textcolor>50infogrey</textcolor>
+					<align>right</align>
+					<scroll>true</scroll>
+					<scrollsuffix></scrollsuffix>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+	  </control>
+		
+	  <control type="group"> <!--alternative colour-->
+		<visible>Skin.HasSetting(musicvisaltcolour)</visible>
+		
+		<control type="group"> <!--paused label-->
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="100">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Paused Label</description>
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>[UPPERCASE]$LOCALIZE[31043][/UPPERCASE]</label>
+					<visible>Player.Paused</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+				
+				<control type="label">
+					<description>Paused Label</description>
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>[UPPERCASE]$LOCALIZE[31043][/UPPERCASE]</label>
+					<visible>Player.Paused</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Paused Label</description>
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>[UPPERCASE]$LOCALIZE[31043][/UPPERCASE]</label>
+					<visible>Player.Paused</visible>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--fast forward label-->
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="100">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 2X</label>
+					<visible>Player.Forwarding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 4X</label>
+					<visible>Player.Forwarding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 8X</label>
+					<visible>Player.Forwarding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 16X</label>
+					<visible>Player.Forwarding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 32X</label>
+					<visible>Player.Forwarding32x</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 2X</label>
+					<visible>Player.Forwarding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 4X</label>
+					<visible>Player.Forwarding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 8X</label>
+					<visible>Player.Forwarding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 16X</label>
+					<visible>Player.Forwarding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 32X</label>
+					<visible>Player.Forwarding32x</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 2X</label>
+					<visible>Player.Forwarding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 4X</label>
+					<visible>Player.Forwarding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 8X</label>
+					<visible>Player.Forwarding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 16X</label>
+					<visible>Player.Forwarding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31044] 32X</label>
+					<visible>Player.Forwarding32x</visible>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--rewind label-->
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="100">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 2X</label>
+					<visible>Player.Rewinding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 4X</label>
+					<visible>Player.Rewinding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 8X</label>
+					<visible>Player.Rewinding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 16X</label>
+					<visible>Player.Rewinding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>645</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 32X</label>
+					<visible>Player.Rewinding32x</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 2X</label>
+					<visible>Player.Rewinding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 4X</label>
+					<visible>Player.Rewinding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 8X</label>
+					<visible>Player.Rewinding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 16X</label>
+					<visible>Player.Rewinding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>745</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 32X</label>
+					<visible>Player.Rewinding32x</visible>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 2X</label>
+					<visible>Player.Rewinding2x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 4X</label>
+					<visible>Player.Rewinding4x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 8X</label>
+					<visible>Player.Rewinding8x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 16X</label>
+					<visible>Player.Rewinding16x</visible>
+				</control>
+			
+				<control type="label">
+					<posx>10</posx>
+					<posy>845</posy>
+					<width>1800</width>
+					<height>28</height>
+					<aligny>center</aligny>
+					<align>left</align>
+					<font>breeze200n</font>
+					<textcolor>25white</textcolor>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="500">Hidden</animation>
+					<label>$LOCALIZE[31045] 32X</label>
+					<visible>Player.Rewinding32x</visible>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--time label-->
+			<posy>-25</posy>
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="600">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Duration</description>
+					<posx>1900</posx>
+					<posy>438</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light300n</font>
+					<label>$INFO[MusicPlayer.Duration]</label>
+					<textcolor>15white</textcolor>
+					<align>right</align>
+				</control>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1900</posx>
+					<posy>588</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>$INFO[MusicPlayer.Time]</label>
+					<textcolor>90white</textcolor>
+					<align>right</align>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Duration</description>
+					<posx>1900</posx>
+					<posy>538</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light300n</font>
+					<label>$INFO[MusicPlayer.Duration]</label>
+					<textcolor>15white</textcolor>
+					<align>right</align>
+				</control>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1900</posx>
+					<posy>688</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>$INFO[MusicPlayer.Time]</label>
+					<textcolor>90white</textcolor>
+					<align>right</align>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Duration</description>
+					<posx>1900</posx>
+					<posy>638</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light300n</font>
+					<label>$INFO[MusicPlayer.Duration]</label>
+					<textcolor>15white</textcolor>
+					<align>right</align>
+				</control>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1900</posx>
+					<posy>788</posy>
+					<width>1900</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>$INFO[MusicPlayer.Time]</label>
+					<textcolor>90white</textcolor>
+					<align>right</align>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+		<control type="group"> <!--artist/song label-->
+			<posy>-25</posy>
+			<visible>!Control.IsVisible(500) + !Skin.HasSetting(notextoverlay)</visible>
+			<animation effect="fade" time="600">Visible</animation>
+			<animation effect="fade" time="600">Hidden</animation>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),0) + !IntegerGreaterThan(System.Time(ss),20)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1920</posx>
+					<posy>688</posy>
+					<width>1920</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>[COLOR=25white]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25white]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25white]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] </label>
+					<textcolor>50white</textcolor>
+					<align>right</align>
+					<scroll>true</scroll>
+					<scrollsuffix></scrollsuffix>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),21) + !IntegerGreaterThan(System.Time(ss),40)</visible>	
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1920</posx>
+					<posy>788</posy>
+					<width>1920</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>[COLOR=25white]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25white]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25white]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] </label>
+					<textcolor>50white</textcolor>
+					<align>right</align>
+					<scroll>true</scroll>
+					<scrollsuffix></scrollsuffix>
+				</control>
+			
+			</control>
+		
+			<control type="group">
+				<visible> IntegerGreaterThan(System.Time(ss),41)</visible>		
+				<animation effect="fade" time="600">Visible</animation>
+				<animation effect="fade" time="600">Hidden</animation>
+			
+				<control type="label">
+					<description>Current time</description>
+					<posx>1920</posx>
+					<posy>888</posy>
+					<width>1920</width>
+					<height>50</height>
+					<font>light200n</font>
+					<label>[COLOR=25white]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25white]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] [COLOR=25white]$INFO[MusicPlayer.Artist][/COLOR] $INFO[MusicPlayer.Title] </label>
+					<textcolor>50white</textcolor>
+					<align>right</align>
+					<scroll>true</scroll>
+					<scrollsuffix></scrollsuffix>
+				</control>
+			
+			</control>	
+
+		</control>
+		
+	  </control>
+	  
+	 </control>
+		
+	</controls>
+	
 </window>

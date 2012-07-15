@@ -4,11 +4,11 @@
 	
 	<allowoverlay>yes</allowoverlay>
 	
-	<onload condition="Container(9000).HasFocus(2) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage1,Control.Move(110011,1),00:05,silent,loop)</onload>
-	<onload condition="Container(9000).HasFocus(2) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage2,Control.Move(110021,1),00:05,silent,loop)</onload>
-	<onload condition="Container(9000).HasFocus(11) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage3,Control.Move(120021,1),00:05,silent,loop)</onload>
-	<onload condition="Container(9000).HasFocus(10) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onload>
-	<onload condition="Container(9000).HasFocus(3) + !Skin.HasSetting(VerticalMenu)">AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onload>
+	<onload condition="Container(9000).HasFocus(2) + !Skin.HasSetting(VerticalMenu) + ![Control.HasFocus(11004) | Control.HasFocus(11005)]">AlarmClock(MultiImage1,Control.Move(110011,1),00:05,silent,loop)</onload>
+	<onload condition="Container(9000).HasFocus(2) + !Skin.HasSetting(VerticalMenu) + !Control.HasFocus(11003)">AlarmClock(MultiImage2,Control.Move(110021,1),00:05,silent,loop)</onload>
+	<onload condition="Container(9000).HasFocus(11) + !Skin.HasSetting(VerticalMenu) + !Control.HasFocus(12002)">AlarmClock(MultiImage3,Control.Move(120021,1),00:05,silent,loop)</onload>
+	<onload condition="Container(9000).HasFocus(10) + !Skin.HasSetting(VerticalMenu) + ![Control.HasFocus(13003) | Control.HasFocus(13004)">AlarmClock(MultiImage4,Control.Move(130021,1),00:05,silent,loop)</onload>
+	<onload condition="Container(9000).HasFocus(3) + !Skin.HasSetting(VerticalMenu) + !Control.HasFocus(14002)">AlarmClock(MultiImage5,Control.Move(140021,1),00:05,silent,loop)</onload>
 	<onunload condition="!Skin.HasSetting(VerticalMenu)">CancelAlarm(MultiImage,true)</onunload>
 	
 	<controls>
@@ -22,18 +22,9 @@
 		</control>
 		
 		<control type="multiimage">
-			<include>home_close</include>
 			<include>CommonFanartVars</include>
 			<imagepath background="true">$INFO[Container(9000).ListItem.Icon]</imagepath>
 			<visible>!Control.HasFocus(8000)</visible>
-		</control>
-	
-		<control type="multiimage">
-			<description>extrafanart</description>
-			<randomize>false</randomize>
-			<include>CommonFanartVars</include>
-			<imagepath background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/extrafanart]</imagepath>
-			<visible>Player.HasAudio + Skin.HasSetting(musicfanarthome)</visible>	
 		</control>
 		
 		<control type="image">
@@ -70,6 +61,14 @@
 			<texture background="true">$INFO[Container(8006).ListItem.Property(Fanart)]</texture>
 			<visible>Control.HasFocus(8006) | Control.HasFocus(8008) | Control.HasFocus(8009) | Control.HasFocus(8010)</visible>
 		</control>
+	
+		<control type="multiimage">
+			<description>extrafanart</description>
+			<randomize>false</randomize>
+			<include>CommonFanartVars</include>
+			<imagepath background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/extrafanart]</imagepath>
+			<visible>Player.HasAudio + Skin.HasSetting(musicfanarthome)</visible>	
+		</control>
 
 		<control type="image"> <!--white bg-->
 			<description>background image</description>
@@ -77,7 +76,7 @@
 			<posy>0</posy>
 			<width>1920</width>
 			<height>1080</height>
-			<texture>breeze/bg 50.png</texture>
+			<texture>breeze/fade bg.png</texture>
 			<visible>Skin.HasSetting(VerticalMenu) + Skin.HasSetting(HorizDimBG)</visible>
 		</control>
 
@@ -87,7 +86,7 @@
 			<posy>0</posy>
 			<width>1920</width>
 			<height>1080</height>
-			<texture>breeze/bg 90.png</texture>
+			<texture>breeze/fade bg.png</texture>
 			<visible>!Skin.HasSetting(VerticalMenu)</visible>
 		</control>
 		

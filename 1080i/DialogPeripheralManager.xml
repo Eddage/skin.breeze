@@ -1,0 +1,212 @@
+<window id="10140">
+
+	<defaultcontrol always="true">20</defaultcontrol>
+	
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	
+	
+	<controls>
+	
+		<control type="group">
+			<posx>387.5</posx>
+			<posy>210</posy>
+			<visible>!Window.IsVisible(peripheralsettings)</visible>
+  
+			<include>Animation_DialogPopup</include>
+      
+			<control type="image"> <!--bg panel-->
+				<posx>0</posx>
+				<posy>0</posy>
+				<texture>breeze/dialogs/peripheral manager bg.png</texture>
+			</control>
+    
+			<control type="label" id="1"> <!--header-->
+				<posx>0</posx>
+				<posy>40</posy>
+				<width>1145</width>
+				<height>40</height>
+				<textcolor>infogrey</textcolor>
+				<font>breeze60</font>
+				<label>$LOCALIZE[35000]</label>
+				<align>center</align>
+				<aligny>center</aligny>
+			</control>
+
+			<control type="list" id="20">
+				<posx>41</posx>
+				<posy>117</posy>
+				<width>502</width>
+				<height>250</height>
+				<onleft>61</onleft>
+				<onright>10</onright>
+				<onup>20</onup>
+				<ondown>20</ondown>
+				<pagecontrol>61</pagecontrol>
+				
+				<itemlayout height="50">
+					
+					<control type="image">
+						<posx>0</posx>
+						<width>672</width>
+						<texture>breeze/settings/custom tile 2 nf.png</texture>
+					</control>
+		
+					<control type="label">  <!--label-->
+						<posx>15</posx>
+						<posy>-3</posy>
+						<width>642</width>
+						<height>50</height>
+						<textcolor>infogreynf</textcolor>
+						<aligny>center</aligny>
+						<font>breeze32</font>
+						<info>ListItem.Label</info>
+					</control>
+      
+				</itemlayout>
+			
+				<focusedlayout height="50">
+					
+					<control type="image">
+						<width>672</width>
+						<texture>breeze/settings/custom tile 2 f.png</texture>
+					</control>
+    
+					<control type="label"> <!--label-->
+						<posx>15</posx>
+						<posy>-3</posy>
+						<width>642</width>
+						<height>50</height>
+						<textcolor>white</textcolor>
+						<selectedcolor>white</selectedcolor>
+						<aligny>center</aligny>
+						<font>breeze32</font>
+						<info>ListItem.Label</info>
+					</control>
+      
+				</focusedlayout>
+				
+			</control>
+			
+			<control type="group">
+				<posx>557</posx>
+				<posy>130</posy>
+				
+				<control type="label">
+					<description>name</description>
+					<posx>10</posx>
+					<posy>0</posy>
+					<width>520</width>
+					<height>20</height>
+					<label>$LOCALIZE[35502]:  $INFO[Container(20).ListItem.Label]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>breeze32</font>
+					<textcolor>infogreynf</textcolor>
+				</control>
+					
+				<control type="label">
+					<description>location</description>
+					<posx>10</posx>
+					<posy>50</posy>
+					<width>520</width>
+					<height>20</height>
+					<label>$LOCALIZE[35500]:  $INFO[Container(20).ListItem.Property(Location)]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>breeze32</font>
+					<textcolor>infogreynf</textcolor>
+				</control>
+					
+				<control type="label">
+					<description>Product ID Vendor ID</description>
+					<posx>10</posx>
+					<posy>100</posy>
+					<width>520</width>
+					<height>20</height>
+					<label>$LOCALIZE[35504]:  $INFO[Container(20).ListItem.Property(Product)]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>breeze32</font>
+					<textcolor>infogreynf</textcolor>
+				</control>
+					
+				<control type="label">
+					<description>Product ID Vendor ID</description>
+					<posx>10</posx>
+					<posy>150</posy>
+					<width>520</width>
+					<height>20</height>
+					<label>$LOCALIZE[35503]:  $INFO[Container(20).ListItem.Property(Vendor)]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>breeze32</font>
+					<textcolor>infogreynf</textcolor>
+				</control>
+					
+				<control type="label">
+					<description>class</description>
+					<posx>10</posx>
+					<posy>200</posy>
+					<width>520</width>
+					<height>20</height>
+					<label>$LOCALIZE[35501]:  $INFO[Container(20).ListItem.Property(Class)]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<font>breeze32</font>
+					<textcolor>infogreynf</textcolor>
+				</control>
+				
+			</control>
+			
+			<control type="group">
+				<posx>10</posx>
+				<posy>-223</posy>
+    
+				<control type="button" id="10">
+					<description>Manual Button</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/close button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/close button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>Close</label>
+					<textoffsetx>60</textoffsetx>
+					<onleft>20</onleft>
+					<onright>20</onright>
+					<onup>20</onup>
+					<ondown>20</ondown>
+					<onclick>close</onclick>
+				</control>
+				
+			</control>
+
+			<control type="scrollbar" id="61">
+				<posx>11</posx>
+				<posy>127</posy>
+				<width>30</width>
+				<height>230</height>
+				<texturesliderbackground>-</texturesliderbackground>
+				<texturesliderbar>-</texturesliderbar>
+				<texturesliderbarfocus>-</texturesliderbarfocus>
+				<textureslidernib flipx="true">breeze/views/scrollbar nub nf list.png</textureslidernib>
+				<textureslidernibfocus flipx="true">breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+				<pulseonselect>no</pulseonselect>
+				<onleft>20</onleft>
+				<onright>20</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+			</control>
+			
+		</control>
+		
+	</controls>
+	
+</window>

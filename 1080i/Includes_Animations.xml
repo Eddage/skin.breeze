@@ -60,6 +60,45 @@
   
 	</include>
 	
+	<include name="context lock animation">
+				
+		<animation type="windowopen">
+			<effect type="fade" start="0" end="100" time="250"/>
+			<effect type="zoom" center="645,260" start="0" end="100" time="300"/>
+		</animation>	
+		
+		<animation type="windowclose">
+			<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="460,0" delay="25" />
+			<effect type="fade" start="100" end="0" time="200" delay="150" />
+		</animation>	
+  
+	</include>
+	
+	<include name="context slide fade animation">
+				
+		<animation type="windowopen">
+			<effect type="slide" start="0,-100" end="0,0" time="500"/>
+			<effect type="fade" start="0" end="100" time="250"/>
+		</animation>	
+		
+		<animation type="windowclose">
+			<effect type="fade" start="100" end="0" time="250" delay="150" />
+		</animation>	
+  
+	</include>
+	
+	<include name="context fade animation">
+				
+		<animation type="windowopen">
+			<effect type="fade" start="0" end="100" time="250"/>
+		</animation>	
+		
+		<animation type="windowclose">
+			<effect type="fade" start="100" end="0" time="250" delay="150" />
+		</animation>	
+  
+	</include>
+	
 	<include name="context drop animation episode">
 				
 		<animation type="windowopen">
@@ -171,39 +210,55 @@
       <effect type="zoom" start="100" end="130" center="640,360" time="300" tween="cubic" easing="in"/>
     </animation>
   </include>
-  <include name="Animation_DialogPopup2">
-    <animation type="WindowOpen" reversible="false">
-      <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300" />
-      <effect type="fade" start="0" end="100" time="300" />
-    </animation>
-    <animation type="WindowClose" reversible="false">
-      <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300" />
-      <effect type="fade" start="100" end="0" time="300" />
-    </animation>
-  </include>
   
-  <include name="Animation_DialogPopup">
-    <animation type="WindowOpen" reversible="false">
-      <effect type="zoom" start="80" end="100" center="930,540" delay="200" easing="out" tween="back" time="300" />
-      <effect type="fade" delay="200" start="0" end="100" time="300" />
-    </animation>
-    <animation type="WindowClose" reversible="false">
-      <effect type="zoom" start="100" end="80" center="930,540" easing="in" tween="back" time="300" />
-      <effect type="fade" start="100" end="0" time="300" />
-    </animation>
-    <animation type="Visible" reversible="false">
-      <effect type="zoom" start="80" end="100" center="930,540" delay="200" easing="out" tween="back" time="300" />
-      <effect type="fade" delay="200" start="0" end="100" time="300" />
-    </animation>
-    <animation type="Hidden" reversible="false">
-      <effect type="zoom" start="100" end="80" center="930,540" easing="in" tween="back" time="300" />
-      <effect type="fade" start="100" end="0" time="300" />
-    </animation>
-    <animation type="Focus" reversible="false">
-      <effect type="zoom" start="80" end="100" center="930,540" delay="200" easing="out" tween="back" time="300" />
-      <effect type="fade" delay="200" start="0" end="100" time="300" />
-    </animation>
-  </include>
+	<include name="Animation_DialogPopup">
+	
+		<animation type="WindowOpen" reversible="false">
+			<effect type="zoom" start="80" end="100" center="930,540" delay="200" easing="out" tween="back" time="300" />
+			<effect type="fade" delay="200" start="0" end="100" time="300" />
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="zoom" start="100" end="80" center="930,540" easing="in" tween="back" time="300" />
+			<effect type="fade" start="100" end="0" time="300" />
+		</animation>
+		
+		<animation type="Visible" reversible="false">
+			<effect type="zoom" start="80" end="100" center="930,540" delay="200" easing="out" tween="back" time="300" />
+			<effect type="fade" delay="200" start="0" end="100" time="300" />
+		</animation>
+		<animation type="Hidden" reversible="false">
+			<effect type="zoom" start="100" end="80" center="930,540" easing="in" tween="back" time="300" />
+			<effect type="fade" start="100" end="0" time="300" />
+		</animation>
+		
+		<animation type="Focus" reversible="false">
+			<effect type="zoom" start="80" end="100" center="930,540" delay="200" easing="out" tween="back" time="300" />
+			<effect type="fade" delay="200" start="0" end="100" time="300" />
+		</animation>
+		
+	</include>	
+  
+	<include name="Animation_ViewZoom">
+				
+        <animation type="WindowOpen" reversible="true">
+           	<effect type="zoom" start="0" end="100" center="930,540" tween="back" easing="out" time="500" /> 
+           	<effect type="fade" start="0" end="100" tween="sine" easing="in" time="700" />
+        </animation>
+        <animation type="WindowClose" reversible="true">
+            <effect type="zoom" start="100" end="0" center="930,540" tween="back" easing="inout" time="600" /> 
+             <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="600" />
+        </animation>
+				
+        <animation type="Visible" reversible="true">
+           	<effect type="zoom" start="0" end="100" center="930,540" tween="back" easing="out" time="500" /> 
+           	<effect type="fade" start="0" end="100" tween="sine" easing="in" time="700" />
+        </animation>
+        <animation type="Hidden" reversible="true">
+            <effect type="zoom" start="100" end="0" center="930,540" tween="back" easing="inout" time="600" /> 
+             <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="600" />
+        </animation>
+		
+	</include>	
   
 	<include name="Animation_DialogFade">
     
@@ -245,19 +300,6 @@
     
 		<animation type="Focus" reversible="false">
 			<effect type="fade" start="0" end="100" time="150" />
-		</animation>
-  
-	</include>
-  
-	<include name="Animation_DialogPopup">
-	
-		<animation type="WindowOpen" reversible="false">
-			<effect type="zoom" start="80" end="100" center="1727,17" delay="200" easing="out" tween="back" time="500" />
-			<effect type="fade" delay="200" start="0" end="100" time="300" />
-		</animation>
-		<animation type="WindowClose" reversible="false">
-			<effect type="zoom" start="100" end="80" center="1727,17" easing="in" tween="back" time="500" />
-			<effect type="fade" start="100" end="0" time="400" />
 		</animation>
   
 	</include>

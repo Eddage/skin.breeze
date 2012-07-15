@@ -17,12 +17,6 @@
 				<texture background="true" fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<visible>!Skin.HasSetting(MusicLibraryFanart)</visible>
 			</control>
-     
-			<control type="image">
-				<include>CommonFanartVarsSingleScroll</include>
-				<texture background="true">$INFO[ListItem.Label,special://skin/extras/genre/music/fanart/,.jpg]</texture>
-				<visible>Container.Content(genres)</visible>
-			</control>
 				
 			<control type="multiimage">
 				<description>extrafanart</description>
@@ -40,7 +34,7 @@
 			<posy>0</posy>
 			<width>1920</width>
 			<height>1080</height>
-			<texture>breeze/bg 75.png</texture>
+			<texture>breeze/fade bg.png</texture>
 		</control> 
 				
 		<control type="image"> <!--base bar-->
@@ -58,7 +52,7 @@
 		</control>
     
 		<control type="group">
-			<include>CommonRootView</include>
+			<include>CommonRootViewMusic</include>
       
 			<!-- view id = 50 -->
 			<include>InfoList</include>
@@ -103,16 +97,6 @@
     
 		<include>Breadcrumbs</include>
 		<include>ScrollOffsetLabel</include>
-	  
-		<control type="image"> <!--background overlay (white)-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<texture>breeze/bg 75.png</texture>
-			<visible>ControlGroup(9000).HasFocus | Window.IsActive(111) | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(contentsettings) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(numericinput)</visible>
-			<visible>!Window.IsVisible(virtualkeyboard)</visible>
-		</control> 
 	  
 		<control type="button" id="7009"> <!--settings button-->
 			<include>HiddenObject</include>

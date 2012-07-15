@@ -1,269 +1,267 @@
 ﻿<?xml version="1.0"?>
 <window id="10140">
-  <defaultcontrol always="true">2</defaultcontrol>
-  <zorder>1</zorder>
-  <coordinates>
-    <system>1</system>
-    <posx>240</posx>
-    <posy>82</posy>
-  </coordinates>
-  <include>Animation_DialogPopup</include>
-  <controls>
-    <control type="image">
-      <description>background image</description>
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>1440</width>
-      <height>915</height>
-      <texture>settings/settings_panelback.png</texture>
-    </control>
-    <control type="label" id="20">
-      <description>header label</description>
-      <posx>300</posx>
-      <posy>45</posy>
-      <width>1050</width>
-      <posx>108</posx>
-      <posy>105</posy>
-      <width>1404</width>
-      <height>74</height>
-      <textcolor>FFbec0c2</textcolor>
-      <font>Font_ShowcaseMainLabel2</font>
-      <include>Animation_CommonFade</include>
-      <label>-</label>
-      <align>center</align>
-    </control>
-    <control type="grouplist" id="2">
-      <description>control settings area</description>
-      <posx>274</posx>
-      <posy>120</posy>
-      <width>1065</width>
-      <height>668</height>
-      <itemgap>0</itemgap>
-      <pagecontrol>61</pagecontrol>
-      <onup>10</onup>
-      <ondown>10</ondown>
-      <onleft>9</onleft>
-      <onright>61</onright>
-    </control>
-    <control type="grouplist" id="9">
-      <description>control section area</description>
-      <posx>22</posx>
-      <posy>120</posy>
-      <width>252</width>
-      <height>668</height>
-      <itemgap>0</itemgap>
-      <pagecontrol>61</pagecontrol>
-      <onup>9</onup>
-      <ondown>9</ondown>
-      <onleft>2</onleft>
-      <onright>2</onright>
-    </control>
-    <control type="scrollbar" id="61">
-      <description>Scrollbar</description>
-      <posx>1365</posx>
-      <posy>120</posy>
-      <width>33</width>
-      <height>680</height>
-      <texturesliderbackground>views/scrollbarbacklist.png</texturesliderbackground>
-      <texturesliderbar>views/scrollBarV_bar_focus.png</texturesliderbar>
-      <texturesliderbarfocus>views/scrollBarV_bar_focus.png</texturesliderbarfocus>
-      <textureslidernib>views/ScrollBarNib.png</textureslidernib>
-      <textureslidernibfocus>views/ScrollBarNib.png</textureslidernibfocus>
-      <onleft>2</onleft>
-      <onright>10</onright>
-      <showonepage>false</showonepage>
-      <orientation>vertical</orientation>
-    </control>
-    <control type="button" id="13">
-      <description>Default Section Button</description>
-      <posx>4</posx>
-      <posy>4</posy>
-      <width>320</width>
-      <height>96</height>
-      <texturefocus>views/listpanel_selectbar.png</texturefocus>
-      <texturenofocus>-</texturenofocus>
-      <font>Font_Bold16</font>
-      <textcolor>FFf5f5f5</textcolor>
-      <focusedcolor>FF262728</focusedcolor>
-      <selectedcolor>FF262728</selectedcolor>
-      <textoffsety>4</textoffsety>
-      <textoffsetx>22</textoffsetx>
-      <align>left</align>
-      <aligny>top</aligny>
-      <pulseonselect>no</pulseonselect>
-    </control>
-    <control type="label">
-      <description>Default Section Button Focused Subtitle</description>
-      <posy>174</posy>
-      <label>24002</label>
-      <textoffsetx>38</textoffsetx>
-      <font>Font_Info</font>
-      <textcolor>FF262728</textcolor>
-      <focusedcolor>FF262728</focusedcolor>
-      <selectedcolor>FF262728</selectedcolor>
-      <posx>304</posx>
-      <width>324</width>
-      <height>87</height>
-      <font>Font_Info</font>
-      <aligny>top</aligny>
-      <align>right</align>
-    </control>
-    <control type="button" id="3">
-      <description>Dialog Button</description>
-      <font>Font_Info</font>
-      <textoffsetx>30</textoffsetx>
-      <description>Default Settings Button</description>
-      <texturefocus>settings/settings_radiobuttonofffocus.png</texturefocus>
-      <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
-    </control>
-    <control type="radiobutton" id="4">
-      <description>Default RadioButton</description>
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>420</width>
-      <height>62</height>
-      <font>Font_Info</font>
-      <texturefocus>settings/settings_radiobuttonofffocus.png</texturefocus>
-      <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
-      <textcolor>FF939597</textcolor>
-      <focusedcolor>FFFFFFFF</focusedcolor>
-      <pulseonselect>false</pulseonselect>
-      <radiowidth>141</radiowidth>
-      <radioposx>945</radioposx>
-      <radioheight>98</radioheight>
-      <textoffsetx>30</textoffsetx>
-      <aligny>center</aligny>
-      <textureradiofocus>settings/settings_radiobuttononfocus.png</textureradiofocus>
-      <textureradionofocus>settings/settings_radiobuttonon.png</textureradionofocus>
-    </control>
-    <control type="spincontrolex" id="5">
-      <description>Default spincontrolex</description>
-      <height>62</height>
-      <texturefocus>settings/settings_radiobuttonofffocus.png</texturefocus>
-      <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
-      <textureup>settings/spin-up.png</textureup>
-      <texturedown>settings/spin-down.png</texturedown>
-      <textureupfocus>settings/spin-up-focus.png</textureupfocus>
-      <texturedownfocus>settings/spin-down-focus.png</texturedownfocus>
-      <font>Font_Info</font>
-      <textcolor>FF939597</textcolor>
-      <focusedcolor>FFFFFFFF</focusedcolor>
-      <pulseonselect>false</pulseonselect>
-      <spinposx>-8</spinposx>
-      <spinwidth>42</spinwidth>
-      <spinheight>65</spinheight>
-      <textoffsetx>30</textoffsetx>
-      <aligny>center</aligny>
-      <alignx>center</alignx>
-      <reverse>yes</reverse>
-      <subtype>text</subtype>
-    </control>
-    <control type="image" id="6">
-      <description>Default Seperator</description>
-      <height>2</height>
-      <texture>home/nowplaying/nowplayline.png</texture>
-    </control>
-    <control type="label" id="7">
-      <description>separator label / headline</description>
-      <height>51</height>
-      <textoffsety>21</textoffsety>
-      <textoffsetx>30</textoffsetx>
-      <label />
-    </control>
-    <control type="sliderex" id="8">
-      <description>Default Slider</description>
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>570</width>
-      <height>60</height>
-      <align>left</align>
-      <font>Font_Info</font>
-      <textoffsetx>30</textoffsetx>
-      <texturefocus>settings/settings_radiobuttonofffocus.png</texturefocus>
-      <texturenofocus>settings/settings_radiobuttonoff.png</texturenofocus>
-      <texturesliderbar>osd/osd_slider_bg_settings.png</texturesliderbar>
-      <textureslidernib>osd/osd_slider_nib_nf.png</textureslidernib>
-      <textureslidernibfocus>osd/osd_slider_nib.png</textureslidernibfocus>
-    </control>
-    <control type="group" id="9001">
-      <control type="button" id="10">
-        <description>OK Button</description>
-        <posx>352</posx>
-        <posy>802</posy>
-        <width>300</width>
-        <height>60</height>
-        <align>center</align>
-        <aligny>center</aligny>
-        <label>186</label>
-        <width>324</width>
-        <height>87</height>
-        <texturenofocus border="8">dialogs/context_nofocus.png</texturenofocus>
-        <texturefocus border="8">dialogs/context_highlight.png</texturefocus>
-        <font>Font_Bold22</font>
-        <textcolor>FFf5f5f5</textcolor>
-        <focusedcolor>FF262728</focusedcolor>
-        <selectedcolor>FF262728</selectedcolor>
-        <textoffsety>18</textoffsety>
-        <textoffsetx>40</textoffsetx>
-        <aligny>center</aligny>
-        <pulseonselect>no</pulseonselect>
-        <onleft>12</onleft>
-        <onright>11</onright>
-        <onup>2</onup>
-        <ondown>2</ondown>
-      </control>
-      <control type="button" id="11">
-        <description>Cancel Button</description>
-        <posx>693</posx>
-        <posy>802</posy>
-        <width>300</width>
-        <height>60</height>
-        <align>center</align>
-        <aligny>center</aligny>
-        <label>222</label>
-        <width>324</width>
-        <height>87</height>
-        <texturenofocus border="8">dialogs/context_nofocus.png</texturenofocus>
-        <texturefocus border="8">dialogs/context_highlight.png</texturefocus>
-        <font>Font_Bold22</font>
-        <textcolor>FFf5f5f5</textcolor>
-        <focusedcolor>FF262728</focusedcolor>
-        <selectedcolor>FF262728</selectedcolor>
-        <textoffsety>18</textoffsety>
-        <textoffsetx>40</textoffsetx>
-        <aligny>center</aligny>
-        <pulseonselect>no</pulseonselect>
-        <onleft>10</onleft>
-        <onright>12</onright>
-        <onup>2</onup>
-        <ondown>2</ondown>
-      </control>
-      <control type="button" id="12">
-        <description>Defaults Button</description>
-        <posx>1034</posx>
-        <posy>802</posy>
-        <width>300</width>
-        <height>60</height>
-        <align>center</align>
-        <aligny>center</aligny>
-        <label>409</label>
-        <width>324</width>
-        <height>87</height>
-        <texturenofocus border="8">dialogs/context_nofocus.png</texturenofocus>
-        <texturefocus border="8">dialogs/context_highlight.png</texturefocus>
-        <font>Font_Bold22</font>
-        <textcolor>FFf5f5f5</textcolor>
-        <focusedcolor>FF262728</focusedcolor>
-        <selectedcolor>FF262728</selectedcolor>
-        <textoffsety>18</textoffsety>
-        <textoffsetx>40</textoffsetx>
-        <aligny>center</aligny>
-        <pulseonselect>no</pulseonselect>
-        <onleft>11</onleft>
-        <onright>10</onright>
-        <onup>2</onup>
-        <ondown>2</ondown>
-      </control>
-    </control>
-  </controls>
+
+	<defaultcontrol always="true">2</defaultcontrol>
+	
+	<zorder>1</zorder>
+	
+	<controls>
+	
+		<control type="group">
+			<posx>363.5</posx>
+			<posy>125</posy>
+	
+			<include>Animation_DialogPopup</include>
+	
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<texture>breeze/dialogs/addon settings bg.png</texture>
+			</control>
+		
+			<control type="label" id="20">
+				<description>header label</description>
+				<posx>0</posx>
+				<posy>40</posy>
+				<width>1073</width>
+				<height>40</height>
+				<textcolor>infogrey</textcolor>
+				<font>breeze60</font>
+				<label>20333</label>
+				<align>center</align>
+				<aligny>center</aligny>
+			</control>
+		
+			<control type="grouplist" id="2">
+				<description>control settings area</description>
+				<posx>309</posx>
+				<posy>116</posy>
+				<width>843</width>
+				<height>400</height>
+				<itemgap>0</itemgap>
+				<pagecontrol>63</pagecontrol>
+				<onup>2</onup>
+				<ondown>2</ondown>
+				<onleft>9</onleft>
+				<onright>63</onright>
+			</control>
+		
+			<control type="grouplist" id="9">
+				<description>control section area</description>
+				<posx>40</posx>
+				<posy>116</posy>
+				<width>262</width>
+				<height>400</height>
+				<itemgap>0</itemgap>
+				<pagecontrol>61</pagecontrol>
+				<onup>9</onup>
+				<ondown>9</ondown>
+				<onleft>2</onleft>
+				<onright>2</onright>
+			</control>
+		
+			<control type="button" id="13">
+				<description>Default Section Button</description>
+				<posx>15</posx>
+				<posy>1</posy>
+				<width>320</width>
+				<height>50</height>
+				<texturenofocus>breeze/settings/custom tile 2 nf.png</texturenofocus>
+				<texturefocus>breeze/settings/custom tile 2 f.png</texturefocus>
+				<font>breeze30b</font>
+				<textcolor>infogrey</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<selectedcolor>white</selectedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsety>0</textoffsety>
+				<textoffsetx>15</textoffsetx>
+				<align>left</align>
+				<aligny>center</aligny>
+				<pulseonselect>no</pulseonselect>
+			</control>
+		
+			<control type="button" id="3">
+				<description>Dialog Button</description>
+				<height>50</height>
+				<font>breeze30</font>
+				<textcolor>infogrey</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<selectedcolor>white</selectedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<aligny>center</aligny>
+				<textoffsety>100</textoffsety>
+				<textoffsetx>15</textoffsetx>
+				<texturenofocus>breeze/settings/custom tile 2 nf.png</texturenofocus>
+				<texturefocus>breeze/settings/custom tile 2 f.png</texturefocus>
+			</control>
+		
+			<control type="radiobutton" id="4">
+				<width>552</width>
+				<height>50</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<textoffsetx>15</textoffsetx>
+				<textoffsety>2</textoffsety>
+				<radioposx>770</radioposx>
+				<radioposy>11</radioposy>
+				<radiowidth>54</radiowidth>
+				<radioheight>28</radioheight>
+				<font>breeze30</font>
+				<textcolor>infogrey</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<texturenofocus>breeze/settings/custom tile 2 nf.png</texturenofocus>
+				<texturefocus>breeze/settings/custom tile 2 f.png</texturefocus>
+				<textureradiofocus>breeze/settings/radio button f mid.png</textureradiofocus>
+				<textureradionofocus>breeze/settings/radio button mid.png</textureradionofocus>
+			</control>
+		
+			<control type="spincontrolex" id="5">
+				<description>Default spincontrolex</description>
+				<height>50</height>
+				<texturenofocus>breeze/settings/custom tile 2 nf.png</texturenofocus>
+				<texturefocus>breeze/settings/custom tile 2 f.png</texturefocus>
+				<textureup>breeze/settings/spin up mid.png</textureup>
+				<texturedown>breeze/settings/spin down mid.png</texturedown>
+				<textureupfocus>breeze/settings/spin up f mid.png</textureupfocus>
+				<texturedownfocus>breeze/settings/spin down f mid.png</texturedownfocus>
+				<font>breeze30</font>
+				<textcolor>infogrey</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<pulseonselect>false</pulseonselect>
+				<spinposx>18</spinposx>
+				<spinwidth>28</spinwidth>
+				<spinheight>50</spinheight>
+				<textoffsetx>15</textoffsetx>
+				<textoffsety>3</textoffsety>
+				<aligny>top</aligny>
+				<alignx>center</alignx>
+				<reverse>yes</reverse>
+				<subtype>text</subtype>
+			</control>
+		
+			<control type="image" id="6">
+				<description>Default Seperator</description>
+				<height>0</height>
+				<texture>-</texture>
+			</control>
+		
+			<control type="label" id="7">
+				<description>separator label / headline</description>
+				<height>50</height>
+				<textoffsetx>15</textoffsetx>
+				<aligny>center</aligny>
+				<font>breeze30b</font>
+				<textcolor>blue2</textcolor>
+				<texturenofocus>breeze/settings/custom tile 2 nf.png</texturenofocus>
+				<texturefocus>breeze/settings/custom tile 2 f.png</texturefocus>
+				<label/>
+			</control>
+		
+			<control type="sliderex" id="8">
+				<description>Default Slider</description>
+				<width>552</width>
+				<height>50</height>
+				<alignx>center</alignx>
+				<aligny>top</aligny>
+				<textoffsetx>15</textoffsetx>
+				<sliderwidth>150</sliderwidth>
+				<sliderheight>28</sliderheight>
+				<texturenofocus>breeze/settings/custom tile 2 nf.png</texturenofocus>
+				<texturefocus>breeze/settings/custom tile 2 f.png</texturefocus>
+				<texturesliderbar>breeze/osd/settings/slider bg.png</texturesliderbar>
+				<textureslidernib>breeze/osd/settings/slider nib nf.png</textureslidernib>
+				<textureslidernibfocus>breeze/osd/settings/slider nib f.png</textureslidernibfocus>
+				<font>breeze30</font>
+				<textcolor>infogrey</textcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<focusedcolor>white</focusedcolor>
+				<pulseonselect>false</pulseonselect>
+			</control>
+			
+			<control type="group" id="9001">
+				<posx>10</posx>
+				<posy>-70</posy>
+    
+				<control type="button" id="10">
+					<description>Manual Button</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/select button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/select button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>424</label>
+					<textoffsetx>60</textoffsetx>
+					<onleft>12</onleft>
+					<onright>11</onright>
+					<onup>2</onup>
+					<ondown>2</ondown>
+				</control>
+    
+				<control type="button" id="11">
+					<description>Manual Button</description>
+					<posx>200</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/close button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/close button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>222</label>
+					<textoffsetx>60</textoffsetx>
+					<onleft>10</onleft>
+					<onright>12</onright>
+					<onup>2</onup>
+					<ondown>2</ondown>
+				</control>
+    
+				<control type="button" id="12">
+					<description>Manual Button</description>
+					<posx>890</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/settings button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/settings button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>409</label>
+					<textoffsetx>100</textoffsetx>
+					<onleft>11</onleft>
+					<onright>10</onright>
+					<onup>2</onup>
+					<ondown>2</ondown>
+				</control>
+				
+			</control>
+
+			<control type="scrollbar" id="63">
+				<posx>1152</posx>
+				<posy>126</posy>
+				<width>30</width>
+				<height>380</height>
+				<texturesliderbackground>-</texturesliderbackground>
+				<texturesliderbar>-</texturesliderbar>
+				<texturesliderbarfocus>-</texturesliderbarfocus>
+				<textureslidernib>breeze/views/scrollbar nub nf list.png</textureslidernib>
+				<textureslidernibfocus>breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+				<pulseonselect>no</pulseonselect>
+				<onright>9001</onright>
+				<onleft>2</onleft>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+			</control>
+		
+		</control>
+		
+	</controls>
+	
 </window>

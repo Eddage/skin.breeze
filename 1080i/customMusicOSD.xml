@@ -1,21 +1,12 @@
 ﻿<?xml version="1.0"?>
 
-<window type="dialog" id="1117">
+<window type="dialog" id="1118">
 
 	<defaultcontrol always="true">450</defaultcontrol>
 	
 	<include>Animation_DialogPopup</include>
 	
 	<controls>
-	  
-		<control type="image"> <!--background overlay (white)-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<texture>breeze/bg 75.png</texture>
-			<visible>Window.IsVisible(visualisation)</visible>
-		</control> 
   
 		<control type="group">
 			<posx>447</posx>
@@ -256,7 +247,7 @@
 				<textoffsetx>60</textoffsetx>
 				<onleft>450</onleft>
 				<onright>450</onright>
-				<onup>461</onup>
+				<onup>462</onup>
 				<ondown>454</ondown>
 				<onclick>close</onclick>
 			</control>

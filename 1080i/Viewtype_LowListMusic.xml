@@ -68,6 +68,8 @@
 				<onleft>65</onleft>
 				<onright condition="IsEmpty(ListItem.Artist) + Container.Content(albums)">7009</onright>
 				<onright condition="!IsEmpty(ListItem.Artist) + Container.Content(albums)">7002</onright>
+				<onright condition="IsEmpty(ListItem.Artist) + Container.Content(artists)">7009</onright>
+				<onright condition="!IsEmpty(ListItem.Artist) + Container.Content(artists)">7002</onright>
 				<onright condition="Container.Content(artists)">7002</onright>
 				<onright condition="Container.Content(songs)">7009</onright>				
 				<onup>506</onup>
@@ -84,12 +86,12 @@
 					<control type="label"> <!--cases view-->
 						<posx>114</posx>
 						<posy>10</posy>
-						<width>800</width>
+						<width>1000</width>
 						<height>44</height>
 						<align>left</align>
 						<aligny>center</aligny>
 						<textcolor>infogrey</textcolor>
-						<selectedcolor>blue</selectedcolor>
+						<selectedcolor>blue2</selectedcolor>
 						<font>breeze34b</font>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>!Container.Content(episodes)</visible>
@@ -99,25 +101,26 @@
 					<control type="label"> <!--artist genre-->
 						<posx>114</posx>
 						<posy>50</posy>
-						<width>270</width>
+						<width>1000</width>
 						<height>43</height>
 						<font>breeze28</font>
 						<textcolor>infogrey</textcolor>
-						<selectedcolor>blue</selectedcolor>
+						<selectedcolor>blue2</selectedcolor>
 						<aligny>center</aligny>
 						<align>left</align>
-						<label fallback="Unknown Genre">$INFO[ListItem.Property(Artist_Genre)]</label>
-						<visible>!Container.Content(songs) + !Container.Content(albums)</visible>
+						<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+						<visible>![Container.Content(songs) | Container.Content(albums)]</visible>
+						<visible>!StringCompare(ListItem.Label,* All artists)</visible>
 					</control>
 						
 					<control type="label"> <!--album artist-->
 						<posx>114</posx>
 						<posy>50</posy>
-						<width>270</width>
+						<width>1000</width>
 						<height>43</height>
 						<font>breeze28</font>
 						<textcolor>infogrey</textcolor>
-						<selectedcolor>blue</selectedcolor>
+						<selectedcolor>blue2</selectedcolor>
 						<aligny>center</aligny>
 						<align>left</align>
 						<label fallback="Unknown Artist">$INFO[ListItem.Artist]</label>
@@ -128,11 +131,11 @@
 					<control type="label"> <!--artist/album (songs)-->
 						<posx>114</posx>
 						<posy>50</posy>
-						<width>700</width>
+						<width>1000</width>
 						<height>43</height>
 						<font>breeze28</font>
 						<textcolor>infogrey</textcolor>
-						<selectedcolor>blue</selectedcolor>
+						<selectedcolor>blue2</selectedcolor>
 						<aligny>center</aligny>
 						<align>left</align>
 						<label fallback="Unknown Artist">$INFO[ListItem.Artist] $INFO[ListItem.Album,| ]</label>
@@ -146,7 +149,7 @@
 						<height>43</height>
 						<font>breeze34b</font>
 						<textcolor>infogrey</textcolor>
-						<selectedcolor>blue</selectedcolor>
+						<selectedcolor>blue2</selectedcolor>
 						<aligny>center</aligny>
 						<align>right</align>
 						<label fallback="Unknown">$INFO[ListItem.Duration]</label>
@@ -163,6 +166,7 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture background="true">breeze/views/low list music f bg.png</texture>
 						<visible>Container.Content(albums)</visible>
+						<animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(506)">Conditional</animation>
 					</control>
 					
 					<control type="image"> <!--focused texture (cases)-->
@@ -171,12 +175,13 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture background="true">breeze/views/low list music long f bg.png</texture>
 						<visible>!Container.Content(albums)</visible>
+						<animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(506)">Conditional</animation>
 					</control>
 					
 					<control type="label"> <!--label (cases)-->
 						<posx>114</posx>
 						<posy>10</posy>
-						<width>800</width>
+						<width>1000</width>
 						<height>43</height>
 						<align>left</align>
 						<aligny>center</aligny>
@@ -191,7 +196,7 @@
 					<control type="label"> <!--artist genre-->
 						<posx>114</posx>
 						<posy>50</posy>
-						<width>270</width>
+						<width>1000</width>
 						<height>43</height>
 						<font>breeze28</font>
 						<textcolor>white</textcolor>
@@ -199,14 +204,15 @@
 						<selectedcolor>white</selectedcolor>
 						<aligny>center</aligny>
 						<align>left</align>
-						<label fallback="Unknown Genre">$INFO[ListItem.Property(Artist_Genre)]</label>
-						<visible>!Container.Content(songs) + !Container.Content(albums)</visible>
+						<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+						<visible>![Container.Content(songs) | Container.Content(albums)]</visible>
+						<visible>!StringCompare(ListItem.Label,* All artists)</visible>
 					</control>
 						
 					<control type="label"> <!--album artist-->
 						<posx>114</posx>
 						<posy>50</posy>
-						<width>270</width>
+						<width>1000</width>
 						<height>43</height>
 						<font>breeze28</font>
 						<textcolor>white</textcolor>
@@ -222,7 +228,7 @@
 					<control type="label"> <!--artist/album (songs)-->
 						<posx>114</posx>
 						<posy>50</posy>
-						<width>700</width>
+						<width>1000</width>
 						<height>43</height>
 						<font>breeze28</font>
 						<textcolor>white</textcolor>
@@ -380,7 +386,7 @@
 		
 					<control type="label"> <!--album artist-->
 						<posx>695</posx>
-						<posy>170</posy>
+						<posy>175</posy>
 						<width>970</width>
 						<font>breeze32</font>
 						<textcolor>infogreynf</textcolor>
@@ -390,7 +396,7 @@
 		
 					<control type="label"> <!--album artist (all albums)-->
 						<posx>695</posx>
-						<posy>170</posy>
+						<posy>175</posy>
 						<width>970</width>
 						<font>breeze32</font>
 						<textcolor>infogreynf</textcolor>

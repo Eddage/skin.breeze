@@ -1,402 +1,452 @@
 ﻿<?xml version="1.0"?>
 <window id="129">
-  <defaultcontrol always="true">22</defaultcontrol>
-  <include>Animation_DialogPopup</include>
-  <controls>
-    <control type="image">
-      <description>Darken screen</description>
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>1920</width>
-      <height>1080</height>
-      <texture>common/black.png</texture>
-      <colordiffuse>e7FFFFFF</colordiffuse>
-      <include>Animation_CommonFade</include>
-    </control>
-    <control type="group">
-      <visible>!Window.IsVisible(smartplaylistrule)</visible>
-      <control type="image">
-        <description>Panel</description>
-        <posx>312</posx>
-        <posy>60</posy>
-        <width>1312</width>
-        <height>722</height>
-        <texture border="15">dialogs/scrapersettings_back.png</texture>
-      </control>
-      <!-- EDIT SMART PLAYLIST -->
-      <control type="label">
-        <description>heading label</description>
-        <posx>330</posx>
-        <posy>45</posy>
-        <width>1035</width>
-        <align>center</align>
-        <font>Font_Reg22</font>
-        <label>[UPPERCASE]$LOCALIZE[21432][/UPPERCASE]</label>
-      </control>
-      <control type="group" id="9002">
-        <!-- TYPE -->
-        <control type="spincontrolex" id="22">
-          <description>Set Playlist type</description>
-          <posx>338</posx>
-          <posy>135</posy>
-          <width>1012</width>
-          <label>467</label>
-          <height>62</height>
-          <font>Font_Reg18</font>
-          <texturefocus>views/listpanel_selectbar.png</texturefocus>
-          <texturenofocus>dialogs/setcontent_button_nofocus.png</texturenofocus>
-          <textureup>settings/spin-up.png</textureup>
-          <texturedown>settings/spin-down.png</texturedown>
-          <textureupfocus>settings/spin-up-focus.png</textureupfocus>
-          <texturedownfocus>settings/spin-down-focus.png</texturedownfocus>
-          <textcolor>FF939597</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <pulseonselect>false</pulseonselect>
-          <spinposx>-4</spinposx>
-          <spinwidth>40</spinwidth>
-          <spinheight>65</spinheight>
-          <textoffsetx>30</textoffsetx>
-          <aligny>center</aligny>
-          <reverse>yes</reverse>
-          <onright>22</onright>
-          <onleft>22</onleft>
-          <onup>18</onup>
-          <ondown>12</ondown>
-        </control>
-        <!-- NAME OF PLAYLIST -->
-        <control type="label" id="0">
-          <description>Name Label</description>
-          <posx>360</posx>
-          <posy>210</posy>
-          <width>630</width>
-          <font>Font_Reg18</font>
-          <label>21433</label>
-        </control>
-        <!-- TEXT BOX FOR NAME OF PLAYLIST -->
-        <control type="button" id="12">
-          <description>Name Button</description>
-          <posx>338</posx>
-          <posy>255</posy>
-          <width>1012</width>
-          <height>48</height>
-          <textwidth>570</textwidth>
-          <aligny>center</aligny>
-          <label>-</label>
-          <onup>22</onup>
-          <onleft>12</onleft>
-          <onright>12</onright>
-          <ondown>10</ondown>
-          <font>Font_Reg18</font>
-          <textcolor>FF939597</textcolor>
-          <focusedcolor>FFFFFFFF</focusedcolor>
-          <textoffsetx>30</textoffsetx>
-          <texturefocus>-</texturefocus>
-          <texturenofocus>-</texturenofocus>
-          <aligny>center</aligny>
-        </control>
-        <control type="image">
-          <posx>352</posx>
-          <posy>255</posy>
-          <width>990</width>
-          <height>54</height>
-          <texture>dialogs/addsource_highlight.png</texture>
-          <include>Animation_CommonFade</include>
-          <visible>Control.HasFocus(12)</visible>
-        </control>
-        <!-- FIND ITEMS WHERE -->
-        <control type="label">
-          <description>rules label</description>
-          <posx>360</posx>
-          <posy>315</posy>
-          <width>630</width>
-          <align>left</align>
-          <font>Font_Reg18</font>
-          <label>21434</label>
-        </control>
-        <control type="list" id="10">
-          <description>Rules List Control</description>
-          <posx>322</posx>
-          <posy>345</posy>
-          <width>1042</width>
-          <height>184</height>
-          <onup>12</onup>
-          <onleft>10</onleft>
-          <onright>9000</onright>
-          <ondown>16</ondown>
-          <itemlayout height="60">
-            <control type="image">
-              <posx>18</posx>
-              <posy>62</posy>
-              <height>2</height>
-              <width>1108</width>
-              <texture>views/listpanel_line.png</texture>
-            </control>
-            <control type="label">
-              <posx>68</posx>
-              <posy>0</posy>
-              <height>58</height>
-              <width>1012</width>
-              <font>Font_Reg18</font>
-              <aligny>center</aligny>
-              <textcolor>white</textcolor>
-              <focusedcolor>FFFFFFFF</focusedcolor>
-              <info>ListItem.Label</info>
-            </control>
-          </itemlayout>
-          <focusedlayout height="60">
-            <control type="image">
-              <posx>18</posx>
-              <posy>62</posy>
-              <height>2</height>
-              <width>1012</width>
-              <texture>views/listpanel_line.png</texture>
-            </control>
-            <control type="image">
-              <posx>15</posx>
-              <posy>-8</posy>
-              <width>1012</width>
-              <height>75</height>
-              <texture>views/listpanel_selectbar.png</texture>
-              <visible>Control.HasFocus(10) | Control.HasFocus(14) | Control.HasFocus(15) | Control.HasFocus(13)</visible>
-            </control>
-            <control type="label">
-              <posx>68</posx>
-              <posy>0</posy>
-              <width>1012</width>
-              <height>58</height>
-              <font>Font_Reg18</font>
-              <aligny>center</aligny>
-              <include>listcolorfocus</include>
-              <info>ListItem.Label</info>
-            </control>
-          </focusedlayout>
-        </control>
-        <!-- ITEMS MUST MATCH ... -->
-        <control type="spincontrolex" id="16">
-          <description>Set Playlist type</description>
-          <posx>338</posx>
-          <posy>540</posy>
-          <width>1012</width>
-          <label>21424</label>
-          <height>62</height>
-          <font>Font_Reg18</font>
-          <texturefocus>views/listpanel_selectbar.png</texturefocus>
-          <texturenofocus>dialogs/setcontent_button_nofocus.png</texturenofocus>
-          <textureup>settings/spin-up.png</textureup>
-          <texturedown>settings/spin-down.png</texturedown>
-          <textureupfocus>settings/spin-up-focus.png</textureupfocus>
-          <texturedownfocus>settings/spin-down-focus.png</texturedownfocus>
-          <textcolor>FF939597</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <pulseonselect>false</pulseonselect>
-          <spinposx>-4</spinposx>
-          <spinwidth>40</spinwidth>
-          <spinheight>65</spinheight>
-          <textoffsetx>30</textoffsetx>
-          <aligny>center</aligny>
-          <reverse>yes</reverse>
-          <onright>9001</onright>
-          <onleft>16</onleft>
-          <onup>10</onup>
-          <ondown>17</ondown>
-        </control>
-        <!-- LIMIT TO -->
-        <control type="spincontrolex" id="17">
-          <description>Limit to</description>
-          <posx>338</posx>
-          <posy>600</posy>
-          <width>1012</width>
-          <label>21427</label>
-          <height>62</height>
-          <font>Font_Reg18</font>
-          <texturefocus>views/listpanel_selectbar.png</texturefocus>
-          <texturenofocus>dialogs/setcontent_button_nofocus.png</texturenofocus>
-          <textureup>settings/spin-up.png</textureup>
-          <texturedown>settings/spin-down.png</texturedown>
-          <textureupfocus>settings/spin-up-focus.png</textureupfocus>
-          <texturedownfocus>settings/spin-down-focus.png</texturedownfocus>
-          <textcolor>FF939597</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <pulseonselect>false</pulseonselect>
-          <spinposx>-4</spinposx>
-          <spinwidth>40</spinwidth>
-          <spinheight>65</spinheight>
-          <textoffsetx>30</textoffsetx>
-          <aligny>center</aligny>
-          <reverse>yes</reverse>
-          <onright>9001</onright>
-          <onleft>17</onleft>
-          <onup>16</onup>
-          <ondown>18</ondown>
-        </control>
-        <!-- ORDER BY -->
-        <control type="spincontrolex" id="18">
-          <description>Order By</description>
-          <posx>338</posx>
-          <posy>660</posy>
-          <width>714</width>
-          <label>21429</label>
-          <height>69</height>
-          <font>Font_Reg18</font>
-          <texturefocus>views/listpanel_selectbar.png</texturefocus>
-          <texturenofocus>dialogs/setcontent_button_nofocus.png</texturenofocus>
-          <textureup>settings/spin-up.png</textureup>
-          <texturedown>settings/spin-down.png</texturedown>
-          <textureupfocus>settings/spin-up-focus.png</textureupfocus>
-          <texturedownfocus>settings/spin-down-focus.png</texturedownfocus>
-          <textcolor>FF939597</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <pulseonselect>false</pulseonselect>
-          <spinposx>-4</spinposx>
-          <spinwidth>40</spinwidth>
-          <spinheight>65</spinheight>
-          <textoffsetx>30</textoffsetx>
-          <aligny>center</aligny>
-          <reverse>yes</reverse>
-          <onright>19</onright>
-          <onleft>19</onleft>
-          <onup>17</onup>
-          <ondown>22</ondown>
-        </control>
-        <!-- ASCENDING / DESCENDING -->
-        <control type="togglebutton" id="19">
-          <posx>1050</posx>
-          <posy>660</posy>
-          <label>21431</label>
-          <altlabel>21430</altlabel>
-          <height>69</height>
-          <width>300</width>
-          <texturenofocus>views/menudivider.png</texturenofocus>
-          <texturefocus>views/listpanel_selectbar.png</texturefocus>
-          <alttexturenofocus>views/menudivider.png</alttexturenofocus>
-          <alttexturefocus>views/listpanel_selectbar.png</alttexturefocus>
-          <pulseonselect>false</pulseonselect>
-          <textcolor>FF939597</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <disabledcolor>3cFFFFFF</disabledcolor>
-          <textoffsetx>0</textoffsetx>
-          <align>center</align>
-          <aligny>center</aligny>
-          <font>Font_Reg18</font>
-          <include>Animation_CommonFade</include>
-          <onright>9001</onright>
-          <onleft>18</onleft>
-          <onup>17</onup>
-          <ondown>22</ondown>
-        </control>
-      </control>
-      <!-- GROUP 9002 END -->
-      <control type="group" id="9000">
-        <defaultcontrol always="true">13</defaultcontrol>
-        <!-- ADD -->
-        <control type="button" id="13">
-          <description>Button: Add</description>
-          <posy>292</posy>
-          <posx>1350</posx>
-          <width>234</width>
-          <height>62</height>
-          <font>Font_Bold22</font>
-          <label>15019</label>
-          <align>left</align>
-          <textcolor>FFf5f5f5</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <selectedcolor>FF262728</selectedcolor>
-          <textoffsetx>30</textoffsetx>
-          <onup>21</onup>
-          <onleft>9002</onleft>
-          <onright>13</onright>
-          <ondown>14</ondown>
-          <texturenofocus>-</texturenofocus>
-          <texturefocus>dialogs/setcontent_rightmenu_highlight.png</texturefocus>
-        </control>
-        <!--REMOVE-->
-        <control type="button" id="14">
-          <description>Remove Rule Button</description>
-          <posy>354</posy>
-          <posx>1350</posx>
-          <width>234</width>
-          <height>62</height>
-          <font>Font_Bold22</font>
-          <label>1210</label>
-          <align>left</align>
-          <textcolor>FFf5f5f5</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <selectedcolor>FF262728</selectedcolor>
-          <textoffsetx>30</textoffsetx>
-          <texturenofocus>-</texturenofocus>
-          <texturefocus>dialogs/setcontent_rightmenu_highlight.png</texturefocus>
-          <onup>13</onup>
-          <onleft>9002</onleft>
-          <onright>14</onright>
-          <ondown>15</ondown>
-        </control>
-        <!-- EDIT -->
-        <control type="button" id="15">
-          <description>Edit Rule Button</description>
-          <posx>1350</posx>
-          <posy>416</posy>
-          <height>62</height>
-          <width>234</width>
-          <font>Font_Bold20</font>
-          <align>left</align>
-          <textcolor>FFf5f5f5</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <selectedcolor>FF262728</selectedcolor>
-          <textoffsetx>30</textoffsetx>
-          <texturenofocus>-</texturenofocus>
-          <texturefocus>dialogs/setcontent_rightmenu_highlight.png</texturefocus>
-          <label>21435</label>
-          <onup>14</onup>
-          <onleft>9002</onleft>
-          <onright>15</onright>
-          <ondown>9001</ondown>
-        </control>
-      </control>
-      <control type="group" id="9001">
-        <defaultcontrol always="true">20</defaultcontrol>
-        <!-- OK -->
-        <control type="button" id="20">
-          <description>Ok Button</description>
-          <posx>1350</posx>
-          <posy>540</posy>
-          <height>62</height>
-          <width>234</width>
-          <font>Font_Bold20</font>
-          <align>left</align>
-          <textcolor>FFf5f5f5</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <selectedcolor>FF262728</selectedcolor>
-          <textoffsetx>30</textoffsetx>
-          <texturenofocus>-</texturenofocus>
-          <texturefocus>dialogs/setcontent_rightmenu_highlight.png</texturefocus>
-          <label>186</label>
-          <onup>9000</onup>
-          <onleft>9002</onleft>
-          <onright>20</onright>
-          <ondown>21</ondown>
-        </control>
-        <!-- CANCEL -->
-        <control type="button" id="21">
-          <description>Cancel Button</description>
-          <posx>1350</posx>
-          <posy>600</posy>
-          <height>62</height>
-          <width>234</width>
-          <font>Font_Bold20</font>
-          <align>left</align>
-          <textcolor>FFf5f5f5</textcolor>
-          <focusedcolor>FF262728</focusedcolor>
-          <selectedcolor>FF262728</selectedcolor>
-          <textoffsetx>30</textoffsetx>
-          <texturenofocus>-</texturenofocus>
-          <texturefocus>dialogs/setcontent_rightmenu_highlight.png</texturefocus>
-          <label>222</label>
-          <onup>20</onup>
-          <onleft>9002</onleft>
-          <onright>21</onright>
-          <ondown>13</ondown>
-        </control>
-      </control>
-    </control>
-  </controls>
+
+	<defaultcontrol always="true">22</defaultcontrol>
+	
+	<controls>
+		
+		<control type="group">
+			<posx>517.5</posx>
+			<posy>25</posy>
+			<visible>!Window.IsVisible(smartplaylistrule)</visible>
+			<visible>!Window.IsVisible(virtualkeyboard)</visible>
+	
+			<include>Animation_DialogPopup</include>
+			
+			<control type="image">
+				<description>Panel</description>
+				<posx>0</posx>
+				<posy>-5</posy>
+				<texture>breeze/dialogs/smart playlist bg.png</texture>
+			</control>
+			
+			<control type="image">
+				<description>Panel</description>
+				<posx>0</posx>
+				<posy>-5</posy>
+				<texture>breeze/dialogs/smart playlist highlight.png</texture>
+				<visible>Control.HasFocus(12)</visible>
+			</control>
+			
+			<!-- EDIT SMART PLAYLIST -->
+			<control type="label">
+				<description>heading label</description>
+				<posx>0</posx>
+				<posy>35</posy>
+				<width>885</width>
+				<height>40</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>breeze60</font>
+				<label>$LOCALIZE[21432]</label>
+			</control>
+			
+			<control type="group" id="9002">
+			
+				<!-- TYPE -->
+				<control type="spincontrolex" id="22">
+					<description>Set Playlist type</description>
+					<posx>36</posx>
+					<posy>105</posy>
+					<width>813</width>
+					<height>60</height>
+					<font>breeze32</font>
+					<label>467</label>
+					<texturefocus>breeze/dialogs/content settings focused bg.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<textureup>breeze/settings/spin up.png</textureup>
+					<texturedown>breeze/settings/spin down.png</texturedown>
+					<textureupfocus>breeze/settings/spin up f.png</textureupfocus>
+					<texturedownfocus>breeze/settings/spin down f.png</texturedownfocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<pulseonselect>false</pulseonselect>
+					<spinposx>25</spinposx>
+					<spinwidth>32</spinwidth>
+					<spinheight>60</spinheight>
+					<textoffsetx>20</textoffsetx>
+					<onright>22</onright>
+					<onleft>22</onleft>
+					<onup>20</onup>
+					<ondown>12</ondown>
+				</control>
+			
+				<!-- NAME OF PLAYLIST -->
+				<control type="label" id="0">
+					<description>Name Label</description>
+					<posx>50</posx>
+					<posy>180</posy>
+					<width>673</width>
+					<height>28</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+					<font>breeze32</font>
+					<label>21433</label>
+					<animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(12)">Conditional</animation>
+				</control>
+				
+				<!-- TEXT BOX FOR NAME OF PLAYLIST -->
+				<control type="button" id="12">
+					<description>Name Button</description>
+					<posx>50</posx>
+					<posy>231</posy>
+					<width>785</width>
+					<height>44</height>
+					<aligny>center</aligny>
+					<label>-</label>
+					<onup>22</onup>
+					<onleft>12</onleft>
+					<onright>12</onright>
+					<ondown>10</ondown>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+				</control>
+				
+				<!-- FIND ITEMS WHERE -->
+				<control type="label">
+					<description>rules label</description>
+					<posx>50</posx>
+					<posy>319</posy>
+					<width>673</width>
+					<height>28</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+					<font>breeze32</font>
+					<label>21434</label>
+					<animation effect="fade" start="100" end="60" time="300" condition="!Control.HasFocus(10)">Conditional</animation>
+				</control>
+				
+				<control type="list" id="10">
+					<description>Rules List Control</description>
+					<posx>39</posx>
+					<posy>366</posy>
+					<width>613</width>
+					<height>150</height>
+					<onup>12</onup>
+					<onleft>10</onleft>
+					<onright>9000</onright>
+					<ondown>16</ondown>
+					
+					<itemlayout height="50">
+					
+						<control type="image">
+							<posx>0</posx>
+							<width>715</width>
+							<texture>breeze/settings/custom tile 2 nf.png</texture>
+						</control>
+					
+						<control type="label">
+							<posx>15</posx>
+							<posy>-3</posy>
+							<width>588</width>
+							<height>50</height>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<align>left</align>
+							<info>ListItem.Label</info>
+						</control>	
+						
+					</itemlayout>
+					
+					<focusedlayout height="50">
+					
+						<control type="image">
+							<width>715</width>
+							<texture>breeze/settings/custom tile 2 f.png</texture>
+							<visible>Control.HasFocus(10)</visible>
+						</control>
+					
+						<control type="image">
+							<posx>0</posx>
+							<width>715</width>
+							<texture>breeze/settings/custom tile 2 nf.png</texture>
+							<visible>!Control.HasFocus(10)</visible>
+						</control>
+					
+						<control type="label">
+							<posx>15</posx>
+							<posy>-3</posy>
+							<width>588</width>
+							<height>50</height>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<align>left</align>
+							<info>ListItem.Label</info>
+							<scroll>true</scroll>
+							<visible>!Control.HasFocus(10)</visible>
+						</control>
+					
+						<control type="label">
+							<posx>15</posx>
+							<posy>-3</posy>
+							<width>588</width>
+							<height>50</height>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<font>breeze32</font>
+							<align>left</align>
+							<info>ListItem.Label</info>
+							<scroll>true</scroll>
+							<visible>Control.HasFocus(10)</visible>
+						</control>
+						
+					</focusedlayout>
+					
+				</control>
+				
+				<!-- ITEMS MUST MATCH ... -->
+				<control type="spincontrolex" id="16">
+					<description>Set Playlist type</description>
+					<posx>36</posx>
+					<posy>550</posy>
+					<width>813</width>
+					<height>60</height>
+					<font>breeze32</font>
+					<label>21424</label>
+					<texturefocus>breeze/dialogs/content settings focused bg.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<textureup>breeze/settings/spin up.png</textureup>
+					<texturedown>breeze/settings/spin down.png</texturedown>
+					<textureupfocus>breeze/settings/spin up f.png</textureupfocus>
+					<texturedownfocus>breeze/settings/spin down f.png</texturedownfocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<disabledcolor>red</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<spinposx>25</spinposx>
+					<spinwidth>32</spinwidth>
+					<spinheight>60</spinheight>
+					<textoffsetx>20</textoffsetx>
+					<onright>9001</onright>
+					<onleft>16</onleft>
+					<onup>10</onup>
+					<ondown>17</ondown>
+				</control>
+				
+				<!-- LIMIT TO -->
+				<control type="spincontrolex" id="17">
+					<description>Limit to</description>
+					<posx>36</posx>
+					<posy>610</posy>
+					<width>813</width>
+					<height>60</height>
+					<font>breeze32</font>
+					<label>21427</label>
+					<texturefocus>breeze/dialogs/content settings focused bg.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<textureup>breeze/settings/spin up.png</textureup>
+					<texturedown>breeze/settings/spin down.png</texturedown>
+					<textureupfocus>breeze/settings/spin up f.png</textureupfocus>
+					<texturedownfocus>breeze/settings/spin down f.png</texturedownfocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<disabledcolor>red</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<spinposx>25</spinposx>
+					<spinwidth>32</spinwidth>
+					<spinheight>60</spinheight>
+					<textoffsetx>20</textoffsetx>
+					<onright>9001</onright>
+					<onleft>17</onleft>
+					<onup>16</onup>
+					<ondown>18</ondown>
+				</control>
+			
+				<!-- ORDER BY -->
+				<control type="spincontrolex" id="18">
+					<description>Order By</description>
+					<posx>36</posx>
+					<posy>670</posy>
+					<width>600</width>
+					<height>60</height>
+					<font>breeze32</font>
+					<label>21429</label>
+					<texturefocus>breeze/dialogs/content settings focused bg.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<textureup>breeze/settings/spin up.png</textureup>
+					<texturedown>breeze/settings/spin down.png</texturedown>
+					<textureupfocus>breeze/settings/spin up f.png</textureupfocus>
+					<texturedownfocus>breeze/settings/spin down f.png</texturedownfocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<disabledcolor>red</disabledcolor>
+					<pulseonselect>false</pulseonselect>
+					<spinposx>25</spinposx>
+					<spinwidth>32</spinwidth>
+					<spinheight>60</spinheight>
+					<textoffsetx>20</textoffsetx>
+					<onright>19</onright>
+					<onleft>19</onleft>
+					<onup>17</onup>
+					<ondown>20</ondown>
+				</control>
+			
+				<!-- ASCENDING / DESCENDING -->
+				<control type="togglebutton" id="19">
+					<posx>645</posx>
+					<posy>672</posy>
+					<label>21431</label>
+					<altlabel>21430</altlabel>
+					<height>60</height>
+					<width>240</width>
+					<texturenofocus>breeze/dialogs/descending.png</texturenofocus>
+					<texturefocus>breeze/dialogs/descending f.png</texturefocus>
+					<alttexturenofocus>breeze/dialogs/ascending.png</alttexturenofocus>
+					<alttexturefocus>breeze/dialogs/ascending f.png</alttexturefocus>
+					<pulseonselect>false</pulseonselect>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<disabledcolor>red</disabledcolor>
+					<textoffsetx>0</textoffsetx>
+					<align>center</align>
+					<aligny>top</aligny>
+					<textoffsety>6</textoffsety>
+					<font>breeze32</font>
+					<onright>9001</onright>
+					<onleft>18</onleft>
+					<onup>17</onup>
+					<ondown>20</ondown>
+				</control>
+			
+			</control>
+		
+			<!-- GROUP 9002 END -->
+		
+			<control type="group" id="9000">
+				<defaultcontrol always="true">13</defaultcontrol>
+				<posx>378</posx>
+				<posy>361</posy>
+				
+				<!-- ADD -->
+				<control type="button" id="13">
+					<description>Button: Add</description>
+					<posy>0</posy>
+					<width>240</width>
+					<height>60</height>
+					<label>15019</label>
+					<font>breeze32</font>
+					<align>left</align>
+					<aligny>top</aligny>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<selectedcolor>white</selectedcolor>
+					<textoffsetx>60</textoffsetx>
+					<textoffsety>6</textoffsety>
+					<onup>21</onup>
+					<onleft>9002</onleft>
+					<onright>13</onright>
+					<ondown>14</ondown>
+					<texturenofocus>breeze/dialogs/media source add.png</texturenofocus>
+					<texturefocus>breeze/dialogs/media source add f.png</texturefocus>
+				</control>
+				
+				<!--REMOVE-->
+				<control type="button" id="14">
+					<description>Remove Rule Button</description>
+					<posy>50</posy>
+					<width>240</width>
+					<height>60</height>
+					<label>1210</label>
+					<font>breeze32</font>
+					<align>left</align>
+					<aligny>top</aligny>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<selectedcolor>white</selectedcolor>
+					<textoffsetx>60</textoffsetx>
+					<textoffsety>6</textoffsety>
+					<onup>13</onup>
+					<onleft>9002</onleft>
+					<onright>14</onright>
+					<ondown>15</ondown>
+					<texturenofocus>breeze/dialogs/media source remove.png</texturenofocus>
+					<texturefocus>breeze/dialogs/media source remove f.png</texturefocus>
+				</control>
+				
+				<!-- EDIT -->
+				<control type="button" id="15">
+					<description>Edit Rule Button</description>
+					<posy>100</posy>
+					<width>240</width>
+					<height>60</height>
+					<label>21435</label>
+					<font>breeze32</font>
+					<align>left</align>
+					<aligny>top</aligny>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>white</focusedcolor>
+					<selectedcolor>white</selectedcolor>
+					<textoffsetx>60</textoffsetx>
+					<textoffsety>6</textoffsety>
+					<onup>14</onup>
+					<onleft>9002</onleft>
+					<onright>15</onright>
+					<ondown>16</ondown>
+					<texturenofocus>breeze/dialogs/media source browse.png</texturenofocus>
+					<texturefocus>breeze/dialogs/media source browse f.png</texturefocus>
+				</control>
+				
+			</control>
+			
+			<control type="group" id="9001">
+				<defaultcontrol always="true">20</defaultcontrol>
+				<posx>10</posx>
+				<posy>150</posy>
+				
+				<!-- OK -->
+				<control type="button" id="20">
+					<description>Ok Button</description>
+					<posx>30</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/select button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/select button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>424</label>
+					<textoffsetx>60</textoffsetx>
+					<onup>18</onup>
+					<onleft>21</onleft>
+					<onright>21</onright>
+					<ondown>22</ondown>
+				</control>
+				
+				<!-- CANCEL -->
+				<control type="button" id="21">
+					<description>Cancel Button</description>
+					<posx>200</posx>
+					<posy>600</posy>
+					<width>300</width>
+					<height>51</height>
+					<texturefocus>breeze/dialogs/close button f.png</texturefocus>
+					<texturenofocus>breeze/dialogs/close button nf.png</texturenofocus>
+					<textcolor>infogrey</textcolor>
+					<focusedcolor>infogrey</focusedcolor>
+					<font>breeze28b</font>
+					<label>222</label>
+					<textoffsetx>60</textoffsetx>
+					<onup>18</onup>
+					<onleft>20</onleft>
+					<onright>20</onright>
+					<ondown>22</ondown>
+				</control>
+				
+			</control>
+			
+		</control>
+		
+	</controls>
+	
 </window>

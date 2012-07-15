@@ -11,20 +11,20 @@
 			<posy>156 </posy>
 			<animation effect="slide" start="0,0" end="0,100" time="0" condition="Window.IsVisible(visualisation)">Conditional</animation>
   
-			<include>Animation_DialogPopup2</include>
+			<include>Animation_DialogPopup</include>
       
 			<control type="image"> <!--bg panel-->
 				<posx>0</posx>
 				<posy>0</posy>
 				<texture>breeze/dialogs/select common bg.png</texture>
-				<visible>!Control.IsVisible(5)</visible>
+				<visible>Control.IsVisible(3)</visible>
 			</control>
       
 			<control type="image"> <!--bg panel-->
 				<posx>0</posx>
 				<posy>0</posy>
 				<texture>breeze/dialogs/select addon bg.png</texture>
-				<visible>Control.IsVisible(5)</visible>
+				<visible>Control.IsVisible(6)</visible>
 			</control>
     
 			<control type="label" id="1"> <!--header-->
@@ -44,8 +44,9 @@
                 <posy>140</posy>
                 <width>234</width>
 				<height>234</height>
-				<texture>$INFO[Container(6).ListItem.Icon]</texture>
-				<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
+				<texture>breeze/dialogs/no addon.png</texture>
+				<visible>IsEmpty(Container(6).ListItem.Property(Addon.Name))</visible>
+				<visible>Control.IsVisible(6)</visible>
 			</control>
 			
 			<control type="image">
@@ -54,7 +55,8 @@
                 <width>234</width>
 				<height>234</height>
 				<texture fallback="breeze/addon.png">$INFO[Container(6).ListItem.Icon]</texture>
-				<visible>!IsEmpty(ListItem.Property(Addon.Name))</visible>
+				<visible>!IsEmpty(Container(6).ListItem.Property(Addon.Name))</visible>
+				<visible>Control.IsVisible(6)</visible>
 			</control>
 			
 			<control type="group">
@@ -108,7 +110,7 @@
 					<control type="label">  <!--label-->
 						<posx>15</posx>
 						<posy>-3</posy>
-						<width>776</width>
+						<width>642</width>
 						<height>50</height>
 						<textcolor>infogreynf</textcolor>
 						<aligny>center</aligny>
@@ -128,7 +130,7 @@
 					<control type="label"> <!--label-->
 						<posx>15</posx>
 						<posy>-3</posy>
-						<width>776</width>
+						<width>642</width>
 						<height>50</height>
 						<textcolor>white</textcolor>
 						<aligny>center</aligny>
@@ -161,24 +163,24 @@
         
 					<control type="label"> <!--label-->
 						<posx>15</posx>
-						<posy>25</posy>
+						<posy>3</posy>
 						<width>550</width>
 						<height>40</height>
-						<textcolor>infogreynf</textcolor>
+						<textcolor>infogrey</textcolor>
 						<aligny>center</aligny>
-						<font>breeze32</font>
+						<font>breeze32b</font>
 						<info>ListItem.Label</info>
 						<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
         
 					<control type="label"> <!--label 2-->
 						<posx>15</posx>
-						<posy>75</posy>
+						<posy>39</posy>
 						<width>550</width>
 						<height>40</height>
 						<textcolor>infogreynf</textcolor>
 						<aligny>center</aligny>
-						<font>breeze28</font>
+						<font>breeze30</font>
 						<info>ListItem.Label2</info>
 						<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
@@ -234,25 +236,25 @@
         
 					<control type="label">
 						<posx>15</posx>
-						<posy>30</posy>
+						<posy>3</posy>
 						<width>550</width>
 						<height>40</height>
 						<textcolor>white</textcolor>
 						<aligny>center</aligny>
-						<font>breeze32</font>
+						<font>breeze32b</font>
 						<info>ListItem.Label</info>
 						<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
         
 					<control type="label">
 						<posx>15</posx>
-						<posy>30</posy>
+						<posy>39</posy>
 						<width>550</width>
 						<height>40</height>
 						<textcolor>white</textcolor>
 						<selectedcolor>blue2</selectedcolor>
 						<aligny>center</aligny>
-						<font>breeze28</font>
+						<font>breeze30</font>
 						<info>ListItem.Label2</info>
 						<visible>IsEmpty(ListItem.Property(Addon.Name))</visible>
 					</control>
@@ -303,7 +305,7 @@
 			<control type="group">
 				<posx>10</posx>
 				<posy>-115</posy>
-				<animation effect="slide" start="0,0" end="125,0" time="0" condition="!Control.IsVisible(5)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="125,0" time="0" condition="Control.IsVisible(3)">Conditional</animation>
     
 				<control type="button" id="10">
 					<description>Manual Button</description>
@@ -387,7 +389,7 @@
 				<onright>6</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
-				<visible>!Control.IsVisible(5)</visible>
+				<visible>Control.IsVisible(3)</visible>
 			</control>
 
 			<control type="scrollbar" id="61">
@@ -405,7 +407,7 @@
 				<onright>6</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
-				<visible>Control.IsVisible(5)</visible>
+				<visible>Control.IsVisible(6)</visible>
 			</control>
 		
 		</control>

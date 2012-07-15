@@ -28,6 +28,7 @@
 		<font>breeze32</font>
 		<textcolor>infogrey</textcolor>
 		<focusedcolor>white</focusedcolor>
+		<disabledcolor>disabled</disabledcolor>
 		<texturenofocus>breeze/settings/custom tile 2 nf.png</texturenofocus>
 		<texturefocus>breeze/settings/custom tile 2 f.png</texturefocus>
 		<textureradiofocus>breeze/settings/radio button f mid.png</textureradiofocus>
@@ -209,6 +210,132 @@
 					<include>SettingsCustomDialogButtonVars</include>
 					<label>$LOCALIZE[573]</label>
 					<label2>$INFO[Skin.String(FilmTile2.Path)]</label2>
+				</control>
+			
+			</control>
+			
+		</control>
+		
+    </include>
+
+    <include name="MusicTile1">
+	
+		<control type="group">
+			<posy>100</posy>
+		
+			<control type="grouplist" id="4">
+				<posx>694</posx>
+				<posy>360</posy>
+				<width>563</width>
+				<height>360</height>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+			
+				<control type="button" id="2141">
+					<include>SettingsCustomDialogButtonVars</include>
+					<label>$LOCALIZE[35502]</label>
+					<label2>$INFO[Skin.String(MusicTile1.Label)]</label2>
+					<onclick>Skin.SetString(MusicTile1.Label)</onclick>
+				</control>
+			
+				<control type="button" id="2142">
+					<include>SettingsCustomDialogButtonVars</include>
+					<label>$LOCALIZE[31336]</label>
+					<label2>$INFO[Skin.String(MusicTile1.Icon)]</label2>
+					<onclick>Skin.SetImage(Musictile1.Icon)</onclick>
+				</control>		
+    	
+				<control type="button" id="2406">
+					<include>SettingsCustomDialogButtonVars</include>
+					<label>$LOCALIZE[573]</label>
+					<label2>$INFO[Skin.String(MusicTile1.Path)]</label2>
+				</control>
+			
+			</control>
+			
+		</control>
+		
+    </include>
+
+    <include name="MusicTile2">
+	
+		<control type="group">
+			<posy>100</posy>
+		
+			<control type="grouplist" id="4">
+				<posx>694</posx>
+				<posy>360</posy>
+				<width>563</width>
+				<height>360</height>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+			
+				<control type="button" id="2141">
+					<include>SettingsCustomDialogButtonVars</include>
+					<label>$LOCALIZE[35502]</label>
+					<label2>$INFO[Skin.String(MusicTile2.Label)]</label2>
+					<onclick>Skin.SetString(MusicTile2.Label)</onclick>
+				</control>
+			
+				<control type="button" id="2142">
+					<include>SettingsCustomDialogButtonVars</include>
+					<label>$LOCALIZE[31336]</label>
+					<label2>$INFO[Skin.String(MusicTile2.Icon)]</label2>
+					<onclick>Skin.SetImage(Musictile2.Icon)</onclick>
+				</control>		
+    	
+				<control type="button" id="2406">
+					<include>SettingsCustomDialogButtonVars</include>
+					<label>$LOCALIZE[573]</label>
+					<label2>$INFO[Skin.String(MusicTile2.Path)]</label2>
+				</control>
+			
+			</control>
+			
+		</control>
+		
+    </include>
+
+    <include name="MusicTile3">
+	
+		<control type="group">
+			<posy>100</posy>
+		
+			<control type="grouplist" id="4">
+				<posx>694</posx>
+				<posy>360</posy>
+				<width>563</width>
+				<height>360</height>
+				<itemgap>-10</itemgap>
+				<onup>450</onup>
+				<ondown>500</ondown>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+			
+				<control type="button" id="2141">
+					<include>SettingsCustomDialogButtonVars</include>
+					<label>$LOCALIZE[35502]</label>
+					<label2>$INFO[Skin.String(MusicTile3.Label)]</label2>
+					<onclick>Skin.SetString(MusicTile3.Label)</onclick>
+				</control>
+			
+				<control type="button" id="2142">
+					<include>SettingsCustomDialogButtonVars</include>
+					<label>$LOCALIZE[31336]</label>
+					<label2>$INFO[Skin.String(MusicTile3.Icon)]</label2>
+					<onclick>Skin.SetImage(Musictile3.Icon)</onclick>
+				</control>		
+    	
+				<control type="button" id="2406">
+					<include>SettingsCustomDialogButtonVars</include>
+					<label>$LOCALIZE[573]</label>
+					<label2>$INFO[Skin.String(MusicTile3.Path)]</label2>
 				</control>
 			
 			</control>

@@ -1,4 +1,812 @@
 ﻿<window id="2600">
-  <include condition="!StringCompare(Weather.Plugin,weather.weatherplus)">Standard_Weather</include>
-  <include condition="StringCompare(Weather.Plugin,weather.weatherplus)">Weather_Plus</include>
+
+    <defaultcontrol always="true">7009</defaultcontrol>
+	
+    <allowoverlay>yes</allowoverlay>
+	
+    <controls>
+	
+		<include>CommonWeatherBackground</include>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/fade bg.png</texture>
+		</control> 	
+				
+		<control type="image"> <!--base bar-->
+			<posy>770</posy>
+			<texture>breeze/views/base.png</texture>
+			<visible>!Control.IsVisible(511)</visible>
+		</control>		
+		
+		<control type="group"> <!--tiles-->
+			<posx>260</posx>
+			<posy>170</posy>
+				<include>Animation_ViewZoom</include>
+				
+			<!--current-->
+      
+			<control type="label"> <!--title-->
+				<posx>280</posx>
+				<posy>-25</posy>
+				<width>460</width>
+				<font>breeze22bn</font>
+				<height>28</height>
+				<aligny>center</aligny>
+				<textcolor>infogreynf</textcolor>
+				<scroll>true</scroll>
+				<label>[UPPERCASE]$LOCALIZE[31497][/UPPERCASE]</label>
+			</control>
+      
+			<control type="label"> <!--title-->
+				<posx>280</posx>
+				<posy>530</posy>
+				<width>460</width>
+				<font>breeze22bn</font>
+				<height>28</height>
+				<aligny>center</aligny>
+				<textcolor>infogreynf</textcolor>
+				<scroll>true</scroll>
+				<label>[UPPERCASE]$LOCALIZE[31301] - $INFO[Window.Property(Updated)][/UPPERCASE]</label>
+			</control>
+			
+			<control type="image">
+				<posx>265</posx>
+				<texture>breeze/home/music tile.png</texture>
+			</control>
+					
+			<control type="image">
+				<description>current weather icon</description>
+				<posx>285</posx>
+				<posy>20</posy>
+				<width>160</width>
+				<height>160</height>
+				<texture>$INFO[Window.Property(Current.FanartCode),special://skin/extras/weather_icons/,.png]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+					
+			<control type="group">
+				<posy>-15</posy>
+			
+				<control type="label">
+					<description>Location</description>
+					<posx>455</posx>
+					<posy>50</posy>
+					<width>320</width>
+					<height>35</height>
+					<font>breeze34b</font>
+					<info>Window.Property(Location)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Date/Time</description>
+					<posx>455</posx>
+					<posy>90</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<info>Window.Property(Current.Condition)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Date/Time</description>
+					<posx>455</posx>
+					<posy>130</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$INFO[System.Date(dd)]/$INFO[System.Date(mm)]/$INFO[System.Date(yyyy)]  |  $INFO[System.Time]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+					
+			</control>
+					
+			<control type="group">
+				<posy>-10</posy>
+			
+				<control type="label">
+					<posx>305</posx>
+					<posy>200</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>Temperature</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Date/Time</description>
+					<posx>305</posx>
+					<posy>255</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$LOCALIZE[402]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Date/Time</description>
+					<posx>305</posx>
+					<posy>310</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$LOCALIZE[406]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Date/Time</description>
+					<posx>305</posx>
+					<posy>365</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$LOCALIZE[33021]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Date/Time</description>
+					<posx>305</posx>
+					<posy>420</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$LOCALIZE[33027]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Date/Time</description>
+					<posx>305</posx>
+					<posy>475</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$LOCALIZE[33028]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+					
+			</control>
+					
+			<control type="group">
+				<posy>-10</posy>
+			
+				<control type="label">
+					<description>Date/Time</description>
+					<posx>760</posx>
+					<posy>200</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$INFO[Window.Property(Current.Temperature)] $INFO[System.TemperatureUnits]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<posx>760</posx>
+					<posy>255</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$INFO[Window.Property(Current.FeelsLike)] $INFO[System.TemperatureUnits]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<posx>760</posx>
+					<posy>310</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$INFO[Window.Property(Current.Humidity)]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<posx>760</posx>
+					<posy>365</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$INFO[Window.Property(Current.Precipitation)]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<posx>760</posx>
+					<posy>420</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$INFO[Window.Property(Today.Sunrise)]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<posx>760</posx>
+					<posy>475</posy>
+					<width>310</width>
+					<height>35</height>
+					<font>breeze32</font>
+					<label>$INFO[Window.Property(Today.Sunset)]</label>
+					<align>right</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+					
+			</control>
+				
+			<!--day 1-->
+     
+			<control type="label"> <!--title-->
+				<posx>810</posx>
+				<posy>-25</posy>
+				<width>460</width>
+				<font>breeze22bn</font>
+				<height>28</height>
+				<aligny>center</aligny>
+				<textcolor>infogreynf</textcolor>
+				<scroll>true</scroll>
+				<label>[UPPERCASE]$LOCALIZE[31498][/UPPERCASE]</label>
+			</control>
+			
+			<control type="image">
+				<posx>795</posx>
+				<texture>breeze/home/music new tile.png</texture>
+			</control>
+					
+			<control type="group"> <!--weather-->
+					
+				<control type="image">
+					<description>day icon</description>
+					<posx>830</posx>
+					<posy>22</posy>
+					<height>100</height>
+					<width>100</width>
+					<texture>$INFO[Window.Property(Day0.FanartCode),special://skin/extras/weather_icons/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+			
+				<control type="label">
+					<description>Day label</description>
+					<posx>955</posx>
+					<posy>20</posy>
+					<width>250</width>
+					<height>35</height>
+					<font>breeze28b</font>
+					<info>Window.Property(Daily.1.LongDay)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Outlook label</description>
+					<posx>955</posx>
+					<posy>50</posy>
+					<width>240</width>
+					<height>35</height>
+					<font>breeze28</font>
+					<info>Window.Property(Daily.1.Outlook)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogreynf</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>High/Low</description>
+					<posx>950</posx>
+					<posy>80</posy>
+					<width>240</width>
+					<height>35</height>
+					<font>breeze28</font>
+					<label>$INFO[Window.Property(Daily.1.LowTemperature), $LOCALIZE[418]: ] $INFO[Window.Property(Daily.1.HighTemperature), $LOCALIZE[419]: ]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogreynf</textcolor>
+				</control>
+						
+			</control>
+				
+			<!--day 2-->
+			
+			<control type="image">
+				<posx>795</posx>
+				<posy>132</posy>
+				<texture>breeze/home/music new tile.png</texture>
+			</control>
+					
+			<control type="group"> <!--weather-->
+				<posy>132</posy>
+					
+				<control type="image">
+					<description>day icon</description>
+					<posx>830</posx>
+					<posy>22</posy>
+					<height>100</height>
+					<width>100</width>
+					<texture>$INFO[Window.Property(Day1.FanartCode),special://skin/extras/weather_icons/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+			
+				<control type="label">
+					<description>Day label</description>
+					<posx>955</posx>
+					<posy>20</posy>
+					<width>240</width>
+					<height>35</height>
+					<font>breeze28b</font>
+					<info>Window.Property(Daily.2.LongDay)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Outlook label</description>
+					<posx>955</posx>
+					<posy>50</posy>
+					<width>240</width>
+					<height>35</height>
+					<font>breeze28</font>
+					<info>Window.Property(Daily.2.Outlook)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogreynf</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>High/Low</description>
+					<posx>950</posx>
+					<posy>80</posy>
+					<width>240</width>
+					<height>35</height>
+					<font>breeze28</font>
+					<label>$INFO[Window.Property(Daily.2.LowTemperature), $LOCALIZE[418]: ] $INFO[Window.Property(Daily.2.HighTemperature), $LOCALIZE[419]: ]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogreynf</textcolor>
+				</control>
+						
+			</control>
+				
+			<!--day 3-->
+			
+			<control type="image">
+				<posx>795</posx>
+				<posy>265</posy>
+				<texture>breeze/home/music new tile.png</texture>
+			</control>
+					
+			<control type="group"> <!--weather-->
+				<posy>265</posy>
+			
+				<control type="image">
+					<description>day icon</description>
+					<posx>830</posx>
+					<posy>22</posy>
+					<height>100</height>
+					<width>100</width>
+					<texture>$INFO[Window.Property(Day2.FanartCode),special://skin/extras/weather_icons/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+			
+				<control type="label">
+					<description>Day label</description>
+					<posx>955</posx>
+					<posy>20</posy>
+					<width>189</width>
+					<height>35</height>
+					<font>breeze28b</font>
+					<info>Window.Property(Daily.3.LongDay)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Outlook label</description>
+					<posx>955</posx>
+					<posy>50</posy>
+					<width>240</width>
+					<height>35</height>
+					<font>breeze28</font>
+					<info>Window.Property(Daily.3.Outlook)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogreynf</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>High/Low</description>
+					<posx>950</posx>
+					<posy>80</posy>
+					<width>240</width>
+					<height>35</height>
+					<font>breeze28</font>
+					<label>$INFO[Window.Property(Daily.3.LowTemperature), $LOCALIZE[418]: ] $INFO[Window.Property(Daily.3.HighTemperature), $LOCALIZE[419]: ]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogreynf</textcolor>
+				</control>
+						
+			</control>
+				
+			<!--day 4-->
+			
+			<control type="image">
+				<posx>795</posx>
+				<posy>397</posy>
+				<texture>breeze/home/music new tile.png</texture>
+			</control>
+					
+			<control type="group"> <!--weather-->
+				<posy>397</posy>
+					
+				<control type="image">
+					<description>day icon</description>
+					<posx>830</posx>
+					<posy>22</posy>
+					<height>100</height>
+					<width>100</width>
+					<texture>$INFO[Window.Property(Day3.FanartCode),special://skin/extras/weather_icons/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+			
+				<control type="label">
+					<description>Day label</description>
+					<posx>955</posx>
+					<posy>20</posy>
+					<width>189</width>
+					<height>35</height>
+					<font>breeze28b</font>
+					<info>Window.Property(Daily.4.LongDay)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogrey</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>Outlook label</description>
+					<posx>955</posx>
+					<posy>50</posy>
+					<width>240</width>
+					<height>35</height>
+					<font>breeze28</font>
+					<info>Window.Property(Daily.4.Outlook)</info>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogreynf</textcolor>
+				</control>
+			
+				<control type="label">
+					<description>High/Low</description>
+					<posx>950</posx>
+					<posy>80</posy>
+					<width>240</width>
+					<height>35</height>
+					<font>breeze28</font>
+					<label>$INFO[Window.Property(Daily.4.LowTemperature), $LOCALIZE[418]: ] $INFO[Window.Property(Daily.4.HighTemperature), $LOCALIZE[419]: ]</label>
+					<align>left</align>
+					<aligny>center</aligny>
+					<textcolor>infogreynf</textcolor>
+				</control>
+						
+			</control>
+					
+		</control>		
+	  
+		<control type="button" id="7009"> <!--settings button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(50)</onup>
+			<onleft>SetFocus(7010)</onleft>
+			<onright>SetFocus(7010)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>SetFocus(9000)</onclick>
+		</control>
+	  
+		<control type="button" id="7010"> <!--shutdown button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(50)</onup>
+			<onleft>SetFocus(7009)</onleft>
+			<onright>SetFocus(7009)</onright>
+			<ondown>SetFocus(50)</ondown>
+			<onclick>ActivateWindow(shutdownmenu)</onclick>
+		</control>
+    
+		<include>Breadcrumbs</include> 
+		
+		<control type="group">
+			<posy>520</posy>
+			<include>BreezeTimePanel</include>
+		</control>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+			<visible>ControlGroup(9000).HasFocus | Window.IsActive(111) | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(numericinput)</visible>
+			<visible>!Window.IsVisible(virtualkeyboard)</visible>
+		</control> 
+		
+		<control type="group">
+			<posx>1788</posx>
+			<posy>17</posy>
+			<orientation>horizontal</orientation>
+			
+			<control type="image"> <!--settings button-->
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/settings.png</texture>
+				<visible>!Control.HasFocus(7009)</visible>
+				<visible>!ControlGroup(9000).HasFocus</visible>
+				<visible>!Control.IsVisible(7011)</visible>
+			</control>
+			
+			<control type="image"> <!--settings button f-->
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/settings f.png</texture>
+				<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown.png</texture>
+				<visible>!Control.HasFocus(7010)</visible>
+				<visible>!Window.IsActive(shutdownmenu)</visible>
+				<visible>!Control.IsVisible(7012)</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button f-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown f.png</texture>
+				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+			</control>
+			
+		</control>
+		
+		<control type="group" id="9000">
+			<posy>0</posy>
+
+			<control type="group">
+				<description>First Panel</description>
+				
+				<animation type="focus">
+					<effect type="slide" start="0,0" end="-400,0"/>
+					<effect type="fade" start="0" end="100" time="450" delay="0"/>
+					<effect type="zoom" center="2210,62" start="0" end="100" time="400" delay="0"/>
+				</animation>	
+		
+				<animation type="unfocus">
+					<effect type="rotatey" start="0" end="180" time="400" center="1722,0" delay="0" />
+					<effect type="fade" start="100" end="0" time="200" delay="150" />
+					<effect type="slide" start="-400," end="0,0" delay="400"/>
+				</animation>		
+
+				<control type="group" id="9003">
+					<posx>1950</posx>
+					<posy>49</posy>
+					<width>341</width>
+					<height>950</height>
+					<include>Animation_CommonFade</include>
+			
+					<control type="image">
+						<width>341</width>
+						<height>41</height>
+						<texture>breeze/menus/settings top.png</texture>
+						<include>Animation_CommonFade</include>
+					</control>
+		  
+					<control type="button" id="1600">
+						<description>General options label</description>
+						<posx>0</posx>
+						<posy>41</posy>
+						<textcolor>blue2</textcolor>
+						<height>50</height>
+						<width>341</width>
+						<texturenofocus>breeze/menus/sub nf.png</texturenofocus>
+						<texturefocus>breeze/menus/sub f.png</texturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogreynf</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>blue2</disabledcolor>
+						<textoffsetx>28</textoffsetx>
+						<textoffsety>1</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze29b</font>
+						<include>Animation_CommonFade</include>
+						<label>$LOCALIZE[128] [LOWERCASE]$LOCALIZE[33063][/LOWERCASE]</label>
+						<enable>no</enable>
+					</control>
+		  
+					<control type="spincontrolex" id="3"> <!--sort by-->
+						<posx>0</posx>
+						<posy>91</posy>
+						<height>50</height>
+						<width>341</width>
+						<texturenofocus>breeze/menus/sub nf.png</texturenofocus>
+						<texturefocus>breeze/menus/sub f.png</texturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogreynf</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>10</textoffsetx>
+						<textoffsety>7</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<font>breeze28b</font>
+						<include>Animation_CommonFade</include>
+						<spinposx>18</spinposx>
+						<spinwidth>28</spinwidth>
+						<spinheight>50</spinheight>
+						<textureup>breeze/settings/spin up mid.png</textureup>
+						<texturedown>breeze/settings/spin down mid.png</texturedown>
+						<textureupfocus>breeze/settings/spin up f mid.png</textureupfocus>
+						<texturedownfocus>breeze/settings/spin down f mid.png</texturedownfocus>
+						<label>-</label>
+						<onleft>SetFocus(50)</onleft>
+						<onright>SetFocus(50)</onright>
+						<ondown>2</ondown>
+						<onup>4</onup>
+					</control>
+					
+					<control type="label">
+						<description>change location label</description>
+						<posx>28</posx>
+						<posy>91</posy>
+						<height>50</height>
+						<width>150</width>
+						<font>breeze28b</font>
+						<align>left</align>
+						<aligny>top</aligny>
+						<textoffsety>7</textoffsety>
+						<textcolor>infogreynf</textcolor>
+						<label>$LOCALIZE[35500]</label>
+						<visible>!Control.HasFocus(3) + Control.IsEnabled(3)</visible>
+					</control>
+					
+					<control type="label">
+						<description>change location label</description>
+						<posx>28</posx>
+						<posy>91</posy>
+						<height>50</height>
+						<width>150</width>
+						<font>breeze28b</font>
+						<align>left</align>
+						<aligny>top</aligny>
+						<textoffsety>7</textoffsety>
+						<textcolor>disabled</textcolor>
+						<label>$LOCALIZE[35500]</label>
+						<visible>!Control.HasFocus(3) + !Control.IsEnabled(3)</visible>
+					</control>
+					
+					<control type="label">
+						<description>change location label</description>
+						<posx>28</posx>
+						<posy>91</posy>
+						<height>50</height>
+						<width>150</width>
+						<font>breeze28b</font>
+						<align>left</align>
+						<aligny>top</aligny>
+						<textoffsety>7</textoffsety>
+						<textcolor>white</textcolor>
+						<label>$LOCALIZE[35500]</label>
+						<visible>Control.HasFocus(3)</visible>
+					</control>
+
+					<control type="button" id="2"> <!--refresh-->
+						<posx>0</posx>
+						<posy>141</posy>
+						<height>50</height>
+						<width>341</width>
+						<texturenofocus>breeze/menus/sub nf.png</texturenofocus>
+						<texturefocus>breeze/menus/sub f.png</texturefocus>
+						<alttexturenofocus>breeze/menus/sub nf.png</alttexturenofocus>
+						<alttexturefocus>breeze/menus/sub f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogreynf</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>28</textoffsetx>
+						<textoffsety>1</textoffsety>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze28b</font>
+						<include>Animation_CommonFade</include>
+						<onclick>SetFocus(50)</onclick>
+						<onup>3</onup>
+						<ondown>4</ondown>
+					</control>
+
+					<control type="button" id="4"> <!--settings-->
+						<posx>0</posx>
+						<posy>191</posy>
+						<height>50</height>
+						<width>341</width>
+						<texturenofocus>breeze/menus/sub nf.png</texturenofocus>
+						<texturefocus>breeze/menus/sub f.png</texturefocus>
+						<alttexturenofocus>breeze/menus/sub nf.png</alttexturenofocus>
+						<alttexturefocus>breeze/menus/sub f.png</alttexturefocus>
+						<pulseonselect>false</pulseonselect>
+						<textcolor>infogreynf</textcolor>
+						<focusedcolor>white</focusedcolor>
+						<disabledcolor>disabled</disabledcolor>
+						<textoffsetx>28</textoffsetx>
+						<textoffsety>1</textoffsety>
+						<align>left</align>
+						<aligny>center</aligny>
+						<font>breeze28b</font>
+						<label>$LOCALIZE[5]</label>
+						<include>Animation_CommonFade</include>
+						<onclick>ActivateWindow(MyWeatherSettings)</onclick>
+						<onup>2</onup>
+						<ondown>3</ondown>
+					</control>
+			
+					<control type="image">
+						<posx>0</posx>
+						<posy>241</posy>
+						<width>341</width>
+						<height>25</height>
+						<texture>breeze/menus/sub bottom.png</texture>
+						<include>Animation_CommonFade</include>
+					</control>
+		  
+				</control>
+		
+			</control>
+
+		</control>
+				
+    </controls>
+	
 </window>

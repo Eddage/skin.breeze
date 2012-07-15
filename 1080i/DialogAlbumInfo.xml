@@ -13,7 +13,8 @@
 				<posy>0</posy>
 				<width>1920</width>
 				<height>1080</height>
-				<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<aspectratio scalediffuse="false">scale</aspectratio> 
+				<texture background="true"  fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<animation effect="slide" start="0,-1080" end="0,0" time="500">WindowOpen</animation>
 				<animation effect="slide" start="0,0" end="0,-1080" time="500" delay="500">WindowClose</animation>
 				<animation effect="slide" start="0,-1080" end="0,0" time="750" condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
@@ -26,7 +27,7 @@
 				<posy>0</posy>
 				<width>1920</width>
 				<height>1080</height>
-				<texture>breeze/bg 90.png</texture>
+				<texture>breeze/fade bg.png</texture>
 				<animation effect="slide" start="0,-1080" end="0,0" time="500">WindowOpen</animation>
 				<animation effect="slide" start="0,0" end="0,-1080" time="500" delay="500">WindowClose</animation>
 				<animation effect="slide" start="0,-1080" end="0,0" time="750" condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
@@ -57,22 +58,22 @@
 				</control>
 					
 				<control type="group"> <!--album covers-->
+					<posx>12.5</posx>
+					<posy>32.5</posy> 
 					<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 					<animation effect="fade" start="0" end="100" time="500" delay="500"condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="500" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
-					<posx>12.5</posx>
-					<posy>32.5</posy> 
 
-					<control type="image"> <!--cover-->
+					<control type="image" id="501"> <!--cover-->
 						<description>background image</description>
 						<posx>19</posx>
 						<posy>19</posy>
 						<width>374</width>
 						<height>374</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
-						<visible>!Window.IsVisible(61)</visible>
+						<texture diffuse="breeze/home/folder tile dif.png">$INFO[Listitem.Thumb]</texture>
+						<visible>!Window.IsVisible(61)</visible>					
 		
 						<animation type="Hidden">
 							<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="205,0" delay="25" />
@@ -209,7 +210,7 @@
 						<width>444</width>
 						<height>250</height>
 						<aspectratio scalediffuse="false">scale</aspectratio> 
-						<texture diffuse="breeze/masks/thumb.png">$INFO[Listitem.Property(Fanart_Image)]</texture>
+						<texture fallback="breeze/music.jpg" diffuse="breeze/masks/thumb.png">$INFO[Listitem.Property(Fanart_Image)]</texture>
 					</control> 
 					
 				</control>

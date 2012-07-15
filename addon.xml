@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.breeze" version="0.5.0" name="Breeze" provider-name="Eddage">
+<addon id="skin.breeze" version="0.7.0" name="Breeze" provider-name="Eddage">
   <requires>
     <import addon="xbmc.gui" version="3.00"/>
 	<import addon="script.artwork.downloader" version="1.0.7"/>
@@ -14,7 +14,7 @@
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Breeze by Eddage</summary>
     <description lang="en">What initially started as a mod of Aeon Nox has evolved into a full skin of its own.  Breeze has been designed as an alternative to the commonly found dark themes, a light and airy experience.[CR][CR]Inspiration has been taken from a mix of other skins and so I would like to recognise and thank the following...[CR][CR]Big Noid and Aeon Nox - The foundation of the skin.[CR]Amra/Stoli and Metropolis[CR]Hitcher/Arcanthur and Precession[CR]Black and Xperience1080</description>
-    <disclaimer>mouse is not supported.[CR]Compatable with Eden only.</disclaimer>
+    <disclaimer>Mouse is not supported.[CR]Compatable with Eden only.</disclaimer>
 	<platform>all</platform>
   </extension>
 </addon>

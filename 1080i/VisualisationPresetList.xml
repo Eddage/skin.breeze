@@ -6,15 +6,6 @@
 	<defaultcontrol>2</defaultcontrol>
 	
 	<controls>
-	  
-		<control type="image"> <!--background overlay (white)-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<texture>breeze/bg 75.png</texture>
-			<visible>Window.IsVisible(visualisation)</visible>
-		</control> 
   
 		<control type="group">
 			<posx>447</posx>
@@ -42,14 +33,14 @@
 		
 			<control type="label" id="4">
 				<description>No Presets Label</description>
-				<posx>375</posx>
-				<posy>112</posy>
-				<width>1172</width>
+				<posx>-450</posx>
+				<posy>0</posy>
+				<width>1920</width>
 				<height>600</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>13390</label>
-				<font>Font_Info</font>
+				<font>breeze32</font>
 			</control>
 		
 			<control type="list" id="2">
@@ -68,7 +59,7 @@
 				
 					<control type="label">
 						<posx>30</posx>
-						<posy>0</posy>
+						<posy>-2</posy>
 						<width>945</width>
 						<height>60</height>
 						<textcolor>infogrey</textcolor>
@@ -91,7 +82,7 @@
 				
 					<control type="label">
 						<posx>30</posx>
-						<posy>0</posy>
+						<posy>-2</posy>
 						<width>945</width>
 						<height>60</height>
 						<textcolor>white</textcolor>

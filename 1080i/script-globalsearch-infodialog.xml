@@ -1,6 +1,6 @@
 ﻿<window>
 
-	<defaultcontrol>-</defaultcontrol>
+	<defaultcontrol>192</defaultcontrol>
 	
 	<coordinates>
 		<system>1</system>
@@ -53,7 +53,7 @@
 				<posy>0</posy>
 				<width>1920</width>
 				<height>1080</height>
-				<texture>breeze/bg 90.png</texture>
+				<texture>breeze/fade bg.png</texture>
 				<animation effect="slide" start="0,-1080" end="0,0" time="500">WindowOpen</animation>
 				<animation effect="slide" start="0,0" end="0,-1080" time="500" delay="500">WindowClose</animation>
 			</control>
@@ -71,6 +71,25 @@
 				<texture>breeze/vid info/bg.png</texture>
 				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+				<visible>Control.IsVisible(110) | Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
+			</control>	
+	
+			<control type="image"> <!--bg-->
+				<posx>5</posx>
+				<posy>5</posy>
+				<texture>breeze/vid info/bg artist.png</texture>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+				<visible>Control.IsVisible(160) | Control.IsVisible(180)</visible>
+			</control>	
+	
+			<control type="image"> <!--bg-->
+				<posx>5</posx>
+				<posy>10</posy>
+				<texture>breeze/vid info/bg album.png</texture>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+				<visible>Control.IsVisible(170)</visible>
 			</control>		
 		
 			<control type="group"> <!--title-->
@@ -132,6 +151,48 @@
 					<scroll>false</scroll>
 					<visible>Control.IsVisible(140)</visible>
 					<visible>SubString(Container(100).ListItem.Property(Path),season 0)</visible>
+				</control>
+		
+				<control type="label"> <!--album artist-->
+					<description>Tagline</description>
+					<posx>0</posx>
+					<posy>115</posy>
+					<width>1400</width>
+					<font>breeze45</font>
+					<label>$INFO[Container(100).ListItem.Property(Artist)]</label>
+					<scroll>true</scroll>
+					<textcolor>infogreynf</textcolor>
+					<shadowcolor>90ffffff</shadowcolor>
+					<visible>Control.IsVisible(170)</visible>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+		
+				<control type="label"> <!--song artist-->
+					<description>Tagline</description>
+					<posx>0</posx>
+					<posy>115</posy>
+					<width>1400</width>
+					<font>breeze45</font>
+					<label>$INFO[Container(100).ListItem.Property(Artist)]$INFO[Container(100).ListItem.Property(Album), | ]</label>
+					<scroll>true</scroll>
+					<textcolor>infogreynf</textcolor>
+					<shadowcolor>90ffffff</shadowcolor>
+					<visible>Control.IsVisible(180) | Control.IsVisible(150)</visible>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+		
+				<control type="label"> <!--song album-->
+					<description>Tagline</description>
+					<posx>0</posx>
+					<posy>180</posy>
+					<width>1400</width>
+					<font>breeze45</font>
+					<label>$INFO[Container(100).ListItem.Property(Album)]</label>
+					<scroll>true</scroll>
+					<textcolor>infogreynf</textcolor>
+					<shadowcolor>90ffffff</shadowcolor>
+					<visible>Control.IsVisible(180)</visible>
+					<wrapmultiline>true</wrapmultiline>
 				</control>
 				
 			</control>
@@ -360,6 +421,94 @@
 					
 			</control>	
 
+			<control type="group">  <!--music video info-->
+				<animation effect="slide" start="0,510" end="0,0" time="500">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,510" time="500" delay="500">WindowClose</animation>
+				<visible>Control.IsVisible(150)</visible>
+				<posx>735</posx>
+				<posy>810</posy>
+						
+				<control type="label"> <!--year label-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>$LOCALIZE[345]:</label>
+				</control>
+						
+				<control type="label"> <!--year-->
+					<posx>63</posx>
+					<posy>0</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Year)]</label>
+				</control>
+		
+				<control type="label"> <!--runtime-->
+					<posx>0</posx>
+					<posy>40</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label>[COLOR blue2]$LOCALIZE[180]: [/COLOR]$INFO[Container(100).ListItem.Property(Duration)] [LOWERCASE]$LOCALIZE[12391][/LOWERCASE]</label>
+				</control>
+				
+				<control type="label"> <!--studio label-->
+					<posx>0</posx>
+					<posy>80</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label>$LOCALIZE[21899]:</label>
+					<textcolor>blue2</textcolor>
+				</control>	
+				
+				<control type="label"> <!--studio-->
+					<posx>73</posx>
+					<posy>80</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Studio)]</label>
+					<textcolor>infogrey</textcolor>
+				</control>	
+		
+				<control type="label"> <!--directed by:-->
+					<posx>0</posx>
+					<posy>120</posy>
+					<width>560</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>$LOCALIZE[31156]:</label>
+				</control>
+		
+				<control type="label"> <!--director-->
+					<posx>143</posx>
+					<posy>120</posy>
+					<width>787</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Director)]</label>
+					<scroll>true</scroll>
+					<scrollsuffix>     | </scrollsuffix>
+				</control>
+					
+			</control>	
+
 			<control type="group">  <!--tv show/season info-->
 				<animation effect="slide" start="0,510" end="0,0" time="500">WindowOpen</animation>
 				<animation effect="slide" start="0,0" end="0,510" time="500" delay="500">WindowClose</animation>
@@ -456,6 +605,364 @@
 				</control>
 					
 			</control>	
+
+			<control type="group">  <!--artist info-->
+				<animation effect="slide" start="0,510" end="0,0" time="500">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,510" time="500" delay="500">WindowClose</animation>
+				<visible>Control.IsVisible(160)</visible>
+				<posx>735</posx>
+				<posy>820</posy>
+				
+				<control type="label"> <!--genre label-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label>$LOCALIZE[515]:</label>
+					<textcolor>blue2</textcolor>
+				</control>	
+				
+				<control type="label"> <!--genre-->
+					<posx>83</posx>
+					<posy>0</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Artist_Genre)]</label>
+					<textcolor>infogrey</textcolor>
+				</control>	
+				
+				<control type="label"> <!--born/formed label-->
+					<posx>0</posx>
+					<posy>40</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label>$LOCALIZE[21893]/$LOCALIZE[21894]:</label>
+					<textcolor>blue2</textcolor>
+				</control>		
+				
+				<control type="label"> <!--born/formed-->
+					<posx>165</posx>
+					<posy>40</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Artist_Born)]$INFO[Container(100).ListItem.Property(Artist_Formed)]</label>
+					<textcolor>infogrey</textcolor>
+				</control>
+						
+				<control type="label"> <!--died/disbanded label-->
+					<posx>0</posx>
+					<posy>80</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>$LOCALIZE[21897]/$LOCALIZE[21896]:</label>
+				</control>
+						
+				<control type="label"> <!--died/disbanded-->
+					<posx>200</posx>
+					<posy>80</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Artist_Died)]$INFO[Container(100).ListItem.Property(Artist_Disbanded)]</label>
+				</control>
+	  
+				<control type="label"> <!--years active label-->
+					<posx>0</posx>
+					<posy>120</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>$LOCALIZE[21898]:</label>
+				</control>	
+	  
+				<control type="label"> <!--years active-->
+					<posx>147</posx>
+					<posy>120</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Artist_YearsActive)]</label>
+				</control>	
+	  
+				<control type="label"> <!--path label-->
+					<posx>0</posx>
+					<posy>160</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>Path:</label>
+				</control>	
+	  
+				<control type="label"> <!--path-->
+					<posx>63</posx>
+					<posy>160</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Path)]</label>
+				</control>	
+					
+			</control>	
+
+			<control type="group">  <!--album info-->
+				<animation effect="slide" start="0,510" end="0,0" time="500">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,510" time="500" delay="500">WindowClose</animation>
+				<visible>Control.IsVisible(170)</visible>
+				<posx>735</posx>
+				<posy>820</posy>
+				
+				<control type="label"> <!--year label-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label>$LOCALIZE[345]:</label>
+					<textcolor>blue2</textcolor>
+				</control>	
+				
+				<control type="label"> <!--year-->
+					<posx>63</posx>
+					<posy>0</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Year)]</label>
+					<textcolor>infogrey</textcolor>
+				</control>	
+				
+				<control type="label"> <!--genre label-->
+					<posx>0</posx>
+					<posy>40</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label>$LOCALIZE[515]:</label>
+					<textcolor>blue2</textcolor>
+				</control>		
+				
+				<control type="label"> <!--genre-->
+					<posx>83</posx>
+					<posy>40</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Genre)]</label>
+					<textcolor>infogrey</textcolor>
+				</control>
+						
+				<control type="label"> <!--type label-->
+					<posx>0</posx>
+					<posy>80</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>$LOCALIZE[467]:</label>
+				</control>
+						
+				<control type="label"> <!--type-->
+					<posx>69</posx>
+					<posy>80</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Album_Type)]</label>
+				</control>
+	  
+				<control type="label"> <!--Label label-->
+					<posx>0</posx>
+					<posy>120</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>$LOCALIZE[21899]:</label>
+				</control>	
+	  
+				<control type="label"> <!--Label-->
+					<posx>73</posx>
+					<posy>120</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Album_Label)]</label>
+				</control>	
+	  
+				<control type="label"> <!--path label-->
+					<posx>0</posx>
+					<posy>160</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>Path:</label>
+				</control>	
+	  
+				<control type="label"> <!--path-->
+					<posx>63</posx>
+					<posy>160</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Path)]</label>
+				</control>	
+					
+			</control>		
+
+			<control type="group">  <!--song info-->
+				<animation effect="slide" start="0,510" end="0,0" time="500">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,510" time="500" delay="500">WindowClose</animation>
+				<visible>Control.IsVisible(180)</visible>
+				<posx>735</posx>
+				<posy>820</posy>
+				
+				<control type="label"> <!--track label-->
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label>$LOCALIZE[554]:</label>
+					<textcolor>blue2</textcolor>
+				</control>	
+				
+				<control type="label"> <!--track-->
+					<posx>74</posx>
+					<posy>0</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Track)]</label>
+					<textcolor>infogrey</textcolor>
+				</control>	
+				
+				<control type="label"> <!--year label-->
+					<posx>0</posx>
+					<posy>40</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label>$LOCALIZE[345]:</label>
+					<textcolor>blue2</textcolor>
+				</control>		
+				
+				<control type="label"> <!--year-->
+					<posx>63</posx>
+					<posy>40</posy>
+					<width>930</width>
+					<height>200</height>
+					<align>left</align>
+					<font>breeze32</font>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Year)]</label>
+					<textcolor>infogrey</textcolor>
+				</control>
+						
+				<control type="label"> <!--genre label-->
+					<posx>0</posx>
+					<posy>80</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>$LOCALIZE[515]:</label>
+				</control>
+						
+				<control type="label"> <!--genre-->
+					<posx>83</posx>
+					<posy>80</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Genre)]</label>
+				</control>
+	  
+				<control type="label"> <!--playcount label-->
+					<posx>0</posx>
+					<posy>120</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>$LOCALIZE[567]:</label>
+				</control>	
+	  
+				<control type="label"> <!--playcount-->
+					<posx>130</posx>
+					<posy>120</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Playcount)]</label>
+				</control>	
+	  
+				<control type="label"> <!--path label-->
+					<posx>0</posx>
+					<posy>160</posy>
+					<width>930</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>blue2</textcolor>
+					<label>Path:</label>
+				</control>	
+	  
+				<control type="label"> <!--path-->
+					<posx>63</posx>
+					<posy>160</posy>
+					<width>1100</width>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<label fallback="31482">$INFO[Container(100).ListItem.Property(Path)]</label>
+					<scroll>true</scroll>
+				</control>	
+					
+			</control>	
 		
 			<control type="group"> <!--media flags-->
 				<posx>730</posx>
@@ -471,6 +978,15 @@
 				<posy>826</posy>	
 				<include>BreezeMediaFlagsGS</include>
 				<visible>Control.IsVisible(140)</visible>
+				<animation effect="slide" start="0,510" end="0,0" time="500">WindowOpen</animation>
+				<animation effect="slide" start="0,0" end="0,510" time="500" delay="500">WindowClose</animation>
+			</control>
+		
+			<control type="group"> <!--media flags-->
+				<posx>630</posx>
+				<posy>826</posy>	
+				<include>BreezeMediaFlagsGS</include>
+				<visible>Control.IsVisible(150)</visible>
 				<animation effect="slide" start="0,510" end="0,0" time="500">WindowOpen</animation>
 				<animation effect="slide" start="0,0" end="0,510" time="500" delay="500">WindowClose</animation>
 			</control>
@@ -520,59 +1036,86 @@
 					<width>372</width>
 					<height>556</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture diffuse="breeze/home/folder tile dif.png">$INFO[Container(100).ListItem.Property(Path),,folder.jpg]</texture>
+					<texture diffuse="breeze/home/folder tile dif.png">DefaultVideoBigPoster.png</texture>
 				</control>
 				
 			</control>
 			
 			<control type="group">
-				<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
+				<visible>Control.IsVisible(150)</visible>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+			
+				<control type="image">
+					<posx>23</posx>
+					<posy>23</posy>
+					<width>392</width>
+					<height>576</height>
+					<aspectratio>keep</aspectratio>
+					<texture>breeze/home/search folder f border.png</texture>
+				</control>
+			
+				<control type="image">
+					<posx>33</posx>
+					<posy>33</posy>
+					<width>372</width>
+					<height>556</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture diffuse="breeze/home/folder tile dif.png">breeze/views/fallback/DefaultActor.png</texture>
+				</control>
 				
+			</control>
+			
+			<control type="group">
+				<posy>90</posy>
+				<visible>Control.IsVisible(160) | Control.IsVisible(180)</visible>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+			
 				<control type="image">
-					<posx>120</posx>
-					<posy>638</posy>
-					<width>72</width>
-					<height>54</height>
-					<aspectratio>keep</aspectratio>
-					<texture>mediaflags/videoresolution/$INFO[Container(100).ListItem.Property(VideoResolution),,.png]</texture>
+					<posx>33</posx>
+					<posy>33</posy>
+					<width>372</width>
+					<height>372</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture diffuse="breeze/home/music tile small dif.png">$INFO[Container(100).ListItem.Icon]</texture>
 				</control>
 			
 				<control type="image">
-					<posx>195</posx>
-					<posy>638</posy>
-					<width>112</width>
-					<height>54</height>
+					<posx>23</posx>
+					<posy>23</posy>
+					<width>392</width>
+					<height>392</height>
 					<aspectratio>keep</aspectratio>
-					<texture>mediaflags/videocodec/$INFO[Container(100).ListItem.Property(VideoCodec),,.png]</texture>
+					<texture>breeze/home/music tile small border.png</texture>
+				</control>
+				
+			</control>
+			
+			<control type="group">
+				<posy>65</posy>
+				<visible>Control.IsVisible(170)</visible>
+				<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+			
+				<control type="image">
+					<posx>33</posx>
+					<posy>33</posy>
+					<width>372</width>
+					<height>372</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture diffuse="breeze/home/music tile small dif.png">$INFO[Container(100).ListItem.Icon]</texture>
 				</control>
 			
 				<control type="image">
-					<posx>310</posx>
-					<posy>638</posy>
-					<width>72</width>
-					<height>54</height>
+					<posx>23</posx>
+					<posy>23</posy>
+					<width>392</width>
+					<height>392</height>
 					<aspectratio>keep</aspectratio>
-					<texture>mediaflags/videoaspect/$INFO[Container(100).ListItem.Property(VideoAspect),,.png]</texture>
+					<texture>breeze/home/music tile small border.png</texture>
 				</control>
-			
-				<control type="image">
-					<posx>386</posx>
-					<posy>638</posy>
-					<width>112</width>
-					<height>54</height>
-					<aspectratio>keep</aspectratio>
-					<texture>mediaflags/audiocodec/$INFO[Container(100).ListItem.Property(AudioCodec),,.png]</texture>
-				</control>
-			
-				<control type="image">
-					<posx>501</posx>
-					<posy>638</posy>
-					<width>72</width>
-					<height>54</height>
-					<aspectratio>keep</aspectratio>
-					<texture>mediaflags/audiochannels/$INFO[Container(100).ListItem.Property(AudioChannels),,.png]</texture>
-				</control>
-			
+				
 			</control>
 		
 			<control type="group" id="101">
@@ -656,123 +1199,12 @@
 				<ondown>195</ondown>
 				<pagecontrol>-</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<itemlayout width="1200" height="45">
-					<control type="label">
-						<posx>248</posx>
-						<posy>0</posy>
-						<width>248</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>right</align>
-						<aligny>center</aligny>
-						<textcolor>FF4DBAFF</textcolor>
-						<selectedcolor>FF4DBAFF</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<posx>262</posx>
-						<posy>0</posy>
-						<width>938</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>FFFFFFFF</textcolor>
-						<selectedcolor>FFFFFFFF</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout width="1200" height="45">
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>1200</width>
-						<height>45</height>
-						<texture>MenuItemFO.png</texture>
-						<visible>Control.HasFocus(150)</visible>
-					</control>
-					<control type="label">
-						<posx>248</posx>
-						<posy>0</posy>
-						<width>248</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>right</align>
-						<aligny>center</aligny>
-						<textcolor>FF4DBAFF</textcolor>
-						<selectedcolor>FF4DBAFF</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<posx>262</posx>
-						<posy>0</posy>
-						<width>938</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>FFFFFFFF</textcolor>
-						<selectedcolor>FFFFFFFF</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</focusedlayout>
-				<content>
-					<item>
-						<label>$LOCALIZE[557]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[558]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Album)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Album))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[515]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[572]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Studio)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Studio))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[20339]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Director)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Director))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[562]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Year)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[2050]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Duration)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[567]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Playcount)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[15311]</label>
-						<label2>$INFO[Container(100).ListItem.Property(Path)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Path))</visible>
-					</item>
-				</content>
+				
+				<itemlayout width="1200" height="45"/>
+				<focusedlayout width="1200" height="45"/>
+				
 			</control>
+			
 			<control type="list" id="160">
 				<posx>645</posx>
 				<posy>177</posy>
@@ -784,123 +1216,12 @@
 				<ondown>195</ondown>
 				<pagecontrol>-</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<itemlayout width="1200" height="45">
-					<control type="label">
-						<posx>248</posx>
-						<posy>0</posy>
-						<width>248</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>right</align>
-						<aligny>center</aligny>
-						<textcolor>FF4DBAFF</textcolor>
-						<selectedcolor>FF4DBAFF</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<posx>262</posx>
-						<posy>0</posy>
-						<width>938</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>FFFFFFFF</textcolor>
-						<selectedcolor>FFFFFFFF</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout width="1200" height="45">
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>1200</width>
-						<height>45</height>
-						<texture>MenuItemFO.png</texture>
-						<visible>Control.HasFocus(160)</visible>
-					</control>
-					<control type="label">
-						<posx>248</posx>
-						<posy>0</posy>
-						<width>248</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>right</align>
-						<aligny>center</aligny>
-						<textcolor>FF4DBAFF</textcolor>
-						<selectedcolor>FF4DBAFF</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<posx>262</posx>
-						<posy>0</posy>
-						<width>938</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>FFFFFFFF</textcolor>
-						<selectedcolor>FFFFFFFF</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</focusedlayout>
-				<content>
-					<item>
-						<label>$LOCALIZE[21893]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist_Born)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Born))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[21894]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist_Formed)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Formed))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[21897]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist_Died)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Died))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[21896]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist_Disbanded)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Disbanded))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[21898]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist_YearsActive)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_YearsActive))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[175]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist_Mood)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Mood))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[176]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist_Style)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Style))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[515]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[15311]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Path)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Path))</visible>
-					</item>
-				</content>
+				
+				<itemlayout width="1200" height="45"/>
+				<focusedlayout width="1200" height="45"/>
+				
 			</control>
+			
 			<control type="list" id="170">
 				<posx>645</posx>
 				<posy>177</posy>
@@ -912,129 +1233,12 @@
 				<ondown>195</ondown>
 				<pagecontrol>-</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<itemlayout width="1200" height="45">
-					<control type="label">
-						<posx>248</posx>
-						<posy>0</posy>
-						<width>248</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>right</align>
-						<aligny>center</aligny>
-						<textcolor>FF4DBAFF</textcolor>
-						<selectedcolor>FF4DBAFF</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<posx>262</posx>
-						<posy>0</posy>
-						<width>938</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>FFFFFFFF</textcolor>
-						<selectedcolor>FFFFFFFF</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout width="1200" height="45">
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>1200</width>
-						<height>45</height>
-						<texture>MenuItemFO.png</texture>
-						<visible>Control.HasFocus(170)</visible>
-					</control>
-					<control type="label">
-						<posx>248</posx>
-						<posy>0</posy>
-						<width>248</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>right</align>
-						<aligny>center</aligny>
-						<textcolor>FF4DBAFF</textcolor>
-						<selectedcolor>FF4DBAFF</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<posx>262</posx>
-						<posy>0</posy>
-						<width>938</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>FFFFFFFF</textcolor>
-						<selectedcolor>FFFFFFFF</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</focusedlayout>
-				<content>
-					<item>
-						<label>$LOCALIZE[557]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[515]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[563]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Album_Rating)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Rating))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[175]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Album_Mood)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Album_Mood))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[176]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Album_Style)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Album_Style))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[21895]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Album_Theme)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Album_Theme))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[146]</label>
-						<label2>$INFO[Container(100).ListItem.Property(Album_Type)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Album_Type))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[21899]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Album_Label)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Album_Label))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[562]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Year)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[15311]</label>
-						<label2>$INFO[Container(100).ListItem.Property(Path)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Path))</visible>
-					</item>
-				</content>
+				
+				<itemlayout width="1200" height="45"/>
+				<focusedlayout width="1200" height="45"/>
+				
 			</control>
+			
 			<control type="list" id="180">
 				<posx>645</posx>
 				<posy>177</posy>
@@ -1046,137 +1250,12 @@
 				<ondown>195</ondown>
 				<pagecontrol>-</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<itemlayout width="1200" height="45">
-					<control type="label">
-						<posx>248</posx>
-						<posy>0</posy>
-						<width>248</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>right</align>
-						<aligny>center</aligny>
-						<textcolor>FF4DBAFF</textcolor>
-						<selectedcolor>FF4DBAFF</selectedcolor>
-					<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<posx>262</posx>
-						<posy>0</posy>
-						<width>938</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>FFFFFFFF</textcolor>
-						<selectedcolor>FFFFFFFF</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout width="1200" height="45">
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>1200</width>
-						<height>45</height>
-						<texture>MenuItemFO.png</texture>
-						<visible>Control.HasFocus(180)</visible>
-					</control>
-					<control type="label">
-						<posx>248</posx>
-						<posy>0</posy>
-						<width>248</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>right</align>
-						<aligny>center</aligny>
-						<textcolor>FF4DBAFF</textcolor>
-						<selectedcolor>FF4DBAFF</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<posx>262</posx>
-						<posy>0</posy>
-						<width>938</width>
-						<height>45</height>
-						<font>font13</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<textcolor>FFFFFFFF</textcolor>
-						<selectedcolor>FFFFFFFF</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
-				</focusedlayout>
-				<content>
-					<item>
-						<label>$LOCALIZE[557]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Artist)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[558]</label>
-						<label2>$INFO[Container(100).ListItem.Property(Album)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Album))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[554]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Track)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Track))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[2050]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration)) + !SubString(Container(100).ListItem.Property(Duration),min)</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[2050]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Duration)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration)) + SubString(Container(100).ListItem.Property(Duration),min)</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[563]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Rating)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Rating))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[515]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[562]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Year)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[567]:</label>
-						<label2>$INFO[Container(100).ListItem.Property(Playcount)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
-					</item>
-					<item>
-						<label>$LOCALIZE[15311]</label>
-						<label2>$INFO[Container(100).ListItem.Property(Path)]</label2>
-						<onclick>-</onclick>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Path))</visible>
-					</item>
-				</content>
+				
+				<itemlayout width="1200" height="45"/>
+				<focusedlayout width="1200" height="45"/>
+				
 			</control>
-		</control>
-		<control type="image">
-			<posx>60</posx>
-			<posy>717</posy>
-			<width>1800</width>
-			<height>6</height>
-			<aspectratio>stretch</aspectratio>
-			<texture>separator.png</texture>
+			
 		</control>
 
 		<control type="textbox"> <!--plot-->
@@ -1227,7 +1306,7 @@
 		
 		<control type="textbox">
 			<posx>514</posx>
-			<posy>300</posy>
+			<posy>350</posy>
 			<width>1315</width>
 			<height>425</height>
 			<align>justify</align>
@@ -1253,6 +1332,8 @@
 			<scrolltime>0</scrolltime>
 			<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>	
+			<animation effect="slide" start="0,0" end="0,-90" time="0" condition="Control.IsVisible(160) | Control.IsVisible(180)">Conditonal</animation>
+			<visible>Control.IsVisible(110) | Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140) | Control.IsVisible(150) | Control.IsVisible(160) | Control.IsVisible(180)</visible>
 			
 			<control type="button" id="191">
 				<label>$LOCALIZE[186]</label>
@@ -1312,6 +1393,81 @@
 			</control> 
 			
 		</control>
+		
+		<control type="grouplist" id="190"> <!--buttons-->
+			<posx>33</posx>
+			<posy>495</posy>
+			<width>387</width>
+			<height>195</height>
+			<itemgap>0</itemgap>
+			<onup>190</onup>
+			<ondown>190</ondown>
+			<orientation>vertical</orientation>
+			<align>top</align>
+			<scrolltime>0</scrolltime>
+			<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>	
+			<animation effect="slide" start="0,0" end="0,-90" time="0" condition="Control.IsVisible(160) | Control.IsVisible(180)">Conditonal</animation>
+			<visible>Control.IsVisible(170)</visible>
+			
+			<control type="button" id="191">
+				<label>$LOCALIZE[186]</label>
+				<height>65</height>
+				<width>371</width>
+				<texturenofocus>breeze/vid info/button.png</texturenofocus>
+				<texturefocus>breeze/vid info/button f.png</texturefocus>
+				<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+				<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogrey</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>0</textoffsetx>
+				<textoffsety>9</textoffsety>
+				<align>center</align>
+				<aligny>top</aligny>
+				<font>breeze30b</font>
+			</control>
+			
+			<control type="button" id="192">
+				<label>$LOCALIZE[208]</label>
+				<height>65</height>
+				<width>371</width>
+				<texturenofocus>breeze/vid info/button.png</texturenofocus>
+				<texturefocus>breeze/vid info/button f.png</texturefocus>
+				<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+				<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogrey</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>0</textoffsetx>
+				<textoffsety>9</textoffsety>
+				<align>center</align>
+				<aligny>top</aligny>
+				<font>breeze30b</font>
+			</control>
+			
+			<control type="button" id="193">
+				<label>$LOCALIZE[1024]</label>
+				<height>65</height>
+				<width>371</width>
+				<texturenofocus>breeze/vid info/button.png</texturenofocus>
+				<texturefocus>breeze/vid info/button f.png</texturefocus>
+				<alttexturenofocus>breeze/vid info/button.png</alttexturenofocus>
+				<alttexturefocus>breeze/vid info/button f.png</alttexturefocus>
+				<pulseonselect>false</pulseonselect>
+				<textcolor>infogrey</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<textoffsetx>0</textoffsetx>
+				<textoffsety>9</textoffsety>
+				<align>center</align>
+				<aligny>top</aligny>
+				<font>breeze30b</font>
+			</control> 
+			
+		</control>
 	  
 		<control type="image"> <!--down arrow-->
 			<posx>213</posx>
@@ -1322,6 +1478,7 @@
 			<animation effect="fade" start="0" end="100" time="500" delay="500">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>	
 			<visible>Control.IsVisible(193)</visible>
+			<visible>Control.IsVisible(110)</visible>
 		</control>
 
 		<control type="group"> 
@@ -1358,6 +1515,9 @@
 					<width>6</width>
 					<height>240</height>
 					<texture>breeze/views/v divider.png</texture>
+					<visible>!Control.IsVisible(150)</visible>
+					<visible>!Control.IsVisible(160)</visible>
+					<visible>!Control.IsVisible(180)</visible>
 				</control> 
 	
 				<control type="image"> <!--mpaa rating bg-->
@@ -1433,7 +1593,7 @@
 					<width>94</width> 
 					<height>82</height>
 					<texture>breeze/flag box.png</texture>
-					<visible>Container.Content(albums)</visible>
+					<visible>Control.IsVisible(170)</visible>
 				</control>
 	
 				<control type="image"> <!--album rating bg-->
@@ -1442,7 +1602,7 @@
 					<width>94</width> 
 					<height>82</height>
 					<texture>breeze/flag box.png</texture>
-					<visible>Container.Content(albums)</visible>
+					<visible>Control.IsVisible(170)</visible>
 				</control>
 		  
 				<control type="label"> <!--album year-->
@@ -1454,23 +1614,8 @@
 					<aligny>center</aligny>
 					<font>rating</font>
 					<textcolor>infogrey</textcolor>
-					<label fallback="?">$INFO[ListItem.Year]</label>
-					<visible>Container.Content(albums)</visible>
-					<visible>!IsEmpty(ListItem.Artist)</visible>
-				</control>
-		  
-				<control type="label"> <!--album year-->
-					<posx>1148</posx>
-					<posy>38</posy>
-					<width>61</width>
-					<height>55</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<font>rating</font>
-					<textcolor>infogrey</textcolor>
-					<label fallback="?">N/A</label>
-					<visible>Container.Content(albums)</visible>
-					<visible>IsEmpty(ListItem.Artist)</visible>
+					<label fallback="?">$INFO[Container(100).ListItem.Property(Year)]</label>
+					<visible>Control.IsVisible(170)</visible>
 				</control>
 		  
 				<control type="image"> <!--album rating-->
@@ -1480,7 +1625,7 @@
 					<aspectratio>keep</aspectratio>
 					<texture>breeze/stars/base.png</texture>
 					<colordiffuse>7563abfc</colordiffuse>
-					<visible>Container.Content(albums)</visible>
+					<visible>Control.IsVisible(170)</visible>
 				</control>
 		  
 				<control type="label"> <!--album rating-->
@@ -1492,8 +1637,8 @@
 					<aligny>center</aligny>
 					<font>rating</font>
 					<textcolor>infogrey</textcolor>
-					<label fallback="?">$INFO[ListItem.Rating]</label>
-					<visible>Container.Content(albums)</visible>
+					<label fallback="?">$INFO[Container(100).ListItem.Property(Album_Rating)]</label>
+					<visible>Control.IsVisible(170)</visible>
 				</control>
 			
 				<control type="image"> <!--record label flag bg-->
@@ -1502,7 +1647,7 @@
 					<height>156</height>
 					<width>195</width>
 					<texture>breeze/box.png</texture>
-					<visible>Container.Content(albums)</visible>
+					<visible>Control.IsVisible(170)</visible>
 				</control>	
 			
 				<control type="image"> <!--record label flag-->
@@ -1510,8 +1655,8 @@
 					<posy>122</posy>
 					<width>150</width>
 					<aspectratio>keep</aspectratio>
-					<texture fallback="flags/studios/default-studio.png">$INFO[ListItem.Property(Album_Label),flags/music/recordlabel/,.png]</texture>
-					<visible>Container.Content(albums)</visible>
+					<texture fallback="flags/studios/default-studio.png">$INFO[Container(100).ListItem.Property(Album_Label),flags/music/recordlabel/,.png]</texture>
+					<visible>Control.IsVisible(170)</visible>
 					<colordiffuse>FF828282</colordiffuse>
 				</control>
 			
@@ -1543,7 +1688,7 @@
 				<height>250</height>
 				<aspectratio scalediffuse="false">scale</aspectratio> 
 				<texture diffuse="breeze/masks/thumb.png">$INFO[Container(100).ListItem.Property(Fanart_Image)]</texture>
-				<visible>!Control.IsVisible(140)</visible>
+				<visible>![Control.IsVisible(140) | Control.IsVisible(150)]</visible>
 			</control> 
 
 			<control type="image"> <!--episode thumb-->
@@ -1554,7 +1699,7 @@
 				<height>250</height>
 				<aspectratio scalediffuse="false">scale</aspectratio> 
 				<texture diffuse="breeze/masks/thumb.png">$INFO[Container(100).ListItem.Icon]</texture>
-				<visible>Control.IsVisible(140)</visible>
+				<visible>Control.IsVisible(140) | Control.IsVisible(150)</visible>
 			</control>
 					
 		</control>

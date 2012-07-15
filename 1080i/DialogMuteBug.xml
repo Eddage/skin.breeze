@@ -13,20 +13,69 @@
 	<controls>
 
 		<control type="group">
-		
-			<animation type="WindowOpen" reversible="false">
+			<visible>!Window.IsActive(fullscreenvideo)</visible>
+			<visible>!Window.IsActive(visualisation)</visible>
+			
+			<!--normal-->
+			<animation type="WindowOpen" reversible="false" condition="!Player.HasMedia + ![Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)]">
 				<effect type="zoom" start="0" end="100" time="750" delay="500" center="1752.5,42.5" tween="elastic" easing="out" />
 			</animation>
-			<animation type="WindowClose" reversible="false">
+			<animation type="WindowClose" reversible="false" condition="!Player.HasMedia + ![Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)]">
+				<effect type="zoom" start="100" end="0" time="400" center="1752.5,42.5" tween="back" easing="in" />
+			</animation>
+			
+			<!--normal with audio-->
+			<animation type="WindowOpen" reversible="false" condition="Player.HasMedia + ![Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)]">
+				<effect type="zoom" start="0" end="100" time="750" delay="500" center="1691.5,42.5" tween="elastic" easing="out" />
+			</animation>
+			<animation type="WindowClose" reversible="false" condition="Player.HasMedia + ![Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)]">
+				<effect type="zoom" start="100" end="0" time="400" center="1691.5,42.5" tween="back" easing="in" />
+			</animation>
+			
+			<!--only one button-->
+			<animation type="WindowOpen" reversible="false" condition="!Player.HasMedia + [Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)]">
+				<effect type="zoom" start="0" end="100" time="750" delay="500" center="1813.5,42.5" tween="elastic" easing="out" />
+			</animation>
+			<animation type="WindowClose" reversible="false" condition="!Player.HasMedia + [Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)]">
+				<effect type="zoom" start="100" end="0" time="400" center="1813.5,42.5" tween="back" easing="in" />
+			</animation>
+			
+			<!--only one button with media-->
+			<animation type="WindowOpen" reversible="false" condition="Player.HasMedia + [Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)]">
+				<effect type="zoom" start="0" end="100" time="750" delay="500" center="1752.5,42.5" tween="elastic" easing="out" />
+			</animation>
+			<animation type="WindowClose" reversible="false" condition="Player.HasMedia + [Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)]">
 				<effect type="zoom" start="100" end="0" time="400" center="1752.5,42.5" tween="back" easing="in" />
 			</animation>
 				
 			<include>Dialogs_Mute</include>
 			
+			<animation effect="slide" start="0,0" end="-61,0" time="150" condition="Window.IsVisible(musicoverlay) | Window.IsVisible(videooverlay)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="-1570,0" time="0" condition="Skin.HasSetting(VerticalMenu) + Window.IsActive(home)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="183,0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
 			<animation effect="slide" start="0,0" end="61,0" time="0" condition="Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="-61,0" time="200" delay="500" condition="Player.HasMedia">Conditional</animation>
+    
+		</control>
+
+		<control type="group">
+			<posx>122</posx>
+			<visible>Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)</visible>
+			<visible>!Window.IsVisible(fullscreeninfo)</visible>
+		
+			<animation type="WindowOpen" reversible="false">
+				<effect type="zoom" start="0" end="100" time="750" delay="500" center="1874.5,42.5" tween="elastic" easing="out" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="zoom" start="100" end="0" time="400" center="1874.5,42.5" tween="back" easing="in" />
+			</animation>
+		
+			<animation type="Visible" reversible="false">
+				<effect type="zoom" start="0" end="100" time="750" delay="0" center="1874.5,42.5" tween="elastic" easing="out" />
+			</animation>
+			<animation type="Hidden" reversible="false">
+				<effect type="zoom" start="100" end="0" time="400" center="1874.5,42.5" tween="back" easing="in" />
+			</animation>
+				
+			<include>Dialogs_Mute</include>
     
 		</control>
   

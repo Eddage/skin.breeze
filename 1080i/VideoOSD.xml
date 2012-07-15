@@ -5,20 +5,44 @@
 	<controls>
 		
 		<control type="group">
-			<posy>30</posy>
-			<animation effect="slide" start="0,145" end="0,0" time="400">WindowOpen</animation>
-			<animation effect="slide" start="0,0" end="0,145" time="400">WindowClose</animation>
+			<posx>49</posx>
+			<posy>10</posy>				
+			<visible>!Window.IsVisible(osdaudiosettings)</visible>
+			<visible>!Window.IsVisible(osdvideosettings)</visible>
+			<visible>!Window.IsVisible(videobookmarks)</visible>
+			
+			<animation effect="slide" start="0,0" end="0,35" time="200" condition="Window.IsVisible(seekbar)">Conditional</animation>
+
+			<animation type="WindowOpen">
+				<effect type="fade" time="400" start="0" end="100" easing="out" tween="cubic" />
+				<effect type="zoom" time="400" start="50" end="100" center="960,125" easing="out" tween="back" />
+			</animation>
+			
+			<animation type="WindowClose">
+				<effect type="fade" time="400" start="100" end="0" easing="out" tween="cubic" />
+				<effect type="zoom" time="400" start="100" end="50" center="960,125" easing="inout" tween="back" />
+			</animation>
+
+			<animation type="Visible">
+				<effect type="fade" time="400" start="0" end="100" easing="out" tween="cubic" />
+				<effect type="zoom" time="400" start="50" end="100" center="960,125" easing="out" tween="back" />
+			</animation>
+			
+			<animation type="Hidden">
+				<effect type="fade" time="400" start="100" end="0" easing="out" tween="cubic" />
+				<effect type="zoom" time="400" start="100" end="50" center="960,125" easing="inout" tween="back" />
+			</animation>
 
 			<control type="image">
 				<description>media info background image</description>
-				<posx>260</posx>
-				<posy>930</posy>
-				<texture>breeze/osd/bg.png</texture>
+				<posx>60</posx>
+				<posy>16</posy>
+				<texture>breeze/osd/video bg.png</texture>
 			</control>
 			
 			<control type="group">
-				<posx>35</posx>
-				<posy>950</posy>
+				<posx>-5</posx>
+				<posy>35</posy>
 			
 				<control type="group" id="200"> <!--left options buttons-->
 					<posx>297</posx>

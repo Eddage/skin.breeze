@@ -606,17 +606,21 @@
 			<control type="group">
 				<description>First Panel</description>
 				
-		<animation type="focus">
-			<effect type="slide" start="0,0" end="-400,0"/>
-			<effect type="fade" start="0" end="100" time="450" delay="0"/>
-			<effect type="zoom" center="2210,62" start="0" end="100" time="400" delay="0"/>
-		</animation>	
+				<animation type="focus">
+					<effect type="slide" start="0,0" end="-400,0"/>
+					<effect type="fade" start="0" end="100" time="450" delay="0"/>
+					<effect type="zoom" center="2210,62" start="0" end="100" time="400" delay="0"/>
+				</animation>	
 		
-		<animation type="unfocus">
-			<effect type="rotatey" start="0" end="180" time="400" center="1722,0" delay="0" />
-			<effect type="fade" start="100" end="0" time="200" delay="150" />
-			<effect type="slide" start="-400," end="0,0" delay="400"/>
-		</animation>	
+				<animation type="unfocus">
+					<effect type="rotatey" start="0" end="180" time="400" center="1722,0" delay="0" />
+					<effect type="fade" start="100" end="0" time="200" delay="150" />
+					<effect type="slide" start="-400," end="0,0" delay="400"/>
+				</animation>	
+		
+				<animation type="WindowClose">
+					<effect type="fade" start="100" end="0" time="200" delay="150" />
+				</animation>	
 
 				<control type="grouplist" id="9003">
 					<posx>1950</posx>
@@ -630,11 +634,13 @@
 					<onright>SetFocus(50)</onright>
 					<onup>9003</onup>
 					<ondown>9003</ondown>
+					<include>Animation_CommonFade</include>
 			
 					<control type="image">
 						<width>341</width>
 						<height>41</height>
 						<texture>breeze/menus/settings top.png</texture>
+						<include>Animation_CommonFade</include>
 					</control>
 		  
 					<control type="button" id="1600">
@@ -766,12 +772,13 @@
 						<onleft>SetFocus(50)</onleft>
 					</control>
 			
-				<control type="image">
-					<posx>-5</posx>
-					<width>341</width>
-					<height>25</height>
-					<texture>breeze/menus/sub bottom.png</texture>
-				</control>
+					<control type="image">
+						<posx>-5</posx>
+						<width>341</width>
+						<height>25</height>
+						<texture>breeze/menus/sub bottom.png</texture>
+						<include>Animation_CommonFade</include>
+					</control>
 		  
 				</control>
 		

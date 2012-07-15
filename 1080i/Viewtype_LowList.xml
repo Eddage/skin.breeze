@@ -664,6 +664,20 @@
 						<autoscroll delay="6000" time="4000" repeat="5000">Control.HasFocus(7002)</autoscroll>
 						<textcolor>infogrey</textcolor>
 						<visible>Container.Content(movies)</visible>
+						<visible>!SubString(Container.FolderPath,plugin://)</visible>
+					</control>
+				
+					<control type="textbox"> <!--cases view-->
+						<posx>695</posx>
+						<posy>50</posy>
+						<width>970</width>
+						<height>220</height>
+						<align>justify</align>
+						<font>breeze32</font>
+						<label fallback="312577">$INFO[ListItem.Plot]</label>
+						<autoscroll delay="6000" time="4000" repeat="5000">Control.HasFocus(7002)</autoscroll>
+						<textcolor>infogrey</textcolor>
+						<visible>Container.Content(movies) | SubString(Container.FolderPath,plugin://)</visible>
 					</control>
 					
 				</control>
@@ -746,7 +760,7 @@
 						<width>444</width>
 						<height>250</height>
 						<aspectratio scalediffuse="false">scale</aspectratio> 
-						<texture diffuse="breeze/masks/thumb.png">$INFO[ListItem.Icon]</texture>
+						<texture diffuse="breeze/masks/thumb.png" fallback="DefaultEpisode.png">$INFO[ListItem.Thumb]</texture>
 						<visible>!IsEmpty(ListItem.Title)</visible>
 						<animation effect="slide" start="0,0" end="0,-75" time="150" condition="Skin.HasSetting(breeze_tall_list) + !Container.Content(episodes)">Conditional</animation>
 						<animation effect="slide" start="0,0" end="0,-75" time="150" condition="!Skin.HasSetting(breeze_tall_list) + Control.HasFocus(7002) + !Container.Content(episodes)">Conditional</animation>
@@ -773,6 +787,7 @@
 						<visible>!Container.Content(addons)</visible>			
 						<include>BreezeMediaFlags</include>			
 						<visible>Container.Content(movies) + Control.HasFocus(7002)</visible>
+						<visible>!SubString(Container.FolderPath,plugin://)</visible>
 					</control>	
 				
 					<control type="group"> <!--episodes-->

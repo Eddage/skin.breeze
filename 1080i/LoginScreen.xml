@@ -1,202 +1,214 @@
 ﻿<window id="29">
-  <defaultcontrol always="true">52</defaultcontrol>
-  <allowoverlay>no</allowoverlay>
-  <coordinates>
-    <system>1</system>
-    <posx>0</posx>
-    <posy>0</posy>
-  </coordinates>
-  <controls>
-    <control type="image">
-      <animation effect="fade" time="600">WindowOpen</animation>
-      <animation effect="fade" time="600">WindowClose</animation>
-      <posx>0</posx>
-      <posy>0</posy>
-      <width>1920</width>
-      <height>1080</height>
-      <texture>welcome/login_backdrop.jpg</texture>
-    </control>
-    <control type="image" id="601">
-      <posx>1920</posx>
-      <posy>900</posy>
-      <width>226</width>
-      <height>194</height>
-      <texture>welcome/welcome_xbmclogo.png</texture>
-      <animation type="WindowOpen" reversible="false">
-        <effect type="fade" start="0" end="100" time="1200" />
-        <effect type="slide" start="0,0" end="-330,0" time="1200" tween="cubic" easing="out" />
-      </animation>
-      <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-      <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-    </control>
-    <control type="image" id="601">
-      <posx>-202</posx>
-      <posy>870</posy>
-      <width>150</width>
-      <height>210</height>
-      <texture>welcome/welcome_aeonlogo.png</texture>
-      <animation type="WindowOpen" reversible="false">
-        <effect type="fade" start="0" end="100" time="1200" />
-        <effect type="slide" start="0,0" end="345,0" time="1200" tween="cubic" easing="out" />
-      </animation>
-      <animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-      <animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-    </control>
-    <control type="list" id="52">
-      <posx>366</posx>
-      <posy>420</posy>
-      <width>1188</width>
-      <height>750</height>
-      <focusposition>1</focusposition>
-      <orientation>horizontal</orientation>
-      <onleft>90</onleft>
-      <onright>90</onright>
-      <onup>52</onup>
-      <ondown>98</ondown>
-      <animation effect="slide" start="198,0" end="198,0" time="0" condition="stringcompare(container(52).numitems,2)">Conditional</animation>
-      <include>Animation_OpenCloseZoom</include>
-      <itemlayout height="396" width="396">
-        <control type="image">
-          <posx>27</posx>
-          <posy>27</posy>
-          <width>351</width>
-          <height>351</height>
-          <texture diffuse="thumbs/cdcover_mask.png">common/black.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <control type="image">
-          <posx>27</posx>
-          <posy>27</posy>
-          <width>351</width>
-          <height>351</height>
-          <texture diffuse="thumbs/cdcover_mask.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <info>ListItem.Icon</info>
-        </control>
-        <control type="image">
-          <description>Glass overlay</description>
-          <posx>27</posx>
-          <posy>27</posy>
-          <width>351</width>
-          <height>351</height>
-          <bordertexture border="-27">thumbs/cd_shadow.png</bordertexture>
-          <texture>thumbs/cd_glass_noedge.png</texture>
-        </control>
-        <control type="image">
-          <posx>27</posx>
-          <posy>381</posy>
-          <width>351</width>
-          <height>351</height>
-          <colordiffuse>d0FFFFFF</colordiffuse>
-          <texture flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">common/black.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-        </control>
-        <control type="image">
-          <posx>27</posx>
-          <posy>381</posy>
-          <width>351</width>
-          <height>351</height>
-          <colordiffuse>d0FFFFFF</colordiffuse>
-          <texture flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <info>ListItem.Icon</info>
-        </control>
-      </itemlayout>
-      <focusedlayout height="396" width="396">
-        <control type="image">
-          <posx>27</posx>
-          <posy>27</posy>
-          <width>351</width>
-          <height>351</height>
-          <texture diffuse="thumbs/cdcover_mask.png">common/black.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <animation center="132,132" effect="zoom" start="100" end="110" time="600" tween="cubic" easing="out">Focus</animation>
-        </control>
-        <control type="image">
-          <posx>27</posx>
-          <posy>27</posy>
-          <width>351</width>
-          <height>351</height>
-          <texture diffuse="thumbs/cdcover_mask.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <info>ListItem.Icon</info>
-          <animation center="132,132" effect="zoom" start="100" end="110" time="600" tween="cubic" easing="out">Focus</animation>
-        </control>
-        <control type="image">
-          <description>Glass overlay</description>
-          <posx>27</posx>
-          <posy>27</posy>
-          <width>351</width>
-          <height>351</height>
-          <bordertexture border="-27">thumbs/cd_shadow.png</bordertexture>
-          <texture>thumbs/cd_glass_noedge.png</texture>
-          <animation center="132,132" effect="zoom" start="100" end="110" time="600" tween="cubic" easing="out">Focus</animation>
-        </control>
-        <control type="image">
-          <posx>27</posx>
-          <posy>381</posy>
-          <width>351</width>
-          <height>351</height>
-          <texture flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">common/black.png</texture>
-          <colordiffuse>d0FFFFFF</colordiffuse>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <animation center="132,132" effect="zoom" start="100" end="110" time="600" tween="cubic" easing="out">Focus</animation>
-        </control>
-        <control type="image">
-          <posx>27</posx>
-          <posy>381</posy>
-          <width>351</width>
-          <height>351</height>
-          <colordiffuse>d0FFFFFF</colordiffuse>
-          <texture flipy="true" diffuse="thumbs/cdcover_mask_reflect.png">DefaultAudio.png</texture>
-          <aspectratio scalediffuse="false">scale</aspectratio>
-          <info>ListItem.Icon</info>
-          <animation center="132,132" effect="zoom" start="100" end="110" time="600" tween="cubic" easing="out">Focus</animation>
-        </control>
-      </focusedlayout>
-    </control>
-    <control type="label">
-      <posx>0</posx>
-      <posy>900</posy>
-      <width>1920</width>
-      <height>24</height>
-      <font>Font_Welcome</font>
-      <align>center</align>
-      <textcolor>FFffffff</textcolor>
-      <scroll>true</scroll>
-      <info>ListItem.Label</info>
-      <visible>Control.IsVisible(52)</visible>
-    </control>
-    <control type="label">
-      <posx>0</posx>
-      <posy>945</posy>
-      <width>1920</width>
-      <height>24</height>
-      <font>Font_Welcome</font>
-      <align>center</align>
-      <textcolor>90cbcbcb</textcolor>
-      <info>ListItem.Label2</info>
-      <visible>Control.IsVisible(52)</visible>
-    </control>
-    <control type="button" id="98">
-      <description>ShutDown Button</description>
-      <posx>922</posx>
-      <posy>990</posy>
-      <width>75</width>
-      <height>75</height>
-      <align>right</align>
-      <textcolor>60ffffff</textcolor>
-      <onclick>ActivateWindow(ShutdownMenu)</onclick>
-      <pulseonselect>yes</pulseonselect>
-      <texturefocus>Power.png</texturefocus>
-      <texturenofocus>Power.png</texturenofocus>
-      <onleft>52</onleft>
-      <onright>52</onright>
-      <onup>52</onup>
-      <ondown>52</ondown>
-      <include>Animation_OpenCloseZoom</include>
-      <visible>!Window.IsActive(ProfileSettings) + !Window.IsActive(LockSettings)</visible>
-      <animation center="auto" effect="zoom" start="100" end="110" time="600" tween="cubic" easing="out">Focus</animation>
-    </control>
-  </controls>
+
+	<defaultcontrol always="true">52</defaultcontrol>
+	
+	<allowoverlay>yes</allowoverlay>
+	
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	
+	<controls>	
+	  
+		<control type="image"> <!--background overlay-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/background.png</texture>
+		</control> 		
+	  
+		<control type="image"> <!--background overlay-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/fade bg.png</texture>
+		</control> 
+		
+		<control type="fixedlist" id="52">
+			<posx>810</posx>
+			<posy>200</posy>
+			<width>400</width>
+			<height>735</height>
+			<focusposition>1</focusposition>
+			<orientation>vertical</orientation>
+			<onleft>7010</onleft>
+			<onright>7010</onright>
+			<onup>52</onup>
+			<ondown>52</ondown>
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+					
+			<itemlayout height="210" width="400">
+					
+				<control type="group">
+					
+					<control type="image">
+						<posx>46</posx>
+						<posy>106</posy>
+						<width>200</width>
+						<height>200</height>
+						<aspectratio>stretch</aspectratio>
+						<fadetime>500</fadetime>
+						<texture>breeze/home/music tile x small.png</texture>
+					</control>
+					
+					<control type="image">
+						<posx>56</posx>
+						<posy>116</posy>
+						<width>180</width>
+						<height>180</height>
+						<aspectratio>stretch</aspectratio>
+						<fadetime>500</fadetime>
+						<texture background="true" diffuse="breeze/home/music tile x small dif.png">$INFO[ListItem.Icon]</texture>
+					</control>
+							
+				</control>
+					
+			</itemlayout>
+				
+			<focusedlayout height="210" width="400">
+			
+				<control type="group">
+					
+                    <animation type="Focus">
+                        <effect type="zoom" start="100" end="150" time="300" tween="sine" easing="out" center="146,206" />
+                    </animation>
+					
+                    <animation type="UnFocus">
+                        <effect type="zoom" start="150" end="100" time="300" tween="sine" easing="out" center="146,206" />
+                    </animation>
+					
+					<control type="image">
+						<posx>46</posx>
+						<posy>106</posy>
+						<width>200</width>
+						<height>200</height>
+						<aspectratio>stretch</aspectratio>
+						<fadetime>500</fadetime>
+						<texture>breeze/home/music tile x small.png</texture>
+					</control>
+					
+					<control type="image">
+						<posx>56</posx>
+						<posy>116</posy>
+						<width>180</width>
+						<height>180</height>
+						<aspectratio>stretch</aspectratio>
+						<fadetime>500</fadetime>
+						<texture background="true" diffuse="breeze/home/music tile x small dif.png">$INFO[ListItem.Icon]</texture>
+					</control>
+					
+					<control type="image">
+						<posx>46</posx>
+						<posy>106</posy>
+						<width>200</width>
+						<height>200</height>
+						<texture background="true">breeze/home/music tile x small border.png</texture>	
+					
+                        <animation type="UnFocus" condition="Container(52).OnNext | Container(52).OnPrevious">
+                            <effect type="fade" start="100" end="0" time="0"/>
+                        </animation>							
+					</control>
+							
+				</control>
+							
+			</focusedlayout>
+			
+		</control>
+	  
+		<control type="image"> <!--background overlay-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/login fade mask.png</texture>
+		</control> 
+		
+		<control type="image"> <!--top bar-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<texture>breeze/breadcrumb bg.png</texture>
+		</control>	
+	  
+		<control type="label">
+			<description>time label</description>
+			<posx>20</posx>
+			<posy>23</posy>
+			<width>600</width>
+			<height>28</height>
+			<align>left</align>
+			<aligny>center</aligny>
+			<font>breeze34b</font>
+			<textcolor>infogreynf</textcolor>
+			<shadowcolor>-</shadowcolor>
+			<label>$INFO[System.Date(DDD)],  $INFO[System.Date(MMM)] $INFO[System.Date(dd)]  |  $INFO[System.Time]</label>
+		</control>
+	  
+		<control type="button" id="7010"> <!--shutdown button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(52)</onup>
+			<ondown>SetFocus(52)</ondown>
+			<onleft>SetFocus(52)</onleft>
+			<onright>SetFocus(52)</onright>
+			<onclick>ActivateWindow(shutdownmenu)</onclick>
+		</control>
+		
+		<control type="group">
+			<posx>1788</posx>
+			<posy>17</posy>
+			<orientation>horizontal</orientation>
+			
+			<control type="image"> <!--shutdown button-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown.png</texture>
+				<visible>!Control.HasFocus(7010)</visible>
+				<visible>!Window.IsActive(shutdownmenu)</visible>
+				<visible>!Control.IsVisible(7012)</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button f-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown f.png</texture>
+				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+			</control>
+			
+		</control>	
+		
+		<control type="label">
+			<posx>0</posx>
+			<posy>900</posy>
+			<width>1920</width>
+			<height>24</height>
+			<font>breeze40b</font>
+			<align>center</align>
+			<textcolor>infogrey</textcolor>
+			<scroll>true</scroll>
+			<info>ListItem.Label</info>
+			<visible>Control.IsVisible(52)</visible>
+		</control>
+		
+		<control type="label">
+			<posx>0</posx>
+			<posy>945</posy>
+			<width>1920</width>
+			<height>24</height>
+			<font>breeze32</font>
+			<align>center</align>
+			<textcolor>infogreynf</textcolor>
+			<info>ListItem.Label2</info>
+			<visible>Control.IsVisible(52)</visible>
+		</control>
+		
+	</controls>
+	
 </window>

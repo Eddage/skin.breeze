@@ -53,7 +53,6 @@
 				<pagecontrol>63</pagecontrol>
 				<scrolltime>0</scrolltime>
 				<itemgap>0</itemgap>
-				<visible>stringcompare(Skin.String(Shortcut.Type),0)</visible>
 				
 				<control type="radiobutton" id="1">
 					<include>CustomTileButtonVarsRadio</include>

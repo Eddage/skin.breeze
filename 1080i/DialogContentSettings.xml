@@ -5,7 +5,7 @@
 	<coordinates>
 		<system>1</system>
 		<posx>84</posx>
-		<posy>-11</posy>
+		<posy>0</posy>
 	</coordinates>
 	
 	<controls>
@@ -13,7 +13,7 @@
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(AddonSettings)">Conditional</animation>
 			<posx>431.5</posx>
-			<posy>196</posy>
+			<posy>75</posy>
 	
 			<include>Animation_DialogPopup</include>
 			
@@ -121,6 +121,8 @@
 				<height>150</height>
 				<onup>3</onup>
 				<ondown>5</ondown>
+				<onleft>63</onleft>
+				<pagecontrol>63</pagecontrol>
 				<scrolltime>200</scrolltime>
 				
 				<itemlayout height="50">
@@ -179,7 +181,7 @@
 					<control type="label">
 						<posx>15</posx>
 						<posy>-3</posy>
-						<width>205</width>
+						<width>610</width>
 						<height>50</height>
 						<textcolor>white</textcolor>
 						<selectedcolor>white</selectedcolor>
@@ -310,6 +312,23 @@
 					<onclick>close</onclick>
 				</control>
 			
+			</control>
+
+			<control type="scrollbar" id="63">
+				<posx>10</posx>
+				<posy>198</posy>
+				<width>30</width>
+				<height>130</height>
+				<texturesliderbackground>-</texturesliderbackground>
+				<texturesliderbar>-</texturesliderbar>
+				<texturesliderbarfocus>-</texturesliderbarfocus>
+				<textureslidernib flipx="true">breeze/views/scrollbar nub nf list.png</textureslidernib>
+				<textureslidernibfocus flipx="true">breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+				<pulseonselect>no</pulseonselect>
+				<onright>4</onright>
+				<onleft>4</onleft>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
 			</control>
 		
 		</control>

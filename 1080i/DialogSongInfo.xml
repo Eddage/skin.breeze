@@ -13,9 +13,12 @@
 				<posy>0</posy>
 				<width>1920</width>
 				<height>1080</height>
-				<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<aspectratio scalediffuse="false">scale</aspectratio> 
+				<texture background="true"  fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[ListItem.Property(Fanart_Image)]</texture>
 				<animation effect="slide" start="0,-1080" end="0,0" time="500">WindowOpen</animation>
 				<animation effect="slide" start="0,0" end="0,-1080" time="500" delay="500">WindowClose</animation>
+				<animation effect="slide" start="0,-1080" end="0,0" time="750" condition="!StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-1080" time="750" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation> 
 			</control>
 
 			<control type="image"> <!--white bg-->
@@ -24,7 +27,7 @@
 				<posy>0</posy>
 				<width>1920</width>
 				<height>1080</height>
-				<texture>breeze/bg 90.png</texture>
+				<texture>breeze/fade bg.png</texture>
 				<animation effect="slide" start="0,-1080" end="0,0" time="500">WindowOpen</animation>
 				<animation effect="slide" start="0,0" end="0,-1080" time="500" delay="500">WindowClose</animation>
 			</control>
@@ -197,7 +200,7 @@
 						<width>444</width>
 						<height>250</height>
 						<aspectratio scalediffuse="false">scale</aspectratio> 
-						<texture diffuse="breeze/masks/thumb.png">$INFO[Listitem.Property(Fanart_Image)]</texture>
+						<texture fallback="breeze/music.jpg" diffuse="breeze/masks/thumb.png">$INFO[Listitem.Property(Fanart_Image)]</texture>
 					</control> 
 					
 				</control>
@@ -274,7 +277,7 @@
 						<label>$LOCALIZE[554]:</label>
 					</control>
 		
-					<control type="label"> <!--type-->
+					<control type="label"> <!--track-->
 						<posx>74</posx>
 						<posy>0</posy>
 						<width>787</width>

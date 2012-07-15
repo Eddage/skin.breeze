@@ -1,0 +1,770 @@
+<includes>
+	
+	<include name="CommonRootViewMusic">
+	
+		<control type="group">
+		
+			<visible>Control.IsVisible(50)</visible>
+			
+			<!--control type="label">
+				<posy>100</posy>
+				<label>$INFO[Container.FolderPath]</label>
+				<font>breeze34b</font>
+				<textcolor>infogrey</textcolor>
+			</control-->
+
+			<control type="group">
+				<include>Animation_ViewZoom</include>
+	
+				<control type="image">
+					<posx>327</posx>
+					<posy>95</posy>
+					<texture>breeze/views/list bg.png</texture>
+					<animation effect="slide" start="0,0" end="50,0" time="200" delay="150" condition="Window.IsActive(contextmenu)">Conditional</animation>
+				</control>
+
+				<control type="list" id="50">
+					<posx>330</posx>
+					<posy>153</posy>
+					<width>1350</width>
+					<height>550</height>
+					<onright>7009</onright>
+					<onleft>63</onleft>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<viewtype label="535">list</viewtype>
+					<pagecontrol>63</pagecontrol>
+					<scrolltime tween="back" easing="out">0</scrolltime>
+					<animation effect="slide" start="0,0" end="50,0" time="200" delay="150" condition="Window.IsActive(contextmenu)">Conditional</animation>
+
+					<itemlayout height="110" condition="!Container.Content(Artists) + !Container.Content(Albums) + !Container.Content(Songs) + !Window.IsVisible(MusicPlaylist)">
+
+						<control type="label"> <!--main label (1 line)-->
+							<posx>45</posx>
+							<posy>25</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="slide" start="0,0" end="0,-15" time="0" condition="!IsEmpty(ListItem.Artist) + !StringCompare(Container.FolderPath,videodb://3/4/)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!--album artist-->
+							<posx>45</posx>
+							<posy>50</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze28b</font>
+							<textcolor>infogreynf</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<align>left</align>
+							<label fallback="Unknown Artist">$INFO[ListItem.Artist] $INFO[ListItem.Album,| ]</label>
+							<visible>!IsEmpty(ListItem.Artist) + !StringCompare(Container.FolderPath,videodb://3/4/)</visible>
+						</control>
+						
+						<control type="label"> <!--song length-->
+							<posx>1110</posx>
+							<posy>10</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<align>right</align>
+							<label>$INFO[ListItem.Duration]</label>
+							<visible>!Container.Content(musicvideos)</visible>
+						</control>
+						
+						<control type="label"> <!--music video year-->
+							<posx>1210</posx>
+							<posy>25</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<align>right</align>
+							<label>$INFO[ListItem.Year]</label>
+							<visible>Container.Content(musicvideos)</visible>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>!StringCompare(ListItem.Label,Albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Songs)</visible>
+							<visible>!StringCompare(ListItem.Label,Recently added albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Recently played albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Top 100 albums)</visible>
+							<visible>!StringCompare(ListItem.Label,* All albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Music Add-ons)</visible>
+							<visible>!StringCompare(Container.FolderPath,musicdb://9/)</visible>
+							<visible>!Container.Content(musicvideos)</visible>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>$INFO[ListItem.Icon,breeze/views/fallback/,]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Albums) | StringCompare(ListItem.Label,Songs) | StringCompare(ListItem.Label,Recently added albums) | StringCompare(ListItem.Label,Recently played albums) | StringCompare(ListItem.Label,Top 100 albums)</visible>
+						</control>
+						
+						<control type="image"> <!--music addon thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultMusicPlugins.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Music Add-ons)</visible>
+						</control>
+						
+						<control type="image"> <!--year thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>DefaultYear.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(Container.FolderPath,musicdb://9/)</visible>
+						</control>
+						
+					</itemlayout>
+
+					<itemlayout height="110" condition="Container.Content(Artists)">	
+
+						<control type="label"> <!--Artist-->
+							<posx>45</posx>
+							<posy>10</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
+						</control>
+
+						<control type="label"> <!--Artist (no genre)-->
+							<posx>45</posx>
+							<posy>25</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>IsEmpty(ListItem.Property(Artist_Genre))</visible>
+						</control>
+						
+						<control type="label"> <!--artist genre-->
+							<posx>45</posx>
+							<posy>50</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze28b</font>
+							<textcolor>infogreynf</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<align>left</align>
+							<label fallback="Unknown Genre">$INFO[ListItem.Property(Artist_Genre)]</label>
+							<visible>!IsEmpty(ListItem.Artist) + !StringCompare(Container.FolderPath,videodb://3/4/) + !IsEmpty(ListItem.Property(Artist_Genre))</visible>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="breeze/views/fallback/DefaultArtist.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+						
+					</itemlayout>
+
+					<itemlayout height="110" condition="Container.Content(Albums)">	
+
+						<control type="label"> <!--Album-->
+							<posx>45</posx>
+							<posy>10</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="slide" start="0,0" end="0,15" condition="IsEmpty(ListItem.Property(Album_Artist)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!--album artist-->
+							<posx>45</posx>
+							<posy>50</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze28b</font>
+							<textcolor>infogreynf</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<align>left</align>
+							<label>$INFO[ListItem.Property(Album_Artist)]</label>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="breeze/views/fallback/DefaultArtist.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>!StringCompare(ListItem.Label,* All Albums)</visible>
+						</control>
+						
+						<control type="image"> <!--album fallback thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>breeze/views/fallback/DefaultAlbum.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,* All albums)</visible>
+						</control>
+						
+					</itemlayout>
+
+					<itemlayout height="110" condition="Container.Content(Songs) | Window.IsVisible(MusicPlaylist)">	
+
+						<control type="label"> <!--Album-->
+							<posx>45</posx>
+							<posy>10</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						
+						<control type="label"> <!--album artist-->
+							<posx>45</posx>
+							<posy>50</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze28b</font>
+							<textcolor>infogreynf</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<align>left</align>
+							<label fallback="Unknown Artist">$INFO[ListItem.Artist] $INFO[ListItem.Album,| ]</label>
+						</control>
+						
+						<control type="label"> <!--song length-->
+							<posx>1110</posx>
+							<posy>25</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>infogrey</textcolor>
+							<selectedcolor>blue2</selectedcolor>
+							<aligny>center</aligny>
+							<align>right</align>
+							<label>$INFO[ListItem.Duration]</label>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="breeze/views/fallback/DefaultArtist.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+						
+					</itemlayout>
+					
+					<focusedlayout height="110" condition="!Container.Content(Artists) + !Container.Content(Albums) + !Container.Content(Songs) + !Window.IsVisible(MusicPlaylist)">
+						
+						<control type="image">
+							<posx>8</posx>
+							<posy>0</posy>
+							<height>110</height>
+							<width>1243</width>
+							<texture background="true">breeze/views/list f bg.png</texture>
+							<animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+
+						<control type="label"> <!--main label (1 line)-->
+							<posx>45</posx>
+							<posy>25</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="slide" start="0,0" end="0,-15" time="0" condition="!IsEmpty(ListItem.Artist) + !StringCompare(Container.FolderPath,videodb://3/4/)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!--album artist-->
+							<posx>45</posx>
+							<posy>50</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze28b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<align>left</align>
+							<label fallback="Unknown Artist">$INFO[ListItem.Artist] $INFO[ListItem.Album,| ]</label>
+							<visible>!IsEmpty(ListItem.Artist) + !StringCompare(Container.FolderPath,videodb://3/4/)</visible>
+						</control>
+						
+						<control type="label"> <!--song length-->
+							<posx>1110</posx>
+							<posy>10</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<align>right</align>
+							<label>$INFO[ListItem.Duration]</label>
+							<visible>!Container.Content(musicvideos)</visible>
+						</control>
+						
+						<control type="label"> <!--music video year-->
+							<posx>1210</posx>
+							<posy>25</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<align>right</align>
+							<label>$INFO[ListItem.Year]</label>
+							<visible>Container.Content(musicvideos)</visible>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>!StringCompare(ListItem.Label,Music Add-ons)</visible>
+							<visible>!StringCompare(ListItem.Label,Albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Songs)</visible>
+							<visible>!StringCompare(ListItem.Label,Recently added albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Recently played albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Top 100 albums)</visible>
+							<visible>!StringCompare(ListItem.Label,* All albums)</visible>
+							<visible>!StringCompare(ListItem.Label,Music Add-ons)</visible>
+							<visible>!StringCompare(Container.FolderPath,musicdb://9/)</visible>
+							<visible>!Container.Content(musicvideos)</visible>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>$INFO[ListItem.Icon,breeze/views/icons f/,]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>!StringCompare(ListItem.Label,Music Add-ons)</visible>
+							<visible>!StringCompare(Container.FolderPath,musicdb://9/)</visible>
+							<visible>!Container.Content(musicvideos)</visible>
+						</control>
+						
+						<control type="image"> <!--music addon thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>breeze/views/icons f/DefaultMusicPlugins.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,Music Add-ons)</visible>
+						</control>
+						
+						<control type="image"> <!--year fallback thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>breeze/views/icons f/DefaultYear.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(Container.FolderPath,musicdb://9/)</visible>
+						</control>
+						
+					</focusedlayout>
+					
+					<focusedlayout height="110" condition="Container.Content(Artists)">
+						
+						<control type="image">
+							<posx>8</posx>
+							<posy>0</posy>
+							<height>110</height>
+							<width>1243</width>
+							<texture background="true">breeze/views/list f bg.png</texture>
+							<animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+
+						<control type="label"> <!--main label (1 line)-->
+							<posx>45</posx>
+							<posy>10</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!IsEmpty(ListItem.Property(Artist_Genre))</visible>
+						</control>
+
+						<control type="label"> <!--main label (1 line)-->
+							<posx>45</posx>
+							<posy>25</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>IsEmpty(ListItem.Property(Artist_Genre))</visible>
+						</control>
+						
+						<control type="label"> <!--artist genre-->
+							<posx>45</posx>
+							<posy>50</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze28b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<align>left</align>
+							<label fallback="Unknown Genre">$INFO[ListItem.Property(Artist_Genre)]</label>
+							<visible>!IsEmpty(ListItem.Artist) + !StringCompare(Container.FolderPath,videodb://3/4/)</visible>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="breeze/views/icons f/DefaultArtist.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+						
+					</focusedlayout>
+					
+					<focusedlayout height="110" condition="Container.Content(Albums)">
+						
+						<control type="image">
+							<posx>8</posx>
+							<posy>0</posy>
+							<height>110</height>
+							<width>1243</width>
+							<texture background="true">breeze/views/list f bg.png</texture>
+							<animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+
+						<control type="label"> <!--Album-->
+							<posx>45</posx>
+							<posy>10</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="slide" start="0,0" end="0,15" condition="IsEmpty(ListItem.Property(Album_Artist)">Conditional</animation>
+						</control>
+						
+						<control type="label"> <!--album artist-->
+							<posx>45</posx>
+							<posy>50</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze28b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<align>left</align>
+							<label>$INFO[ListItem.Property(Album_Artist)]</label>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="breeze/views/fallback/DefaultArtist.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>!StringCompare(ListItem.Label,* All albums)</visible>
+						</control>
+						
+						<control type="image"> <!--album fallback thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture>breeze/views/icons f/DefaultAlbum.png</texture>
+							<aspectratio>scale</aspectratio>
+							<visible>StringCompare(ListItem.Label,* All albums)</visible>
+						</control>
+						
+					</focusedlayout>
+					
+					<focusedlayout height="110" condition="Container.Content(Songs) | Window.IsVisible(MusicPlaylist)">
+						
+						<control type="image">
+							<posx>8</posx>
+							<posy>0</posy>
+							<height>110</height>
+							<width>1243</width>
+							<texture background="true">breeze/views/list f bg.png</texture>
+							<animation effect="fade" start="100" end="50" time="200" condition="!Control.HasFocus(50)">Conditional</animation>
+						</control>
+
+						<control type="label"> <!--Album-->
+							<posx>45</posx>
+							<posy>10</posy>
+							<width>950</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						
+						<control type="label"> <!--album artist-->
+							<posx>45</posx>
+							<posy>50</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze28b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<align>left</align>
+							<label fallback="Unknown Artist">$INFO[ListItem.Artist] $INFO[ListItem.Album,| ]</label>
+						</control>
+						
+						<control type="label"> <!--song length-->
+							<posx>1110</posx>
+							<posy>25</posy>
+							<width>810</width>
+							<height>50</height>
+							<font>breeze34b</font>
+							<textcolor>white</textcolor>
+							<selectedcolor>white</selectedcolor>
+							<aligny>center</aligny>
+							<align>right</align>
+							<label>$INFO[ListItem.Duration]</label>
+						</control>
+						
+						<control type="image"> <!--item thumb-->
+							<posx>1125</posx>
+							<posy>10</posy>
+							<height>90</height>
+							<width>90</width>
+							<texture fallback="breeze/views/fallback/DefaultArtist.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>scale</aspectratio>
+						</control>
+						
+					</focusedlayout>
+					
+				</control>			
+
+			</control>		
+			
+			<control type="group">
+				<posx>0</posx>
+				<posy>520</posy>
+				
+				<control type="group">
+					<include>BreezeTimePanel</include>
+				</control>
+			
+				<control type="group">
+					<include>BreezeRightInfo</include>
+				</control>	
+
+				<include condition="Window.IsActive(musiclibrary)|Window.IsActive(musicfiles)|Window.IsActive(musicplaylist)">CDArtFlip</include>	
+				
+				<control type="group"> <!--episode thumbs-->
+					<posx>250</posx>
+					<posy>270</posy>
+					<visible>Container.Content(musicvideos)</visible>
+
+					<control type="image"> <!--border-->
+						<description>background image</description>
+						<posx>0</posx>
+						<posy>5</posy>
+						<width>464</width>
+						<height>270</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture>breeze/masks/thumb border blue.png</texture>
+					</control> 
+			
+					<control type="image"> <!--episode thumb-->
+						<posx>10</posx>
+						<posy>15</posy>
+						<width>444</width>
+						<height>250</height>
+						<aspectratio scalediffuse="false">scale</aspectratio> 
+						<texture diffuse="breeze/masks/thumb.png" fallback="DefaultEpisode.png">$INFO[ListItem.Thumb]</texture>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+					</control>			
+		  
+					<control type="image"> <!--watched icon-->
+						<posx>405</posx>
+						<posy>217</posy>
+						<width>45</width>
+						<height>45</height>
+						<texture>breeze/masks/watched.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+					</control>
+			
+				</control>	
+				
+				<control type="textbox"> <!--artist bio-->
+					<posx>730</posx>
+					<posy>280</posy>
+					<width>1160</width>
+					<height>260</height>
+					<align>justify</align>
+					<font>breeze32</font>
+					<label fallback="312577">$INFO[ListItem.Property(Artist_Description)]</label>
+					<autoscroll delay="20000" time="4000" repeat="20000">true</autoscroll>
+					<textcolor>infogrey</textcolor>
+					<visible>Container.Content(artists)</visible>
+				</control>
+			
+				<control type="textbox"> <!--album review-->
+					<posx>730</posx>
+					<posy>280</posy>
+					<width>935</width>
+					<height>260</height>
+					<align>justify</align>
+					<font>breeze32</font>
+					<label fallback="312577">$INFO[ListItem.Property(Album_Description)]</label>
+					<autoscroll delay="16000" time="4000" repeat="16000">true</autoscroll>
+					<textcolor>infogrey</textcolor>
+					<visible>Container.Content(albums)</visible>
+				</control>
+				
+				<control type="group"> <!--media flags (music videos)-->
+					<posx>620</posx>
+					<posy>306</posy>
+					<visible>!Container.Content(addons)</visible>			
+					<include>BreezeMediaFlags</include>	
+					<visible>Container.Content(musicvideos)</visible>
+					<visible>!SubString(Container.FolderPath,plugin://)</visible>
+				</control>	
+
+				<control type="image"> <!--music fanart border-->
+					<posx>250</posx>
+					<posy>275</posy>
+					<width>464</width>
+					<height>270</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture>breeze/masks/thumb border blue.png</texture>
+					<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,videodb://3/4/) | StringCompare(Container.FolderPath,videodb://3/5/)</visible>
+					<visible>!Container.Content(musicvideos)</visible>
+				</control> 	
+				
+				<control type="image"> <!--music fanart-->
+					<posx>260</posx>
+					<posy>285</posy>
+					<width>444</width>
+					<height>250</height>
+					<aspectratio scalediffuse="false">scale</aspectratio> 
+					<texture fallback="DefaultArtistFanart.png" diffuse="breeze/masks/thumb.png">$INFO[Listitem.Property(Fanart_Image)]</texture>
+					<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,videodb://3/4/) | StringCompare(Container.FolderPath,videodb://3/5/)</visible>
+					<visible>!Container.Content(musicvideos)</visible>
+					<visible>!Window.IsActive(500)</visible>
+				</control>	
+				
+				<control type="image"> <!--music fanart (playlist)-->
+					<posx>260</posx>
+					<posy>285</posy>
+					<width>444</width>
+					<height>250</height>
+					<aspectratio scalediffuse="false">scale</aspectratio> 
+					<texture fallback="DefaultArtistFanart.png" diffuse="breeze/masks/thumb.png">$INFO[ListItem.path,,../fanart.jpg]</texture>
+					<visible>Window.IsActive(500)</visible>
+					<visible>!Container.Content(musicvideos)</visible>
+				</control>
+				
+				<control type="image"> <!--music logo-->
+					<posx>1455</posx>
+					<posy>150</posy>
+					<width>375</width>
+					<height>120</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[ListItem.Artist,,/logo.png]</texture>
+					<visible>Skin.HasSetting(breeze_artist_logos) + !Container.Content(songs)</visible>
+				</control>
+			
+				<control type="image"> <!--artist logo (songs)-->
+					<posx>1455</posx>
+					<posy>150</posy>
+					<width>375</width>
+					<height>120</height>
+					<aspectratio>keep</aspectratio>
+					<texture>$INFO[ListItem.path,,../logo.png]</texture>
+					<visible>Skin.HasSetting(breeze_artist_logos) + Container.Content(songs)</visible>
+				</control>
+				
+			</control>
+			
+		</control>
+
+			<control type="scrollbar" id="63">
+				<posx>308</posx>
+				<posy>153</posy>
+				<width>30</width>
+				<height>550</height>
+				<texturesliderbackground>-</texturesliderbackground>
+				<texturesliderbar>-</texturesliderbar>
+				<texturesliderbarfocus>-</texturesliderbarfocus>
+				<textureslidernib flipx="true">breeze/views/scrollbar nub nf list.png</textureslidernib>
+				<textureslidernibfocus flipx="true">breeze/views/scrollbar nub f list.png</textureslidernibfocus>
+				<pulseonselect>no</pulseonselect>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<visible>Control.IsVisible(50)</visible>
+				<animation effect="slide" start="0,0" end="50,0" time="200" delay="150" condition="Window.IsActive(contextmenu)">Conditional</animation>
+				<include>Animation_ViewZoom</include>
+			</control>
+		
+	</include>
+	
+</includes>

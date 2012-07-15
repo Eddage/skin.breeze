@@ -1,109 +1,200 @@
-0.5.0
+*****0.7.0*****
+
+13/07/2012
+
+UPDATED: Horizontal home screen - 3 of the music tiles now customisable
+UPDATED: LoginScreen.xml
+
+12/07/2012
+
+CODED: DialogSlider.xml
+CODED: MyVideoPlaylist.xml
+CODED: MyWeather.xml
+UPDATED: Default background image for all windows
+UPDATED: MyMusicPlaylist.xml
+UPDATED: script-globalsearch-infodialog.xml
+UPDATED: script-globalsearch-contextmenu.xml
+UPDATED: Viewtype_InfoList.xml
+UPDATED: Viewtype_Episodes.xml
+
+11/07/2012
+
+CODED: DialogPeripheralSettings.xml
+CODED: DialogPeripheralManager.xml
+
+10/07/2012
+
+CODED: LoginScreen.xml
+CODED: LockSettings.xml
+CODED: ProfileSettings.xml
+CODED: SettingsProfile.xml
+
+09/07/2012
+
+CODED: Dialog AddonSettings.xml
+UPDATED: Horizontal home animations
+
+08/07/2012
+
+CODED: DialogTextViewer.xml
+CODED: DialogAddonInfo.xml
+
+04/07/2012
+
+CODED: DialogNumeric.xml
+CODED: script-RSS_Editor-setEditor.xml
+CODED: script-RSS_Editor-rssEditor.xml
+UPDATED: DialogKeyboard.xml
+UPDATED: SettingsSystemInfo.xml
+UPDATED: Settings.xml
+UPDATED: SettingsCategory.xml
+UPDATED: customSkinSettings.xml
+FIXED: context menu for metro home
+
+03/07/2012
+
+UPDATED: DialogVideoInfo.xml to incorporate music videos better
+UPDATED: to DialogFullScreenInfo.xml to incorporate music videos better
+UPDATED: to ViewType_List.xml to incorporate music videos better
+REMOVED: 'more info' from Viewtype_BannerList.xml and Viewtype_PosterFixed.xml
+
+29/06/2012
+
+CODED: SmartPlaylistRule.xml
+
+28/06/2012
+
+CODED: SmartPlaylistEditor.xml
+CODED: MyMusicPlaylistEditor.xml
+UPDATED: MusicOSD.xml <visible> tags to match VideoOSD.xml
+FIXED: icon for "None" in Dialogselect.xml
+FIXED: overlapping text in DialogSelect.xml
+FIXED: issue of title showing up twice when viewing episodes in Viewtype_List.xml
+FIXED: episode number/title in Viewtype_Episode.xml
+
+27/06/2012
+
+FIXED: fallback imagery for music views
+FIXED: fallback imagery for tv show/movie views
 
 26/06/2012
 
-MusicOverlay.xml coded
-VideoOverlay.xml coded
+CODED: VideoFullScreen.xml
+UPDATED: Changed colour of focused icon in ViewType_List.xml (to match file browser)
+ADDED: scrollbar to DialogContentSettings.xml
+ADDED: scrollbar to DialogMediaSource.xml
+ADDED: "PAUSED" label to now playing tile on metro homescreen
+FIXED: DialogMuteBug.xml positioning
+FIXED: DialogKaiToast.xml positioning
+
+
+*****0.5.0*****
+
+26/06/2012
+
+CODED: MusicOverlay.xml
+CODED: VideoOverlay.xml
 
 25/06/2012
 
-MyMusicSongs.xml coded
+CODED: MyMusicSongs.xml
 
 19/06/2012
 
-Re-coded DialogMuteBug.xml
-Re-coded DialogVolumeBar.xml
-Re-coded the dialogs for custom tiles
-Cleaned up the 'Home' category in skin settings
-FileBrowser.xml coded
-Re-coded DialogMediaSource.xml
-Re-coded Dialog ContentSettings.xml
+CODED: FileBrowser.xml
+UPDATED: DialogMuteBug.xml
+UPDATED: DialogVolumeBar.xml
+UPDATED: the dialogs for custom tiles
+UPDATED: Cleaned up the 'Home' category in skin settings
+UPDATED: DialogMediaSource.xml
+UPDATED: Dialog ContentSettings.xml
 
 10/06/2012
 
-Coded PlayerControls.xml
-Fixed issue of now playing film cover not showing on homescreen np tile
+CODED: PlayerControls.xml
+FIXED: issue of now playing film cover not showing on homescreen np tile
 
 
 07/06/2012
 
-DialogSongInfo.xml coded
-Fixed icon inconsistnecy for Viewtype_List.xml and Viewtype_LowListMusic.xml
-Fixed double title issue when viewing all episodes of a tv show in Viewtype_List.xml
-Changed Startup.xml (hopefully fixed the watchlist script issue)
+CODED: DialogSongInfo.xml
+UPDATED: Startup.xml (hopefully fixed the watchlist script issue)
+FIXED: icon inconsistnecy for Viewtype_List.xml and Viewtype_LowListMusic.xml
+FIXED: double title issue when viewing all episodes of a tv show in Viewtype_List.xml
 
 
-0.4.0
+*****0.4.0*****
 
 04/05/2012
 
-DialogAlbumInfo.xml coded
+CODED: DialogAlbumInfo.xml
 
 
 26/04/2012
 
-script-XBMC_Lyrics-main.xml coded
-VisualisationPresetList.xml coded
-MusicOSD.xml coded
-Added 'Ocean' theme (currently only for testing puropses - only window that's affected is visualisation[12006])
-MyMusicPlaylist.xml coded
-MusicVisualisation.xml coded
+CODED: script-XBMC_Lyrics-main.xml
+CODED: VisualisationPresetList.xml
+CODED: MusicOSD.xml
+CODED: MyMusicPlaylist.xml
+CODED: MusicVisualisation.xml
+ADDED:'Ocean' theme (currently only for testing puropses - only window that's affected is visualisation[12006])
 
 
 14/04/2012
 
-Re-sized cd art for Vietype_LowListMusic.xml
+UPDATED: Re-sized cd art for Vietype_LowListMusic.xml
 
 
-0.3.1
+*****0.3.1*****
 
 20/03/2012
 
-Cleaned up "enable views" section of skin settings
-Added shutdown button to settingscategory.xml
-Added option to show/hide watched icon on episode and lowlist view
-Moved horizontal menu above tiles
-Fixed featured films/albums onclick issue
+UPDATED: Cleaned up "enable views" section of skin settings
+UPDATED: Added shutdown button to settingscategory.xml
+UPDATED: Added option to show/hide watched icon on episode and lowlist view
+UPDATED: Moved horizontal menu above tiles
+FIXED: featured films/albums onclick issue
 
 
-0.3.0
+*****0.3.0*****
 
 Other changes that I forgot to write down as I went along....
-Reworked current views to keep consistent style
-Added Horizontal/Metro home view
+UPDATED: current views to keep consistent style
+UPDATED: Added Horizontal/Metro home view
 
 
 
-0.2.0
+*****0.2.0*****
 
 01/03/2012
 
-Updated DialogVideoInfo.xml
+UPDATED: DialogVideoInfo.xml
 
 
 27/02/2012
 
-Coded script-Actors-DialogInfo.xml (Metadata Actors addon)
+CODED: script-Actors-DialogInfo.xml (Metadata Actors addon)
 
 
 26/02/2012
 
-Updated DialogVideoInfo.xml
-Updated DialogButtonMenu.xml (changed shutdownmenu for home screen)
-Updated DialogBusy.xml
-Updated DialogMuteBug.xml
-Updated DialogKaiToast.xml
-Updated Addon.xml to recognise sources of inspiration.
-Coded script-globalsearch-main.xml.
-Added icons to shutdown menu.
-Added option to run global search from shutdown menu.
-Added global search script as dependency.
-Removed logo downloader dependency and integrated artwork downloader.
+CODED: script-globalsearch-main.xml
+UPDATED: DialogVideoInfo.xml
+UPDATED: DialogButtonMenu.xml (changed shutdownmenu for home screen)
+UPDATED: DialogBusy.xml
+UPDATED: DialogMuteBug.xml
+UPDATED: DialogKaiToast.xml
+UPDATED: Addon.xml to recognise sources of inspiration
+ADDED: icons to shutdown menu
+ADDED: option to run global search from shutdown menu
+ADDED: global search script as dependency
+ADDED: artwork downloader integration
+REMOVED: logo downloader dependency
 
 
 25/02/2012
 
-Coded DialogContentSettings.xml
-Changed default keyboard focus to "Done"
-Disabled RSS feed (until horizontal menu is done)
-Adjusted DialogFullScreenInfo.xml to account for movies with no tagline.
+CODED: DialogContentSettings.xml
+UPDATED: Changed default keyboard focus to "Done"
+UPDATED: DialogFullScreenInfo.xml to account for movies with no tagline
+REMOVED: RSS feed (until horizontal menu is done)

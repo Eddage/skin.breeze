@@ -10,19 +10,10 @@
 	</coordinates>
 	
 	<controls>
-	  
-		<control type="image"> <!--background overlay (white)-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<texture>breeze/bg 75.png</texture>
-			<visible>!Window.IsVisible(1115)</visible>
-		</control>
 	
 		<control type="group">
 			<posx>643.5</posx>
-			<posy>108</posy>
+			<posy>83</posy>
 			<visible>!Window.IsVisible(1115)</visible>
 			<include>Animation_DialogPopup</include>
 		
@@ -49,11 +40,10 @@
 				<posx>41</posx>
 				<posy>108</posy>
 				<width>715</width>
-				<height>500</height>
+				<height>550</height>
 				<pagecontrol>63</pagecontrol>
 				<scrolltime>0</scrolltime>
 				<itemgap>0</itemgap>
-				<visible>stringcompare(Skin.String(Shortcut.Type),0)</visible>
 				
 				<control type="button" id="1">
 					<include>CustomTileButtonVars</include>
@@ -103,7 +93,7 @@
 					<include>CustomTileButtonVars</include>
 					<label>Music tile 1</label>
 					<label2>$INFO[Skin.String(MusicTile1.Label)]</label2>
-					<onclick>Skin.SetString(Shortcut.Tile,Music2)</onclick>
+					<onclick>Skin.SetString(Shortcut.Tile,Music1)</onclick>
 					<onclick>Skin.SetString(HomeMenuCustom_Path,MusicTile1.Path)</onclick>
 					<onclick>Skin.SetString(HomeMenuCustom_Label,MusicTile1.Label)</onclick>
 					<onclick>Skin.SetString(HomeMenuCustom_Icon,MusicTile1.Icon)</onclick>
@@ -123,6 +113,17 @@
 				
 				<control type="button" id="7">
 					<include>CustomTileButtonVars</include>
+					<label>Music tile 3</label>
+					<label2>$INFO[Skin.String(MusicTile3.Label)]</label2>
+					<onclick>Skin.SetString(Shortcut.Tile,Music3)</onclick>
+					<onclick>Skin.SetString(HomeMenuCustom_Path,MusicTile3.Path)</onclick>
+					<onclick>Skin.SetString(HomeMenuCustom_Label,MusicTile3.Label)</onclick>
+					<onclick>Skin.SetString(HomeMenuCustom_Icon,MusicTile3.Icon)</onclick>
+					<onclick>ActivateWindow(1115)</onclick>
+				</control>
+				
+				<control type="button" id="8">
+					<include>CustomTileButtonVars</include>
 					<label>Apps tile 1</label>
 					<label2>$INFO[Skin.String(AppTile1.Label)]</label2>
 					<onclick>Skin.SetString(Shortcut.Tile,App1)</onclick>
@@ -132,7 +133,7 @@
 					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 				
-				<control type="button" id="8">
+				<control type="button" id="9">
 					<include>CustomTileButtonVars</include>
 					<label>Apps tile 2</label>
 					<label2>$INFO[Skin.String(AppTile2.Label)]</label2>
@@ -143,7 +144,7 @@
 					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 				
-				<control type="button" id="9">
+				<control type="button" id="10">
 					<include>CustomTileButtonVars</include>
 					<label>Apps tile 3</label>
 					<label2>$INFO[Skin.String(AppTile3.Label)]</label2>
@@ -154,7 +155,7 @@
 					<onclick>ActivateWindow(1115)</onclick>
 				</control>
 				
-				<control type="button" id="10">
+				<control type="button" id="11">
 					<include>CustomTileButtonVars</include>
 					<label>Apps tile 4</label>
 					<label2>$INFO[Skin.String(AppTile4.Label)]</label2>

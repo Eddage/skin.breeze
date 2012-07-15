@@ -48,6 +48,18 @@
 				<align>center</align>
 				<aligny>center</aligny>
 			</control>
+    
+			<control type="label"> <!--header-->
+				<posx>400</posx>
+				<posy>40</posy>
+				<width>922</width>
+				<height>40</height>
+				<textcolor>infogrey</textcolor>
+				<font>breeze32</font>
+				<label>$INFO[ListItem.ActualIcon]</label>
+				<align>center</align>
+				<aligny>center</aligny>
+			</control>
                 
             <!--control type="image">
                 <posx>732</posx>

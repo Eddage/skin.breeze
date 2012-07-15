@@ -1,9 +1,15 @@
 ﻿<window>
 
-	<defaultcontrol>1001</defaultcontrol>
-	
-	<animation effect="fade" time="300">WindowOpen</animation>
-	<animation effect="fade" time="300">WindowClose</animation>
+	<defaultcontrol>1001</defaultcontrol>	
+				
+		<animation type="windowopen">
+			<effect type="slide" start="0,-50" end="0,0" time="400"/>
+			<effect type="fade" start="0" end="100" time="500"/>
+		</animation>	
+		
+		<animation type="windowclose">
+			<effect type="fade" start="100" end="0" time="250" delay="150" />
+		</animation>	
 	
 	<coordinates>
 		<system>1</system>
@@ -26,10 +32,10 @@
 		</control>
 		
 		<control type="group">
-			<posx>-565</posx>
-			<posy>38</posy>
+			<posx>-508</posx>
+			<posy>30</posy>
 			
-			<animation effect="slide" start="0,0" end="50,0" time="0" condition="Control.IsVisible(140)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="100,0" time="0" condition="StringCompare(Window(Home).Property(search_list),141) | StringCompare(Window(Home).Property(search_list),151)">Conditional</animation>
 		
 			<control type="button" id="1001">
 				<include>InfoListContextButton</include>

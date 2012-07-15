@@ -5,13 +5,23 @@
 	<allowoverlay>no</allowoverlay>
 	
 	<controls>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/background.png</texture>
+			<animation effect="zoom" start="110" end="105" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+			<animation effect="slide" start="-5,-5" end="5,5" time="7500" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
+		</control> 	
 		
 		<control type="image"> <!--single fanart-->
 			<posx>0</posx>
 			<posy>0</posy>
 			<width>1920</width>
 			<height>1080</height>
-			<texture>$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+			<texture fallback="breeze/background.png">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
 			<include>Animation_VisibleChange400</include>
 			<include>Animation_OpenCloseZoom</include>
 			<animation effect="zoom" start="110" end="105" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
@@ -26,34 +36,6 @@
 			<imagepath background="true">$INFO[Skin.String(ArtistsLogosPath)]$INFO[MusicPlayer.Artist,,/extrafanart]</imagepath>
 			<visible>!IsEmpty(MusicPlayer.Property(Fanart_Image)) + !Skin.HasSetting(nofanartmusicviz) + Skin.HasSetting(extrafanart)</visible>
 		</control>
-		
-		<!--control type="multiimage"> <!--music library fanart>
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<imagepath fallback="special://skin/backgrounds/music.jpg" background="true">special://profile/Thumbnails/Music/Fanart</imagepath>
-			<timeperimage>10000</timeperimage>
-			<randomize>true</randomize>
-			<fadetime>1000</fadetime>
-			<animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-			<animation effect="slide" start="-22,-22" end="22,22" time="7500" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-			<visible>Skin.HasSetting(musicfanartslideshow)</visible>
-		</control>
-		
-		<control type="multiimage"> <!--video library fanart>
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<imagepath fallback="special://skin/backgrounds/curtains.jpg" background="true">special://profile/Thumbnails/Video/Fanart</imagepath>
-			<timeperimage>10000</timeperimage>
-			<randomize>true</randomize>
-			<fadetime>1000</fadetime>
-			<animation effect="zoom" start="110" end="130" center="auto" time="15000" tween="linear" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-			<animation effect="slide" start="-22,-22" end="22,22" time="7500" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(animation_bg)">Conditional</animation>
-			<visible>Skin.HasSetting(videofanartslideshow)</visible>
-		</control-->
 		
 		<control type="image">
 			<posx>0</posx>

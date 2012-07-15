@@ -7,22 +7,16 @@
 	<zorder>6</zorder>
 	
 	<controls>
-	  
-		<control type="image"> <!--background overlay (white)-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<texture>breeze/bg 75.png</texture>
-			<visible>Window.IsVisible(home)</visible>
-		</control> 
+	
+	  <control type="group">
+		<include>Animation_DialogPopup</include>
+		<visible>!Window.IsVisible(numericinput)</visible>
 	
 		<control type="image" id="0">
 			<description>Panel</description>
 			<texture>breeze/keyboard/bg.png</texture>
 			<posx>431.5</posx>
 			<posy>118</posy>
-			<include>Animation_DialogPopup</include>
 			<animation effect="slide" start="0,0" end="0,110" time="0" condition="Window.IsVisible(home)">Conditional</animation>
 		</control>
 	
@@ -35,7 +29,6 @@
 			<font>breeze50</font>
 			<align>center</align>
 			<aligny>center</aligny>
-			<include>Animation_DialogPopup</include>
 			<animation effect="slide" start="0,0" end="0,110" time="0" condition="Window.IsVisible(home)">Conditional</animation>
 		</control>
 	
@@ -44,13 +37,12 @@
 			<posy>162</posy>
 			<width>545</width>
 			<height>289</height>
-			<include>Animation_DialogPopup</include>
 			<animation effect="slide" start="0,0" end="0,110" time="0" condition="Window.IsVisible(home)">Conditional</animation>
 		
 			<control type="label" id="310">
 				<description>Edit Text</description>
 				<posx>60</posx>
-				<posy>488</posy>
+				<posy>73</posy>
 				<width>937</width>
 				<height>22</height>
 				<font>breeze36</font>
@@ -60,7 +52,7 @@
 	  
 			<control type="group">
 				<posx>30</posx>
-				<posy>60</posy>
+				<posy>150</posy>
         
 				<!-- Row 1 -->
         
@@ -72,7 +64,7 @@
 						<posx>0</posx>
 						<onleft>48</onleft>
 						<onright>49</onright>
-						<onup>300</onup>
+						<onup>305</onup>
 						<ondown>304</ondown>
 						<label>IP address</label>
 						<include>Objects_DoubleKeyOff</include>
@@ -442,7 +434,7 @@
 						<onleft>8</onleft>
 						<onright>90</onright>
 						<onup>303</onup>
-						<ondown>300</ondown>
+						<ondown>305</ondown>
 						<label>$LOCALIZE[20178]</label>
 						<include>Objects_DoubleKeyOff</include>
 						<radioposx>15</radioposx>
@@ -549,8 +541,7 @@
 						<onright>306</onright>
 						<onup>302</onup>
 						<ondown>307</ondown>
-						<label>left</label>
-						<include>Objects_SingleKeyOffArrow</include>
+						<include>Objects_SingleKeyOffArrowLeft</include>
 					</control>
 					
 					<control type="button" id="306">
@@ -560,8 +551,7 @@
 						<onright>32</onright>
 						<onup>302</onup>
 						<ondown>307</ondown>
-						<label>right</label>
-						<include>Objects_SingleKeyOffArrow</include>
+						<include>Objects_SingleKeyOffArrowRight</include>
 					</control>
 					
 					<control type="button" id="32">
@@ -588,6 +578,7 @@
 						<onup>77</onup>
 						<ondown>55</ondown>
 						<label>$LOCALIZE[222]</label>
+						<texturefocus>breeze/keyboard/double bg f red.png</texturefocus>
 						<include>Objects_DoubleKeyOffSymbol</include>
 					</control>
 					
@@ -599,6 +590,7 @@
 						<onup>8</onup>
 						<ondown>57</ondown>
 						<label>$LOCALIZE[20177]</label>
+						<texturefocus>breeze/keyboard/double bg f green.png</texturefocus>
 						<include>Objects_DoubleKeyOffSymbol</include>
 					</control>
 					
@@ -607,6 +599,8 @@
 			</control>
 			
 		</control>
+		
+	  </control>
 	
 	</controls>
   

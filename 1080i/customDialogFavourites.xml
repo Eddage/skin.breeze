@@ -12,15 +12,6 @@
 	</coordinates>
 	
 	<controls>
-	  
-		<control type="image"> <!--background overlay (white)-->
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<texture>breeze/bg 75.png</texture>
-			<visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(filebrowser)</visible>
-		</control>
 	
 		<control type="group">
 			<posx>643.5</posx>
@@ -172,7 +163,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.1.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.1.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.1.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.1.name))</visible>
 				</control>
 				
@@ -182,7 +172,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.2.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.2.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.2.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.2.name))</visible>
 				</control>
 				
@@ -192,7 +181,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.3.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.3.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.3.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.3.name))</visible>
 				</control>
 				
@@ -202,7 +190,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.4.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.4.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.4.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.4.name))</visible>
 				</control>
 				
@@ -212,7 +199,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.5.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.5.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.5.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.5.name))</visible>
 				</control>
 				
@@ -222,7 +208,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.6.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.6.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.6.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.6.name))</visible>
 				</control>
 				
@@ -232,7 +217,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.7.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.7.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.7.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.7.name))</visible>
 				</control>
 				
@@ -242,7 +226,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.8.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.8.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.8.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.8.name))</visible>
 				</control>
 				
@@ -252,7 +235,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.9.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.9.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.9.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.9.name))</visible>
 				</control>
 				
@@ -262,7 +244,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.10.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.10.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.10.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.10.name))</visible>
 				</control>
 				
@@ -272,7 +253,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.11.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.11.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.11.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.11.name))</visible>
 				</control>
 				
@@ -282,7 +262,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.12.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.12.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.12.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.12.name))</visible>
 				</control>
 				
@@ -292,7 +271,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.13.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.13.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.13.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.13.name))</visible>
 				</control>
 				
@@ -302,7 +280,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.14.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.14.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.14.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.14.name))</visible>
 				</control>
 				
@@ -312,7 +289,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.15.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.15.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.15.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.15.name))</visible>
 				</control>
 				
@@ -322,7 +298,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.16.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.16.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.16.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.16.name))</visible>
 				</control>
 				
@@ -332,7 +307,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.17.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.17.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.17.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.17.name))</visible>
 				</control>
 				
@@ -342,7 +316,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.18.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.18.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.18.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.18.name))</visible>
 				</control>
 				
@@ -352,7 +325,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.19.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.19.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.19.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.19.name))</visible>
 				</control>
 				
@@ -362,7 +334,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],$INFO[Window(0).Property(favourite.20.path)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],$INFO[Window(0).Property(favourite.20.name)])</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],$INFO[Window(0).Property(favourite.20.thumb)])</onclick>
-					<onclick>SetFocus(4)</onclick>
 					<visible>!IsEmpty(Window(0).Property(favourite.20.name))</visible>
 				</control>
 			
@@ -388,16 +359,14 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowGenres,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="2">
-					<label>Year</label>
+					<label>Years</label>
 					<include>CustomTileButtonVars</include>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowYears,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Years)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="3">
@@ -406,7 +375,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowActors,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="4">
@@ -415,7 +383,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,TVShowStudios,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 			
 			</control>
@@ -440,16 +407,14 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieGenres,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="2">
-					<label>Year</label>
+					<label>Years</label>
 					<include>CustomTileButtonVars</include>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieYears,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Years)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="3">
@@ -458,7 +423,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieActors,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="4">
@@ -467,7 +431,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieDirectors,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Directors)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="5">
@@ -476,7 +439,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieStudios,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 				<control type="button" id="6">
@@ -485,7 +447,6 @@
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieCountries,return))</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Countries)</onclick>
 					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon countries.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
 				</control>
 				
 			</control>
@@ -505,57 +466,83 @@
 				<visible>stringcompare(Skin.String(Shortcut.Type),3)</visible>
 				
 				<control type="button" id="1">
-					<label>Genres</label>
+					<label>Albums</label>
 					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieGenres,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Music,Albums,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Albums:)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon album.png)</onclick>
 				</control>
 				
 				<control type="button" id="2">
-					<label>Year</label>
+					<label>Songs</label>
 					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieYears,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Year)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Music,Songs,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Songs:)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon songs.png)</onclick>
 				</control>
 				
 				<control type="button" id="3">
-					<label>Actors</label>
+					<label>Genres</label>
 					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieActors,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Actors)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Music,Genres,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Genres)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon genre music.png)</onclick>
 				</control>
 				
 				<control type="button" id="4">
-					<label>Directors</label>
+					<label>Years</label>
 					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieDirectors,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Directors)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon actor.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Music,Years,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Years)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon year.png)</onclick>
 				</control>
 				
 				<control type="button" id="5">
-					<label>Studios</label>
+					<label>Playlists</label>
 					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieStudios,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Studios)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon studio.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Music,Playlists,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Playlists)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon playlist.png)</onclick>
 				</control>
 				
 				<control type="button" id="6">
-					<label>Countries</label>
+					<label>Compilations</label>
 					<include>CustomTileButtonVars</include>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MovieCountries,return))</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Countries)</onclick>
-					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon countries.png)</onclick>
-					<onclick>SetFocus(4)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Music,Compilations,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Compilations)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon compilation.png)</onclick>
+				</control>
+				
+				<control type="button" id="7">
+					<label>Top 100</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Music,Top100,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Top 100)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon top 100.png)</onclick>
+				</control>
+				
+				<control type="button" id="8">
+					<label>Recently Added Albums</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Music,RecentlyAddedAlbums,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Recently Added Albums)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon recent added.png)</onclick>
+				</control>
+				
+				<control type="button" id="9">
+					<label>Recently Played Albums</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Music,RecentlyPlayedAlbums,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Recently Played Albums)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon recent played.png)</onclick>
+				</control>
+				
+				<control type="button" id="10">
+					<label>Music Videos</label>
+					<include>CustomTileButtonVars</include>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Path)],ActivateWindow(Videos,MusicVideos,return))</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Label)],Music Videos)</onclick>
+					<onclick>Skin.SetString($INFO[Skin.String(HomeMenuCustom_Icon)],breeze/home/icon music video.png)</onclick>
 				</control>
 			
 			</control>
@@ -567,6 +554,9 @@
 				<include condition="stringcompare(Skin.String(Shortcut.Tile),TV2)">TVTile2</include>
 				<include condition="stringcompare(Skin.String(Shortcut.Tile),Film1)">FilmTile2</include>
 				<include condition="stringcompare(Skin.String(Shortcut.Tile),Film2)">FilmTile2</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),Music1)">MusicTile1</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),Music2)">MusicTile2</include>
+				<include condition="stringcompare(Skin.String(Shortcut.Tile),Music3)">MusicTile3</include>
 				<include condition="stringcompare(Skin.String(Shortcut.Tile),App1)">AppTile1</include>
 				<include condition="stringcompare(Skin.String(Shortcut.Tile),App2)">AppTile2</include>
 				<include condition="stringcompare(Skin.String(Shortcut.Tile),App3)">AppTile3</include>

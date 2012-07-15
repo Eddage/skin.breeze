@@ -1,6 +1,9 @@
 <window>
 
-	<allowoverlay>no</allowoverlay>
+	<allowoverlay>yes</allowoverlay>
+	
+	<onunload>ClearProperty(fanart_image,home)</onunload>
+	<onunload>ClearProperty(HomeSearch,home)</onunload>
 	
 	<coordinates>
 		<system>1</system>
@@ -105,7 +108,7 @@
 				<posy>0</posy>
 				<width>1920</width>
 				<height>1080</height>
-				<texture>breeze/bg 90.png</texture>
+				<texture>breeze/fade bg.png</texture>
 			</control>			
 			
 			<control type="group">
@@ -171,9 +174,7 @@
 				<width>1920</width>
 				<height>90</height>
 				<texture>breeze/breadcrumb bg.png</texture>
-    			<visible>IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191))</visible>
     			<visible>!Control.IsVisible(199)</visible>
-				<animation effect="slide" start="0,-90" end="0,0" time="200">Visible</animation>
 			</control>		
 		
 			<control type="image">
@@ -182,9 +183,48 @@
 				<width>90</width>
 				<height>90</height>
 				<texture>breeze/breadcrumbs/gs search icon.png</texture>
-    			<visible>IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191))</visible>
     			<visible>!Control.IsVisible(199)</visible>
-				<animation effect="slide" start="0,-90" end="0,0" time="200">Visible</animation>
+			</control>
+		
+			<control type="group">
+				<posx>1788</posx>
+				<posy>17</posy>
+				<orientation>horizontal</orientation>
+			
+				<control type="image"> <!--settings button-->
+					<width>51</width>
+					<height>51</height>
+					<texture>breeze/menus/settings.png</texture>
+					<visible>!Control.HasFocus(7009)</visible>
+					<visible>!ControlGroup(9000).HasFocus</visible>
+					<visible>!Control.IsVisible(7011)</visible>
+				</control>
+			
+				<control type="image"> <!--settings button f-->
+					<width>51</width>
+					<height>51</height>
+					<texture>breeze/menus/settings f.png</texture>
+					<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
+				</control>
+			
+				<control type="image"> <!--shutdown button-->
+					<posx>61</posx>
+					<width>51</width>
+					<height>51</height>
+					<texture>breeze/menus/shutdown.png</texture>
+					<visible>!Control.HasFocus(7010)</visible>
+					<visible>!Window.IsActive(shutdownmenu)</visible>
+					<visible>!Control.IsVisible(7012)</visible>
+				</control>
+			
+				<control type="image"> <!--shutdown button f-->
+					<posx>61</posx>
+					<width>51</width>
+					<height>51</height>
+					<texture>breeze/menus/shutdown f.png</texture>
+					<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+				</control>
+			
 			</control>
 	  
 			<control type="image">
@@ -674,14 +714,14 @@
 					<visible allowhiddenfocus="true">Control.HasFocus(111)</visible>
 					
     			    <animation type="Visible">
-    			        <effect type="slide" start="0,100" end="0,0" time="200" tween="sine" easing="inout" center="auto" />
-    			       	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+    			        <effect type="slide" start="0,100" end="0,0" time="500" tween="sine" easing="inout" center="auto" />
+    			       	<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" />
     			    </animation>
 					
 					<control type="fixedlist" id="111">
-						<posx>0</posx>
+						<posx>-270</posx>
 						<posy>0</posy>
-						<width>1920</width>
+						<width>2250</width>
 						<height>695</height>
 						<onleft>111</onleft>
 						<onright>111</onright>
@@ -691,88 +731,125 @@
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<focusposition>1</focusposition>
 					
-						<itemlayout height="695" width="359">
+						<itemlayout height="695" width="315">
+			
+							<control type="group">
+				
+								<animation effect="Conditional" condition="true">
+									<effect type="zoom" end="80" time="0" center="250,278" />
+								</animation>
 						
-							<control type="image">
-								<posx>60</posx>
-								<posy>20</posy>
-								<texture background="true">breeze/home/folder tile.png</texture>
-							</control>
-						
-							<control type="image">
-								<posx>70</posx>
-								<posy>30</posy>
-								<width>344</width>
-								<height>515</height>
-								<aspectratio>stretch</aspectratio>
-								<texture background="true" diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
-							</control>
+								<control type="image">
+									<posx>46</posx>
+									<posy>0</posy>
+									<width>392</width>
+									<height>576</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture>breeze/home/search folder bg.png</texture>						
+								</control>
+				
+								<control type="image">
+									<posx>56</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/folder tile dif.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Thumb]</texture>
+								</control>
 					
-							<control type="image"> <!--watched icon-->
-								<posx>365</posx>
-								<posy>495</posy>
-								<width>40</width>
-								<height>40</height>
-								<fadetime>200</fadetime>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								<control type="image"> <!--watched icon-->
+									<posx>375</posx>
+									<posy>515</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
+					
 							</control>
 						
 						</itemlayout>
 					
-						<focusedlayout height="695" width="359">
-
-							<control type="image">
-								<posx>56</posx>
-								<posy>10</posy>
-								<width>372</width>
-								<height>556</height>
-								<aspectratio>stretch</aspectratio>
-								<texture>breeze/home/folder tile dif.png</texture>			
-							</control>	 
+						<focusedlayout height="695" width="340">
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>10</posy>
-								<width>372</width>
-								<height>556</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
-								<animation effect="fade" start="100" end="10" time="250" condition="Control.IsVisible(997)">Conditional</animation>
-								<visible>!Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>56</posx>
-								<posy>10</posy>
-								<width>372</width>
-								<height>556</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
-								<visible>Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>46</posx>
-								<posy>0</posy>
-								<width>392</width>
-								<height>576</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true">breeze/home/search folder f border.png</texture>
-							</control>
+    			            <control type="button">
+								<texturefocus>-</texturefocus>
+								<texturenofocus>-</texturenofocus>
+    			                <onfocus>SetProperty(search_list,111,home)</onfocus>
+    			                <onfocus>SetProperty(fanart_image,$INFO[Container(111).ListItem.Property(Fanart_Image)],home)</onfocus>
+    			            </control>
+				
+							<control type="group">
 					
-							<control type="image"> <!--watched icon-->
-								<posx>375</posx>
-								<posy>515</posy>
-								<width>45</width>
-								<height>45</height>
-								<fadetime>200</fadetime>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								<animation type="Focus" condition="Container(111).OnNext | Container(111).OnPrevious">
+									<effect type="zoom" start="80" end="100" time="500" tween="sine" easing="out" center="270,278" />
+								</animation>
+					
+								<animation type="UnFocus" condition="Container(111).OnNext | Container(111).OnPrevious">
+									<effect type="zoom" start="100" end="80" time="350" tween="sine" easing="out" center="190,278" />
+								</animation>
+						
+								<control type="image">
+									<posx>61</posx>
+									<posy>0</posy>
+									<width>392</width>
+									<height>576</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture>breeze/home/search folder f border.png</texture>
+						
+									<animation type="UnFocus" condition="Container(111).OnNext | Container(111).OnPrevious">
+										<effect type="fade" start="100" end="00" time="0"/>
+									</animation>
+						
+								</control>
+
+								<control type="image">
+									<posx>71</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<texture>breeze/home/folder tile dif.png</texture>			
+								</control>	 
+				
+								<control type="image">
+									<posx>71</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/folder tile dif.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Thumb]</texture>
+									<visible>!Control.IsVisible(997)</visible>
+								</control>
+						
+								<control type="image">
+									<posx>71</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
+									<visible>Control.IsVisible(997)</visible>
+								</control>
+					
+								<control type="image"> <!--watched icon-->
+									<posx>390</posx>
+									<posy>515</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
+				
 							</control>
 								
 						</focusedlayout>
@@ -780,7 +857,7 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
+						<posx>130</posx>
 						<posy>570</posy>
 						<width>1800</width>
 						<height>65</height>
@@ -801,14 +878,14 @@
 					<visible allowhiddenfocus="true">Control.HasFocus(121)</visible>
 					
     			    <animation type="Visible">
-    			        <effect type="slide" start="0,100" end="0,0" time="200" tween="sine" easing="inout" center="auto" />
-    			       	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+    			        <effect type="slide" start="0,100" end="0,0" time="500" tween="sine" easing="inout" center="auto" />
+    			       	<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" />
     			    </animation>
 					
 					<control type="fixedlist" id="121">
-						<posx>0</posx>
+						<posx>-270</posx>
 						<posy>0</posy>
-						<width>1920</width>
+						<width>2250</width>
 						<height>695</height>
 						<onleft>121</onleft>
 						<onright>121</onright>
@@ -818,88 +895,125 @@
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<focusposition>1</focusposition>
 					
-						<itemlayout height="695" width="359">
+						<itemlayout height="695" width="315">
+			
+							<control type="group">
+				
+								<animation effect="Conditional" condition="true">
+									<effect type="zoom" end="80" time="0" center="250,278" />
+								</animation>
 						
-							<control type="image">
-								<posx>60</posx>
-								<posy>20</posy>
-								<texture background="true">breeze/home/folder tile.png</texture>
-							</control>
-						
-							<control type="image">
-								<posx>70</posx>
-								<posy>30</posy>
-								<width>344</width>
-								<height>515</height>
-								<aspectratio>stretch</aspectratio>
-								<texture background="true" diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
-							</control>
+								<control type="image">
+									<posx>46</posx>
+									<posy>0</posy>
+									<width>392</width>
+									<height>576</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture>breeze/home/search folder bg.png</texture>						
+								</control>
+				
+								<control type="image">
+									<posx>56</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/folder tile dif.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Thumb]</texture>
+								</control>
 					
-							<control type="image"> <!--watched icon-->
-								<posx>365</posx>
-								<posy>495</posy>
-								<width>40</width>
-								<height>40</height>
-								<fadetime>200</fadetime>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								<control type="image"> <!--watched icon-->
+									<posx>375</posx>
+									<posy>515</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
+					
 							</control>
 						
 						</itemlayout>
 					
-						<focusedlayout height="695" width="359">
-
-							<control type="image">
-								<posx>56</posx>
-								<posy>10</posy>
-								<width>372</width>
-								<height>556</height>
-								<aspectratio>stretch</aspectratio>
-								<texture>breeze/home/folder tile dif.png</texture>			
-							</control>	 
+						<focusedlayout height="695" width="340">
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>10</posy>
-								<width>372</width>
-								<height>556</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
-								<animation effect="fade" start="100" end="10" time="250" condition="Control.IsVisible(997)">Conditional</animation>
-								<visible>!Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>56</posx>
-								<posy>10</posy>
-								<width>372</width>
-								<height>556</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
-								<visible>Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>46</posx>
-								<posy>0</posy>
-								<width>392</width>
-								<height>576</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true">breeze/home/search folder f border.png</texture>
-							</control>
+    			            <control type="button">
+								<texturefocus>-</texturefocus>
+								<texturenofocus>-</texturenofocus>
+    			                <onfocus>SetProperty(search_list,121,home)</onfocus>
+    			                <onfocus>SetProperty(fanart_image,$INFO[Container(121).ListItem.Property(Fanart_Image)],home)</onfocus>
+    			            </control>
+				
+							<control type="group">
 					
-							<control type="image"> <!--watched icon-->
-								<posx>375</posx>
-								<posy>515</posy>
-								<width>45</width>
-								<height>45</height>
-								<fadetime>200</fadetime>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								<animation type="Focus" condition="Container(121).OnNext | Container(121).OnPrevious">
+									<effect type="zoom" start="80" end="100" time="500" tween="sine" easing="out" center="270,278" />
+								</animation>
+					
+								<animation type="UnFocus" condition="Container(121).OnNext | Container(121).OnPrevious">
+									<effect type="zoom" start="100" end="80" time="350" tween="sine" easing="out" center="190,278" />
+								</animation>
+						
+								<control type="image">
+									<posx>61</posx>
+									<posy>0</posy>
+									<width>392</width>
+									<height>576</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture>breeze/home/search folder f border.png</texture>
+						
+									<animation type="UnFocus" condition="Container(121).OnNext | Container(121).OnPrevious">
+										<effect type="fade" start="100" end="00" time="0"/>
+									</animation>
+						
+								</control>
+
+								<control type="image">
+									<posx>71</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<texture>breeze/home/folder tile dif.png</texture>			
+								</control>	 
+				
+								<control type="image">
+									<posx>71</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/folder tile dif.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Thumb]</texture>
+									<visible>!Control.IsVisible(997)</visible>
+								</control>
+						
+								<control type="image">
+									<posx>71</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
+									<visible>Control.IsVisible(997)</visible>
+								</control>
+					
+								<control type="image"> <!--watched icon-->
+									<posx>390</posx>
+									<posy>515</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
+				
 							</control>
 								
 						</focusedlayout>
@@ -907,7 +1021,7 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
+						<posx>130</posx>
 						<posy>570</posy>
 						<width>1800</width>
 						<height>65</height>
@@ -928,108 +1042,142 @@
 					<visible allowhiddenfocus="true">Control.HasFocus(131)</visible>
 					
     			    <animation type="Visible">
-    			        <effect type="slide" start="0,100" end="0,0" time="200" tween="sine" easing="inout" center="auto" />
-    			       	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+    			        <effect type="slide" start="0,100" end="0,0" time="500" tween="sine" easing="inout" center="auto" />
+    			       	<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" />
     			    </animation>
 					
 					<control type="fixedlist" id="131">
-						<posx>10</posx>
+						<posx>-270</posx>
 						<posy>0</posy>
-						<width>1920</width>
-						<height>300</height>
-						<onleft>131</onleft>
-						<onright>131</onright>
+						<width>2250</width>
+						<height>695</height>
+						<onleft>121</onleft>
+						<onright>121</onright>
 						<onup>121</onup>
 						<ondown>141</ondown>
 						<orientation>horizontal</orientation>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<scrolltime>0</scrolltime>
-						
-						<itemlayout width="185" height="300">
-				
-							<control type="image"> <!--border-->
-								<posx>0</posx>
-								<posy>0</posy>
-								<width>173</width>
-								<height>250</height>
-								<aspectratio scalediffuse="false">stretch</aspectratio>
-								<texture>breeze/masks/gs folder small border.png</texture>
-							</control>
-						
-							<control type="image">
-								<posx>10</posx>
-								<posy>10</posy>
-								<width>153</width>
-								<height>230</height>
-								<aspectratio scalediffuse="false">stretch</aspectratio>
-								<texture diffuse="breeze/home/vert folder small.png" background="true">$INFO[ListItem.Icon]</texture>
-							</control>
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<focusposition>1</focusposition>
 					
-							<control type="image"> <!--watched icon-->
-								<posx>365</posx>
-								<posy>495</posy>
-								<width>40</width>
-								<height>40</height>
-								<fadetime>200</fadetime>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+						<itemlayout height="695" width="315">
+			
+							<control type="group">
+				
+								<animation effect="Conditional" condition="true">
+									<effect type="zoom" end="80" time="0" center="250,278" />
+								</animation>
+						
+								<control type="image">
+									<posx>46</posx>
+									<posy>0</posy>
+									<width>392</width>
+									<height>576</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture>breeze/home/search folder bg.png</texture>						
+								</control>
+				
+								<control type="image">
+									<posx>56</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/folder tile dif.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Thumb]</texture>
+								</control>
+					
+								<control type="image"> <!--watched icon-->
+									<posx>375</posx>
+									<posy>515</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
+					
 							</control>
-							
+						
 						</itemlayout>
 					
-						<focusedlayout height="695" width="359">
-
-							<control type="image">
-								<posx>56</posx>
-								<posy>10</posy>
-								<width>372</width>
-								<height>556</height>
-								<aspectratio>stretch</aspectratio>
-								<texture>breeze/home/folder tile dif.png</texture>			
-							</control>	 
+						<focusedlayout height="695" width="340">
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>10</posy>
-								<width>372</width>
-								<height>556</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
-								<animation effect="fade" start="100" end="10" time="250" condition="Control.IsVisible(997)">Conditional</animation>
-								<visible>!Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>56</posx>
-								<posy>10</posy>
-								<width>372</width>
-								<height>556</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
-								<visible>Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>46</posx>
-								<posy>0</posy>
-								<width>392</width>
-								<height>576</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true">breeze/home/search folder f border.png</texture>
-							</control>
+    			            <control type="button">
+								<texturefocus>-</texturefocus>
+								<texturenofocus>-</texturenofocus>
+    			                <onfocus>SetProperty(search_list,131,home)</onfocus>
+    			                <onfocus>SetProperty(fanart_image,$INFO[Container(131).ListItem.Property(Fanart_Image)],home)</onfocus>
+    			            </control>
+				
+							<control type="group">
 					
-							<control type="image"> <!--watched icon-->
-								<posx>375</posx>
-								<posy>515</posy>
-								<width>45</width>
-								<height>45</height>
-								<fadetime>200</fadetime>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								<animation type="Focus" condition="Container(131).OnNext | Container(111).OnPrevious">
+									<effect type="zoom" start="80" end="100" time="500" tween="sine" easing="out" center="270,278" />
+								</animation>
+					
+								<animation type="UnFocus" condition="Container(131).OnNext | Container(111).OnPrevious">
+									<effect type="zoom" start="100" end="80" time="350" tween="sine" easing="out" center="190,278" />
+								</animation>
+						
+								<control type="image">
+									<posx>61</posx>
+									<posy>0</posy>
+									<width>392</width>
+									<height>576</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture>breeze/home/search folder f border.png</texture>
+						
+									<animation type="UnFocus" condition="Container(131).OnNext | Container(131).OnPrevious">
+										<effect type="fade" start="100" end="00" time="0"/>
+									</animation>
+						
+								</control>
+
+								<control type="image">
+									<posx>71</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<texture>breeze/home/folder tile dif.png</texture>			
+								</control>	 
+				
+								<control type="image">
+									<posx>71</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/folder tile dif.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Thumb]</texture>
+									<visible>!Control.IsVisible(997)</visible>
+								</control>
+						
+								<control type="image">
+									<posx>71</posx>
+									<posy>10</posy>
+									<width>372</width>
+									<height>556</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/menus/context diffuse.png">$INFO[ListItem.Icon]</texture>
+									<visible>Control.IsVisible(997)</visible>
+								</control>
+					
+								<control type="image"> <!--watched icon-->
+									<posx>390</posx>
+									<posy>515</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
+				
 							</control>
 								
 						</focusedlayout>
@@ -1070,14 +1218,14 @@
 					<visible allowhiddenfocus="true">Control.HasFocus(141)</visible>
 					
     			    <animation type="Visible">
-    			        <effect type="slide" start="0,100" end="0,0" time="200" tween="sine" easing="inout" center="auto" />
-    			       	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+    			        <effect type="slide" start="0,100" end="0,0" time="500" tween="sine" easing="inout" center="auto" />
+    			       	<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" />
     			    </animation>
 					
 					<control type="fixedlist" id="141">
-						<posx>0</posx>
+						<posx>-405</posx>
 						<posy>115</posy>
-						<width>1920</width>
+						<width>2500</width>
 						<height>695</height>
 						<onleft>141</onleft>
 						<onright>141</onright>
@@ -1087,88 +1235,123 @@
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<focusposition>1</focusposition>
 					
-						<itemlayout height="695" width="500">
+						<itemlayout height="695" width="465">
+			
+							<control type="group">
+				
+								<animation effect="Conditional" condition="true">
+									<effect type="zoom" end="80" time="0" center="170,175" />
+								</animation>
 						
-							<control type="image">
-								<posx>60</posx>
-								<posy>30</posy>
-								<texture background="true">breeze/home/episode tile.png</texture>
-							</control>
+								<control type="image">
+									<posx>46</posx>
+									<posy>10</posy>
+									<width>579</width>
+									<height>336</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture>breeze/home/episode tile bg.png</texture>
+								</control>
 						
-							<control type="image">
-								<posx>70</posx>
-								<posy>40</posy>
-								<width>485</width>
-								<height>274</height>
-								<aspectratio scalediffuse="false">scale</aspectratio>
-								<texture background="true" diffuse="breeze/home/episode tile dif small.png">$INFO[ListItem.Icon]</texture>
-							</control>
+								<control type="image">
+									<posx>56</posx>
+									<posy>20</posy>
+									<width>559</width>
+									<height>316</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture background="true" diffuse="breeze/home/episode tile dif small.png">$INFO[ListItem.Icon]</texture>
+								</control>
 					
-							<control type="image"> <!--watched icon-->
-								<posx>507</posx>
-								<posy>267</posy>
-								<width>40</width>
-								<height>40</height>
-								<fadetime>200</fadetime>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								<control type="image"> <!--watched icon-->
+									<posx>562</posx>
+									<posy>284</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
+								
 							</control>
 						
 						</itemlayout>
 					
-						<focusedlayout height="695" width="500">
-
-							<control type="image">
-								<posx>56</posx>
-								<posy>20</posy>
-								<width>559</width>
-								<height>316</height>
-								<aspectratio>stretch</aspectratio>
-								<texture>breeze/home/episode tile dif.png</texture>			
-							</control>	 
+						<focusedlayout height="695" width="530">
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>20</posy>
-								<width>559</width>
-								<height>316</height>
-								<aspectratio>scale</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/home/episode tile dif.png">$INFO[ListItem.Icon]</texture>
-								<animation effect="fade" start="100" end="10" time="250" condition="Control.IsVisible(997)">Conditional</animation>
-								<visible>!Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>56</posx>
-								<posy>20</posy>
-								<width>559</width>
-								<height>316</height>
-								<aspectratio>scale</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/menus/context episode diffuse.png">$INFO[ListItem.Icon]</texture>
-								<visible>Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>46</posx>
-								<posy>10</posy>
-								<width>579</width>
-								<height>336</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true">breeze/home/episode tile border.png</texture>
-							</control>
+    			            <control type="button">
+								<texturefocus>-</texturefocus>
+								<texturenofocus>-</texturenofocus>
+    			                <onfocus>SetProperty(search_list,141,home)</onfocus>
+    			                <onfocus>SetProperty(fanart_image,$INFO[Container(141).ListItem.Property(Fanart_Image)],home)</onfocus>
+    			            </control>
+				
+							<control type="group">
 					
-							<control type="image"> <!--watched icon-->
-								<posx>562</posx>
-								<posy>284</posy>
-								<width>45</width>
-								<height>45</height>
-								<fadetime>200</fadetime>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								<animation type="Focus" condition="Container(141).OnNext | Container(141).OnPrevious">
+									<effect type="zoom" start="80" end="100" time="500" tween="sine" easing="out" center="305,175" />
+								</animation>
+					
+								<animation type="UnFocus" condition="Container(141).OnNext | Container(141).OnPrevious">
+									<effect type="zoom" start="100" end="80" time="350" tween="sine" easing="out" center="170,175" />
+								</animation>
+						
+								<control type="image">
+									<posx>46</posx>
+									<posy>10</posy>
+									<width>579</width>
+									<height>336</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true">breeze/home/episode tile border.png</texture>
+						
+									<animation type="UnFocus" condition="Container(141).OnNext | Container(141).OnPrevious">
+										<effect type="fade" start="100" end="00" time="0"/>
+									</animation>
+						
+								</control>
+
+								<control type="image">
+									<posx>56</posx>
+									<posy>20</posy>
+									<width>559</width>
+									<height>316</height>
+									<aspectratio>stretch</aspectratio>
+									<texture>breeze/home/episode tile dif.png</texture>			
+								</control>	 
+						
+								<control type="image">
+									<posx>56</posx>
+									<posy>20</posy>
+									<width>559</width>
+									<height>316</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/episode tile dif.png">$INFO[ListItem.Icon]</texture>
+									<visible>!Control.IsVisible(997)</visible>
+								</control>
+						
+								<control type="image">
+									<posx>56</posx>
+									<posy>20</posy>
+									<width>559</width>
+									<height>316</height>
+									<aspectratio>scale</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/menus/context episode diffuse.png">$INFO[ListItem.Icon]</texture>
+									<visible>Control.IsVisible(997)</visible>
+								</control>
+					
+								<control type="image"> <!--watched icon-->
+									<posx>562</posx>
+									<posy>284</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
+							
 							</control>
 								
 						</focusedlayout>
@@ -1176,7 +1359,7 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
+						<posx>130</posx>
 						<posy>460</posy>
 						<width>1800</width>
 						<height>65</height>
@@ -1188,7 +1371,7 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
+						<posx>130</posx>
 						<posy>505</posy>
 						<width>1800</width>
 						<height>65</height>
@@ -1209,15 +1392,15 @@
 					<visible allowhiddenfocus="true">Control.HasFocus(151)</visible>
 					
     			    <animation type="Visible">
-    			        <effect type="slide" start="0,100" end="0,0" time="200" tween="sine" easing="inout" center="auto" />
-    			       	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+    			        <effect type="slide" start="0,100" end="0,0" time="500" tween="sine" easing="inout" center="auto" />
+    			       	<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" />
     			    </animation>
 					
 					<control type="fixedlist" id="151">
-						<posx>10</posx>
-						<posy>25</posy>
-						<width>1920</width>
-						<height>300</height>
+						<posx>-405</posx>
+						<posy>115</posy>
+						<width>2500</width>
+						<height>695</height>
 						<onleft>151</onleft>
 						<onright>151</onright>
 						<onup>141</onup>
@@ -1225,86 +1408,133 @@
 						<orientation>horizontal</orientation>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<scrolltime>0</scrolltime>
-						
-						<itemlayout width="185" height="300">
+						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<focusposition>1</focusposition>
+					
+						<itemlayout height="695" width="465">
+			
+							<control type="group">
 				
-							<control type="image"> <!--border-->
-								<posx>0</posx>
-								<posy>0</posy>
-								<width>250</width>
-								<height>250</height>
-								<aspectratio scalediffuse="false">stretch</aspectratio>
-								<texture>breeze/masks/gs folder small border.png</texture>
+								<animation effect="Conditional" condition="true">
+									<effect type="zoom" end="80" time="0" center="170,175" />
+								</animation>
+						
+								<control type="image">
+									<posx>46</posx>
+									<posy>10</posy>
+									<width>579</width>
+									<height>336</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture>breeze/home/episode tile bg.png</texture>
+								</control>
+						
+								<control type="image">
+									<posx>56</posx>
+									<posy>20</posy>
+									<width>559</width>
+									<height>316</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture background="true" diffuse="breeze/home/episode tile dif small.png">$INFO[ListItem.Icon]</texture>
+								</control>
+					
+								<control type="image"> <!--watched icon-->
+									<posx>562</posx>
+									<posy>284</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
+								
 							</control>
 						
-							<control type="image">
-								<posx>10</posx>
-								<posy>10</posy>
-								<width>230</width>
-								<height>230</height>
-								<aspectratio scalediffuse="false">stretch</aspectratio>
-								<texture diffuse="breeze/home/vert folder small.png" background="true">$INFO[ListItem.Icon]</texture>
-							</control>
-							
-							<control type="image">
-								<posx>132</posx>
-								<posy>208</posy>
-								<width>25</width>
-								<height>25</height>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
-							</control>
-							
 						</itemlayout>
+					
+						<focusedlayout height="695" width="530">
 						
-						<focusedlayout width="254" height="300">
+    			            <control type="button">
+								<texturefocus>-</texturefocus>
+								<texturenofocus>-</texturenofocus>
+    			                <onfocus>SetProperty(search_list,151,home)</onfocus>
+    			                <onfocus>SetProperty(fanart_image,$INFO[Container(151).ListItem.Property(Fanart_Image)],home)</onfocus>
+    			            </control>
 				
-							<control type="image"> <!--border-->
-								<posx>35</posx>
-								<posy>0</posy>
-								<width>290</width>
-								<height>290</height>
-								<aspectratio scalediffuse="false">stretch</aspectratio>
-								<texture>breeze/masks/gs folder border.png</texture>
-							</control>	
+							<control type="group">
+					
+								<animation type="Focus" condition="Container(151).OnNext | Container(151).OnPrevious">
+									<effect type="zoom" start="80" end="100" time="500" tween="sine" easing="out" center="305,175" />
+								</animation>
+					
+								<animation type="UnFocus" condition="Container(151).OnNext | Container(151).OnPrevious">
+									<effect type="zoom" start="100" end="80" time="350" tween="sine" easing="out" center="170,175" />
+								</animation>
+						
+								<control type="image">
+									<posx>46</posx>
+									<posy>10</posy>
+									<width>579</width>
+									<height>336</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true">breeze/home/episode tile border.png</texture>
+						
+									<animation type="UnFocus" condition="Container(151).OnNext | Container(151).OnPrevious">
+										<effect type="fade" start="100" end="00" time="0"/>
+									</animation>
+						
+								</control>
+
+								<control type="image">
+									<posx>56</posx>
+									<posy>20</posy>
+									<width>559</width>
+									<height>316</height>
+									<aspectratio>stretch</aspectratio>
+									<texture>breeze/home/episode tile dif.png</texture>			
+								</control>	 
+						
+								<control type="image">
+									<posx>56</posx>
+									<posy>20</posy>
+									<width>559</width>
+									<height>316</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/episode tile dif.png">$INFO[ListItem.Icon]</texture>
+									<visible>!Control.IsVisible(997)</visible>
+								</control>
+						
+								<control type="image">
+									<posx>56</posx>
+									<posy>20</posy>
+									<width>559</width>
+									<height>316</height>
+									<aspectratio>scale</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/menus/context episode diffuse.png">$INFO[ListItem.Icon]</texture>
+									<visible>Control.IsVisible(997)</visible>
+								</control>
+					
+								<control type="image"> <!--watched icon-->
+									<posx>562</posx>
+									<posy>284</posy>
+									<width>45</width>
+									<height>45</height>
+									<fadetime>200</fadetime>
+									<texture>breeze/masks/watched.png</texture>
+									<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+								</control>
 							
-							<control type="image">
-								<posx>45</posx>
-								<posy>10</posy>
-								<width>270</width>
-								<height>270</height>
-								<texture diffuse="breeze/home/vert folder small.png" background="true">$INFO[ListItem.Icon]</texture>
-								<aspectratio scalediffuse="false">stretch</aspectratio>
 							</control>
-							
-							<control type="image">
-								<posx>185</posx>
-								<posy>240</posy>
-								<width>35</width>
-								<height>35</height>
-								<texture>breeze/masks/watched.png</texture>
-								<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
-							</control>
-							
-							<control type="label">
-								<posx>252</posx>
-								<posy>265</posy>
-								<width>800</width>
-								<height>12</height>
-								<label>$INFO[ListItem.Label]</label>
-								<font>breeze32b</font>
-								<textcolor>infogrey</textcolor>
-								<aligny>center</aligny>
-							</control>
-							
+								
 						</focusedlayout>
 						
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
-						<posy>570</posy>
+						<posx>130</posx>
+						<posy>460</posy>
 						<width>1800</width>
 						<height>65</height>
 						<aligny>center</aligny>
@@ -1312,6 +1542,30 @@
 						<textcolor>infogrey</textcolor>
 						<shadowcolor>90ffffff</shadowcolor>
 						<label>[B]$INFO[Container(151).ListItem.Label][/B]</label>
+					</control>
+			
+					<control type="label"> <!--label-->
+						<posx>130</posx>
+						<posy>505</posy>
+						<width>1800</width>
+						<height>65</height>
+						<aligny>center</aligny>
+						<font>breeze34</font>
+						<textcolor>infogreynf</textcolor>
+						<shadowcolor>90ffffff</shadowcolor>
+						<label>$INFO[Container(151).ListItem.Property(Artist)]</label>
+					</control>
+			
+					<control type="label"> <!--label-->
+						<posx>130</posx>
+						<posy>545</posy>
+						<width>1800</width>
+						<height>65</height>
+						<aligny>center</aligny>
+						<font>breeze34</font>
+						<textcolor>infogreynf</textcolor>
+						<shadowcolor>90ffffff</shadowcolor>
+						<label>$INFO[Container(151).ListItem.Property(Album)]</label>
 					</control>
 					
 				</control>
@@ -1324,14 +1578,14 @@
 					<visible allowhiddenfocus="true">Control.HasFocus(161)</visible>
 					
     			    <animation type="Visible">
-    			        <effect type="slide" start="0,100" end="0,0" time="200" tween="sine" easing="inout" center="auto" />
-    			       	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+    			        <effect type="slide" start="0,100" end="0,0" time="500" tween="sine" easing="inout" center="auto" />
+    			       	<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" />
     			    </animation>
 					
 					<control type="fixedlist" id="161">
-						<posx>0</posx>
-						<posy>25</posy>
-						<width>1920</width>
+						<posx>-270</posx>
+						<posy>0</posy>
+						<width>2250</width>
 						<height>695</height>
 						<onleft>161</onleft>
 						<onright>161</onright>
@@ -1341,67 +1595,103 @@
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<focusposition>1</focusposition>
 					
-						<itemlayout height="695" width="359">
+						<itemlayout height="695" width="315">
 						
-							<control type="image">
-								<posx>60</posx>
-								<posy>120</posy>
-								<width>364</width>
-								<height>364</height>
-								<texture background="true">breeze/home/music tile small.png</texture>
-							</control>
+							<control type="group">
+				
+								<animation effect="Conditional" condition="true">
+									<effect type="zoom" end="80" time="0" center="250,278" />
+								</animation>
 						
-							<control type="image">
-								<posx>70</posx>
-								<posy>130</posy>
-								<width>344</width>
-								<height>344</height>
-								<aspectratio>stretch</aspectratio>
-								<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
+								<control type="image">
+									<posx>46</posx>
+									<posy>106</posy>
+									<width>392</width>
+									<height>392</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture>breeze/home/music tile bg.png</texture>
+								</control>
+						
+								<control type="image">
+									<posx>56</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
+								</control>
+								
 							</control>
 						
 						</itemlayout>
 					
-						<focusedlayout height="695" width="359">
+						<focusedlayout height="695" width="310">
+						
+    			            <control type="button">
+								<texturefocus>-</texturefocus>
+								<texturenofocus>-</texturenofocus>
+    			                <onfocus>SetProperty(search_list,161,home)</onfocus>
+    			                <onfocus>SetProperty(fanart_image,$INFO[Container(161).ListItem.Property(Fanart_Image)],home)</onfocus>
+    			            </control>
+				
+							<control type="group">
+					
+								<animation type="Focus" condition="Container(161).OnNext | Container(161).OnPrevious">
+									<effect type="zoom" start="80" end="100" time="500" tween="sine" easing="out" center="270,278" />
+								</animation>
+					
+								<animation type="UnFocus" condition="Container(161).OnNext | Container(161).OnPrevious">
+									<effect type="zoom" start="100" end="80" time="350" tween="sine" easing="out" center="190,278" />
+								</animation>
+						
+								<control type="image">
+									<posx>61</posx>
+									<posy>106</posy>
+									<width>392</width>
+									<height>392</height>
+									<texture background="true">breeze/home/music tile small border.png</texture>
+						
+									<animation type="UnFocus" condition="Container(161).OnNext | Container(161).OnPrevious">
+										<effect type="fade" start="100" end="00" time="0"/>
+									</animation>
+									
+								</control>
 
-							<control type="image">
-								<posx>56</posx>
-								<posy>116</posy>
-								<width>372</width>
-								<height>372</height>
-								<aspectratio>stretch</aspectratio>
-								<texture>breeze/home/music tile small dif.png</texture>			
-							</control>
+								<control type="image">
+									<posx>71</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<texture>breeze/home/music tile small dif.png</texture>			
+								</control>
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>116</posy>
-								<width>372</width>
-								<height>372</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
-								<visible>!Control.IsVisible(997)</visible>
-							</control>
+								<control type="image">
+									<posx>71</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
+									<visible>!Control.IsVisible(997)</visible>
+								</control>
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>116</posy>
-								<width>372</width>
-								<height>372</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/menus/context square diffuse.png">$INFO[ListItem.Icon]</texture>
-								<visible>Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>46</posx>
-								<posy>106</posy>
-								<width>392</width>
-								<height>392</height>
-								<texture background="true">breeze/home/music tile small border.png</texture>
+								<control type="image">
+									<posx>71</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/menus/context square diffuse.png">$INFO[ListItem.Icon]</texture>
+									<visible>Control.IsVisible(997)</visible>
+								</control>
+								
 							</control>
 								
 						</focusedlayout>
@@ -1409,8 +1699,8 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
-						<posy>515</posy>
+						<posx>130</posx>
+						<posy>495</posy>
 						<width>1800</width>
 						<height>65</height>
 						<aligny>center</aligny>
@@ -1430,14 +1720,14 @@
 					<visible allowhiddenfocus="true">Control.HasFocus(171)</visible>
 					
     			    <animation type="Visible">
-    			        <effect type="slide" start="0,100" end="0,0" time="200" tween="sine" easing="inout" center="auto" />
-    			       	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+    			        <effect type="slide" start="0,100" end="0,0" time="500" tween="sine" easing="inout" center="auto" />
+    			       	<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" />
     			    </animation>
 					
 					<control type="fixedlist" id="171">
-						<posx>0</posx>
-						<posy>25</posy>
-						<width>1920</width>
+						<posx>-270</posx>
+						<posy>0</posy>
+						<width>2250</width>
 						<height>695</height>
 						<onleft>171</onleft>
 						<onright>171</onright>
@@ -1447,67 +1737,103 @@
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<focusposition>1</focusposition>
 					
-						<itemlayout height="695" width="359">
+						<itemlayout height="695" width="315">
 						
-							<control type="image">
-								<posx>60</posx>
-								<posy>120</posy>
-								<width>364</width>
-								<height>364</height>
-								<texture background="true">breeze/home/music tile small.png</texture>
-							</control>
+							<control type="group">
+				
+								<animation effect="Conditional" condition="true">
+									<effect type="zoom" end="80" time="0" center="250,278" />
+								</animation>
 						
-							<control type="image">
-								<posx>70</posx>
-								<posy>130</posy>
-								<width>344</width>
-								<height>344</height>
-								<aspectratio>stretch</aspectratio>
-								<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
+								<control type="image">
+									<posx>46</posx>
+									<posy>106</posy>
+									<width>392</width>
+									<height>392</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture>breeze/home/music tile bg.png</texture>
+								</control>
+						
+								<control type="image">
+									<posx>56</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
+								</control>
+								
 							</control>
 						
 						</itemlayout>
 					
-						<focusedlayout height="695" width="359">
+						<focusedlayout height="695" width="340">
+						
+    			            <control type="button">
+								<texturefocus>-</texturefocus>
+								<texturenofocus>-</texturenofocus>
+    			                <onfocus>SetProperty(search_list,171,home)</onfocus>
+    			                <onfocus>SetProperty(fanart_image,$INFO[Container(171).ListItem.Property(Fanart_Image)],home)</onfocus>
+    			            </control>
+				
+							<control type="group">
+					
+								<animation type="Focus" condition="Container(171).OnNext | Container(171).OnPrevious">
+									<effect type="zoom" start="80" end="100" time="500" tween="sine" easing="out" center="270,278" />
+								</animation>
+					
+								<animation type="UnFocus" condition="Container(171).OnNext | Container(171).OnPrevious">
+									<effect type="zoom" start="100" end="80" time="350" tween="sine" easing="out" center="190,278" />
+								</animation>
+						
+								<control type="image">
+									<posx>61</posx>
+									<posy>106</posy>
+									<width>392</width>
+									<height>392</height>
+									<texture background="true">breeze/home/music tile small border.png</texture>
+						
+									<animation type="UnFocus" condition="Container(171).OnNext | Container(171).OnPrevious">
+										<effect type="fade" start="100" end="00" time="0"/>
+									</animation>
+									
+								</control>
 
-							<control type="image">
-								<posx>56</posx>
-								<posy>116</posy>
-								<width>372</width>
-								<height>372</height>
-								<aspectratio>stretch</aspectratio>
-								<texture>breeze/home/music tile small dif.png</texture>			
-							</control>
+								<control type="image">
+									<posx>71</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<texture>breeze/home/music tile small dif.png</texture>			
+								</control>
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>116</posy>
-								<width>372</width>
-								<height>372</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
-								<visible>!Control.IsVisible(997)</visible>
-							</control>
+								<control type="image">
+									<posx>71</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
+									<visible>!Control.IsVisible(997)</visible>
+								</control>
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>116</posy>
-								<width>372</width>
-								<height>372</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/menus/context square diffuse.png">$INFO[ListItem.Icon]</texture>
-								<visible>Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>46</posx>
-								<posy>106</posy>
-								<width>392</width>
-								<height>392</height>
-								<texture background="true">breeze/home/music tile small border.png</texture>
+								<control type="image">
+									<posx>71</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/menus/context square diffuse.png">$INFO[ListItem.Icon]</texture>
+									<visible>Control.IsVisible(997)</visible>
+								</control>
+								
 							</control>
 								
 						</focusedlayout>
@@ -1515,8 +1841,8 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
-						<posy>515</posy>
+						<posx>130</posx>
+						<posy>495</posy>
 						<width>1800</width>
 						<height>65</height>
 						<aligny>center</aligny>
@@ -1527,8 +1853,8 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
-						<posy>560</posy>
+						<posx>130</posx>
+						<posy>540</posy>
 						<width>1800</width>
 						<height>65</height>
 						<aligny>center</aligny>
@@ -1548,14 +1874,14 @@
 					<visible allowhiddenfocus="true">Control.HasFocus(181)</visible>
 					
     			    <animation type="Visible">
-    			        <effect type="slide" start="0,100" end="0,0" time="200" tween="sine" easing="inout" center="auto" />
-    			       	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+    			        <effect type="slide" start="0,100" end="0,0" time="500" tween="sine" easing="inout" center="auto" />
+    			       	<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" />
     			    </animation>
 					
 					<control type="fixedlist" id="181">
-						<posx>0</posx>
-						<posy>25</posy>
-						<width>1920</width>
+						<posx>-270</posx>
+						<posy>0</posy>
+						<width>2250</width>
 						<height>695</height>
 						<onleft>181</onleft>
 						<onright>181</onright>
@@ -1565,67 +1891,103 @@
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
+						<focusposition>1</focusposition>
 					
-						<itemlayout height="695" width="359">
+						<itemlayout height="695" width="315">
 						
-							<control type="image">
-								<posx>60</posx>
-								<posy>120</posy>
-								<width>364</width>
-								<height>364</height>
-								<texture background="true">breeze/home/music tile small.png</texture>
-							</control>
+							<control type="group">
+				
+								<animation effect="Conditional" condition="true">
+									<effect type="zoom" end="80" time="0" center="250,278" />
+								</animation>
 						
-							<control type="image">
-								<posx>70</posx>
-								<posy>130</posy>
-								<width>344</width>
-								<height>344</height>
-								<aspectratio>stretch</aspectratio>
-								<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
+								<control type="image">
+									<posx>46</posx>
+									<posy>106</posy>
+									<width>392</width>
+									<height>392</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture>breeze/home/music tile bg.png</texture>
+								</control>
+						
+								<control type="image">
+									<posx>56</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
+								</control>
+								
 							</control>
 						
 						</itemlayout>
 					
-						<focusedlayout height="695" width="359">
+						<focusedlayout height="695" width="340">
+						
+    			            <control type="button">
+								<texturefocus>-</texturefocus>
+								<texturenofocus>-</texturenofocus>
+    			                <onfocus>SetProperty(search_list,181,home)</onfocus>
+    			                <onfocus>SetProperty(fanart_image,$INFO[Container(181).ListItem.Property(Fanart_Image)],home)</onfocus>
+    			            </control>
+				
+							<control type="group">
+					
+								<animation type="Focus" condition="Container(181).OnNext | Container(181).OnPrevious">
+									<effect type="zoom" start="80" end="100" time="500" tween="sine" easing="out" center="270,278" />
+								</animation>
+					
+								<animation type="UnFocus" condition="Container(181).OnNext | Container(181).OnPrevious">
+									<effect type="zoom" start="100" end="80" time="350" tween="sine" easing="out" center="190,278" />
+								</animation>
+						
+								<control type="image">
+									<posx>61</posx>
+									<posy>106</posy>
+									<width>392</width>
+									<height>392</height>
+									<texture background="true">breeze/home/music tile small border.png</texture>
+						
+									<animation type="UnFocus" condition="Container(181).OnNext | Container(181).OnPrevious">
+										<effect type="fade" start="100" end="00" time="0"/>
+									</animation>
+									
+								</control>
 
-							<control type="image">
-								<posx>56</posx>
-								<posy>116</posy>
-								<width>372</width>
-								<height>372</height>
-								<aspectratio>stretch</aspectratio>
-								<texture>breeze/home/music tile small dif.png</texture>			
-							</control>
+								<control type="image">
+									<posx>71</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<texture>breeze/home/music tile small dif.png</texture>			
+								</control>
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>116</posy>
-								<width>372</width>
-								<height>372</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
-								<visible>!Control.IsVisible(997)</visible>
-							</control>
+								<control type="image">
+									<posx>71</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/home/music tile small dif.png">$INFO[ListItem.Icon]</texture>
+									<visible>!Control.IsVisible(997)</visible>
+								</control>
 						
-							<control type="image">
-								<posx>56</posx>
-								<posy>116</posy>
-								<width>372</width>
-								<height>372</height>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>500</fadetime>
-								<texture background="true" diffuse="breeze/menus/context square diffuse.png">$INFO[ListItem.Icon]</texture>
-								<visible>Control.IsVisible(997)</visible>
-							</control>
-						
-							<control type="image">
-								<posx>46</posx>
-								<posy>106</posy>
-								<width>392</width>
-								<height>392</height>
-								<texture background="true">breeze/home/music tile small border.png</texture>
+								<control type="image">
+									<posx>71</posx>
+									<posy>116</posy>
+									<width>372</width>
+									<height>372</height>
+									<aspectratio>stretch</aspectratio>
+									<fadetime>500</fadetime>
+									<texture background="true" diffuse="breeze/menus/context square diffuse.png">$INFO[ListItem.Icon]</texture>
+									<visible>Control.IsVisible(997)</visible>
+								</control>
+								
 							</control>
 								
 						</focusedlayout>
@@ -1633,8 +1995,8 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
-						<posy>515</posy>
+						<posx>130</posx>
+						<posy>495</posy>
 						<width>1800</width>
 						<height>65</height>
 						<aligny>center</aligny>
@@ -1645,8 +2007,8 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
-						<posy>560</posy>
+						<posx>130</posx>
+						<posy>540</posy>
 						<width>1800</width>
 						<height>65</height>
 						<aligny>center</aligny>
@@ -1657,8 +2019,8 @@
 					</control>
 			
 					<control type="label"> <!--label-->
-						<posx>70</posx>
-						<posy>600</posy>
+						<posx>130</posx>
+						<posy>580</posy>
 						<width>1800</width>
 						<height>65</height>
 						<aligny>center</aligny>

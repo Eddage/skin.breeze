@@ -7,15 +7,14 @@
 	<controls>
 	
 		<include>CommonSettingsBackground</include>
-		<include>CommonMediaPlayingBackground</include>
 		
-		<control type="image"> <!--background overlay-->
+		<control type="image"> <!--background overlay (white)-->
 			<posx>0</posx>
 			<posy>0</posy>
 			<width>1920</width>
 			<height>1080</height>
-			<texture>breeze/settings/settings bg.png</texture>
-		</control>
+			<texture>breeze/fade bg.png</texture>
+		</control>	  
 				
 		<control type="image"> <!--base bar-->
 			<posy>770</posy>
@@ -28,12 +27,20 @@
 		</control>
 		
 		<control type="group">
+		
+			<include>Animation_ViewZoom</include>
+	
+			<control type="image">
+				<posx>327</posx>
+				<posy>95</posy>
+				<texture>breeze/settings/bg.png</texture>
+			</control>
 			
 			<control type="list" id="9000"> <!--left hand menu-->
-				<posx>0</posx>
-				<posy>100</posy>
-				<width>450</width>
-				<height>720</height>
+				<posx>332</posx>
+				<posy>138</posy>
+				<width>1920</width>
+				<height>570</height>
 				<itemgap>0</itemgap>
 				<onleft>9010</onleft>
 				<onright>9010</onright>
@@ -41,40 +48,40 @@
 				<onup>7010</onup>
 				<ondown>9000</ondown>
 				<pagecontrol>-</pagecontrol>
-				<scrolltime>300</scrolltime>
+				<scrolltime>0</scrolltime>
 				
-				<itemlayout height="80" width="450">
+				<itemlayout height="70" width="365">
 				
 					<control type="label">
-						<posx>405</posx>
-						<posy>13</posy>
-						<width>433</width>
-						<height>45</height>
+						<posx>260</posx>
+						<posy>11</posy>
+						<width>330</width>
+						<height>70</height>
 						<font>breeze34b</font>
 						<textcolor>infogrey</textcolor>
-						<aligny>center</aligny>
 						<align>right</align>
+						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					
 				</itemlayout>
 				
-				<focusedlayout height="80" width="450">
+				<focusedlayout height="70" width="475">
 				
-					<control type="image"> <!--focused image-->
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>433</width>
-						<height>80</height>
-						<texture>breeze/settings/settings cat f bg.png</texture>
-						<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(9000)">conditional</animation>
+					<control type="image">
+						<posx>6</posx>
+						<posy>15</posy>
+						<width>280</width>
+						<height>70</height>
+						<texture>breeze/settings/settings f bg.png</texture>
+						<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
           
 					<control type="label">
-						<posx>405</posx>
-						<posy>13</posy>
-						<width>433</width>
-						<height>45</height>
+						<posx>260</posx>
+						<posy>10</posy>
+						<width>330</width>
+						<height>70</height>
 						<font>breeze34b</font>
 						<textcolor>white</textcolor>
 						<align>right</align>
@@ -131,16 +138,17 @@
 				
 				<control type="grouplist" id="9001"> <!--general options-->
 					<visible>Container(9000).Hasfocus(1)</visible>
-					<posx>475</posx>
-					<posy>210</posy>
-					<width>1400</width>
-					<height>630</height>
+					<posx>625</posx>
+					<posy>250</posy>
+					<width>950</width>
+					<height>560</height>
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
 					<onright>60</onright>
 					<onup>9001</onup>
 					<ondown>9001</ondown>
+					<scrolltime>0</scrolltime>
 					
 					<control type="label" id="101">
 						<textoffsetx>15</textoffsetx>
@@ -267,16 +275,17 @@
 				
 				<control type="grouplist" id="9002"> <!--home options-->
 					<visible>Container(9000).Hasfocus(2)</visible>
-					<posx>475</posx>
-					<posy>210</posy>
-					<width>1400</width>
-					<height>630</height>
+					<posx>625</posx>
+					<posy>250</posy>
+					<width>950</width>
+					<height>560</height>
 					<itemgap>0</itemgap>
 					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
 					<onright>60</onright>
 					<onup>9002</onup>
 					<ondown>9002</ondown>
+					<scrolltime>0</scrolltime>
 					
 					<control type="label" id="200">
 						<textoffsetx>15</textoffsetx>
@@ -654,16 +663,17 @@
 				
 				<control type="grouplist" id="9007"> <!--playlist shortcuts-->
 					<visible>Container(9000).Hasfocus(7)</visible>
-					<posx>475</posx>
-					<posy>210</posy>
-					<width>1400</width>
-					<height>630</height>
+					<posx>625</posx>
+					<posy>250</posy>
+					<width>950</width>
+					<height>560</height>
 					<itemgap>0</itemgap>
-					<pagecontrol>61</pagecontrol>
+					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
-					<onright>61</onright>
+					<onright>60</onright>
 					<onup>9007</onup>
 					<ondown>9007</ondown>
+					<scrolltime>0</scrolltime>
 					
 					<!--"main menu" buttons-->
 					
@@ -997,16 +1007,17 @@
 				
 				<control type="grouplist" id="9008"> <!--home shortcuts-->
 					<visible>Container(9000).Hasfocus(8)</visible>
-					<posx>475</posx>
-					<posy>210</posy>
-					<width>1400</width>
-					<height>630</height>
+					<posx>625</posx>
+					<posy>250</posy>
+					<width>950</width>
+					<height>560</height>
 					<itemgap>0</itemgap>
-					<pagecontrol>61</pagecontrol>
+					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
-					<onright>61</onright>
+					<onright>60</onright>
 					<onup>9008</onup>
 					<ondown>9008</ondown>
+					<scrolltime>0</scrolltime>
 					
 					<!--main menu buttons-->
 					
@@ -1398,16 +1409,17 @@
 				
 				<control type="grouplist" id="9009">
 					<visible>Container(9000).Hasfocus(9)</visible>
-					<posx>475</posx>
-					<posy>210</posy>
-					<width>1400</width>
-					<height>630</height>
+					<posx>625</posx>
+					<posy>250</posy>
+					<width>950</width>
+					<height>560</height>
 					<itemgap>0</itemgap>
-					<pagecontrol>61</pagecontrol>
+					<pagecontrol>60</pagecontrol>
 					<onleft>9000</onleft>
-					<onright>61</onright>
+					<onright>60</onright>
 					<onup>9009</onup>
 					<ondown>9009</ondown>
+					<scrolltime>0</scrolltime>
 					
 					<control type="label" id="600">
 						<textoffsetx>15</textoffsetx>

@@ -1,226 +1,336 @@
 ﻿<window id="20">
-  <defaultcontrol always="true">2</defaultcontrol>
-  <allowoverlay>yes</allowoverlay>
-  <controls>
-    <include>CommonSettingsBackground</include>
-    <control type="group">
-      <include>Animation_OpenCloseZoom</include>
-      <include>Furniture_SettingsBackPanel</include>
-      <control type="button" id="4">
-        <description>Enable Login screen</description>
-        <posx>63</posx>
-        <posy>135</posy>
-        <width>324</width>
-        <height>82</height>
-        <textoffsety>0</textoffsety>
-        <textoffsetx>45</textoffsetx>
-        <label>20096</label>
-        <font>Font_Bold24</font>
-        <align>left</align>
-        <aligny>top</aligny>
-        <textcolor>FFf5f5f5</textcolor>
-        <focusedcolor>FF262728</focusedcolor>
-        <texturenofocus border="8">-</texturenofocus>
-        <texturefocus border="8">settings/settings_leftmenufocus.png</texturefocus>
-        <onleft>2</onleft>
-        <onright>2</onright>
-        <onup>4</onup>
-        <ondown>4</ondown>
-        <enable>!Window.IsVisible(ProfileSettings)</enable>
-      </control>
-      <control type="label">
-        <posx>375</posx>
-        <posy>180</posy>
-        <width>360</width>
-        <height>38</height>
-        <font>Font_Reg20</font>
-        <textcolor>FF262728</textcolor>
-        <align>right</align>
-        <aligny>center</aligny>
-        <label>[UPPERCASE]$LOCALIZE[305][/UPPERCASE]</label>
-        <visible>System.HasLoginScreen</visible>
-      </control>
-      <control type="label">
-        <posx>375</posx>
-        <posy>180</posy>
-        <width>360</width>
-        <height>38</height>
-        <font>Font_Reg20</font>
-        <textcolor>FF262728</textcolor>
-        <align>right</align>
-        <aligny>center</aligny>
-        <label>[UPPERCASE]$LOCALIZE[1223][/UPPERCASE]</label>
-        <visible>!System.HasLoginScreen</visible>
-      </control>
-      <control type="group">
-        <posx>45</posx>
-        <posy>315</posy>
-        <control type="image">
-          <posx>8</posx>
-          <posy>0</posy>
-          <width>360</width>
-          <height>300</height>
-          <aspectratio>keep</aspectratio>
-          <texture fallback="unknown-user.png">$INFO[Container(2).Listitem.Icon]</texture>
-        </control>
-        <control type="label">
-          <posx>0</posx>
-          <posy>330</posy>
-          <width>360</width>
-          <height>30</height>
-          <font>Font_Bold16</font>
-          <textcolor>grey2</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>$LOCALIZE[31319]</label>
-        </control>
-        <control type="label">
-          <posx>0</posx>
-          <posy>368</posy>
-          <width>360</width>
-          <height>30</height>
-          <font>Font_Reg20</font>
-          <textcolor>white</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>$INFO[Container(2).ListItem.Label]</label>
-        </control>
-        <control type="label">
-          <posx>0</posx>
-          <posy>420</posy>
-          <width>360</width>
-          <height>45</height>
-          <font>Font_Bold16</font>
-          <textcolor>grey2</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label>$LOCALIZE[31320]</label>
-        </control>
-        <control type="label">
-          <posx>0</posx>
-          <posy>458</posy>
-          <width>360</width>
-          <height>45</height>
-          <font>Font_Reg20</font>
-          <textcolor>white</textcolor>
-          <align>center</align>
-          <aligny>center</aligny>
-          <label fallback="13170">$INFO[Container(2).ListItem.Label2]</label>
-        </control>
-      </control>
-      <control type="label">
-        <description>header label</description>
-        <posx>358</posx>
-        <posy>120</posy>
-        <width>1491</width>
-        <font>Font_ShowcaseMainLabel2</font>
-        <label>[UPPERCASE]$LOCALIZE[10034][/UPPERCASE]</label>
-        <align>center</align>
-        <aligny>center</aligny>
-        <textcolor>white</textcolor>
-        <shadowcolor>black</shadowcolor>
-      </control>
-      <control type="list" id="2">
-        <posx>387</posx>
-        <posy>180</posy>
-        <width>1404</width>
-        <height>784</height>
-        <onleft>4</onleft>
-        <onright>60</onright>
-        <onup>53</onup>
-        <ondown>53</ondown>
-        <viewtype label="21371">list</viewtype>
-        <pagecontrol>60</pagecontrol>
-        <scrolltime>200</scrolltime>
-        <itemlayout height="74">
-          <control type="image">
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>1404</width>
-            <height>74</height>
-            <texture>settings/settings_radiobuttonoff.png</texture>
-          </control>
-          <control type="label">
-            <posx>75</posx>
-            <posy>0</posy>
-            <width>1404</width>
-            <height>74</height>
-            <font>Font_Reg18</font>
-            <aligny>center</aligny>
-            <textcolor>FF939597</textcolor>
-            <align>left</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Label] ($INFO[ListItem.Label2])</label>
-            <visible>!IsEmpty(ListItem.Label2)</visible>
-          </control>
-          <control type="label">
-            <posx>75</posx>
-            <posy>0</posy>
-            <width>1404</width>
-            <height>74</height>
-            <font>Font_Reg18</font>
-            <aligny>center</aligny>
-            <textcolor>FF939597</textcolor>
-            <align>left</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Label]</label>
-            <visible>IsEmpty(ListItem.Label2)</visible>
-          </control>
-        </itemlayout>
-        <focusedlayout height="74">
-          <control type="image">
-            <posx>0</posx>
-            <posy>0</posy>
-            <width>1404</width>
-            <height>74</height>
-            <texture>settings/settings_radiobuttonofffocus.png</texture>
-            <visible>!Control.HasFocus(4)</visible>
-          </control>
-          <control type="label">
-            <posx>75</posx>
-            <posy>0</posy>
-            <width>1404</width>
-            <height>74</height>
-            <font>Font_Reg18</font>
-            <aligny>center</aligny>
-            <textcolor>FFFFFFFF</textcolor>
-            <align>left</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Label] ($INFO[ListItem.Label2])</label>
-            <visible>!IsEmpty(ListItem.Label2)</visible>
-          </control>
-          <control type="label">
-            <posx>75</posx>
-            <posy>0</posy>
-            <width>1404</width>
-            <height>74</height>
-            <font>Font_Reg18</font>
-            <aligny>center</aligny>
-            <textcolor>FFFFFFFF</textcolor>
-            <align>left</align>
-            <aligny>center</aligny>
-            <label>$INFO[ListItem.Label]</label>
-            <visible>IsEmpty(ListItem.Label2)</visible>
-          </control>
-        </focusedlayout>
-      </control>
-      <control type="scrollbar" id="60">
-        <posx>1590</posx>
-        <posy>90</posy>
-        <width>38</width>
-        <height>795</height>
-        <texturesliderbackground border="0,21,0,21">views/scrollBarV.png</texturesliderbackground>
-        <texturesliderbar border="0,21,0,21">views/scrollBarV_bar.png</texturesliderbar>
-        <texturesliderbarfocus border="0,21,0,21">views/scrollBarV_bar_focus.png</texturesliderbarfocus>
-        <textureslidernib>views/ScrollBarNib.png</textureslidernib>
-        <textureslidernibfocus>views/ScrollBarNib.png</textureslidernibfocus>
-        <onleft>2</onleft>
-        <onright>4</onright>
-        <showonepage>false</showonepage>
-        <orientation>vertical</orientation>
-      </control>
-    </control>
-    <include>Furniture_NowPlayingWidget</include>
-    <include condition="Skin.HasSetting(globaltime)">Furniture_Clock</include>
-  </controls>
+
+	<defaultcontrol always="true">4</defaultcontrol>
+	
+	<allowoverlay>yes</allowoverlay>
+	
+	<controls>
+	
+		<include>CommonSettingsBackground</include>
+		
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/fade bg.png</texture>
+		</control>	  
+				
+		<control type="image"> <!--base bar-->
+			<posy>770</posy>
+			<texture>breeze/views/base.png</texture>
+		</control>
+		
+		<control type="group">
+			<posy>520</posy>
+			<include>BreezeTimePanel</include>
+		</control>
+		
+		<control type="group">
+			<include>Animation_ViewZoom</include>
+			<animation effect="slide" start="0,0" end="50,0" time="200" delay="150" condition="Window.IsActive(contextmenu) + !Window.IsVisible(131)">Conditional</animation>
+	
+			<control type="image">
+				<posx>327</posx>
+				<posy>95</posy>
+				<texture>breeze/settings/bg.png</texture>
+			</control>
+	
+			<control type="image">
+				<posx>338</posx>
+				<posy>153</posy>
+				<width>280</width>
+				<height>70</height>
+				<texture>breeze/settings/settings f bg.png</texture>
+				<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+			</control>
+
+			<control type="button"> <!--category selection-->
+				<description>Default Category Button</description>
+				<posx>338</posx>
+				<posy>153</posy>
+				<width>280</width>
+				<height>70</height>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<font>breeze34b</font>
+				<textcolor>white</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<selectedcolor>white</selectedcolor>
+				<textoffsetx>26</textoffsetx>
+				<textoffsety>10</textoffsety>
+				<align>right</align>
+				<aligny>top</aligny>
+				<pulseonselect>no</pulseonselect>
+				<label>General</label>
+			</control>
+			
+			<control type="button" id="4"> <!--login screen button-->
+				<description>Enable Login screen</description>
+				<posx>625</posx>
+				<posy>150</posy>
+				<width>950</width>
+				<height>70</height>
+				<font>breeze32</font>
+				<textcolor>infogrey</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>disabled</disabledcolor>
+				<texturefocus>breeze/settings/focused bg.png</texturefocus>
+				<texturenofocus></texturenofocus>
+				<textoffsetx>44</textoffsetx>
+				<textoffsety>6</textoffsety>
+				<pulseonselect>false</pulseonselect>
+				<aligny>top</aligny>
+				<onleft>-</onleft>
+				<onright>-</onright>
+				<onup>Control.SetFocus(2,1)</onup>
+				<ondown>2</ondown>
+				<enable>!Window.IsVisible(ProfileSettings)</enable>
+			</control>			
+			
+			<control type="group"> <!--login screen labels-->
+				<posx>280</posx>
+				<posy>-17</posy>
+			
+				<control type="label">
+					<posx>375</posx>
+					<posy>180</posy>
+					<width>360</width>
+					<height>38</height>
+					<font>breeze32</font>
+					<textcolor>infogrey</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>Login screen</label>
+					<visible>!Control.HasFocus(4)</visible>
+				</control>
+			
+				<control type="label">
+					<posx>375</posx>
+					<posy>180</posy>
+					<width>360</width>
+					<height>38</height>
+					<font>breeze32</font>
+					<textcolor>white</textcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>Login screen</label>
+					<visible>Control.HasFocus(4)</visible>
+				</control>
+				
+			</control>
+			
+			<control type="group"> <!--login screen radio button-->
+				<posx>1481</posx>
+				<posy>171</posy>
+			
+				<control type="image">
+					<width>63</width>
+					<height>33</height>
+					<texture>breeze/settings/radio button.png</texture>
+					<visible>!System.HasLoginScreen</visible>
+				</control>
+			
+				<control type="image">
+					<width>63</width>
+					<height>33</height>
+					<texture>breeze/settings/radio button f.png</texture>
+					<visible>System.HasLoginScreen</visible>
+				</control>
+				
+			</control>
+			
+			<control type="list" id="2">
+				<posx>625</posx>
+				<posy>220</posy>
+				<width>950</width>
+				<height>510</height>
+				<onleft>4</onleft>
+				<onright>60</onright>
+				<onup>4</onup>
+				<ondown>4</ondown>
+				<viewtype label="21371">list</viewtype>
+				<pagecontrol>60</pagecontrol>
+				<scrolltime>200</scrolltime>
+				
+				<itemlayout height="70">
+					
+					<control type="label">
+						<posx>29</posx>
+						<posy>-4</posy>
+						<width>1404</width>
+						<height>74</height>
+						<font>breeze32</font>
+						<aligny>center</aligny>
+						<textcolor>infogrey</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label] ($INFO[ListItem.Label2])</label>
+						<visible>!IsEmpty(ListItem.Label2)</visible>
+					</control>
+					
+					<control type="label">
+						<posx>29</posx>
+						<posy>-4</posy>
+						<width>1404</width>
+						<height>74</height>
+						<font>breeze32</font>
+						<aligny>center</aligny>
+						<textcolor>infogrey</textcolor>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>IsEmpty(ListItem.Label2)</visible>
+					</control>
+					
+				</itemlayout>
+				
+				<focusedlayout height="70">
+				
+					<control type="image">
+						<texture>breeze/settings/focused bg.png</texture>
+						<visible>!Control.HasFocus(4)</visible>
+					</control>
+					
+					<control type="group">
+						<visible>Control.HasFocus(4)</visible>
+					
+						<control type="label">
+							<posx>29</posx>
+							<posy>-4</posy>
+							<width>1404</width>
+							<height>74</height>
+							<font>breeze32</font>
+							<aligny>center</aligny>
+							<textcolor>infogrey</textcolor>
+							<focusedcolor>infogrey</focusedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label] ($INFO[ListItem.Label2])</label>
+							<visible>!IsEmpty(ListItem.Label2)</visible>
+						</control>
+					
+						<control type="label">
+							<posx>29</posx>
+							<posy>-4</posy>
+							<width>1404</width>
+							<height>74</height>
+							<font>breeze32</font>
+							<aligny>center</aligny>
+							<textcolor>infogrey</textcolor>
+							<focusedcolor>infogrey</focusedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>IsEmpty(ListItem.Label2)</visible>
+						</control>
+						
+					</control>
+					
+					<control type="group">
+						<visible>!Control.HasFocus(4)</visible>
+					
+						<control type="label">
+							<posx>29</posx>
+							<posy>-4</posy>
+							<width>1404</width>
+							<height>74</height>
+							<font>breeze32</font>
+							<aligny>center</aligny>
+							<textcolor>white</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label] ($INFO[ListItem.Label2])</label>
+							<visible>!IsEmpty(ListItem.Label2)</visible>
+						</control>
+					
+						<control type="label">
+							<posx>29</posx>
+							<posy>-4</posy>
+							<width>1404</width>
+							<height>74</height>
+							<font>breeze32</font>
+							<aligny>center</aligny>
+							<textcolor>white</textcolor>
+							<focusedcolor>white</focusedcolor>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>IsEmpty(ListItem.Label2)</visible>
+						</control>
+						
+					</control>
+					
+				</focusedlayout>
+				
+			</control>
+			
+			<control type="scrollbar" id="60">
+				<posx>1590</posx>
+				<posy>90</posy>
+				<width>38</width>
+				<height>795</height>
+				<texturesliderbackground border="0,21,0,21">views/scrollBarV.png</texturesliderbackground>
+				<texturesliderbar border="0,21,0,21">views/scrollBarV_bar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,21,0,21">views/scrollBarV_bar_focus.png</texturesliderbarfocus>
+				<textureslidernib>views/ScrollBarNib.png</textureslidernib>
+				<textureslidernibfocus>views/ScrollBarNib.png</textureslidernibfocus>
+				<onleft>2</onleft>
+				<onright>4</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+			</control>
+			
+		</control>
+
+		<include>BreadcrumbsSettings</include>
+	  
+		<control type="image"> <!--background overlay (white)-->
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1920</width>
+			<height>1080</height>
+			<texture>breeze/bg 75.png</texture>
+			<visible>ControlGroup(9000).HasFocus | ControlGroup(7001).HasFocus | Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(contentsettings) | Window.IsActive(contextmenu) | Window.IsActive(shutdownmenu) | Window.IsActive(favourites) | Window.IsActive(okdialog) | Window.IsActive(selectdialog) | Window.IsActive(addoninformation) | Window.IsActive(filestackingdialog) | Window.IsActive(profilesettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(virtualkeyboard) | Window.IsActive(numericinput)</visible>
+		</control> 
+	  
+		<control type="button" id="7010"> <!--shutdown button-->
+			<include>HiddenObject</include>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onup>SetFocus(3)</onup>
+			<onleft>SetFocus(7009)</onleft>
+			<onright>SetFocus(7009)</onright>
+			<ondown>SetFocus(3)</ondown>
+			<onclick>ActivateWindow(shutdownmenu)</onclick>
+		</control>
+		
+		<control type="group">
+			<posx>1788</posx>
+			<posy>17</posy>
+			<orientation>horizontal</orientation>
+			
+			<control type="image"> <!--shutdown button-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown.png</texture>
+				<visible>!Control.HasFocus(7010)</visible>
+				<visible>!Window.IsActive(shutdownmenu)</visible>
+				<visible>!Control.IsVisible(7012)</visible>
+			</control>
+			
+			<control type="image"> <!--shutdown button f-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown f.png</texture>
+				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+			</control>
+			
+		</control>
+		
+	</controls>
+	
 </window>

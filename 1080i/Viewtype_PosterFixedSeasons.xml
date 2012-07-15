@@ -6,10 +6,10 @@
 		<control type="fixedlist" id="502">
 			<visible>Container.Content(seasons)</visible>
 			<visible>!Container.Content(LiveTV)</visible>
-			<posx>0</posx>
+			<posx>-270</posx>
 			<posy>110</posy>
+			<width>2250</width>
 			<height>775</height>
-			<width>1920</width>
 			<onleft>502</onleft>
 			<onright>502</onright>
 			<onup>7009</onup>
@@ -19,54 +19,15 @@
 			<scrolltime tween="cubic" easing="out">500</scrolltime>
 			<orientation>horizontal</orientation>
 			<preloaditems>2</preloaditems>
+			<focusposition>1</focusposition>
 					
-			<itemlayout height="695" width="359">
-						
-				<control type="image">
-					<posx>60</posx>
-					<posy>20</posy>
-					<texture background="true">breeze/home/folder tile.png</texture>
-				</control>
-						
-				<control type="image">
-					<posx>70</posx>
-					<posy>30</posy>
-					<width>344</width>
-					<height>515</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true" diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
-				</control>
-					
-				<control type="image"> <!--watched icon-->
-					<posx>365</posx>
-					<posy>495</posy>
-					<width>40</width>
-					<height>40</height>
-					<fadetime>200</fadetime>
-					<texture>breeze/masks/watched.png</texture>
-					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
-				</control>
-						
-			</itemlayout>
-					
-			<focusedlayout height="695" width="359">
-				
+			<itemlayout height="695" width="315">
+			
 				<control type="group">
 				
-					<animation type="Conditional" condition="Window.IsActive(contextmenu)">
-						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="242,0" delay="25" />
-						<effect type="fade" start="100" end="0" time="200" delay="150" />
-					</animation>
-				
-					<control type="image">
-						<posx>56</posx>
-						<posy>10</posy>
-						<width>372</width>
-						<height>556</height>
-						<aspectratio>stretch</aspectratio>
-						<fadetime>500</fadetime>
-						<texture background="true" diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.Icon]</texture>
-					</control>
+                    <animation effect="Conditional" condition="true">
+                        <effect type="zoom" end="80" time="0" center="250,278" />
+                    </animation>
 						
 					<control type="image">
 						<posx>46</posx>
@@ -75,11 +36,77 @@
 						<height>576</height>
 						<aspectratio>stretch</aspectratio>
 						<fadetime>500</fadetime>
-						<texture background="true">breeze/home/search folder f border.png</texture>
+						<texture>breeze/home/search folder bg.png</texture>						
+					</control>
+				
+					<control type="image">
+						<posx>56</posx>
+						<posy>10</posy>
+						<width>372</width>
+						<height>556</height>
+						<aspectratio>stretch</aspectratio>
+						<fadetime>500</fadetime>
+						<texture background="true" diffuse="breeze/home/folder tile dif.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Thumb]</texture>
 					</control>
 					
 					<control type="image"> <!--watched icon-->
 						<posx>375</posx>
+						<posy>515</posy>
+						<width>45</width>
+						<height>45</height>
+						<fadetime>200</fadetime>
+						<texture>breeze/masks/watched.png</texture>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+					</control>
+					
+				</control>
+						
+			</itemlayout>
+					
+			<focusedlayout height="695" width="340">
+				
+				<control type="group">
+				
+					<animation type="Conditional" condition="Window.IsActive(contextmenu)">
+						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="242,0" delay="25" />
+						<effect type="fade" start="100" end="0" time="200" delay="150" />
+					</animation>
+					
+                    <animation type="Focus" condition="Container(502).OnNext | Container(502).OnPrevious">
+                        <effect type="zoom" start="80" end="100" time="500" tween="sine" easing="out" center="270,278" />
+                    </animation>
+					
+                    <animation type="UnFocus" condition="Container(502).OnNext | Container(502).OnPrevious">
+                        <effect type="zoom" start="100" end="80" time="350" tween="sine" easing="out" center="190,278" />
+                    </animation>
+						
+					<control type="image">
+						<posx>61</posx>
+						<posy>0</posy>
+						<width>392</width>
+						<height>576</height>
+						<aspectratio>stretch</aspectratio>
+						<fadetime>500</fadetime>
+						<texture>breeze/home/search folder f border.png</texture>
+					
+                        <animation type="UnFocus" condition="Container(502).OnNext | Container(502).OnPrevious">
+                            <effect type="fade" start="100" end="0" time="0"/>
+                        </animation>
+						
+					</control>
+				
+					<control type="image">
+						<posx>71</posx>
+						<posy>10</posy>
+						<width>372</width>
+						<height>556</height>
+						<aspectratio>stretch</aspectratio>
+						<fadetime>500</fadetime>
+						<texture background="true" diffuse="breeze/home/folder tile dif.png" fallback="DefaultVideoBigPoster.png">$INFO[ListItem.Thumb]</texture>
+					</control>
+					
+					<control type="image"> <!--watched icon-->
+						<posx>390</posx>
 						<posy>515</posy>
 						<width>45</width>
 						<height>45</height>
@@ -101,7 +128,7 @@
 			
 			<control type="group"> <!--title (season level)-->
 				<visible>Container.Content(seasons)</visible>
-				<posx>-410</posx>
+				<posx>-350</posx>
 				<posy>265</posy>
 				
 				<control type="group"> <!--season title-->
@@ -109,7 +136,7 @@
 					<control type="label"> <!--tv logo/normal-->
 						<posx>480</posx>
 						<posy>-105</posy>
-						<width>1380</width>
+						<width>1320</width>
 						<height>65</height>
 						<aligny>center</aligny>
 						<font>breeze45</font>
@@ -122,7 +149,7 @@
 					<control type="label"> <!--tv logo/stylish-->
 						<posx>480</posx>
 						<posy>-95</posy>
-						<width>1800</width>
+						<width>1740</width>
 						<height>65</height>
 						<aligny>center</aligny>
 						<font>stylish45</font>
@@ -135,7 +162,7 @@
 					<control type="label"> <!--no tv logo/normal-->
 						<posx>480</posx>
 						<posy>-105</posy>
-						<width>1380</width>
+						<width>1320</width>
 						<height>65</height>
 						<aligny>center</aligny>
 						<font>breeze45</font>
@@ -148,7 +175,7 @@
 					<control type="label"> <!--no tv logo/stylish-->
 						<posx>480</posx>
 						<posy>-95</posy>
-						<width>1800</width>
+						<width>1740</width>
 						<height>65</height>
 						<aligny>center</aligny>
 						<font>stylish45</font>

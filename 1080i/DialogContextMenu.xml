@@ -8,14 +8,18 @@
 		<origin x="0" y="167" />
 	</coordinates> 
   
-	<zorder>0</zorder>
+	<zorder>10</zorder>
   
 	<controls>
 	
-		<control type="group">
-		
-			<include condition="Window.IsVisible(Home) + !Control.HasFocus(8010)">ContextHome</include>
-			<include condition="Window.IsVisible(Home) + Control.HasFocus(8010)">ContextHomeInfo</include>
+		<control type="group"> <!--home-->		
+			
+			<include condition="Window.IsVisible(Home) + !Skin.HasSetting(verticalmenu) + [ControlGroup(130000).HasFocus | ControlGroup(120000).HasFocus]">ContextMetroHome</include>
+			<include condition="Window.IsVisible(Home) + !Skin.HasSetting(verticalmenu) + Window.IsVisible(favourites)">ContextFavourites</include>
+			<include condition="Window.IsVisible(Home) + !Skin.HasSetting(verticalmenu) + !Control.HasFocus(11004)">ContextMetroHomeOTV</include>
+			<include condition="Window.IsVisible(Home) + !Skin.HasSetting(verticalmenu) + Control.HasFocus(11004)">ContextMetroHomeFF</include>
+			<include condition="Window.IsVisible(Home) + !Control.HasFocus(8010) + Skin.HasSetting(verticalmenu)">ContextHome</include>
+			<include condition="Window.IsVisible(Home) + Control.HasFocus(8010) + Skin.HasSetting(verticalmenu)">ContextHomeInfo</include>
 			
 		</control>
 		
@@ -43,7 +47,7 @@
 		
 		<control type="group"> <!--list-->
 			
-			<include condition="Control.IsVisible(50)">ContextList</include>
+			<include condition="Control.IsVisible(50) | [Window.IsVisible(profiles) + !Window.IsVisible(131)]">ContextList</include>
 		
 		</control>
 		
@@ -93,6 +97,12 @@
 		<control type="group"> <!--episode-->
 			
 			<include condition="Control.IsVisible(514) + Container.Content(episodes)">ContextEpisode</include>
+		
+		</control>
+		
+		<control type="group"> <!--lock settings-->
+			
+			<include condition="Window.IsVisible(131)">ContextLockSettings</include>
 		
 		</control>
 		

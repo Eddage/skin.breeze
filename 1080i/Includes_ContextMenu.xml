@@ -102,6 +102,26 @@
 			<onright>Dialog.Close(contextmenu)</onright>
 		</include>
 	
+		<include name="ListContextButtonNarrow">
+			<description>button template</description>
+			<posx>0</posx>
+			<posy></posy>
+			<height>55</height>
+			<width>224</width>
+			<textcolor>infogreynf</textcolor>
+			<focusedcolor>white</focusedcolor>
+			<disabledcolor>red</disabledcolor>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>breeze/menus/list context f narrow.png</texturefocus>
+			<align>center</align>
+			<aligny>top</aligny>
+			<font>breeze32</font>
+			<pulseonselect>no</pulseonselect>
+			<textoffsety>1.5</textoffsety>
+			<onleft>Dialog.Close(contextmenu)</onleft>
+			<onright>Dialog.Close(contextmenu)</onright>
+		</include>
+	
 		<include name="VidInfoExtraButton">
 			<description>button template</description>
 			<posx>0</posx>
@@ -582,6 +602,146 @@
 					<visible>Window.IsActive(contextmenu)</visible>
 					<visible>Control.IsVisible(1008)</visible>
 					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+			</control>
+		
+		</include>
+		
+		<include name="ContextLockSettings"> <!--list-->	
+
+			<control type="group">
+				<posx>-1175</posx>
+				<posy>7</posy>
+				<include>context lock animation</include>
+	  
+				<control type="image"> <!--context menu bg 4 items-->
+					<description>background image</description>
+					<posx>1455</posx>
+					<posy>3</posy>
+					<width>368</width>
+					<height>513</height>
+					<texture>breeze/menus/list context bg 4.png</texture>	
+					<visible>Control.IsVisible(1004) + !Control.IsVisible(1005)</visible>
+				</control> 
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>147</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>ListContextButton</include>
+				</control>
+			
+			</control>
+		
+		</include>
+		
+		<include name="ContextFavourites"> <!--list-->	
+
+			<control type="group">
+				<posx>-270</posx>
+				<posy>216</posy>
+				<include>context fade animation</include>
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>65</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>ListContextButtonNarrow</include>
+				</control>
+			
+			</control>
+		
+		</include>		
+		
+		<include name="ContextMetroHome"> <!--list-->	
+
+			<control type="group">
+				<posx>-674</posx>
+				<posy>250</posy>
+				<include>context slide fade animation</include>
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>65</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>ListContextButton</include>
+				</control>
+			
+			</control>
+		
+		</include>		
+		
+		<include name="ContextMetroHomeFF"> <!--list-->	
+
+			<control type="group">
+				<posx>-715</posx>
+				<posy>250</posy>
+				<include>context slide fade animation</include>
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>65</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>ListContextButton</include>
+				</control>
+			
+			</control>
+		
+		</include>	
+		
+		<include name="ContextMetroHomeOTV"> <!--list-->	
+
+			<control type="group">
+				<posx>-140</posx>
+				<posy>250</posy>
+				<include>context slide fade animation</include>
+	
+				<control type="grouplist" id="996">
+					<description>grouplist for context buttons</description>
+					<width>380</width>
+					<height min="0" max="385">auto</height>
+					<posx>1465</posx>
+					<posy>65</posy>
+					<itemgap>0</itemgap>
+					<scrolltime>0</scrolltime>
+					<animation effect="fade" start="0" end="100" time="500" delay="300">WindowOpen</animation>
+				</control>
+			
+				<control type="button" id="1000">
+					<include>ListContextButton</include>
 				</control>
 			
 			</control>

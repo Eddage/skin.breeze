@@ -7,6 +7,10 @@
 		<control type="group">
 			<posx>49</posx>
 			<posy>10</posy>	
+			<visible>!Window.IsVisible(1118)</visible>
+			<visible>!Window.IsVisible(selectdialog)</visible>
+			<visible>!Window.IsVisible(visualisationpresetlist)</visible>
+			<visible>!Window.IsVisible(addonsettings)</visible>
 
 			<animation effect="slide" start="0,0" end="0,-75" time="0" condition="!Skin.HasSetting(musicvistimepanel)">Conditional</animation>
 
@@ -16,6 +20,16 @@
 			</animation>
 			
 			<animation type="WindowClose">
+				<effect type="fade" time="400" start="100" end="0" easing="out" tween="cubic" />
+				<effect type="zoom" time="400" start="100" end="50" center="960,125" easing="inout" tween="back" />
+			</animation>
+
+			<animation type="Visible">
+				<effect type="fade" time="400" start="0" end="100" easing="out" tween="cubic" />
+				<effect type="zoom" time="400" start="50" end="100" center="960,125" easing="out" tween="back" />
+			</animation>
+			
+			<animation type="Hidden">
 				<effect type="fade" time="400" start="100" end="0" easing="out" tween="cubic" />
 				<effect type="zoom" time="400" start="100" end="50" center="960,125" easing="inout" tween="back" />
 			</animation>
@@ -293,7 +307,7 @@
 					<onright>700</onright>
 					<onup>605</onup>
 					<ondown>605</ondown>
-					<onclick>ActivateWindow(1117)</onclick>
+					<onclick>ActivateWindow(1118)</onclick>
 				</control>
 				
 			</control>

@@ -29,16 +29,17 @@
 			<animation type="Hidden" reversible="false">
 				<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 			</animation>
+						
+			<animation effect="slide" start="0,0" end="61,0" time="0" condition="Window.IsVisible(settings) | Window.IsVisible(picturessettings) | Window.IsVisible(programssettings) | Window.IsVisible(weathersettings) | Window.IsVisible(musicsettings) | Window.IsVisible(systemsettings) | Window.IsVisible(videossettings) | Window.IsVisible(networksettings) | Window.IsVisible(servicesettings) | Window.IsVisible(appearancesettings) | Window.IsVisible(systeminfo) | Window.IsVisible(1111) | Window.IsVisible(profiles) | Window.IsVisible(startup) | Window.IsVisible(LoginScreen)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="-61,0" time="150" condition="substring(Player.Volume,-60.0)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="-61,0" time="150" condition="Window.IsVisible(musicoverlay) | Window.IsVisible(videooverlay)">Conditional</animation>
 		
 			<control type="group">
 				<posx>68</posx>
 				<posy>63</posy>
-		
+						
 				<control type="group">
 					<posy>7</posy>
-					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug) + ![Skin.HasSetting(VerticalMenu) + Window.IsActive(home)]">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsVisible(movieinformation)">Conditional</animation>
 				
 					<control type="image">
 						<width>530</width>
@@ -70,9 +71,6 @@
 		
 				<control type="group">
 					<posx>375</posx>
-					<animation effect="slide" start="0,0" end="-80,0" time="200" delay="500" condition="Window.IsActive(mutebug) + ![Skin.HasSetting(VerticalMenu) + Window.IsActive(home)]">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsActive(fullscreenvideo)">Conditional</animation>
-					<animation effect="slide" start="0,0" end="130,0" time="0" condition="Window.IsVisible(movieinformation)">Conditional</animation>
 	  
 					<control type="label" id="401">
 						<posy>20</posy>
