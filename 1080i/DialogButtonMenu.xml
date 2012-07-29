@@ -9,6 +9,20 @@
 	</coordinates>
 	
 	<controls>	
+	
+		<control type="group">
+			<posx>1788</posx>
+			<posy>17</posy>
+			
+			<control type="image"> <!--shutdown button f-->
+				<posx>61</posx>
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/shutdown f.png</texture>
+				<animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
+			</control>
+			
+		</control>
     
 		<control type="grouplist" id="800">
 			<posx>1640</posx>

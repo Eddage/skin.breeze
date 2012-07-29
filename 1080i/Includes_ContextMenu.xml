@@ -304,7 +304,7 @@
 		<include name="ContextPoster"> <!--poster-->
 			
 			<control type="group">
-				<posx>-259</posx>
+				<posx>-200</posx>
 				<posy>-119</posy>
 
 				<control type="image"> <!--film cover border-->
@@ -375,9 +375,9 @@
 	
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
-				<width>380</width>
+				<width>440</width>
 				<height min="0" max="440">auto</height>
-				<posx>318</posx>
+				<posx>377</posx>
 				<posy>112</posy>
 				<itemgap>0</itemgap>
 				<scrolltime>0</scrolltime>
@@ -390,7 +390,7 @@
 			</control>
 	  
 			<control type="image"> <!--up arrow-->
-				<posx>480</posx>
+				<posx>539</posx>
 				<posy>81</posy>
 				<width>15</width>
 				<height>15</height>
@@ -402,7 +402,7 @@
 			</control>
 	  
 			<control type="image"> <!--down arrow-->
-				<posx>480</posx>
+				<posx>539</posx>
 				<posy>571</posy>
 				<width>15</width>
 				<height>15</height>

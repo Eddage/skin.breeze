@@ -40,8 +40,8 @@
 			</control>
         
 			<control type="image">
-                <posx>732</posx>
-                <posy>140</posy>
+                <posx>727</posx>
+                <posy>145</posy>
                 <width>234</width>
 				<height>234</height>
 				<texture>breeze/dialogs/no addon.png</texture>
@@ -50,8 +50,8 @@
 			</control>
 			
 			<control type="image">
-                <posx>732</posx>
-                <posy>140</posy>
+                <posx>727</posx>
+                <posy>145</posy>
                 <width>234</width>
 				<height>234</height>
 				<texture fallback="breeze/addon.png">$INFO[Container(6).ListItem.Icon]</texture>

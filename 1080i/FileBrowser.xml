@@ -49,7 +49,7 @@
 				<aligny>center</aligny>
 			</control>
     
-			<control type="label"> <!--header-->
+			<!--control type="label">
 				<posx>400</posx>
 				<posy>40</posy>
 				<width>922</width>

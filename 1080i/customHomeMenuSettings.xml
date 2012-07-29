@@ -22,7 +22,7 @@
 	
 		<control type="group">
 			<posx>643.5</posx>
-			<posy>158</posy>
+			<posy>140</posy>
 			<visible>!Window.IsVisible(1115)</visible>
 			<include>Animation_DialogPopup</include>
 		
@@ -49,7 +49,7 @@
 				<posx>41</posx>
 				<posy>108</posy>
 				<width>715</width>
-				<height>500</height>
+				<height>550</height>
 				<pagecontrol>63</pagecontrol>
 				<scrolltime>0</scrolltime>
 				<itemgap>0</itemgap>
@@ -100,12 +100,19 @@
 				
 				<control type="radiobutton" id="7">
 					<include>CustomTileButtonVarsRadio</include>
+					<label>$LOCALIZE[31111] $LOCALIZE[1]</label>
+					<onclick>Skin.ToggleSetting(HomeMenuNoPicturesButton)</onclick>
+					<selected>Skin.HasSetting(HomeMenuNoPicturesButton)</selected>
+				</control>
+				
+				<control type="radiobutton" id="8">
+					<include>CustomTileButtonVarsRadio</include>
 					<label>$LOCALIZE[31111] $LOCALIZE[8]</label>
 					<onclick>Skin.ToggleSetting(HomeMenuNoWeatherButton)</onclick>
 					<selected>Skin.HasSetting(HomeMenuNoWeatherButton)</selected>
 				</control>
 				
-				<control type="radiobutton" id="8">
+				<control type="radiobutton" id="9">
 					<include>CustomTileButtonVarsRadio</include>
 					<label>$LOCALIZE[31111] $LOCALIZE[312578]</label>
 					<onclick>Skin.ToggleSetting(HomeMenuNoSettingsButton)</onclick>

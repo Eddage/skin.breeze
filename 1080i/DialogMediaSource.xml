@@ -180,7 +180,7 @@
 			</control>
 			
 			<control type="group" id="9000">
-				<posx>480</posx>
+				<posx>470</posx>
 				<posy>111</posy>
 				
 				<control type="button" id="20">

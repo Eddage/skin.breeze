@@ -124,7 +124,7 @@
 							<width>45</width>
 							<height>45</height>
 							<texture>breeze/masks/watched.png</texture>
-							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) + ![Container.Content(episodes) | Container.Content(musicvideos) | Window.IsActive(28)]</visible>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + ![Container.Content(episodes) | Container.Content(musicvideos) | Window.IsActive(28)]</visible>
 							<visible>![SubString(Container.FolderPath,plugin://plugin.video.youtube) + !IsEmpty(ListItem.Plot)]</visible>
 						</control>
 						
@@ -248,7 +248,7 @@
 							<width>45</width>
 							<height>45</height>
 							<texture>breeze/masks/watched.png</texture>
-							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) + ![Container.Content(episodes) | Container.Content(musicvideos) | Window.IsActive(28)]</visible>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + ![Container.Content(episodes) | Container.Content(musicvideos) | Window.IsActive(28)]</visible>
 						</control>
 						
 					</itemlayout>
@@ -358,7 +358,7 @@
 							<width>45</width>
 							<height>45</height>
 							<texture>breeze/masks/watched.png</texture>
-							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) + ![Container.Content(episodes) | Container.Content(musicvideos) | Window.IsActive(28)]</visible>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + ![Container.Content(episodes) | Container.Content(musicvideos) | Window.IsActive(28)]</visible>
 							<visible>![SubString(Container.FolderPath,plugin://plugin.video.youtube) + !IsEmpty(ListItem.Plot)]</visible>
 						</control>
 						
@@ -491,7 +491,7 @@
 							<width>45</width>
 							<height>45</height>
 							<texture>breeze/masks/watched.png</texture>
-							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) + ![Container.Content(episodes) | Container.Content(musicvideos) | Window.IsActive(28)]</visible>
+							<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + ![Container.Content(episodes) | Container.Content(musicvideos) | Window.IsActive(28)]</visible>
 						</control>
 						
 					</focusedlayout>
@@ -545,7 +545,7 @@
 						<width>45</width>
 						<height>45</height>
 						<texture>breeze/masks/watched.png</texture>
-						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
 			
 				</control><control type="group"> <!--movie fanart (playlist)-->
@@ -579,7 +579,7 @@
 						<width>45</width>
 						<height>45</height>
 						<texture>breeze/masks/watched.png</texture>
-						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
 			
 				</control>	
@@ -722,6 +722,17 @@
 					<texture fallback="DefaultArtistFanart.png" diffuse="breeze/masks/thumb.png">$INFO[ListItem.path,,../fanart.jpg]</texture>
 					<visible>Window.IsActive(500)</visible>
 					<visible>!Container.Content(musicvideos)</visible>
+				</control>
+			
+				<control type="image"> <!--movie logo-->
+					<posx>1455</posx>
+					<posy>150</posy>
+					<width>375</width>
+					<height>120</height>
+					<aspectratio>keep</aspectratio>
+					<fadetime>500</fadetime>
+					<texture>$INFO[ListItem.path,,./logo.png]</texture>
+					<visible>Skin.HasSetting(breeze_movie_logos) + Container.Content(movies)</visible>
 				</control>
 			
 				<control type="image"> <!--tv show logo (tv shows/seasons)-->

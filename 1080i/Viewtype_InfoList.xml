@@ -458,7 +458,8 @@
 					<posx>1300</posx>
 					<posy>-465</posy>
 					<visible>Skin.HasSetting(breeze_film_cases) + Container.Content(movies)</visible>
-					<include>BreezeCases</include>		
+					<include>BreezeCases</include>	
+					<animation effect="slide" start="0,0" end="0,-35" time="0" condition="Skin.HasSetting(breeze_movie_logos)">Conditional</animation>	
 				</control>
 		
 				<control type="group"> <!--cases tv/season-->
@@ -466,13 +467,15 @@
 					<posy>-465</posy>
 					<visible>Skin.HasSetting(breeze_cases) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
 					<include>BreezeCases</include>		
+					<animation effect="slide" start="0,0" end="0,-35" time="0" condition="Skin.HasSetting(breeze_tv_logos)">Conditional</animation>
 				</control>
 		
 				<control type="group"> <!--cases episode-->
 					<posx>1300</posx>
 					<posy>-465</posy>
 					<visible>Container.Content(episodes) + Skin.HasSetting(breeze_cases)</visible>
-					<include>BreezeEpisodeCases</include>		
+					<include>BreezeEpisodeCases</include>	
+					<animation effect="slide" start="0,0" end="0,-35" time="0" condition="Skin.HasSetting(breeze_tv_logos)">Conditional</animation>	
 				</control>
 		
 				<control type="group"> <!--cover films-->
@@ -480,6 +483,7 @@
 					<posy>-545</posy>
 					<include>covers</include>	
 					<visible>!Skin.HasSetting(breeze_film_cases) + Container.Content(movies)</visible>	
+					<animation effect="slide" start="0,0" end="0,-35" time="0" condition="Skin.HasSetting(breeze_movie_logos)">Conditional</animation>
 				</control>
 		
 				<control type="group"> <!--cover tv/season-->
@@ -504,7 +508,7 @@
 					<width>45</width>
 					<height>45</height>
 					<texture>breeze/masks/watched.png</texture>
-					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) +!Container.Content(episodes)</visible>
+					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) +!Container.Content(episodes)</visible>
 					<visible>Container.Content(movies)</visible>
 					<animation effect="slide" start="0,0" end="25,20" time="0" condition="!Skin.HasSetting(breeze_film_cases)">Conditional</animation>
 				
@@ -521,10 +525,11 @@
 					<width>45</width>
 					<height>45</height>
 					<texture>breeze/masks/watched.png</texture>
-					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay) + !Container.Content(episodes)</visible>
+					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay) + !Container.Content(episodes)</visible>
 					<visible>!Container.Content(movies)</visible>
 					<animation effect="slide" start="0,0" end="25,20" time="0" condition="!Skin.HasSetting(breeze_cases) + !Skin.HasSetting(breeze_tv_logos)">Conditional</animation>
 					<animation effect="slide" start="0,0" end="25,-15" time="0" condition="!Skin.HasSetting(breeze_cases) + Skin.HasSetting(breeze_tv_logos)">Conditional</animation>
+					<animation effect="slide" start="0,0" end="0,-35" time="0" condition="Skin.HasSetting(breeze_cases) + Skin.HasSetting(breeze_tv_logos)">Conditional</animation>
 				
 					<animation type="Conditional" condition="Window.IsActive(contextmenu)">
 						<effect type="rotatey" start="0" end="180" time="500" tween="cubic" easing="inout" center="1634,10" delay="25" />
@@ -618,9 +623,20 @@
 						<width>45</width>
 						<height>45</height>
 						<texture>breeze/masks/watched.png</texture>
-						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
 			
+				</control>
+			
+				<control type="image"> <!--movie logo-->
+					<posx>1455</posx>
+					<posy>150</posy>
+					<width>375</width>
+					<height>120</height>
+					<aspectratio>keep</aspectratio>
+					<fadetime>500</fadetime>
+					<texture>$INFO[ListItem.path,,./logo.png]</texture>
+					<visible>Skin.HasSetting(breeze_movie_logos) + Container.Content(movies)</visible>
 				</control>
 			
 				<control type="image"> <!--tv show logo (tv shows/seasons)-->
@@ -632,6 +648,7 @@
 					<fadetime>500</fadetime>
 					<texture>$INFO[ListItem.path,,./logo.png]</texture>
 					<visible>Skin.HasSetting(breeze_tv_logos)</visible>
+					<visible>!Container.Content(movies)</visible>
 				</control>
 			
 				<control type="image"> <!--tv show logo (episodes)-->

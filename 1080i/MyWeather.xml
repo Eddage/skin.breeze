@@ -580,6 +580,13 @@
 				<width>51</width>
 				<height>51</height>
 				<texture>breeze/menus/settings.png</texture>
+				<visible>Control.HasFocus(7009) + Window.IsActive(shutdownmenu)</visible>
+			</control>
+			
+			<control type="image"> <!--settings button-->
+				<width>51</width>
+				<height>51</height>
+				<texture>breeze/menus/settings.png</texture>
 				<visible>!Control.HasFocus(7009)</visible>
 				<visible>!ControlGroup(9000).HasFocus</visible>
 				<visible>!Control.IsVisible(7011)</visible>
@@ -590,6 +597,7 @@
 				<height>51</height>
 				<texture>breeze/menus/settings f.png</texture>
 				<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
+				<visible>![Control.HasFocus(7009) + Window.IsActive(shutdownmenu)]</visible>
 			</control>
 			
 			<control type="image"> <!--shutdown button-->
@@ -607,10 +615,12 @@
 				<width>51</width>
 				<height>51</height>
 				<texture>breeze/menus/shutdown f.png</texture>
-				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+				<visible>Control.HasFocus(7010)</visible>
 			</control>
 			
 		</control>
+		
+		<include>DialogFadebg</include>	
 		
 		<control type="group" id="9000">
 			<posy>0</posy>

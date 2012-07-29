@@ -1,3 +1,22 @@
+*****0.7.1*****
+
+20/07/2012
+
+UPDATED: Media menu to include option to show/hide movie logos
+
+19/07/2012
+
+FIXED: Faded background when a popup dialog is active
+FIXED: PlayerControls.xml icons
+
+18/07/2012
+
+FIXED: Changed scaling method for horizontal menu feature items
+FIXED: Horizontal menu items aren't affected when hiding vertical menu items (should solve overlapping issue)
+FIXED: Watched icons
+FIXED: Option to hide 'Pictures' from vertical menu
+
+
 *****0.7.0*****
 
 13/07/2012
@@ -114,7 +133,6 @@ UPDATED: Dialog ContentSettings.xml
 CODED: PlayerControls.xml
 FIXED: issue of now playing film cover not showing on homescreen np tile
 
-
 07/06/2012
 
 CODED: DialogSongInfo.xml
@@ -129,7 +147,6 @@ FIXED: double title issue when viewing all episodes of a tv show in Viewtype_Lis
 
 CODED: DialogAlbumInfo.xml
 
-
 26/04/2012
 
 CODED: script-XBMC_Lyrics-main.xml
@@ -138,7 +155,6 @@ CODED: MusicOSD.xml
 CODED: MyMusicPlaylist.xml
 CODED: MusicVisualisation.xml
 ADDED:'Ocean' theme (currently only for testing puropses - only window that's affected is visualisation[12006])
-
 
 14/04/2012
 
@@ -170,11 +186,9 @@ UPDATED: Added Horizontal/Metro home view
 
 UPDATED: DialogVideoInfo.xml
 
-
 27/02/2012
 
 CODED: script-Actors-DialogInfo.xml (Metadata Actors addon)
-
 
 26/02/2012
 
@@ -190,7 +204,6 @@ ADDED: option to run global search from shutdown menu
 ADDED: global search script as dependency
 ADDED: artwork downloader integration
 REMOVED: logo downloader dependency
-
 
 25/02/2012
 

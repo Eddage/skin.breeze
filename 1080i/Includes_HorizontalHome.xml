@@ -26,7 +26,7 @@
 			<font>breeze34b</font>
 			<textcolor>infogreynf</textcolor>
 			<shadowcolor>-</shadowcolor>
-			<label>$INFO[System.Date(DDD)],  $INFO[System.Date(MMM)] $INFO[System.Date(dd)]  |  $INFO[System.Time]</label>
+			<label>Wednesday,  September $INFO[System.Date(dd)]  |  $INFO[System.Time]</label>
 		</control>
 		
 	</include>
@@ -628,14 +628,12 @@
 					<onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
 					<icon>special://skin/backgrounds/tvshows.jpg</icon>
 					<thumb>$INFO[Skin.String(Home_Custom_Back_TVShow_Folder)]</thumb>
-					<visible>Library.HasContent(TVShows)</visible>
 				</item>
 				<item id="10">
 					<label>31502</label>
 					<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
 					<icon>special://skin/backgrounds/movies.jpg</icon>
 					<thumb>$INFO[Skin.String(Home_Custom_Back_Movies_Folder)]</thumb>
-					<visible>Library.HasContent(Movies)</visible>
 				</item>
 				<item id="3">
 					<label>31501</label>
@@ -649,28 +647,12 @@
 					<onclick>ActivateWindow(Programs,Addons,return)</onclick>
 					<icon>special://skin/backgrounds/programs.jpg</icon>
 					<thumb>$INFO[Skin.String(Home_Custom_Back_Programs_Folder)]</thumb>
-					<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)+IsEmpty(Skin.String(HomeMenuProgramsDefaultAction))</visible>
 				</item>
-				<item id="1">
-					<label>31505</label>
-					<onclick>$INFO[Skin.String(HomeMenuProgramsDefaultAction)]</onclick>
-					<icon>special://skin/backgrounds/programs.jpg</icon>
-					<thumb>$INFO[Skin.String(Home_Custom_Back_Programs_Folder)]</thumb>
-					<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)+!IsEmpty(Skin.String(HomeMenuProgramsDefaultAction))</visible>
-				</item>
-				<!--item id="14">
-					<label>31511</label>
-					<onclick>XBMC.PlayDVD()</onclick>
-					<icon>special://skin/backgrounds/play_disc.jpg</icon>
-					<thumb>$INFO[Skin.String(Home_Custom_Back_Disc_Folder)]</thumb>
-					<visible>System.HasMediadvd+!Skin.HasSetting(HomeMenuNoDiscButton)</visible>
-				</item-->
 				<item id="6">
 					<label>31510</label>
 					<onclick>ActivateWindow(Weather)</onclick>
 					<icon>special://skin/backgrounds/weather.jpg</icon>
 					<thumb>$INFO[Skin.String(Home_Custom_Back_Weather_Folder)]</thumb>
-					<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
 					<visible>!Skin.HasSetting(ShowWeatherFanart) | IsEmpty(Skin.String(WeatherFanartDir))</visible>
 				</item>
 				<item id="6">
@@ -678,7 +660,6 @@
 					<onclick>ActivateWindow(Weather)</onclick>
 					<icon>special://skin/backgrounds/weather.jpg</icon>
 					<thumb>$INFO[Skin.String(WeatherFanartDir)]$INFO[Weather.FanartCode]</thumb>
-					<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
 					<visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))</visible>
 				</item>
 				<item id="5">
@@ -1243,7 +1224,7 @@
 								<posy>0</posy>
 								<width>792</width>
 								<height>446</height>
-								<aspectratio>stretch</aspectratio>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<texture background="true" diffuse="breeze/home/fanart tile small dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
 						
@@ -1257,7 +1238,7 @@
 								<width>792</width>
 								<height>446</height>
 								<fadetime>500</fadetime>
-								<aspectratio>stretch</aspectratio>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<texture background="true" diffuse="breeze/home/fanart tile small dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
 								
@@ -1548,7 +1529,7 @@
 								<posy>0</posy>
 								<width>344</width>
 								<height>515</height>
-								<aspectratio>stretch</aspectratio>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<texture background="true" diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
 						
@@ -1561,8 +1542,8 @@
 								<posy>0</posy>
 								<width>344</width>
 								<height>515</height>
-								<aspectratio>stretch</aspectratio>
 								<fadetime>500</fadetime>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<texture background="true" diffuse="breeze/home/folder tile dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
 								
@@ -2091,6 +2072,7 @@
 								<posy>0</posy>
 								<width>914</width>
 								<height>515</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<texture background="true" diffuse="breeze/home/fanart tile dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
 						
@@ -2104,6 +2086,7 @@
 								<width>914</width>
 								<height>515</height>
 								<fadetime>500</fadetime>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<texture background="true" diffuse="breeze/home/fanart tile dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
 								
@@ -2668,6 +2651,7 @@
 								<posy>0</posy>
 								<width>914</width>
 								<height>515</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<texture background="true" diffuse="breeze/home/fanart tile dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
 						
@@ -2681,6 +2665,7 @@
 								<width>914</width>
 								<height>515</height>
 								<fadetime>500</fadetime>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<texture background="true" diffuse="breeze/home/fanart tile dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
 								
@@ -3793,9 +3778,9 @@
 							<control type="image">
 								<posx>0</posx>
 								<posy>0</posy>
-								<width>516</width>
+								<width>517</width>
 								<height>515</height>
-								<aspectratio>stretch</aspectratio>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<texture background="true" diffuse="breeze/home/music tile dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
 						
@@ -3806,9 +3791,9 @@
 							<control type="image">
 								<posx>0</posx>
 								<posy>0</posy>
-								<width>516</width>
+								<width>517</width>
 								<height>515</height>
-								<aspectratio>stretch</aspectratio>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
 								<fadetime>500</fadetime>
 								<texture background="true" diffuse="breeze/home/music tile dif.png">$INFO[ListItem.ActualIcon]</texture>
 							</control>
@@ -5699,20 +5684,21 @@
 			<posy>17</posy>
 			<orientation>horizontal</orientation>
 			
-			<control type="image"> <!--settings button-->
+			<control type="image"> <!--favourites button-->
 				<width>51</width>
 				<height>51</height>
 				<texture>breeze/menus/favourites.png</texture>
-				<visible>!Control.HasFocus(7009)</visible>
+				<visible>![Control.HasFocus(7009) + !Window.IsVisible(shutdownmenu)]</visible>
 				<visible>!ControlGroup(9000).HasFocus</visible>
-				<visible>!Control.IsVisible(7011)</visible>
+				<visible>!Control.IsVisible(7011) | Window.IsVisible(shutdownmenu)</visible>
 			</control>
 			
-			<control type="image"> <!--settings button f-->
+			<control type="image"> <!--favourites button f-->
 				<width>51</width>
 				<height>51</height>
 				<texture>breeze/menus/favourites f.png</texture>
-				<visible>Control.HasFocus(7009) | ControlGroup(9000).HasFocus</visible>
+				<visible>Control.HasFocus(7009)</visible>
+				<visible>!Window.IsVisible(shutdownmenu)</visible>
 			</control>
 			
 			<control type="image"> <!--shutdown button-->
@@ -5730,7 +5716,7 @@
 				<width>51</width>
 				<height>51</height>
 				<texture>breeze/menus/shutdown f.png</texture>
-				<visible>Control.HasFocus(7010) | Window.IsVisible(shutdownmenu)</visible>
+				<visible>Control.HasFocus(7010)</visible>
 			</control>
 			
 		</control>	

@@ -25,8 +25,6 @@
 			<include>BreezeTimePanel</include>
 		</control>
 		
-		<include>BreadcrumbsSettings</include>
-		
 		<control type="group">
 		
 			<include>Animation_ViewZoom</include>
@@ -44,6 +42,7 @@
 				<height>570</height>
 				<onup>7000</onup>
 				<ondown>7000</ondown>
+				<onright>7010</onright>
 				
 				<control type="button" id="95">
 					<description>Button Summary Values</description>
@@ -317,7 +316,11 @@
 				
 			</control>
 			
-		</control>
+		</control>	  
+		
+		<include>BreadcrumbsSettings</include>
+		<include>ShutdownButton</include>
+		<include>DialogFadebg</include>	
 		
 	</controls>
 	

@@ -55,7 +55,7 @@
 						<height>45</height>
 						<fadetime>200</fadetime>
 						<texture>breeze/masks/watched.png</texture>
-						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
 					
 				</control>
@@ -111,7 +111,7 @@
 						<height>45</height>
 						<fadetime>200</fadetime>
 						<texture>breeze/masks/watched.png</texture>
-						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>
 				
 				</control>
@@ -256,6 +256,17 @@
 				<ondown>501</ondown>
 				<showonepage>false</showonepage>
 				<visible>Control.IsVisible(501)</visible>
+			</control>
+			
+			<control type="image"> <!--movie logo-->
+				<posx>1455</posx>
+				<posy>150</posy>
+				<width>375</width>
+				<height>120</height>
+				<aspectratio>keep</aspectratio>
+				<fadetime>500</fadetime>
+				<texture>$INFO[ListItem.path,,./logo.png]</texture>
+				<visible>Skin.HasSetting(breeze_movie_logos) + Container.Content(movies)</visible>
 			</control>
 			
 			<control type="image"> <!--tv show logo (tv shows/seasons)-->

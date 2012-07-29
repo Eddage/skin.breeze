@@ -313,7 +313,7 @@
 			</control>
 			
 			<control type="group" id="100"> <!--playback buttons-->
-				<posx>696</posx>
+				<posx>576</posx>
 				<posy>116</posy>
 				
 				<control type="button" id="600">

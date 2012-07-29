@@ -47,7 +47,7 @@
 						<width>35</width>
 						<height>35</height>
 						<texture>breeze/masks/watched.png</texture>
-						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay)</visible>
 					</control>	
 			
 				</itemlayout>
@@ -136,7 +136,7 @@
 						<width>45</width>
 						<height>45</height>
 						<texture>breeze/masks/watched.png</texture>
-						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)+Skin.HasSetting(watchedoverlay)+!IsEmpty(ListItem.Overlay)</visible>
+						<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !IsEmpty(ListItem.Overlay)</visible>
 						<animation type="Focus" reversible="false">
 							<effect type="zoom" center="400,90" start="90" end="100" time="300"/>
 						</animation>

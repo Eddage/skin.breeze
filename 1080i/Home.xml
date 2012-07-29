@@ -126,6 +126,8 @@
 		<include condition="!Skin.HasSetting(homenowplayingvertvis) + Skin.HasSetting(verticalmenu)">VideoNowPlayingHomeVert</include>
 		<include condition="Skin.HasSetting(homenowplayingvertvis) + Skin.HasSetting(verticalmenu)">VideoNowPlayingHomeVertVis</include>
 		
+		<include>DialogFadebg</include>	
+		
 	</controls>
 	
 </window>
